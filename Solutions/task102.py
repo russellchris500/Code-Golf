@@ -1,0 +1,1 @@
+p=lambda g,r=range:[[2 if any(all(g[y][x]<5 for y in r(i,i+k) for x in r(j,j+k))and i<=a<i+k and j<=b<j+k and all(g[i-1][x]==g[i+k][x]==5 for x in r(j-1,j+k+1))and all(g[y][j-1]==g[y][j+k]==5 for y in r(i-1,i+k+1)) for k in r(1,13) for i in r(1,12-k) for j in r(1,12-k)) else g[a][b] for b in r(12)] for a in r(12)]
