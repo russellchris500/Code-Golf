@@ -7,9 +7,24 @@ def p(g):
  f.sort()
  t,l=f[0];b,r=f[-1]
  o=[[g[i][j]for j in range(l,r+1)]for i in range(t,b+1)]
- for i,j,v in n:
-  if not(t<=i<=b and l<=j<=r):
-   if v==2:oi,oj=i-t+1,j-l
-   else:oi,oj=i-t+1,r+l-j
-   if 0<=oi<len(o)-1 and 0<=oj<len(o[0]):o[oi][oj]=v
+
+ # Extract pattern bounding box
+ pn=[p for p in n if not(t<=p[0]<=b and l<=p[1]<=r)]
+ if pn:
+  pt,pl=min(p[0]for p in pn),min(p[1]for p in pn)
+  pb,pr=max(p[0]for p in pn),max(p[1]for p in pn)
+
+  # Check if pattern should be flipped horizontally
+  flip=False
+  for pi in range(pt,pb+1):
+   if g[pi][pl]>0 and g[pi][pl]!=4 and pi-pt+1<len(o)-1:
+    if g[pi][pl]!=o[pi-pt+1][0]:flip=True
+
+  # Place pattern (flipped or normal)
+  for pi in range(pt,pb+1):
+   for pj in range(pl,pr+1):
+    if g[pi][pj]>0 and g[pi][pj]!=4:
+     if flip:oi,oj=pi-pt+1,len(o[0])-1-(pj-pl+1)
+     else:oi,oj=pi-pt+1,pj-pl+1
+     if 0<=oi<len(o)-1 and 0<=oj<len(o[0])-1:o[oi][oj]=g[pi][pj]
  return o
