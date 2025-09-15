@@ -207,7 +207,9 @@ The code will never be expected to handle any grid sizes or colors/values other 
 
 Run time and memory are not concerns. The only concern is minimal characters in the code.
 
-Use only the standard Python library. Nothing may be imported."""
+Use only the standard Python library. Nothing may be imported.
+
+Write this code to 'Work/task{task_num:03d}.py'."""
 
         self.results_text.insert(1.0, output)
         self.current_results = output
