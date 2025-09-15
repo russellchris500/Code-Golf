@@ -1,0 +1,15 @@
+Please solve example 5. The input and output grids are the same size. The background is black.
+The input grid contains a 3x3 object of any color except black. Some pixels of the object may be black.
+This object will be tiled in n of 8 directions.
+The tiling is based upon the presence of objects surrounding the 3x3 objects. When it is tiled, it will be tiled 4x4.
+This means that there is one empty column on either side of the object.
+The surrounding objects are on the horizontal, vertical, or either diagonal from the 3x3 object.
+Extend the 3x3 object only in the directions where there is a surrounding object.
+In that direction the object should be tiled evenly to the edge.
+The tiles in that direction should have the color of the surrounding object that is adjacent to the 3x3 object.
+The original 3x3 tile should be copied to the output.
+Look at the examples\task005.json file for examples.
+
+Let's go through this step by step. First, find the 3x3 object with a function that returns a tuple with the swuare in the center of the object.
+I think you can do this by finding a single square that has surrounding non-zero squares above, below, left, and right. At this point,
+pause and create the task005.py file that copies the 3x3 object to the output. Don't test it, I want to manually review.
