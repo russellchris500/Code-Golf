@@ -1,54 +1,30 @@
 def p(i):
  g=[r[:]for r in i]
+ H,W=len(i),len(i[0])
  for r,w in enumerate(i):
   for c,v in enumerate(w):
    if v<1:
-    l=w[c-1]if c>0 else None
-    rt=w[c+1]if c<len(w)-1 else None
-
-    # Determine background by checking all directions
+    l=w[c-1]if c>0 else 0
+    rt=w[c+1]if c<W-1 else 0
     if l and rt and l!=rt:
-     # Check all perpendicular directions with safe bounds checking
-     up=i[r-1][c]if r>0 else None
-     dn=i[r+1][c]if r<len(i)-1 else None
-     lf=w[c-2]if c>1 else None
-     rg=w[c+2]if c<len(w)-2 else None
-
-     # Count votes from all perpendicular directions
-     l_votes=sum(x==l for x in[up,dn,lf,rg]if x is not None)
-     rt_votes=sum(x==rt for x in[up,dn,lf,rg]if x is not None)
-
-     if l_votes>rt_votes:b=l
-     elif rt_votes>l_votes:b=rt
+     u=i[r-1][c]if r>0 else 0
+     d=i[r+1][c]if r<H-1 else 0
+     f=w[c-2]if c>1 else 0
+     x=w[c+2]if c<W-2 else 0
+     s=sum(z==l for z in[u,d,f,x]if z)-sum(z==rt for z in[u,d,f,x]if z)
+     if s>0:b=l
+     elif s<0:b=rt
      else:
-      # Fallback to size-based heuristic
       lh,rh=w.count(l),w.count(rt)
-      if abs(lh-rh)>2:b=rt if rh<lh else l
-      else:b=l
-    else:
-     b=l if l else rt if rt else next(x for x in w if x)
-
-    # Region size detection with pattern shape consideration
-    h=0
-    for rr in range(len(i)):
-     if 0 not in i[rr]:h=max(h,i[rr].count(b))
-    if h==0:h=w.count(b)
-
-    v=0
-    for cc in range(len(w)):
-     if all(i[rr][cc]!=0 for rr in range(len(i))):
-      v=max(v,sum(1 for rr in range(len(i))if i[rr][cc]==b))
-    if v==0:v=sum(1 for rr in range(len(i))if i[rr][c]==b)
-
-    # Consider overall pattern shape for decision
-    pattern_tall=len(i)>len(i[0])
-    if h==v:draw_vertical=pattern_tall
-    else:draw_vertical=h>v
-
-    if draw_vertical:
-     for j in range(len(i)):
+      b=rt if abs(lh-rh)>2 and rh<lh else l
+    else:b=l or rt or next(x for x in w if x)
+    h=max([R.count(b)for R in i if 0 not in R]+[w.count(b)])
+    v=max([sum(i[R][C]==b for R in range(H))for C in range(W)if all(i[R][C]for R in range(H))]+[sum(i[R][c]==b for R in range(H))])
+    d=h==W and v<H or h>v or h==v and H>W
+    if d:
+     for j in range(H):
       if i[j][c]==b:g[j][c]=0
     else:
-     for k in range(len(w)):
-      if w[k]==b:g[r][k]=0
+     for j in range(W):
+      if w[j]==b:g[r][j]=0
  return g
