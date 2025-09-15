@@ -1,0 +1,6 @@
+Please solve example 7. The input and output are 7x7. The input has three colors all aligned on an antidiagonal.
+The output should be completely tiled with 3 alternating colors on the antidiagonal in a repeating pattern.
+Search every third antidiagonal to see what color belongs there.
+
+I think we can does this using a small amount of code. First, flatten the gird. Then find the color for each modulo by using max(g[i::3]).
+Fill in the the corresponding color for each third index, then turn the list back into the 2d grid.
