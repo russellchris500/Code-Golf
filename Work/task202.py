@@ -28,7 +28,7 @@ def p(i):
     else:
      b=l if l else rt if rt else next(x for x in w if x)
 
-    # Improved region size detection with overall pattern consideration
+    # Region size detection with pattern shape consideration
     h=0
     for rr in range(len(i)):
      if 0 not in i[rr]:h=max(h,i[rr].count(b))
@@ -40,12 +40,10 @@ def p(i):
       v=max(v,sum(1 for rr in range(len(i))if i[rr][cc]==b))
     if v==0:v=sum(1 for rr in range(len(i))if i[rr][c]==b)
 
-    # For ambiguous cases, consider overall pattern dimensions
-    overall_h,overall_v=len(i[0]),len(i)
-    if h==v:
-     draw_vertical=overall_v>overall_h
-    else:
-     draw_vertical=h>v
+    # Consider overall pattern shape for decision
+    pattern_tall=len(i)>len(i[0])
+    if h==v:draw_vertical=pattern_tall
+    else:draw_vertical=h>v
 
     if draw_vertical:
      for j in range(len(i)):
