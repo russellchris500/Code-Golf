@@ -1,30 +1,4 @@
 def p(g):
- f,n=[],[]
- for i in range(len(g)):
-  for j in range(len(g[0])):
-   if g[i][j]==4:f.append((i,j))
-   elif g[i][j]>0:n.append((i,j,g[i][j]))
- f.sort()
- t,l=f[0];b,r=f[-1]
- o=[[g[i][j]for j in range(l,r+1)]for i in range(t,b+1)]
-
- # Extract pattern bounding box
- pn=[p for p in n if not(t<=p[0]<=b and l<=p[1]<=r)]
- if pn:
-  pt,pl=min(p[0]for p in pn),min(p[1]for p in pn)
-  pb,pr=max(p[0]for p in pn),max(p[1]for p in pn)
-
-  # Check if pattern should be flipped horizontally
-  flip=False
-  for pi in range(pt,pb+1):
-   if g[pi][pl]>0 and g[pi][pl]!=4 and pi-pt+1<len(o)-1:
-    if g[pi][pl]!=o[pi-pt+1][0]:flip=True
-
-  # Place pattern (flipped or normal)
-  for pi in range(pt,pb+1):
-   for pj in range(pl,pr+1):
-    if g[pi][pj]>0 and g[pi][pj]!=4:
-     if flip:oi,oj=pi-pt+1,len(o[0])-1-(pj-pl+1)
-     else:oi,oj=pi-pt+1,pj-pl+1
-     if 0<=oi<len(o)-1 and 0<=oj<len(o[0])-1:o[oi][oj]=g[pi][pj]
+ a=[(i,j)for i in range(len(g))for j in range(len(g[0]))if g[i][j]==4];a.sort();t,l=a[0];s,r=a[-1];o=[[g[i][j]for j in range(l,r+1)]for i in range(t,s+1)];c=[(i,j,g[i][j])for i in range(len(g))for j in range(len(g[0]))if g[i][j]and g[i][j]!=4 and not(t<=i<=s and l<=j<=r)]
+ if c:d,e,h,k=min(x[0]for x in c),min(x[1]for x in c),max(x[0]for x in c),max(x[1]for x in c);f=any(g[i][e]!=o[i-d+1][0]for i in range(d,h+1)if g[i][e]and g[i][e]!=4 and i-d+1<len(o)-1);[[o[i-d+1].__setitem__(len(o[0])+e-j-2 if f else j-e+1,g[i][j])for j in range(e,k+1)if g[i][j]and g[i][j]!=4 and-1<i-d<len(o)-1 and-1<(len(o[0])+e-j-2 if f else j-e+1)<len(o[0])]for i in range(d,h+1)]
  return o
