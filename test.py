@@ -20,7 +20,9 @@ class CodeGolfTester:
         self.current_pair_index = 0
         self.example_data = None
         self.solution_function = None
-        
+        self.all_test_results = {}  # Store results for all examples
+        self.overall_tested = False  # Track if we've tested all examples
+
         self.setup_ui()
         
     def setup_ui(self):
@@ -48,8 +50,11 @@ class CodeGolfTester:
         self.test_button = ttk.Button(control_frame, text="Load & Test", command=self.load_example)
         self.test_button.grid(row=0, column=4, padx=5)
 
+        self.test_all_button = ttk.Button(control_frame, text="Test All", command=self.run_test_all)
+        self.test_all_button.grid(row=0, column=6, padx=5)
+
         ttk.Label(control_frame, text="(Enter 1-400 for task examples)").grid(
-            row=0, column=5, padx=20)
+            row=0, column=7, padx=20)
         
         nav_frame = ttk.Frame(main_frame)
         nav_frame.grid(row=1, column=0, columnspan=3, pady=10)
@@ -68,6 +73,9 @@ class CodeGolfTester:
         
         self.status_label = ttk.Label(nav_frame, text="", font=('Arial', 12, 'bold'))
         self.status_label.grid(row=0, column=4, padx=20)
+
+        self.overall_status_label = ttk.Label(nav_frame, text="", font=('Arial', 12, 'bold'))
+        self.overall_status_label.grid(row=1, column=1, columnspan=3, padx=20, pady=5)
         
         grid_container = ttk.Frame(main_frame)
         grid_container.grid(row=2, column=0, columnspan=3, sticky=(tk.W, tk.E, tk.N, tk.S))
@@ -160,6 +168,8 @@ class CodeGolfTester:
             
             self.current_pair_index = 0
             self.current_example = example_num
+            self.overall_tested = False  # Reset overall test status
+
             self.update_display()
             
             self.prev_button.config(state=tk.NORMAL if self.current_pair_index > 0 else tk.DISABLED)
@@ -222,6 +232,60 @@ class CodeGolfTester:
                 
         except Exception as e:
             return None, f"Error: {str(e)}"
+
+    def test_all_examples(self):
+        """Test the solution against all examples and store results"""
+        if not self.example_data or not self.solution_function:
+            return
+
+        self.all_test_results = {}
+
+        # Test all categories
+        for category in ['train', 'test', 'arc-gen']:
+            if category in self.example_data:
+                self.all_test_results[category] = []
+                for example in self.example_data[category]:
+                    _, status = self.test_solution(example['input'], example['output'])
+                    self.all_test_results[category].append(status == "PASS")
+
+    def run_test_all(self):
+        """Run test_all_examples and update display"""
+        if not self.example_data or not self.solution_function:
+            messagebox.showerror("Error", "Please load a task first")
+            return
+
+        self.test_all_button.config(text="Testing...", state=tk.DISABLED)
+        self.root.update()
+
+        try:
+            self.test_all_examples()
+            self.overall_tested = True
+            self.update_display()
+        finally:
+            self.test_all_button.config(text="Test All", state=tk.NORMAL)
+
+    def get_overall_status(self):
+        """Get overall pass/fail status across all examples"""
+        if not self.overall_tested:
+            return "Click 'Test All' to check all examples"
+
+        if not self.all_test_results:
+            return "No tests run"
+
+        total_passed = 0
+        total_tests = 0
+
+        for category, results in self.all_test_results.items():
+            total_passed += sum(results)
+            total_tests += len(results)
+
+        if total_tests == 0:
+            return "No tests found"
+
+        if total_passed == total_tests:
+            return "PASSED ALL EXAMPLES"
+        else:
+            return f"FAILED TO PASS ALL EXAMPLES ({total_passed}/{total_tests} passed)"
     
     def update_display(self):
         pair_data, category = self.get_current_pair()
@@ -250,14 +314,25 @@ class CodeGolfTester:
         
         # Test the solution
         test_result, status = self.test_solution(pair_data['input'], pair_data['output'])
-        
-        # Update status display
+
+        # Update individual example status display
         if status == "PASS":
-            self.status_label.config(text="PASS", foreground="green")
+            self.status_label.config(text="PASSED THIS EXAMPLE", foreground="green")
         elif status == "FAIL":
-            self.status_label.config(text="FAIL", foreground="red")
+            self.status_label.config(text="FAILED THIS EXAMPLE", foreground="red")
         else:
-            self.status_label.config(text=status, foreground="red")
+            self.status_label.config(text=f"ERROR: {status}", foreground="red")
+
+        # Update overall status display
+        overall_status = self.get_overall_status()
+        if "PASSED ALL EXAMPLES" in overall_status:
+            self.overall_status_label.config(text=overall_status, foreground="green")
+        elif "FAILED TO PASS ALL EXAMPLES" in overall_status:
+            self.overall_status_label.config(text=overall_status, foreground="red")
+        elif "Click 'Test All'" in overall_status:
+            self.overall_status_label.config(text=overall_status, foreground="blue")
+        else:
+            self.overall_status_label.config(text=overall_status, foreground="black")
         
         # Draw grids
         self.draw_grid(self.input_canvas, pair_data['input'])
