@@ -39,12 +39,17 @@ class CodeGolfTester:
         self.example_entry = ttk.Entry(control_frame, width=10)
         self.example_entry.grid(row=0, column=1, padx=5)
         self.example_entry.bind('<Return>', lambda e: self.load_example())
-        
+
+        ttk.Label(control_frame, text="Folder:").grid(row=0, column=2, padx=(20, 5))
+        self.folder_var = tk.StringVar(value="Work")
+        self.folder_combo = ttk.Combobox(control_frame, textvariable=self.folder_var, values=["Work", "Solutions"], width=10, state="readonly")
+        self.folder_combo.grid(row=0, column=3, padx=5)
+
         self.test_button = ttk.Button(control_frame, text="Load & Test", command=self.load_example)
-        self.test_button.grid(row=0, column=2, padx=5)
-        
+        self.test_button.grid(row=0, column=4, padx=5)
+
         ttk.Label(control_frame, text="(Enter 1-400 for task examples)").grid(
-            row=0, column=3, padx=20)
+            row=0, column=5, padx=20)
         
         nav_frame = ttk.Frame(main_frame)
         nav_frame.grid(row=1, column=0, columnspan=3, pady=10)
@@ -108,11 +113,12 @@ class CodeGolfTester:
             ttk.Label(legend_frame, text=str(idx)).grid(row=1, column=idx+1)
     
     def load_solution(self, task_num):
-        """Load the solution function from the Solutions folder"""
-        solution_path = os.path.join(os.path.dirname(__file__), 'Solutions', f'task{task_num:03d}.py')
-        
+        """Load the solution function from the selected folder"""
+        folder = self.folder_var.get()
+        solution_path = os.path.join(os.path.dirname(__file__), folder, f'task{task_num:03d}.py')
+
         if not os.path.exists(solution_path):
-            messagebox.showerror("Error", f"Solution file task{task_num:03d}.py not found in Solutions folder")
+            messagebox.showerror("Error", f"Solution file task{task_num:03d}.py not found in {folder} folder")
             return False
         
         try:

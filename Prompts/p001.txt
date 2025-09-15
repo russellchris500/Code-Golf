@@ -1,0 +1,2 @@
+Please solve example 1. The input is a 3x3 grid and the output is a 9x9 grid.
+The output consists of an AND function of the input scaled by 3 and the input tiled 3x3.

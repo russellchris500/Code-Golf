@@ -1,0 +1,3 @@
+Please solve example 3. The input grid is 6x3 and the ouput grid is 9x3. The input pattern is blue(1) and the ouput pattern is red(2)
+The input grid consists of a pattern of rows which is repeated every n rows. n is between 2 and 5.
+Determine the frequency of repetition of the input rows and extend the pattern 3 addiontal rows.

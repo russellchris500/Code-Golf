@@ -6,7 +6,7 @@ import os
 import sys
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'Examples', 'code_golf_utils'))
-from code_golf_utils import colors
+from code_golf_utils import colors, task_zero
 
 class CodeGolfViewer:
     def __init__(self, root):
@@ -97,7 +97,6 @@ class CodeGolfViewer:
             example_num = int(self.example_entry.get())
             
             if example_num == 0:
-                from code_golf_utils import task_zero
                 self.example_data = task_zero
             elif 1 <= example_num <= 400:
                 file_path = os.path.join(os.path.dirname(__file__), 'Examples', f"task{example_num:03d}.json")

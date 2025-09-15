@@ -1,0 +1,2 @@
+Please solve example 2. The output grid is the same size as the input grid. There are green pixels on a black background.
+The green pixels remain in the output. Yellow pixels are added to any black space that is bound by a 4-connected green boundary.
