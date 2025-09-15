@@ -196,7 +196,8 @@ Write Python code for me that takes as input a 2-dimensional grid (as a list of 
 The input grid's values are integers that each represent a color from the set {{ {input_colors_str} }}.
 The output grid's values are integers that each represent a color from the set {{ {output_colors_str} }}.
 
-The function should transform the input such that {manual_description}.
+The function should transform the input as follows: 
+{manual_description}.
 
 The code may transform the input in place or create a new list of lists or tuple of tuples, whichever can be done with the fewest characters.
 
