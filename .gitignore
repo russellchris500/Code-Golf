@@ -24,3 +24,5 @@ golf_venv/
 *.pyc
 .cache/
 .pytest_cache/
+Prompts/
+Work/
