@@ -1,0 +1,1 @@
+p=lambda q:[*zip(*[[0]*(len(q)-len(a))+a for a in [[i for i in r if i]for r in zip(*q)]])]

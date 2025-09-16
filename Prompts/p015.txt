@@ -1,0 +1,7 @@
+Please solve task 15. The input and output are the same size.
+In the input find color 2 pixels and add 4 color 4 pixels adjacent on all 4 diagonals.
+Find color 1 pixels and add 4 color 7 pixels adjacent on the horizontal and vertical.
+Leave other pixels alone.
+The color 1 and color 2 pixels should not be on any edge, so you do not need to do any bounds checking.
+Look at examples in examples\task015.json.
+Try to use code golf principles to get this under 150 characters.

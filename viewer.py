@@ -183,10 +183,14 @@ class CodeGolfViewer:
     
     def draw_grid(self, canvas, grid):
         canvas.delete("all")
-        
+
         if not grid:
             return
-        
+
+        # Convert tuple to list if necessary
+        if isinstance(grid, tuple):
+            grid = list(grid)
+
         rows = len(grid)
         cols = len(grid[0]) if rows > 0 else 0
         
@@ -214,6 +218,9 @@ class CodeGolfViewer:
         offset_y = (canvas_height - grid_height) // 2
         
         for row_idx, row in enumerate(grid):
+            # Convert row tuple to list if necessary
+            if isinstance(row, tuple):
+                row = list(row)
             for col_idx, value in enumerate(row):
                 x1 = offset_x + col_idx * cell_size
                 y1 = offset_y + row_idx * cell_size

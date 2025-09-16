@@ -1,0 +1,14 @@
+Please solve task 11. The input and output are an 11x11 grid with color 5 grid lines every 4 spaces.
+Each 3x3 square between the grid lines contains 4 or 5 nonblack colors. Find the 3x3 square with only 4 colors.
+Use the color pattern of this 3x3 square to maps colors to the larger 3x3 squares in the output. View examples in examples\task011.json.
+Follow code golf principles.
+
+Let's try a different approach. Take each 3x3 square and use the colors as a map to fill the larger squares between the grid lines.
+After expanding each, stop when you find a solution that does not contain color 8. This is the solution.
+
+The small 3x3 grids have their upper left corner on row%4==0 and col%4==0.
+Take the small 3x3 grid and scale it by 4 in each direction.
+As a test, take the center 3x3 square as output the result. Don't test, I will view it.
+
+That's correct. Now loop through all nine of the 3x3 squares. Search each one to see if color 8 is in one of the pixels.
+When you find one that does not have color 8. Scale it up as we have done and add the color 5 grid lines.

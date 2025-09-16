@@ -1,0 +1,14 @@
+Please solve example 8. Look at the examples\task008.json file for examples.
+There is a single 2x2 color 8 square and a single color 2 object.
+There are n number of empty rows or columns between the square and object.
+The transformation needs to move the object adjacent to the square.
+This might best be done by removing the rows or columns bwtween the two and then reconstructing with empty rows or columns on the appropriate side.
+It might also use less code if this is done only on rows. The grid can be transposed with "[*zip(*g)]"
+Let's do this step by step. First we will solve only those problems where the square is below the object.
+Create an internal function which will identify if the square is below the object and by how many rows.
+The function should delete the rows between the square and object. It should then add that many rows at the top.
+Return the new grid if a solution was found, and the original grid if it was not.
+Run at test on all examples using this function. It should solve about 25% of the examples.
+
+Now we can solve all problems by transforming the using a transpose and reverse function. You can transpose by "[*zip(*g)]".
+You shouldn't need to test if the function has made a change. Just run the transformation, then run the test, then run the same transform again to get back to the original orientation.

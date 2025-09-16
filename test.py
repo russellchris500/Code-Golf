@@ -212,18 +212,21 @@ class CodeGolfTester:
         """Test the solution function and return the result"""
         if not self.solution_function:
             return None, "No solution loaded"
-        
+
         try:
             # Create a deep copy of input to avoid modifying original
             input_copy = copy.deepcopy(input_grid)
             result = self.solution_function(input_copy)
-            
+
             # Convert result to list format if it's not already
             if isinstance(result, tuple):
                 result = [list(row) if isinstance(row, tuple) else row for row in result]
-            elif not isinstance(result, list):
+            elif isinstance(result, list):
+                # Also convert any tuple rows within a list result
+                result = [list(row) if isinstance(row, tuple) else row for row in result]
+            else:
                 return None, f"Invalid output type: {type(result)}"
-            
+
             # Check if result matches expected output
             if result == expected_output:
                 return result, "PASS"
@@ -353,10 +356,14 @@ class CodeGolfTester:
     
     def draw_grid(self, canvas, grid):
         canvas.delete("all")
-        
+
         if not grid:
             return
-        
+
+        # Convert tuple to list if necessary
+        if isinstance(grid, tuple):
+            grid = list(grid)
+
         rows = len(grid)
         cols = len(grid[0]) if rows > 0 else 0
         
@@ -384,6 +391,9 @@ class CodeGolfTester:
         offset_y = (canvas_height - grid_height) // 2
         
         for row_idx, row in enumerate(grid):
+            # Convert row tuple to list if necessary
+            if isinstance(row, tuple):
+                row = list(row)
             for col_idx, value in enumerate(row):
                 x1 = offset_x + col_idx * cell_size
                 y1 = offset_y + row_idx * cell_size
