@@ -1,0 +1,4 @@
+Please solve task 19. The input is a grid on varying size. The output is a grid that is 2 times the height and width of the input grid.
+There are 2 steps to solving it. The first step is tiling the original grid 2 in the horizontal and vertical direction.
+The second step finding any pixel that is diagonally adjacent to a pixel that is not color 0 or color 8. Set each of these found pixels to color 8.
+Examples are found in examples\task019.json. Please use the principles of python code golf.

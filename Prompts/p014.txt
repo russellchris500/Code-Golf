@@ -1,0 +1,2 @@
+Please solve task 14. Let's see if we can make this shorter. The current implementation is 289 characters.
+There are two colors in the input. Count the number of pixels of each. Create a lambda function for this if possible.

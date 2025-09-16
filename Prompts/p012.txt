@@ -1,0 +1,12 @@
+Please solve task 12. The input and output grids are 12x12
+The input grid consists of two objects each with a center 4-connected pixel and a surrounding pixel in each primary direction.
+Extend the color of the center pixel two spaces along each diagonal.
+Extend the color of the adjacent pixels by one in each horizontal and vertical direction.
+Baed on how the task is set up, you don't need to check for boundary conditions.
+See examples\task012.json for examples.
+I think this can be done in under 100 characters using code golf principles. Keep trying different approaches.
+
+let's try a different approach. There are only 2 center pixels of the same color in the grid. Find them.
+On each diagonal, color each square that is 1 and 2 diagonal pixels away the same color as the center square.
+Next, color each pixel that is 2 squares away on each horizontal and diagonal the same color as the pixel on the row above the center square.
+Only check for center pixels on rwos and columns 2-9. You do not need to do boundary checking for edges.

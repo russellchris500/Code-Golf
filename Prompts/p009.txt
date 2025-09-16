@@ -1,0 +1,18 @@
+Please solve task 9. The input is a square grid and the output is a grid of the same size. There are grid lines every 3 rows and every 3 columns.
+The grid line color varies between examples. Between grid lines, some of the spaces are filled with a 2x2 square of varying colors.
+If two colored squares are on the same row or column, then all squares on that row or column between the two 2x2 squares are filled in with the same color in the output.
+The grid lines are not disturbed in the output. You can view examples in examples\task009.json.
+
+Let's take this approach. First, write a function q which only solves the problem for rows.
+Remove the grid. Search each row for the same color occurring in at least four pixels in that row.
+For each row that is found, color in all pixels in that row with the color starting at the leftmost pixel with that color and ending at the rightmost pixel with that color.
+Replace the grid.
+Now have p call this function q.
+Don't test. I will test using the test.py.
+
+An error is a problem with the transpose. The output is correct except it is a mirror image on the diagonal.
+
+Another error is that the transpose is causing the rows to fill in too many colors. It is detecting new pixels that were filled in by the first call of q.
+A better approach may be to remove the grid lines before calling q. Save the output, then transpose the original g with grid lines removed and call q on this.
+Transpose this result back, being cautious not to create a diagnoal mirrow image. Combine this with the results of the first call of q.
+Then add grid lines back in.

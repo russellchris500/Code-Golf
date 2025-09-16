@@ -1,0 +1,22 @@
+I'm competing in a Python golf competition (where the goal is to write code that accomplishes a given task using the minimum number of characters).
+
+Write Python code for me that takes as input a 2-dimensional grid (as a list of lists) and produces as output a 2-dimensional grid (as a list of lists or tuple of tuples) where the only possible input/output dimension combinations are:
+21x21 -> 21x21
+
+The input grid's values are integers that each represent a color from the set { 0=black, 1=blue, 2=red, 3=green, 4=yellow, 5=gray, 6=pink, 7=orange, 8=light blue, 9=brown }.
+The output grid's values are integers that each represent a color from the set { 1=blue, 2=red, 3=green, 4=yellow, 5=gray, 6=pink, 7=orange, 8=light blue, 9=brown }.
+
+The function should transform the input as follows: 
+A grid with repeating square tiles of n size. some tiles have a color 0 instead of the tile color. Figure out the tile pattern and tile using the pattern..
+
+The code may transform the input in place or create a new list of lists or tuple of tuples, whichever can be done with the fewest characters.
+
+The code should be contained in a function (or lambda function) named "p", with grid argument "g".
+
+The code will never be expected to handle any grid sizes or colors/values other than those explicitly outlined here, so hardcoding such values is acceptable.
+
+Run time and memory are not concerns. The only concern is minimal characters in the code.
+
+Use only the standard Python library. Nothing may be imported.
+
+Write this code to 'Work/task017.py'.
