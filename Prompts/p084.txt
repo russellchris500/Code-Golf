@@ -1,0 +1,4 @@
+Please solve task 84. The input is a square with the first column all one color. The output is the same size. On the bottom row, all except the first column are colored 4
+The antidiagonal is filled with color 2 except for the bottom left pixel. Look at examples in examples\task084.json.
+
+Can you make a lambda which uses enumerate and list slicing?

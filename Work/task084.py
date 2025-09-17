@@ -1,0 +1,1 @@
+p=lambda g:[[r[0]]+[0]*(len(g)-i-2)+[2]+[0]*i for i,r in enumerate(g[:-1])]+[[g[-1][0]]+[4]*(len(g)-1)]
