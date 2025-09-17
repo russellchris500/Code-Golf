@@ -1,0 +1,2 @@
+def p(g):
+ r,c=[i for i,o in enumerate(g)if o[0]>0][0],[i for i,o in enumerate(zip(*g))if o[0]>0][0];z=[*map(list,g)];[z[r+a].__setitem__(c+b,4)for a in[-1,0,1]for b in[-1,0,1]if-1<r+a<len(g)and-1<c+b<len(g[0])and a|b];return z
