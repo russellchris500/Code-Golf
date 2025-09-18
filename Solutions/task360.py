@@ -1,0 +1,1 @@
+def p(g):return[[r[i]or r[-(i+1)]for i in range(4)]for r in g]
