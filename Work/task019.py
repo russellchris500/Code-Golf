@@ -1,13 +1,1 @@
-def p(g):
-    h,w=len(g),len(g[0])
-    r=[[g[i//2][j//2]for j in range(w*2)]for i in range(h*2)]
-    o=[row[:]for row in r]
-    for i in range(h*2):
-        for j in range(w*2):
-            if r[i][j]==0:
-                for di,dj in(-1,-1),(-1,1),(1,-1),(1,1):
-                    ni,nj=i+di,j+dj
-                    if 0<=ni<h*2 and 0<=nj<w*2 and r[ni][nj]not in(0,8):
-                        o[i][j]=8
-                        break
-    return o
+p=lambda q:[(q:=[a*2 for a in q]*2),[q[i][j]or q[i].__setitem__(j,8)for l,r,u,d in((0,1,0,1),(1,0,0,1),(1,0,1,0),(0,1,1,0))for i in range(u,len(q)-d)for j in range(l,len(q[0])-r)if q[i-u+d][j-l+r]not in[0,8]]][0]
