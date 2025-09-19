@@ -1,6 +1,8 @@
-q=lambda g:[[4 if not c else c for c in r]for r in g]
-a=lambda g:[p for p in range(len(g[0]))if g[0][p]==0]
-def f(g,x,y,v=1):
- s,d={(x,y)},0
- while s:s={(*p,)for x,y in s for p in[(x+1,y),(x-1,y),(x,y+1),(x,y-1)]if 0<=p[0]<len(g)and 0<=p[1]<len(g[0])and g[p[0]][p[1]]==v and not(g[p[0]].__setitem__(p[1],d))}
-p=lambda g:f(q(g),0,a(g)[0],4)
+def p(g):
+ h=len(g);w=len(g[0]);s=set();g=[[c or 4 for c in r]for r in g]
+ def f(x,y,s):
+  if h>x>=0<=y<w and g[x][y]==4 and(x,y)not in s:s|={(x,y)};g[x][y]=0;[f(x+i,y+j,s)for i,j in[(0,1),(1,0),(0,-1),(-1,0)]]
+ for b in range(h*w):
+  x=b//w;y=b%w
+  if x*y<1 or x>h-2 or y>w-2:f(x,y,s)
+ return g
