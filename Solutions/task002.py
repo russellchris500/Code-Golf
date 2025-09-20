@@ -1,13 +1,8 @@
 def p(g):
- h=len(g);w=len(g[0]);m=[r[:]for r in g];s=set()
- def f(x,y):
-  if(x,y)in s or x<0 or y<0 or x>=w or y>=h:return x<0 or y<0 or x>=w or y>=h
-  if g[y][x]:return 0
-  s.add((x,y));return f(x+1,y)|f(x-1,y)|f(x,y+1)|f(x,y-1)
- for y in range(h):
-  for x in range(w):
-   if g[y][x]==0 and(x,y)not in s:
-    t=set();s.clear()
-    if not f(x,y):
-     for i,j in s:m[j][i]=4
- return m
+ h=len(g);w=len(g[0]);s=set();g=[[c or 4 for c in r]for r in g]
+ def f(x,y,s):
+  if h>x>=0<=y<w and g[x][y]==4 and(x,y)not in s:s|={(x,y)};g[x][y]=0;[f(x+i,y+j,s)for i,j in[(0,1),(1,0),(0,-1),(-1,0)]]
+ for b in range(h*w):
+  x=b//w;y=b%w
+  if x*y<1 or x>h-2 or y>w-2:f(x,y,s)
+ return g
