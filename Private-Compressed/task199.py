@@ -1,0 +1,1 @@
+p=lambda g,r=range,l=len:(s:=[[0]*l(g[0])]+g[:-1],w:=l(s[0]),k:=next((i,j)for i in r(l(s))for j in r(w)if s[i][j]),[s[a].__setitem__(b,4)for a in r(k[0])for b in r(k[1]&1,w,2)],s)[-1]

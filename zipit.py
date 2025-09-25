@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 def create_solutions_zip():
-    solutions_dir = Path("solutions")
+    solutions_dir = Path("Best")
     zip_path = "submission.zip"
     
     if not solutions_dir.exists():

@@ -1,0 +1,1 @@
+p=lambda g,l=len:[g[:l(g)//2],(a:=[r[:l(r)//2]for r in g])][[r[l(r)//2:]for r in g]==a]

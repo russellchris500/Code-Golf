@@ -1,0 +1,1 @@
+p=lambda g:(r:=g[9],c:=r.index(max(r)),R:=range(10),[[((d:=j-c)>0 and i%9<1 and (d-1-i//9*2)%4<1)*5 or ((d>-1 and d%2<1)*r[c])for j in R]for i in R])[-1]

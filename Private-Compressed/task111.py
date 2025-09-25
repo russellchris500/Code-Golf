@@ -1,0 +1,1 @@
+p=lambda g:next([[g[i+1+x][j-1+y]for y in[0,1,2]]for x in[0,1,2]]for i in range(10)for j in range(10)if g[i][j]==5)

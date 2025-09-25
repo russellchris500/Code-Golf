@@ -1,0 +1,1 @@
+p=lambda g:[[(b:=g[3][3]>3)*x for x in r[3:6][::-1]]+r[3:6]+[(1-b)*y for y in r[3:6][::-1]]for r in g[:3]]+g[3:]

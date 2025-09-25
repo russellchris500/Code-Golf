@@ -1,0 +1,1 @@
+p=lambda g:[r[:(n:=len(g))]+[g[~j][i]for j in range(n)]for i,r in enumerate(g)]+[[g[j][~i]for j in range(n)]+[g[~i][~j]for j in range(n)]for i in range(n)]
