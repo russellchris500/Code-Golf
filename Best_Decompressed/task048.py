@@ -16,3 +16,4 @@ def p(c):
 					for k in C(L-1,L+3):
 						if E>=0 and E<J and k>=0 and k<a and c[E][k]==8:f(E,k,c)
 				return[[W]]
+

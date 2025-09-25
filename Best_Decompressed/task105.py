@@ -25,3 +25,4 @@ def p(g,L=len,R=range):
 		for B in R(D):
 			if g[A][B]>0:C[A][B]=1
 	return C
+

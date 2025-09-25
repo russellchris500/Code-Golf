@@ -62,3 +62,4 @@ def p(g):
 			if H<=p:continue
 			if 0<=O<I and 0<=H<J and C[O][H]==R:C[O][H]=1
 	return C
+

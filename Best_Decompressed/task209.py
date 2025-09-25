@@ -49,3 +49,4 @@ def p(f):
   xo=(cb-x1)-(mx-mc)*D
   q=b(yo,xo)
  return q
+

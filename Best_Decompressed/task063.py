@@ -10,3 +10,4 @@ def p(j):
    for k in A(1,c-1):
     if E[W][k]==0:E[W][k]=3
  return E
+

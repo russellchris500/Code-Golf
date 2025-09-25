@@ -9,3 +9,4 @@ def p(g):
      for x in R(3):g[r+y][c+x]=2
      g[r][c]=0;g[r][c+2]=0;g[r+2][c]=0;g[r+2][c+2]=0
  return g
+

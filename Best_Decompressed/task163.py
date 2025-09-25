@@ -11,3 +11,4 @@ def p(g):
        for y in R(3):z[4*i+x][4*j+y]=b[x][y]
       for k in R(11):z[k][3]=z[k][7]=z[3][k]=z[7][k]=5
       return z
+

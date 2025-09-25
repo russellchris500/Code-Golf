@@ -26,3 +26,4 @@ def p(g):
       elif g[r][c]==0:X=0
  g=[[C[1][1]if c==0 else c for c in r]for r in g]
  return g
+

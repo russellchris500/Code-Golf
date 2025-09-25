@@ -11,3 +11,4 @@ def p(g,L=len,R=range):
  g=g[min(I):max(I)+1]
  g=[r[min(J):max(J)+1]for r in g]
  return g
+

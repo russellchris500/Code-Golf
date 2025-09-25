@@ -73,3 +73,4 @@ def p(g):
 		for(B,C)in f:
 			if 0<=B<len(A)and 0<=C<len(A[0]):A[B][C]=8
 	return A
+

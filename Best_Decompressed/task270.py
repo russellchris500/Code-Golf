@@ -7,3 +7,4 @@ def p(M):
   for c,v in enumerate(R):
    if v in(3,7):y,x=L[2-(v>3)];D[y+(r>y)-(r<y)][x+(c>x)-(c<x)]=v
  return D
+

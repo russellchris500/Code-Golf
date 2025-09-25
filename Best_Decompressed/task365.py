@@ -9,3 +9,4 @@ def p(j):
 				a=[k[W:W+l]for k in j[k:k+J]];C=sum(k.count(2)for k in a)
 				if C>E:E=C;e=a
 	return e#
+

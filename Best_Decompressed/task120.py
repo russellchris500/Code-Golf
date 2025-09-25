@@ -13,3 +13,4 @@ def p(j):
 				for e in A(f+1,g):
 					for K in A(h+1,i):E[e][K]=8
 	return E
+

@@ -15,3 +15,4 @@ def p(g,Q=range):
    for _ in Q(4-k):g=r(g)
    return g
   g=r(g)
+
