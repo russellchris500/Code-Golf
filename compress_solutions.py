@@ -64,39 +64,46 @@ def zip_src(src_code):
     compressed_options = []
 
     for compress in [zopfli.zlib.compress, lambda data: zlib.compress(data, 9)]:
-        for trailing in [b"", b""]:
+        for trailing in (b"", b"\n"):  # CHANGE (a): real probe variants
             src = src_code + trailing
             while (compressed := compress(src))[-1] == ord('"'):
                 src += b"#"
 
+            # CHANGE (b): do NOT corrupt bytes; escape for a Python str literal
             def sanitize(b_in):
                 b_out = bytearray()
                 for b in b_in:
-                    if b == 0:
-                        b_out += b" "
-                    elif b == ord("'"):
-                        b_out += b"\\'"
-                    elif b == ord("\\"):
+                    if b == 0:           # NUL
+                        b_out += b"\\x00"
+                    elif b == 13:        # CR
+                        b_out += b"\\r"
+                    elif b == 92:        # backslash
                         b_out += b"\\\\"
                     else:
                         b_out.append(b)
-                return b"" + b_out
+                return bytes(b_out)
 
             compressed = sanitize(compressed)
-            delim = b'"'
-            if ord("'") in compressed:
+
+            # Safer delimiter selection: prefer triple quotes if newline exists
+            if ord("\n") in compressed:
                 delim = b'"""'
             elif ord('"') in compressed:
                 delim = b"'"
+            else:
+                delim = b'"'
 
-            code = b'#coding:L1\nimport zlib\nexec(zlib.decompress(bytes(' + delim + compressed + delim + b',"L1")))'
+            code = (
+                b'#coding:L1\nimport zlib\nexec(zlib.decompress(bytes('
+                + delim + compressed + delim + b',"L1")))'
+            )
 
             try:
                 with open("tmp.py", "wb") as f:
                     f.write(code)
                 with open("tmp.py", "rb") as f:
                     x = f.read()
-                exec(x, {})
+                exec(x, {})  # validate round-trip
                 compressed_options.append(code)
             except:
                 pass
@@ -104,8 +111,8 @@ def zip_src(src_code):
     return min(compressed_options, key=lambda x: len(x)) if compressed_options else src_code
 
 def compress_solutions():
-    """Compress all solution files, keeping the smallest version"""
-    # os.makedirs('Private-Compressed', exist_ok=True)
+    """Compress all solution files, writing to Best/ only if the new candidate is strictly shorter."""
+    os.makedirs('Best', exist_ok=True)
 
     stats = {'processed': 0, 'improved': 0, 'total_saved': 0}
 
@@ -125,44 +132,70 @@ def compress_solutions():
         # Optimize whitespace
         optimized = optimize_whitespace(original)
 
-        # Try zlib compression
         try:
+            # Try zlib compression
             compressed = zip_src(optimized)
 
-            # Use whichever is smaller: original, optimized, or compressed
+            # Pick the smallest among original, optimized, compressed
             best_content = min([original, optimized, compressed], key=len)
-            if best_content == compressed:
-                final_content = compressed
-                improvement = len(original) - len(compressed)
-                stats['improved'] += 1
-                stats['total_saved'] += improvement
-                print(f"Task {i:03d}: {len(original)} -> opt {len(optimized)} -> comp {len(compressed)} (-{improvement})")
-            elif best_content == optimized:
-                final_content = optimized
-                improvement = len(original) - len(optimized)
+            best_len = len(best_content)
+            orig_len = len(original)
+
+            # Compare against what's already in Best/
+            if os.path.exists(dst_path):
+                with open(dst_path, 'rb') as f:
+                    existing = f.read()
+                existing_len = len(existing)
+            else:
+                existing = None
+                existing_len = None
+
+            # Only overwrite if strictly shorter (or create if missing)
+            if existing is None or best_len < existing_len:
+                with open(dst_path, 'wb') as f:
+                    f.write(best_content)
+
+                improvement = orig_len - best_len
                 if improvement > 0:
                     stats['improved'] += 1
                     stats['total_saved'] += improvement
-                print(f"Task {i:03d}: {len(original)} -> opt {len(optimized)} (-{improvement})")
+
+                if existing is None:
+                    print(f"Task {i:03d}: {orig_len} -> opt {len(optimized)} -> comp {len(compressed)} | wrote (created) {best_len}")
+                else:
+                    print(f"Task {i:03d}: {orig_len} -> opt {len(optimized)} -> comp {len(compressed)} | updated Best ({existing_len} -> {best_len})")
             else:
-                final_content = original
-                print(f"Task {i:03d}: {len(original)} (no improvement)")
+                print(f"Task {i:03d}: {orig_len} -> opt {len(optimized)} -> comp {len(compressed)} | kept Best ({existing_len} <= {best_len})")
 
         except Exception as e:
-            # If compression fails, try optimized or use original
-            if len(optimized) < len(original):
-                final_content = optimized
-                improvement = len(original) - len(optimized)
-                stats['improved'] += 1
-                stats['total_saved'] += improvement
-                print(f"Task {i:03d}: {len(original)} -> opt {len(optimized)} (-{improvement}) (compression failed: {e})")
-            else:
-                final_content = original
-                print(f"Task {i:03d}: {len(original)} (compression failed: {e})")
+            # If compression fails, consider original vs optimized, but still only write if strictly shorter than existing
+            best_content = min([original, optimized], key=len)
+            best_len = len(best_content)
+            orig_len = len(original)
 
-        # Write the smaller version
-        with open(dst_path, 'wb') as f:
-            f.write(final_content)
+            if os.path.exists(dst_path):
+                with open(dst_path, 'rb') as f:
+                    existing = f.read()
+                existing_len = len(existing)
+            else:
+                existing = None
+                existing_len = None
+
+            if existing is None or best_len < existing_len:
+                with open(dst_path, 'wb') as f:
+                    f.write(best_content)
+
+                improvement = orig_len - best_len
+                if improvement > 0:
+                    stats['improved'] += 1
+                    stats['total_saved'] += improvement
+
+                if existing is None:
+                    print(f"Task {i:03d}: {orig_len} -> opt {len(optimized)} (compression failed: {e}) | wrote (created) {best_len}")
+                else:
+                    print(f"Task {i:03d}: {orig_len} -> opt {len(optimized)} (compression failed: {e}) | updated Best ({existing_len} -> {best_len})")
+            else:
+                print(f"Task {i:03d}: {orig_len} -> opt {len(optimized)} (compression failed: {e}) | kept Best ({existing_len} <= {best_len})")
 
     print(f"\nProcessed {stats['processed']} files")
     print(f"Improved {stats['improved']} files")
