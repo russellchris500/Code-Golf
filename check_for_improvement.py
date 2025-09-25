@@ -1,0 +1,241 @@
+import os
+import zlib
+import tkinter as tk
+from tkinter import messagebox
+from pathlib import Path
+
+# Try to import zopfli for better compression (build-time only).
+# If unavailable, WARN (do not silently fall back).
+try:
+    import zopfli.zlib as zopfli_zlib
+    HAVE_ZOPFLI = True
+except Exception:
+    HAVE_ZOPFLI = False
+    ZOPFLI_WARNING = (
+        "Zopfli not found. Install with:\n"
+        "  pip install zopfli\n\n"
+        "Proceeding with stdlib zlib only (larger payloads likely)."
+    )
+
+# ----- Compression helpers -----
+def _sanitize_str_for_bytes_l1(data: bytes) -> bytes:
+    """For embedding inside bytes('…','L1'): escape NUL, CR, backslash; keep others raw."""
+    out = bytearray()
+    for b in data:
+        if b == 0:           out += b"\\x00"
+        elif b == 13:        out += b"\\r"
+        elif b == 92:        out += b"\\\\"
+        else:                out.append(b)
+    return bytes(out)
+
+def _sanitize_bytes_literal(data: bytes) -> bytes:
+    """For embedding inside a bytes literal b'…' / b\"…\": escape non-printables; keep LF."""
+    out = bytearray()
+    for b in data:
+        if b == 10:                 # '\n'
+            out.append(10)
+        elif b == 13:               # '\r'
+            out += b"\\r"
+        elif b == 92:               # '\\'
+            out += b"\\\\"
+        elif 32 <= b <= 126 and b not in (9, 11, 12):
+            out.append(b)
+        else:
+            out += f"\\x{b:02x}".encode()
+    return bytes(out)
+
+def _best_str_delim(payload: bytes) -> bytes:
+    if b"\n" in payload:
+        return b'"""'
+    return b"'" if b'"' in payload else b'"'
+
+def _best_bytes_delim(payload: bytes) -> bytes:
+    if b"\n" in payload:
+        return b'"""'
+    dq = payload.count(b'"')
+    sq = payload.count(b"'")
+    if dq and not sq: return b"'"
+    if sq and not dq: return b'"'
+    return b'"'
+
+def zip_src(src_code: bytes) -> bytes:
+    """
+    Try multiple compressors (zopfli if available, else warn and use zlib) and three stubs.
+    Return shortest working stub; fall back to original source if none validate.
+    """
+    compressors = []
+    if HAVE_ZOPFLI:
+        compressors.append(zopfli_zlib.compress)
+    compressors.append(lambda d: zlib.compress(d, 9))
+
+    # Probe tiny source variants that sometimes help DEFLATE
+    compressed_streams = []
+    for compress in compressors:
+        for trailing in (b"", b"\n"):
+            s = src_code + trailing
+            c = compress(s)
+            while c and c[-1] == 34:   # avoid trailing '"'
+                s += b"#"
+                c = compress(s)
+            compressed_streams.append(c)
+
+    candidates = []
+    for comp in compressed_streams:
+        # A) import zlib + bytes('…','L1')
+        s_payload = _sanitize_str_for_bytes_l1(comp)
+        s_delim = _best_str_delim(s_payload)
+        # closes: bytes(...),"L1") → decompress(...) → exec(...)
+        SUFFIX = b',"L1")))'
+
+        # A) import zlib + bytes('…','L1')
+        code_A = (
+            b"#coding:L1\nimport zlib\nexec(zlib.decompress(bytes("
+            + s_delim + s_payload + s_delim + SUFFIX
+        )
+
+        # B) __import__('zlib') + bytes('…','L1')
+        code_B = (
+            b"#coding:L1\nexec(__import__('zlib').decompress(bytes("
+            + s_delim + s_payload + s_delim + SUFFIX
+        )
+
+        # C) __import__('zlib') + b'…' (unchanged)
+        b_payload = _sanitize_bytes_literal(comp)
+        b_delim   = _best_bytes_delim(b_payload)
+        if b_delim != b'"""':
+            q = b_delim[:1]
+            if q in b_payload:
+                b_payload = b_payload.replace(q, b"\\" + q)
+        code_C = (
+            b"exec(__import__('zlib').decompress(b"
+            + b_delim + b_payload + b_delim + b"))"
+        )
+
+        for cand in (code_A, code_B, code_C):
+            try:
+                exec(cand, {})  # validate round-trip
+                candidates.append(cand)
+            except Exception:
+                pass
+
+    return min(candidates, key=len) if candidates else src_code
+
+# ----- Single-task processing -----
+def process_task(task_num: int) -> dict:
+    """
+    Compress Private-Uncompressed/taskXXX.py and conditionally write:
+      - Private-Compressed/taskXXX.py only if NEW < existing
+      - Best/taskXXX.py only if NEW < existing
+      - Best-Decompressed/taskXXX.py (the *pre-compression* source) only if NEW < existing Best
+    """
+    if not (1 <= task_num <= 400):
+        raise ValueError("Task number must be in 1..400")
+
+    name = f"task{task_num:03d}.py"
+    src_path = Path("Private-Uncompressed") / name
+    if not src_path.exists():
+        raise FileNotFoundError(f"{src_path} not found")
+
+    pc_dir = Path("Private-Compressed"); pc_dir.mkdir(exist_ok=True)
+    best_dir = Path("Best"); best_dir.mkdir(exist_ok=True)
+    best_dec_dir = Path("Best-Decompressed"); best_dec_dir.mkdir(exist_ok=True)
+
+    original = src_path.read_bytes().strip()
+    compressed = zip_src(original)
+    result = compressed if len(compressed) < len(original) else original
+    result_len = len(result)
+
+    # Private-Compressed
+    pc_path = pc_dir / name
+    pc_prev = pc_path.read_bytes() if pc_path.exists() else None
+    pc_prev_len = len(pc_prev) if pc_prev is not None else None
+    wrote_pc = False
+    if pc_prev is None or result_len < pc_prev_len:
+        pc_path.write_bytes(result)
+        wrote_pc = True
+
+    # Best (compressed-or-not)
+    best_path = best_dir / name
+    best_prev = best_path.read_bytes() if best_path.exists() else None
+    best_prev_len = len(best_prev) if best_prev is not None else None
+    wrote_best = False
+    if best_prev is None or result_len < best_prev_len:
+        best_path.write_bytes(result)
+        wrote_best = True
+
+        # Also write *pre-compression* source to Best-Decompressed
+        best_dec_path = best_dec_dir / name
+        best_dec_path.write_bytes(original)
+        wrote_best_dec = True
+    else:
+        wrote_best_dec = False
+
+    return {
+        "task": name,
+        "original_len": len(original),
+        "compressed_len": len(compressed),
+        "chosen_len": result_len,
+        "pc_previous_len": pc_prev_len,
+        "pc_written": wrote_pc,
+        "best_previous_len": best_prev_len,
+        "best_written": wrote_best,
+        "best_decompressed_written": wrote_best_dec,
+    }
+
+# ----- Tkinter GUI -----
+def run_gui():
+    root = tk.Tk()
+    root.title("Compress a Golf Task")
+
+    frm = tk.Frame(root, padx=12, pady=12)
+    frm.pack()
+
+    # Warn loudly if zopfli is missing
+    if not HAVE_ZOPFLI:
+        if "ZOPFLI_WARNING" in globals():
+            messagebox.showwarning("Zopfli not installed", ZOPFLI_WARNING)
+            warn = tk.Label(frm, text=ZOPFLI_WARNING, fg="red", justify="left")
+            warn.grid(row=0, column=0, columnspan=3, sticky="w", pady=(0, 10))
+
+    row = 1
+    tk.Label(frm, text="Task number (1–400):").grid(row=row, column=0, sticky="w")
+    ent = tk.Entry(frm, width=8)
+    ent.grid(row=row, column=1, padx=(6, 0))
+    ent.focus()
+
+    out = tk.StringVar(value="Awaiting input…")
+    tk.Label(frm, textvariable=out, justify="left", anchor="w").grid(row=row+1, column=0, columnspan=3, sticky="w", pady=(10,0))
+
+    def on_process():
+        v = ent.get().strip()
+        try:
+            n = int(v)
+            info = process_task(n)
+
+            pc_prev = info["pc_previous_len"]
+            pc_prev_text = "created" if pc_prev is None else f"prev {pc_prev}B"
+
+            best_prev = info["best_previous_len"]
+            best_prev_text = "created" if best_prev is None else f"prev {best_prev}B"
+
+            msg_lines = [
+                f"{info['task']}: orig {info['original_len']}B → compressed {info['compressed_len']}B → chosen {info['chosen_len']}B",
+                f"Private-Compressed: {pc_prev_text} → {'updated' if info['pc_written'] else 'kept'}",
+                f"Best: {best_prev_text} → {'updated' if info['best_written'] else 'kept'}",
+                f"Best-Decompressed: {'updated' if info['best_decompressed_written'] else 'kept'}",
+            ]
+            msg = "\n".join(msg_lines)
+            out.set(msg)
+            print(msg)
+        except Exception as e:
+            out.set(f"Error: {e}")
+            messagebox.showerror("Error", str(e))
+
+    btn = tk.Button(frm, text="Process", command=on_process, width=12)
+    btn.grid(row=row, column=2, padx=(10, 0))
+    root.bind("<Return>", lambda _: on_process())
+
+    root.mainloop()
+
+if __name__ == "__main__":
+    run_gui()
