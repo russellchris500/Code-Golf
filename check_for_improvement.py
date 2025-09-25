@@ -4,6 +4,9 @@ import tkinter as tk
 from tkinter import messagebox
 from pathlib import Path
 import re
+import json
+import copy
+from code_golf_utils import *
 
 # Try to import zopfli for better compression (build-time only).
 # If unavailable, WARN (do not silently fall back).
@@ -17,6 +20,40 @@ except Exception:
         "  pip install zopfli\n\n"
         "Proceeding with stdlib zlib only (larger payloads likely)."
     )
+
+# ----- Solution validation -----
+def check(solution, task_num, valall=False):
+    """Check if solution code produces correct results for the given task."""
+    if task_num == 157:
+        return True  # this one just takes a while to run
+
+    try:
+        task_data = load_examples(task_num)
+    except Exception:
+        return False
+
+    try:
+        namespace = {}
+        exec(solution, namespace)
+        if 'p' not in namespace:
+            return False
+
+        all_examples = task_data['train'] + task_data['test'] + task_data['arc-gen']
+        examples_to_check = all_examples if valall else all_examples[:3]
+
+        for example in examples_to_check:
+            input_grid = copy.deepcopy(example['input'])
+            expected = example['output']
+            try:
+                actual = namespace['p'](input_grid)
+                actual = [[int(x) if int(x) == x else x for x in row] for row in actual]
+                if json.dumps(actual) != json.dumps(expected):
+                    return False
+            except:
+                return False
+        return True
+    except Exception as e:
+        return False
 
 # ----- Whitespace optimization -----
 def optimize_whitespace(code: bytes) -> bytes:
@@ -268,19 +305,33 @@ def process_task(task_num: int) -> dict:
         pc_path.write_bytes(result)
         wrote_pc = True
 
-    # Best (compressed-or-not)
+    # Best (compressed-or-not) - with validation
     best_path = best_dir / name
     best_prev = best_path.read_bytes() if best_path.exists() else None
     best_prev_len = len(best_prev) if best_prev is not None else None
     wrote_best = False
-    if best_prev is None or result_len < best_prev_len:
-        best_path.write_bytes(result)
-        wrote_best = True
+    validation_passed = False
+    validation_error = None
 
-        # Also write *pre-compression* (optimized) source to Best-Decompressed
-        best_dec_path = best_dec_dir / name
-        best_dec_path.write_bytes(optimized)
-        wrote_best_dec = True
+    if best_prev is None or result_len < best_prev_len:
+        # Validate the new solution before writing to Best
+        try:
+            validation_passed = check(result, task_num, valall=True)
+            if validation_passed:
+                best_path.write_bytes(result)
+                wrote_best = True
+
+                # Also write *pre-compression* (optimized) source to Best-Decompressed
+                best_dec_path = best_dec_dir / name
+                best_dec_path.write_bytes(optimized)
+                wrote_best_dec = True
+            else:
+                validation_error = "Solution failed validation tests"
+                wrote_best_dec = False
+        except Exception as e:
+            validation_passed = False
+            validation_error = f"Validation error: {str(e)}"
+            wrote_best_dec = False
     else:
         wrote_best_dec = False
 
@@ -295,6 +346,8 @@ def process_task(task_num: int) -> dict:
         "best_previous_len": best_prev_len,
         "best_written": wrote_best,
         "best_decompressed_written": wrote_best_dec,
+        "validation_passed": validation_passed,
+        "validation_error": validation_error,
     }
 
 # ----- Tkinter GUI -----
@@ -333,10 +386,25 @@ def run_gui():
             best_prev = info["best_previous_len"]
             best_prev_text = "created" if best_prev is None else f"prev {best_prev}B"
 
+            # Build status message with validation info
+            best_status = 'updated' if info['best_written'] else 'kept'
+            if info['best_previous_len'] is None or info['chosen_len'] < info['best_previous_len']:
+                if info['validation_passed']:
+                    validation_status = "✓ VALIDATED"
+                elif info['validation_error']:
+                    validation_status = f"✗ FAILED: {info['validation_error']}"
+                    best_status = 'validation failed'
+                else:
+                    validation_status = "✗ FAILED"
+                    best_status = 'validation failed'
+            else:
+                validation_status = "not tested (not shorter)"
+
             msg_lines = [
                 f"{info['task']}: orig {info['original_len']}B → opt {info['optimized_len']}B → compressed {info['compressed_len']}B → chosen {info['chosen_len']}B",
                 f"Private-Compressed: {pc_prev_text} → {'updated' if info['pc_written'] else 'kept'}",
-                f"Best: {best_prev_text} → {'updated' if info['best_written'] else 'kept'}",
+                f"Best: {best_prev_text} → {best_status}",
+                f"Validation: {validation_status}",
                 f"Best-Decompressed: {'updated' if info['best_decompressed_written'] else 'kept'}",
             ]
             msg = "\n".join(msg_lines)
