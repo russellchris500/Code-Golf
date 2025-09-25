@@ -3,6 +3,7 @@ import zlib
 import tkinter as tk
 from tkinter import messagebox
 from pathlib import Path
+import re
 
 # Try to import zopfli for better compression (build-time only).
 # If unavailable, WARN (do not silently fall back).
@@ -16,6 +17,60 @@ except Exception:
         "  pip install zopfli\n\n"
         "Proceeding with stdlib zlib only (larger payloads likely)."
     )
+
+# ----- Whitespace optimization -----
+def optimize_whitespace(code: bytes) -> bytes:
+    """Remove unnecessary whitespace for code golf while preserving functionality."""
+    text = code.decode('utf-8', errors='replace')
+
+    # Remove multiple consecutive blank lines (keep max 1)
+    text = re.sub(r'\n\s*\n(\s*\n)*', '\n\n', text)
+
+    # Remove trailing whitespace from each line
+    lines = text.split('\n')
+    lines = [line.rstrip() for line in lines]
+
+    # Remove multiple spaces that aren't needed (but preserve indentation)
+    optimized_lines = []
+    for line in lines:
+        if line.strip():  # Non-empty line
+            # Find leading whitespace
+            leading_match = re.match(r'^\s*', line)
+            leading = leading_match.group() if leading_match else ''
+            content = line[len(leading):]
+
+            # Replace multiple spaces with single spaces in content (but not in strings)
+            # Simple approach: only compress spaces outside of quotes
+            in_string = False
+            quote_char = None
+            result = []
+            i = 0
+            while i < len(content):
+                char = content[i]
+                if not in_string and char in ['"', "'"]:
+                    in_string = True
+                    quote_char = char
+                    result.append(char)
+                elif in_string and char == quote_char and (i == 0 or content[i-1] != '\\'):
+                    in_string = False
+                    quote_char = None
+                    result.append(char)
+                elif not in_string and char == ' ':
+                    # Compress multiple spaces to single space
+                    if result and result[-1] != ' ':
+                        result.append(' ')
+                else:
+                    result.append(char)
+                i += 1
+
+            optimized_lines.append(leading + ''.join(result))
+        else:
+            optimized_lines.append('')  # Keep empty lines as-is
+
+    # Join lines and remove any trailing newlines, then ensure single final newline
+    result = '\n'.join(optimized_lines).rstrip() + '\n' if optimized_lines and optimized_lines[-1] else '\n'.join(optimized_lines).rstrip()
+
+    return result.encode('utf-8')
 
 # ----- Compression helpers -----
 def _sanitize_str_for_bytes_l1(data: bytes) -> bytes:
@@ -141,8 +196,9 @@ def process_task(task_num: int) -> dict:
     best_dec_dir = Path("Best-Decompressed"); best_dec_dir.mkdir(exist_ok=True)
 
     original = src_path.read_bytes().strip()
-    compressed = zip_src(original)
-    result = compressed if len(compressed) < len(original) else original
+    optimized = optimize_whitespace(original)
+    compressed = zip_src(optimized)
+    result = compressed if len(compressed) < len(optimized) else optimized
     result_len = len(result)
 
     # Private-Compressed
@@ -165,7 +221,7 @@ def process_task(task_num: int) -> dict:
 
         # Also write *pre-compression* source to Best-Decompressed
         best_dec_path = best_dec_dir / name
-        best_dec_path.write_bytes(original)
+        best_dec_path.write_bytes(optimized)
         wrote_best_dec = True
     else:
         wrote_best_dec = False
@@ -173,6 +229,7 @@ def process_task(task_num: int) -> dict:
     return {
         "task": name,
         "original_len": len(original),
+        "optimized_len": len(optimized),
         "compressed_len": len(compressed),
         "chosen_len": result_len,
         "pc_previous_len": pc_prev_len,
@@ -219,7 +276,7 @@ def run_gui():
             best_prev_text = "created" if best_prev is None else f"prev {best_prev}B"
 
             msg_lines = [
-                f"{info['task']}: orig {info['original_len']}B → compressed {info['compressed_len']}B → chosen {info['chosen_len']}B",
+                f"{info['task']}: orig {info['original_len']}B → opt {info['optimized_len']}B → compressed {info['compressed_len']}B → chosen {info['chosen_len']}B",
                 f"Private-Compressed: {pc_prev_text} → {'updated' if info['pc_written'] else 'kept'}",
                 f"Best: {best_prev_text} → {'updated' if info['best_written'] else 'kept'}",
                 f"Best-Decompressed: {'updated' if info['best_decompressed_written'] else 'kept'}",
