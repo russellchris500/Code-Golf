@@ -1,0 +1,1 @@
+p=lambda g:[[x]for x in dict.fromkeys(sum(g,[]))]if g[0][0]==g[0][-1]else[list(dict.fromkeys(sum(g,[])))]
