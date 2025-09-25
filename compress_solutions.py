@@ -59,56 +59,119 @@ def optimize_whitespace(code):
 
     return result.encode('utf-8') if isinstance(code, bytes) else result
 
-def zip_src(src_code):
-    """Apply zlib compression with proper escaping for exec()"""
-    compressed_options = []
+def zip_src(src_code: bytes) -> bytes:
+    """
+    Build a self-extracting stub for src_code using zlib-compatible compression.
+    Tries:
+      A) '#coding:L1\\nimport zlib\\nexec(zlib.decompress(bytes("…","L1")))' 
+      B) '#coding:L1\\nexec(__import__("zlib").decompress(bytes("…","L1")))' 
+      C) 'exec(__import__("zlib").decompress(b"…"))'
+    Chooses the shortest candidate that compiles and round-trips via exec().
+    Falls back to src_code if none validate.
+    """
+    import zlib
 
-    for compress in [zopfli.zlib.compress, lambda data: zlib.compress(data, 9)]:
-        for trailing in (b"", b"\n"):  # CHANGE (a): real probe variants
-            src = src_code + trailing
-            while (compressed := compress(src))[-1] == ord('"'):
-                src += b"#"
+    # Optional zopfli at build-time; no warning here (GUI can warn separately)
+    compressors = []
+    try:
+        import zopfli.zlib as zopfli_zlib
+        compressors.append(zopfli_zlib.compress)
+    except Exception:
+        pass
+    compressors.append(lambda d: zlib.compress(d, 9))
 
-            # CHANGE (b): do NOT corrupt bytes; escape for a Python str literal
-            def sanitize(b_in):
-                b_out = bytearray()
-                for b in b_in:
-                    if b == 0:           # NUL
-                        b_out += b"\\x00"
-                    elif b == 13:        # CR
-                        b_out += b"\\r"
-                    elif b == 92:        # backslash
-                        b_out += b"\\\\"
-                    else:
-                        b_out.append(b)
-                return bytes(b_out)
+    # ---------- local helpers (self-contained) ----------
+    def _sanitize_str_for_bytes_l1(data: bytes) -> bytes:
+        # For embedding in bytes('…','L1'): escape NUL, CR, backslash; keep others raw
+        out = bytearray()
+        for b in data:
+            if b == 0:           out += b"\\x00"
+            elif b == 13:        out += b"\\r"
+            elif b == 92:        out += b"\\\\"
+            else:                out.append(b)
+        return bytes(out)
 
-            compressed = sanitize(compressed)
-
-            # Safer delimiter selection: prefer triple quotes if newline exists
-            if ord("\n") in compressed:
-                delim = b'"""'
-            elif ord('"') in compressed:
-                delim = b"'"
+    def _sanitize_bytes_literal(data: bytes) -> bytes:
+        # For b'…' / b"…": escape non-printables; keep LF; escape CR and backslash
+        out = bytearray()
+        for b in data:
+            if b == 10:                 # '\n'
+                out.append(10)
+            elif b == 13:               # '\r'
+                out += b"\\r"
+            elif b == 92:               # '\\'
+                out += b"\\\\"
+            elif 32 <= b <= 126 and b not in (9, 11, 12):
+                out.append(b)
             else:
-                delim = b'"'
+                out += f"\\x{b:02x}".encode()
+        return bytes(out)
 
-            code = (
-                b'#coding:L1\nimport zlib\nexec(zlib.decompress(bytes('
-                + delim + compressed + delim + b',"L1")))'
-            )
+    def _best_str_delim(payload: bytes) -> bytes:
+        # Prefer triple quotes if payload contains newline
+        if b"\n" in payload: return b'"""'
+        return b"'" if b'"' in payload else b'"'
 
+    def _best_bytes_delim(payload: bytes) -> bytes:
+        if b"\n" in payload: return b'"""'
+        dq = payload.count(b'"'); sq = payload.count(b"'")
+        if dq and not sq: return b"'"
+        if sq and not dq: return b'"'
+        return b'"'
+
+    # ---------- build compressed streams with tiny source probes ----------
+    compressed_streams = []
+    for compress in compressors:
+        for trailing in (b"", b"\n"):
+            s = src_code + trailing
+            c = compress(s)
+            while c and c[-1] == 34:   # avoid trailing '"'
+                s += b"#"
+                c = compress(s)
+            compressed_streams.append(c)
+
+    # ---------- assemble candidate stubs ----------
+    candidates = []
+    SUFFIX = b',"L1")))'  # closes bytes(...),"L1") then decompress(...) then exec(...)
+
+    for comp in compressed_streams:
+        # A) import zlib + bytes('…','L1')
+        s_payload = _sanitize_str_for_bytes_l1(comp)
+        s_delim = _best_str_delim(s_payload)
+        code_A = (
+            b"#coding:L1\nimport zlib\nexec(zlib.decompress(bytes("
+            + s_delim + s_payload + s_delim + SUFFIX
+        )
+
+        # B) __import__('zlib') + bytes('…','L1')
+        code_B = (
+            b"#coding:L1\nexec(__import__('zlib').decompress(bytes("
+            + s_delim + s_payload + s_delim + SUFFIX
+        )
+
+        # C) __import__('zlib') + b'…'
+        b_payload = _sanitize_bytes_literal(comp)
+        b_delim = _best_bytes_delim(b_payload)
+        # If single/double quotes, escape that quote inside the payload
+        if b_delim != b'"""':
+            q = b_delim[:1]
+            if q in b_payload:
+                b_payload = b_payload.replace(q, b"\\" + q)
+        code_C = (
+            b"exec(__import__('zlib').decompress(b"
+            + b_delim + b_payload + b_delim + b"))"
+        )
+
+        # Validate that each candidate parses and executes (round-trip check)
+        for cand in (code_A, code_B, code_C):
             try:
-                with open("tmp.py", "wb") as f:
-                    f.write(code)
-                with open("tmp.py", "rb") as f:
-                    x = f.read()
-                exec(x, {})  # validate round-trip
-                compressed_options.append(code)
-            except:
+                compile(cand, "<stub>", "exec")
+                exec(cand, {})
+                candidates.append(cand)
+            except Exception:
                 pass
 
-    return min(compressed_options, key=lambda x: len(x)) if compressed_options else src_code
+    return min(candidates, key=len) if candidates else src_code
 
 def compress_solutions():
     """Compress all solution files, writing to Best/ only if the new candidate is strictly shorter."""

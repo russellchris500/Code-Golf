@@ -67,8 +67,12 @@ def optimize_whitespace(code: bytes) -> bytes:
         else:
             optimized_lines.append('')  # Keep empty lines as-is
 
-    # Join lines and remove any trailing newlines, then ensure single final newline
-    result = '\n'.join(optimized_lines).rstrip() + '\n' if optimized_lines and optimized_lines[-1] else '\n'.join(optimized_lines).rstrip()
+    # Join lines and remove any trailing newlines, then ensure single final newline when last line was non-empty
+    result = (
+        '\n'.join(optimized_lines).rstrip() + '\n'
+        if optimized_lines and optimized_lines[-1]
+        else '\n'.join(optimized_lines).rstrip()
+    )
 
     return result.encode('utf-8')
 
@@ -115,15 +119,65 @@ def _best_bytes_delim(payload: bytes) -> bytes:
 
 def zip_src(src_code: bytes) -> bytes:
     """
-    Try multiple compressors (zopfli if available, else warn and use zlib) and three stubs.
-    Return shortest working stub; fall back to original source if none validate.
+    Build a self-extracting stub for src_code using zlib-compatible compression.
+    Tries:
+      A) '#coding:L1\\nimport zlib\\nexec(zlib.decompress(bytes("…","L1")))' 
+      B) '#coding:L1\\nexec(__import__("zlib").decompress(bytes("…","L1")))' 
+      C) 'exec(__import__("zlib").decompress(b"…"))'
+    Chooses the shortest candidate that compiles and round-trips via exec().
+    Falls back to src_code if none validate.
     """
+    import zlib
+
+    # Optional zopfli at build-time; no warning here (GUI can warn separately)
     compressors = []
-    if HAVE_ZOPFLI:
+    try:
+        import zopfli.zlib as zopfli_zlib
         compressors.append(zopfli_zlib.compress)
+    except Exception:
+        pass
     compressors.append(lambda d: zlib.compress(d, 9))
 
-    # Probe tiny source variants that sometimes help DEFLATE
+    # ---------- local helpers (self-contained) ----------
+    def _sanitize_str_for_bytes_l1(data: bytes) -> bytes:
+        # For embedding in bytes('…','L1'): escape NUL, CR, backslash; keep others raw
+        out = bytearray()
+        for b in data:
+            if b == 0:           out += b"\\x00"
+            elif b == 13:        out += b"\\r"
+            elif b == 92:        out += b"\\\\"
+            else:                out.append(b)
+        return bytes(out)
+
+    def _sanitize_bytes_literal(data: bytes) -> bytes:
+        # For b'…' / b"…": escape non-printables; keep LF; escape CR and backslash
+        out = bytearray()
+        for b in data:
+            if b == 10:                 # '\n'
+                out.append(10)
+            elif b == 13:               # '\r'
+                out += b"\\r"
+            elif b == 92:               # '\\'
+                out += b"\\\\"
+            elif 32 <= b <= 126 and b not in (9, 11, 12):
+                out.append(b)
+            else:
+                out += f"\\x{b:02x}".encode()
+        return bytes(out)
+
+    def _best_str_delim(payload: bytes) -> bytes:
+        # Prefer triple quotes if payload contains newline
+        if b"\n" in payload: return b'"""'
+        return b"'" if b'"' in payload else b'"'
+
+    def _best_bytes_delim(payload: bytes) -> bytes:
+        if b"\n" in payload: return b'"""'
+        dq = payload.count(b'"'); sq = payload.count(b"'")
+        if dq and not sq: return b"'"
+        if sq and not dq: return b'"'
+        return b'"'
+
+    # ---------- build compressed streams with tiny source probes ----------
     compressed_streams = []
     for compress in compressors:
         for trailing in (b"", b"\n"):
@@ -134,15 +188,14 @@ def zip_src(src_code: bytes) -> bytes:
                 c = compress(s)
             compressed_streams.append(c)
 
+    # ---------- assemble candidate stubs ----------
     candidates = []
+    SUFFIX = b',"L1")))'  # closes bytes(...),"L1") then decompress(...) then exec(...)
+
     for comp in compressed_streams:
         # A) import zlib + bytes('…','L1')
         s_payload = _sanitize_str_for_bytes_l1(comp)
         s_delim = _best_str_delim(s_payload)
-        # closes: bytes(...),"L1") → decompress(...) → exec(...)
-        SUFFIX = b',"L1")))'
-
-        # A) import zlib + bytes('…','L1')
         code_A = (
             b"#coding:L1\nimport zlib\nexec(zlib.decompress(bytes("
             + s_delim + s_payload + s_delim + SUFFIX
@@ -154,9 +207,10 @@ def zip_src(src_code: bytes) -> bytes:
             + s_delim + s_payload + s_delim + SUFFIX
         )
 
-        # C) __import__('zlib') + b'…' (unchanged)
+        # C) __import__('zlib') + b'…'
         b_payload = _sanitize_bytes_literal(comp)
-        b_delim   = _best_bytes_delim(b_payload)
+        b_delim = _best_bytes_delim(b_payload)
+        # If single/double quotes, escape that quote inside the payload
         if b_delim != b'"""':
             q = b_delim[:1]
             if q in b_payload:
@@ -166,9 +220,11 @@ def zip_src(src_code: bytes) -> bytes:
             + b_delim + b_payload + b_delim + b"))"
         )
 
+        # Validate that each candidate parses and executes (round-trip check)
         for cand in (code_A, code_B, code_C):
             try:
-                exec(cand, {})  # validate round-trip
+                compile(cand, "<stub>", "exec")
+                exec(cand, {})
                 candidates.append(cand)
             except Exception:
                 pass
@@ -181,7 +237,7 @@ def process_task(task_num: int) -> dict:
     Compress Private-Uncompressed/taskXXX.py and conditionally write:
       - Private-Compressed/taskXXX.py only if NEW < existing
       - Best/taskXXX.py only if NEW < existing
-      - Best-Decompressed/taskXXX.py (the *pre-compression* source) only if NEW < existing Best
+      - Best-Decompressed/taskXXX.py (the *pre-compression* source, i.e., optimized) only if Best updated
     """
     if not (1 <= task_num <= 400):
         raise ValueError("Task number must be in 1..400")
@@ -198,7 +254,9 @@ def process_task(task_num: int) -> dict:
     original = src_path.read_bytes().strip()
     optimized = optimize_whitespace(original)
     compressed = zip_src(optimized)
-    result = compressed if len(compressed) < len(optimized) else optimized
+
+    # Choose the shortest among original, optimized, compressed
+    result = min((original, optimized, compressed), key=len)
     result_len = len(result)
 
     # Private-Compressed
@@ -219,7 +277,7 @@ def process_task(task_num: int) -> dict:
         best_path.write_bytes(result)
         wrote_best = True
 
-        # Also write *pre-compression* source to Best-Decompressed
+        # Also write *pre-compression* (optimized) source to Best-Decompressed
         best_dec_path = best_dec_dir / name
         best_dec_path.write_bytes(optimized)
         wrote_best_dec = True
