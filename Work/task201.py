@@ -1,0 +1,4 @@
+def p(g):
+ a=[(i,j)for i in range(len(g))for j in range(len(g[0]))if g[i][j]==4];a.sort();t,l=a[0];s,r=a[-1];o=[[g[i][j]for j in range(l,r+1)]for i in range(t,s+1)];c=[(i,j,g[i][j])for i in range(len(g))for j in range(len(g[0]))if g[i][j]and g[i][j]!=4 and not(t<=i<=s and l<=j<=r)]
+ if c:d,e,h,k=min(x[0]for x in c),min(x[1]for x in c),max(x[0]for x in c),max(x[1]for x in c);f=any(g[i][e]!=o[i-d+1][0]for i in range(d,h+1)if g[i][e]and g[i][e]!=4 and i-d+1<len(o)-1);[[o[i-d+1].__setitem__(len(o[0])+e-j-2 if f else j-e+1,g[i][j])for j in range(e,k+1)if g[i][j]and g[i][j]!=4 and-1<i-d<len(o)-1 and-1<(len(o[0])+e-j-2 if f else j-e+1)<len(o[0])]for i in range(d,h+1)]
+ return o
