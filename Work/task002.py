@@ -6,3 +6,16 @@
 #   x=b//w;y=b%w
 #   if x*y<1 or x>h-2 or y>w-2:f(x,y,s)
 #  return g
+
+def p(g):
+ R=range;W=len(g);h=sum(g,[])
+ def f(h):
+  i=0;s=[]
+  for c in h:
+   q={k for k in s if{i-W,i-1}&{*k}};i+=1
+   if c<1:s={*s,sum(q,(i-1,))}-q
+  return s
+ for i in f(h):
+  if not{*R(W),*R(W*W-W,W*W),*R(0,W*W,W),*R(-1,W*W,W)}&{*i}:
+   for j in i:g[j//W][j%W]=4
+ return g
