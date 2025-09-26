@@ -1,1 +1,0 @@
-p=lambda q:[*zip(*[[*filter(None,r)]+[0]*r.count(0)for r in zip(*q)])]

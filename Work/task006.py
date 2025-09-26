@@ -1,1 +1,0 @@
-p=lambda i:[[2*(l*r)for l,r in zip(a[:3],a[4:])]for a in i]

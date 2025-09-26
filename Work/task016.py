@@ -1,1 +1,0 @@
-p=lambda i:[[(0,5,6,4,3,1,2,7,9,8)[c]for c in r]for r in i]

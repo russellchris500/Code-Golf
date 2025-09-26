@@ -1,1 +1,0 @@
-p=lambda g:[r[:3]for r in[*zip(*filter(any,zip(*filter(any,g))))][:3]]

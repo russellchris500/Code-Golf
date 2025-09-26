@@ -1,1 +1,0 @@
-p=lambda g:[[8*(l+r<1)for l,r in zip(r[:3],r[4:])]for r in g]
