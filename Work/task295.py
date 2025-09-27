@@ -1,0 +1,1 @@
+p=lambda g:(r:=g[0],s:=sum(map(bool,r)),g+[r[:s]+r[:1]*i+[0]*(len(r)-s-i)for i in range(1,len(r)//2)])[2]
