@@ -100,4 +100,3 @@ python zipit.py   # Creates submission.zip from Solutions folder
 
 When solving a problem, the user will provide a description of the basics of solving the problem. Use the principles of python code golf to write a function p(g) that solves the problem. The function and other code should be in a file named task###.py. Place the file in the Work directory. Report success of failure and the number of bytes used by checking with the verify.py program. Debug if any failure occurs.
 Don't use interactive testing with viewer and test.
-Be sure to place a space between the end of any number and a following letter.
