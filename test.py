@@ -43,8 +43,8 @@ class CodeGolfTester:
         self.example_entry.bind('<Return>', lambda e: self.load_example())
 
         ttk.Label(control_frame, text="Folder:").grid(row=0, column=2, padx=(20, 5))
-        self.folder_var = tk.StringVar(value="Work")
-        self.folder_combo = ttk.Combobox(control_frame, textvariable=self.folder_var, values=["Work", "Solutions"], width=10, state="readonly")
+        self.folder_var = tk.StringVar(value="Private-Uncompressed")
+        self.folder_combo = ttk.Combobox(control_frame, textvariable=self.folder_var, values=["Private-Uncompressed", "Best"], width=20, state="readonly")
         self.folder_combo.grid(row=0, column=3, padx=5)
 
         self.test_button = ttk.Button(control_frame, text="Load & Test", command=self.load_example)
@@ -128,19 +128,31 @@ class CodeGolfTester:
         if not os.path.exists(solution_path):
             messagebox.showerror("Error", f"Solution file task{task_num:03d}.py not found in {folder} folder")
             return False
-        
+
         try:
-            spec = importlib.util.spec_from_file_location(f"task{task_num:03d}", solution_path)
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
-            
-            if hasattr(module, 'p'):
-                self.solution_function = module.p
+            # Read the file content
+            with open(solution_path, 'rb') as f:
+                file_content = f.read()
+
+            # Try to execute the content directly (handles both regular and compressed code)
+            namespace = {}
+            try:
+                exec(file_content, namespace)
+            except Exception as exec_error:
+                # If direct execution fails, try decoding as utf-8 first
+                try:
+                    text_content = file_content.decode('utf-8')
+                    exec(text_content, namespace)
+                except Exception:
+                    raise exec_error  # Re-raise the original execution error
+
+            if 'p' in namespace:
+                self.solution_function = namespace['p']
                 return True
             else:
                 messagebox.showerror("Error", f"Solution file task{task_num:03d}.py does not contain function 'p'")
                 return False
-                
+
         except Exception as e:
             messagebox.showerror("Error", f"Error loading solution: {str(e)}")
             return False
