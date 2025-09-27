@@ -1,1 +1,1 @@
-p=lambda q:[*zip(*[[0]*r.count(0)+[*filter(None,r)]for r in zip(*q)])]
+p=lambda g:[*zip(*map(sorted,zip(*g)))]

@@ -193,29 +193,35 @@ class CodeGolfViewer:
 
         rows = len(grid)
         cols = len(grid[0]) if rows > 0 else 0
-        
+
         canvas.update()
         canvas_width = canvas.winfo_width()
         canvas_height = canvas.winfo_height()
-        
+
         if canvas_width <= 1 or canvas_height <= 1:
             canvas_width = 400
             canvas_height = 400
-        
+
+        # Display grid size at the top
+        size_text = f"{rows} × {cols}"
+        canvas.create_text(canvas_width // 2, 15, text=size_text,
+                          font=('Arial', 11, 'bold'), fill='#333333')
+
         margin = 20
+        text_margin = 30  # Extra space for the size text
         available_width = canvas_width - 2 * margin
-        available_height = canvas_height - 2 * margin
-        
+        available_height = canvas_height - 2 * margin - text_margin
+
         if rows > 0 and cols > 0:
             cell_size = min(available_width // cols, available_height // rows, 40)
         else:
             cell_size = 20
-        
+
         grid_width = cols * cell_size
         grid_height = rows * cell_size
-        
+
         offset_x = (canvas_width - grid_width) // 2
-        offset_y = (canvas_height - grid_height) // 2
+        offset_y = (canvas_height - grid_height) // 2 + text_margin
         
         for row_idx, row in enumerate(grid):
             # Convert row tuple to list if necessary
