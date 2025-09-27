@@ -44,7 +44,7 @@ class CodeGolfTester:
 
         ttk.Label(control_frame, text="Folder:").grid(row=0, column=2, padx=(20, 5))
         self.folder_var = tk.StringVar(value="Private-Uncompressed")
-        self.folder_combo = ttk.Combobox(control_frame, textvariable=self.folder_var, values=["Private-Uncompressed", "Best"], width=20, state="readonly")
+        self.folder_combo = ttk.Combobox(control_frame, textvariable=self.folder_var, values=["Private-Uncompressed", "Best", "Work"], width=20, state="readonly")
         self.folder_combo.grid(row=0, column=3, padx=5)
 
         self.test_button = ttk.Button(control_frame, text="Load & Test", command=self.load_example)
