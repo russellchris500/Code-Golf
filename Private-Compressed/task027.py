@@ -1,0 +1,1 @@
+p=lambda g:[[l or r*2for l,r in zip(x,y)]for x,y in zip(g,[*zip(*((g+[10*[0]]*(max(sum(map(any,g)),sum(map(any,zip(*g))))%2))[::-1]))])]

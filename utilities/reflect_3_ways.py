@@ -14,6 +14,7 @@ def reflect_4fold_without_flattening(a):
  o=[r+r[::-1]for r in a]
  return o+o[::-1]
 
+r=lambda a:(o:=[r+r[::-1]for r in a])+o[::-1]
 
 a = [[1,2],[3,4]]
 print(reflect_4fold_without_flattening(a))

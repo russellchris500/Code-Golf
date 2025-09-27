@@ -1,1 +1,1 @@
-p=lambda g:[r[:3]for r in[*zip(*filter(any,zip(*filter(any,g))))][:3]]
+p=lambda g:[*zip([[*map(None,r)]+[0]*9 for r in[*zip(*g)]])]
