@@ -1,0 +1,1 @@
+p=lambda g:(r:=[-1,*[i for i,a in enumerate(g)if max(a)<1],len(g)],c:=[-1,*[i for i,a in enumerate(zip(*g))if max(a)<1],len(g[0])],[[max(y for t in g[i+1:j]for y in t[u+1:v])for u,v in zip(c,c[1:])]for i,j in zip(r,r[1:])])[2]

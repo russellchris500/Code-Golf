@@ -10,7 +10,10 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "Bash(dir:*)",
-      "Read(//c/**)"
+      "Read(//c/**)",
+      "Bash(powershell:*)",
+      "Bash(git pull:*)",
+      "Bash(git ls-tree:*)"
     ],
     "deny": [],
     "ask": []

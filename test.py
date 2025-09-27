@@ -53,8 +53,11 @@ class CodeGolfTester:
         self.test_all_button = ttk.Button(control_frame, text="Test All", command=self.run_test_all)
         self.test_all_button.grid(row=0, column=6, padx=5)
 
+        self.jump_to_fail_button = ttk.Button(control_frame, text="Jump to Fail", command=self.jump_to_fail, state=tk.DISABLED)
+        self.jump_to_fail_button.grid(row=0, column=7, padx=5)
+
         ttk.Label(control_frame, text="(Enter 1-400 for task examples)").grid(
-            row=0, column=7, padx=20)
+            row=0, column=8, padx=20)
         
         nav_frame = ttk.Frame(main_frame)
         nav_frame.grid(row=1, column=0, columnspan=3, pady=10)
@@ -169,6 +172,7 @@ class CodeGolfTester:
             self.current_pair_index = 0
             self.current_example = example_num
             self.overall_tested = False  # Reset overall test status
+            self.jump_to_fail_button.config(state=tk.DISABLED)  # Disable jump to fail until Test All is run
 
             self.update_display()
             
@@ -264,8 +268,49 @@ class CodeGolfTester:
             self.test_all_examples()
             self.overall_tested = True
             self.update_display()
+            # Enable Jump to Fail button after testing all
+            self.jump_to_fail_button.config(state=tk.NORMAL)
         finally:
             self.test_all_button.config(text="Test All", state=tk.NORMAL)
+
+    def jump_to_fail(self):
+        """Jump to the next example that failed"""
+        if not self.overall_tested or not self.all_test_results:
+            messagebox.showinfo("Info", "Please run 'Test All' first to identify failed examples")
+            return
+
+        # Get the total count for each category
+        train_count = len(self.example_data.get('train', []))
+        test_count = len(self.example_data.get('test', []))
+
+        # Start searching from the next example after current
+        start_index = self.current_pair_index + 1
+        total_pairs = train_count + test_count + len(self.example_data.get('arc-gen', []))
+
+        # Search from start_index to end, then wrap around from beginning to start_index
+        for offset in range(total_pairs):
+            check_index = (start_index + offset) % total_pairs
+
+            # Determine which category and index within category
+            if check_index < train_count:
+                category = 'train'
+                category_index = check_index
+            elif check_index < train_count + test_count:
+                category = 'test'
+                category_index = check_index - train_count
+            else:
+                category = 'arc-gen'
+                category_index = check_index - train_count - test_count
+
+            # Check if this example failed
+            if category in self.all_test_results and category_index < len(self.all_test_results[category]):
+                if not self.all_test_results[category][category_index]:  # Failed test
+                    self.current_pair_index = check_index
+                    self.update_display()
+                    return
+
+        # No failures found
+        messagebox.showinfo("Info", "No failed examples found!")
 
     def get_overall_status(self):
         """Get overall pass/fail status across all examples"""
