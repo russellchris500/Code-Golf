@@ -1,1 +1,1 @@
-p=lambda i:[[2*(l*r)for l,r in zip(a[:3],a[4:])]for a in i]
+p=lambda g:[[2*r[i]*r[i+4]for i in(0,1,2)]for r in g]
