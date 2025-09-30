@@ -1,8 +1,6 @@
 def p(g):
- h=len(g);w=len(g[0]);s=set();g=[[c or 4 for c in r]for r in g]
- def f(x,y,s):
-  if h>x>=0<=y<w and g[x][y]==4 and(x,y)not in s:s|={(x,y)};g[x][y]=0;[f(x+i,y+j,s)for i,j in[(0,1),(1,0),(0,-1),(-1,0)]]
- for b in range(h*w):
-  x=b//w;y=b%w
-  if x*y<1 or x>h-2 or y>w-2:f(x,y,s)
+ v=lambda k:0<=k<W*(W-1)and k%W<W-1 and g[k//W][k%W];g=[[c or 4 for c in r]for r in g];W=len(g)+1
+ for i in range(W*W*W):
+  k=i%(W*W)
+  if v(k)==4 and not v(k-1)*v(k+1)*v(k-W)*v(k+W):g[k//W][k%W]=0
  return g
