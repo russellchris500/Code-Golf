@@ -1,0 +1,1 @@
+p=lambda g:[g[0]]+[[(i&r[9])%3for i in g[0][:9]]+[r[9]]for r in g[1:]]

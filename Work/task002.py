@@ -1,18 +1,6 @@
-# def p(g):
-#  h=len(g);w=len(g[0]);s=set();g=[[c or 4 for c in r]for r in g]
-#  def f(x,y,s):
-#   if h>x>=0<=y<w and g[x][y]==4 and(x,y)not in s:s|={(x,y)};g[x][y]=0;[f(x+i,y+j,s)for i,j in[(0,1),(1,0),(0,-1),(-1,0)]]
-#  for b in range(h*w):
-#   x=b//w;y=b%w
-#   if x*y<1 or x>h-2 or y>w-2:f(x,y,s)
-#  return g
-
 def p(g):
- h=range(len(g));s=set();g=[[c or 4 for c in r]for r in g]
- for i in h:s|={(-1,i),(len(g),i),(i,-1),(i,len(g))}
- for _ in range(40):
-  for x in h:
-   for y in h:
-    n={(x,y+1),(x,y-1),(x+1,y),(x-1,y)}
-    if g[x][y]>3 and n&s:g[x][y]=0;s|={(x,y)}
+ v=lambda k:0<=k<W*(W-1)and k%W<W-1 and g[k//W][k%W];g=[[c or 4 for c in r]for r in g];W=len(g)+1
+ for i in range(W*W*W):
+  k=i%(W*W)
+  if v(k)==4 and not v(k-1)*v(k+1)*v(k-W)*v(k+W):g[k//W][k%W]=0
  return g
