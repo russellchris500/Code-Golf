@@ -1,0 +1,1 @@
+def p(g):a=[2 in r for r in g];g=[g,[*zip(*g)]][sum(a)>4];j=2 in g[3];k=2 in g[11];g=g[j<1:14+k];h=[g[6],g[5],*g[2:5],g[2],g[2]]+[g[2]]*j*k+[g[-3],g[-3],*g[-5:-2],g[-6],g[-7]];h=(j^1)*[h[6]]+h+(k^1)*[h[6]];return [h,[*zip(*h)]][sum(a)>4]
