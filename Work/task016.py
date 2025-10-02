@@ -1,1 +1,1 @@
-p=lambda j:[[int('0564312798'[x])for x in r]for r in j]
+p=lambda g:[[int('0564312798'[x])for x in g[0]]]*3

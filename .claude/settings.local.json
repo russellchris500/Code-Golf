@@ -13,7 +13,8 @@
       "Read(//c/**)",
       "Bash(powershell:*)",
       "Bash(git pull:*)",
-      "Bash(git ls-tree:*)"
+      "Bash(git ls-tree:*)",
+      "Bash(git clone:*)"
     ],
     "deny": [],
     "ask": []
