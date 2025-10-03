@@ -1,0 +1,1 @@
+p=lambda g:(t:=[*zip(*g)],[ (c:=list(t[j]),p:=-1,w:=0,[v and ((w and w-v and c.__setitem__(slice(p),[v]*(len(c)-p))),(p:=i,w:=v)) for i,v in enumerate(c)],t.__setitem__(j,(*c,))) for j in range(len(t))],[*zip(*t)])[2]

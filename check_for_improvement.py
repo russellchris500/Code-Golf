@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import json
 import copy
+import threading
 from code_golf_utils import *
 
 # Try to import zopfli for better compression (build-time only).
@@ -378,41 +379,56 @@ def run_gui():
         v = ent.get().strip()
         try:
             n = int(v)
-            info = process_task(n)
+        except:
+            out.set("Invalid task number")
+            return
 
-            pc_prev = info["pc_previous_len"]
-            pc_prev_text = "created" if pc_prev is None else f"prev {pc_prev}B"
+        # Disable button during processing
+        btn.config(state='disabled')
+        out.set(f"Processing task {n}...")
 
-            best_prev = info["best_previous_len"]
-            best_prev_text = "created" if best_prev is None else f"prev {best_prev}B"
+        def process_in_thread():
+            try:
+                info = process_task(n)
 
-            # Build status message with validation info
-            best_status = 'updated' if info['best_written'] else 'kept'
-            if info['best_previous_len'] is None or info['chosen_len'] < info['best_previous_len']:
-                if info['validation_passed']:
-                    validation_status = "✓ VALIDATED"
-                elif info['validation_error']:
-                    validation_status = f"✗ FAILED: {info['validation_error']}"
-                    best_status = 'validation failed'
+                pc_prev = info["pc_previous_len"]
+                pc_prev_text = "created" if pc_prev is None else f"prev {pc_prev}B"
+
+                best_prev = info["best_previous_len"]
+                best_prev_text = "created" if best_prev is None else f"prev {best_prev}B"
+
+                # Build status message with validation info
+                best_status = 'updated' if info['best_written'] else 'kept'
+                if info['best_previous_len'] is None or info['chosen_len'] < info['best_previous_len']:
+                    if info['validation_passed']:
+                        validation_status = "✓ VALIDATED"
+                    elif info['validation_error']:
+                        validation_status = f"✗ FAILED: {info['validation_error']}"
+                        best_status = 'validation failed'
+                    else:
+                        validation_status = "✗ FAILED"
+                        best_status = 'validation failed'
                 else:
-                    validation_status = "✗ FAILED"
-                    best_status = 'validation failed'
-            else:
-                validation_status = "not tested (not shorter)"
+                    validation_status = "not tested (not shorter)"
 
-            msg_lines = [
-                f"{info['task']}: orig {info['original_len']}B → opt {info['optimized_len']}B → compressed {info['compressed_len']}B → chosen {info['chosen_len']}B",
-                f"Private-Compressed: {pc_prev_text} → {'updated' if info['pc_written'] else 'kept'}",
-                f"Best: {best_prev_text} → {best_status}",
-                f"Validation: {validation_status}",
-                f"Best-Decompressed: {'updated' if info['best_decompressed_written'] else 'kept'}",
-            ]
-            msg = "\n".join(msg_lines)
-            out.set(msg)
-            print(msg)
-        except Exception as e:
-            out.set(f"Error: {e}")
-            messagebox.showerror("Error", str(e))
+                msg_lines = [
+                    f"{info['task']}: orig {info['original_len']}B → opt {info['optimized_len']}B → compressed {info['compressed_len']}B → chosen {info['chosen_len']}B",
+                    f"Private-Compressed: {pc_prev_text} → {'updated' if info['pc_written'] else 'kept'}",
+                    f"Best: {best_prev_text} → {best_status}",
+                    f"Validation: {validation_status}",
+                    f"Best-Decompressed: {'updated' if info['best_decompressed_written'] else 'kept'}",
+                ]
+                msg = "\n".join(msg_lines)
+                root.after(0, lambda: out.set(msg))
+                root.after(0, lambda: btn.config(state='normal'))
+                print(msg)
+            except Exception as e:
+                error_msg = f"Error: {e}"
+                root.after(0, lambda: out.set(error_msg))
+                root.after(0, lambda: btn.config(state='normal'))
+                root.after(0, lambda: messagebox.showerror("Error", str(e)))
+
+        threading.Thread(target=process_in_thread, daemon=True).start()
 
     btn = tk.Button(frm, text="Process", command=on_process, width=12)
     btn.grid(row=row, column=2, padx=(10, 0))
