@@ -1,1 +1,1 @@
-p=lambda g:[[*zip(*d[:15])]for l in(3,4,6,8)if(d:=(h:=[*zip(*g)])[:l]*6)[:(e:=g[4].index(0))]==h[:e]][0]
+p=lambda g:[(r[:6+2*(r[:4]in(r[4:8],r[8:12]))]*3)[:15]for r in g]
