@@ -1,9 +1,9 @@
-def p(g,r=enumerate):
- def f():
-  s=[0]*10
-  for i,u in r(g):
-   for j,v in r(u):
-    if v!=8 and v:s[j]=v;g[i][j]=0
-    if v==8:s=[k for k in s if k];g[i][j],g[i][j+1]=s[0],s[1];return
- for _ in 0,1:f();g=g[::-1]
- return g
+def p(e,f=enumerate):
+ def a():
+  a=[0]*10
+  for(o,n)in f(e):
+   for(i,n)in f(n):
+    if n!=8and n:a[i]=n;e[o][i]=0
+    if n==8:a=[a for a in a if a];e[o][i],e[o][i+1]=a[0],a[1];return
+ for i in(0,1):a();e=e[::-1]
+ return e

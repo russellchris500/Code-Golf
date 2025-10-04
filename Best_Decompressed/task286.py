@@ -1,14 +1,11 @@
-L=len
-R=range
-def p(g):
- h,w=L(g),L(g[0])
- f=sum(g,[]);C=sorted([[f.count(k),k] for k in set(f)])[:2]
- d={C[0][1]:C[1][1],C[1][1]:C[0][1]}
- for i in range(50):
-  for r in R(h):
-   for c in R(w):
-    if g[r][c] in d:
-     for y,x in [[0,1],[0,-1],[1,0],[-1,0]]:
-      if 0<=r+y<h and 0<=c+x<w and g[r+y][c+x]==0:
-       g[r+y][c+x]=d[g[r][c]]
- return g
+m=len
+s=range
+def p(u):
+ f,a=m(u),m(u[0]);t=sum(u,[]);t=sorted([[t.count(e),e]for e in set(t)])[:2];i={t[0][1]:t[1][1],t[1][1]:t[0][1]}
+ for e in range(50):
+  for e in s(f):
+   for r in s(a):
+    if u[e][r]in i:
+     for(g,n)in[[0,1],[0,-1],[1,0],[-1,0]]:
+      if 0<=e+g<f and 0<=r+n<a and u[e+g][r+n]==0:u[e+g][r+n]=i[u[e][r]]
+ return u

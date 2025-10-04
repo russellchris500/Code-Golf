@@ -1,10 +1,10 @@
-def p(j,A=enumerate,c=range(11)):
- E=0;k=[[0 if(i+1)%4>0and(j+1)%4>0 else 5 for i in c]for j in c];W={'00':0,'01':0,'02':0,'10':0,'11':0,'12':0,'20':0,'21':0,'22':0}
- for l,J in A(j):
-  for a,C in A(J):
-   if C>0and C!=5:E=int(C);W[str(l//4)+str(a//4)]+=1
- e=max(W.values())
- for l,J in A(k):
-  for a,C in A(J):
-   if C==0and W[str(l//4)+str(a//4)]==e:k[l][a]=E
- return k
+def p(n,q=enumerate,t=range(11)):
+ c=0;r=[[0if(r+1)%4>0and(n+1)%4>0else 5for r in t]for n in t];t={n+r:0for n in'012'for r in'012'}
+ for e,n in q(n):
+  for f,n in q(n):
+   if n>0and n!=5:c=int(n);t[str(e//4)+str(f//4)]+=1
+ u=max(t.values())
+ for e,n in q(r):
+  for f,n in q(n):
+   if n==0and t[str(e//4)+str(f//4)]==u:r[e][f]=c
+ return r

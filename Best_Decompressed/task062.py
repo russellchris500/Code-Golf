@@ -1,15 +1,13 @@
-L=len
-R=range
-def p(g):
- C=sum(g,[]).count(2)
- for i in range(4):
-  h,w=L(g),L(g[0])
-  g=list(map(list,zip(*g[::-1])))
-  for r in R(h):
-   if g[r].count(2)==C and sum(g[r])==2*C:
-    for y in range(max(r,h-r)):
-     if 0<=r+y<h and sum(g[r+y])>0 and 2 not in g[r+y]:
-      if 0<=r-y+1<h and 0<=r+y<h: g[r-y+1]=g[r+y][:]
-     elif 0<=r-y-1<h and 0<=r+y<h: g[r+y]=g[r-y-1][:]
- g=[[3 if c==0 else c for c in r] for r in g]
- return g
+i=len
+o=range
+def p(l):
+ n=sum(l,[]).count(2)
+ for e in range(4):
+  z,e=i(l),i(l[0]);l=list(map(list,zip(*l[::-1])))
+  for e in o(z):
+   if l[e].count(2)==n and sum(l[e])==2*n:
+    for t in range(max(e,z-e)):
+     if 0<=e+t<z and sum(l[e+t])>0and 2not in l[e+t]:
+      if 0<=e-t+1<z and 0<=e+t<z:l[e-t+1]=l[e+t][:]
+     elif 0<=e-t-1<z and 0<=e+t<z:l[e+t]=l[e-t-1][:]
+ l=[[3if e==0else e for e in e]for e in l];return l

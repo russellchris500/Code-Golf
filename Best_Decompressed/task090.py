@@ -1,16 +1,16 @@
-def p(b):
-	l=[o[:]for o in b];x,e=len(l),len(l[0]);F=None;b=-1
-	for o in range(2,min(9,x)+1):
-		for d in range(2,min(9,e)+1):
-			for f in range(0,x-o+1):
-				for a in range(0,e-d+1):
-					c=True
-					for q in range(f,f+o):
-						i=l[q]
-						if any(i[o]!=0 for o in range(a,a+d)):c=False;break
-					if c and o*d>b:b=o*d;F=f,a,o,d
-	if F:
-		f,a,o,d=F
-		for q in range(f,f+o):
-			for o in range(a,a+d):l[q][o]=6
-	return l
+def p(f):
+ l=[o[:]for o in f];d,p=len(l),len(l[0]);e=None;f=-1
+ for o in range(2,min(9,d)+1):
+  for n in range(2,min(9,p)+1):
+   for b in range(0,d-o+1):
+    for u in range(0,p-n+1):
+     a=True
+     for a in range(b,b+o):
+      i=l[a]
+      if any(i[o]!=0for o in range(u,u+n)):a=False;break
+     if a and o*n>f:f=o*n;e=b,u,o,n
+ if e:
+  b,u,o,n=e
+  for a in range(b,b+o):
+   for o in range(u,u+n):l[a][o]=6
+ return l

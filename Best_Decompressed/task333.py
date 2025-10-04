@@ -1,13 +1,13 @@
-L=len
-R=range
-def p(g):
- for i in range(4):
-  g=list(map(list,zip(*g[::-1])))
-  h,w=L(g),L(g[0])
-  for r in R(h):
-   if 3 in g[r]:
-    x=g[r].index(3)
-    C=max(g[r][:x])
-    if C>0:
-     for c in R(g[r].index(C),x):g[r][c]=C
- return g
+a=len
+r=range
+def p(x):
+ for z in range(4):
+  x=list(map(list,zip(*x[::-1])))
+  e,u=a(x),a(x[0])
+  for z in r(e):
+   if 3in x[z]:
+    m=x[z].index(3)
+    n=max(x[z][:m])
+    if n>0:
+     for u in r(x[z].index(n),m):x[z][u]=n
+ return x

@@ -1,10 +1,10 @@
-def p(j,A=range):
-	H,I=len(j),len(j[0]);D,E,F,G=H,0,I,0
-	for B in A(H):
-		for C in A(I):
-			if j[B][C]-1:
-				if B<D:D=B
-				if B>E:E=B
-				if C<F:F=C
-				if C>G:G=C
-	return[[A-(A==1)for A in A[F:G+1]]for A in j[D:E+1]]
+def p(f,g=range):
+ i,l=len(f),len(f[0]);b,e,a,t=i,0,l,0
+ for r in g(i):
+  for p in g(l):
+   if f[r][p]-1:
+    if r<b:b=r
+    if r>e:e=r
+    if p<a:a=p
+    if p>t:t=p
+ return[[g-(g==1)for g in g[a:t+1]]for g in f[b:e+1]]

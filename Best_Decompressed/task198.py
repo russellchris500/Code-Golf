@@ -1,19 +1,19 @@
-L=len
-R=range
-def p(g):
- C=max(sum(g,[]))
- for i in range(4):
-  g=list(map(list,zip(*g[::-1])))
-  h,w=L(g),L(g[0])
-  for r in R(h):
-   if g[r].count(C)>w/2:
-    for c in R(w):
-     if g[r][c]==0:g[r][c]=4
- for i in range(10):
-  for r in R(h):
-   for c in R(w):
-    if g[r][c]==4:
-     for y,x in[[0,1],[0,-1],[1,0],[-1,0]]:
-      if 0<=r+y<h and 0<=c+x<w and g[r+y][c+x]==0:g[r+y][c+x]=4
- g=[[3 if c==0 else c for c in r]for r in g]
- return g
+z=len
+o=range
+def p(r):
+ c=max(sum(r,[]))
+ for u in range(4):
+  r=list(map(list,zip(*r[::-1])))
+  n,n=z(r),z(r[0])
+  for u in o(n):
+   if r[u].count(c)>n/2:
+    for s in o(n):
+     if r[u][s]==0:r[u][s]=4
+ for u in range(10):
+  for u in o(n):
+   for s in o(n):
+    if r[u][s]==4:
+     for d,e in[[0,1],[0,-1],[1,0],[-1,0]]:
+      if 0<=u+d<n and 0<=s+e<n and r[u+d][s+e]==0:r[u+d][s+e]=4
+ r=[[3if s==0else s for s in u]for u in r]
+ return r

@@ -1,6 +1,6 @@
 def p(g,r=range(6)):
- for i in r:
-  if g[i][0]|g[i][-1]:g[i]=[2]*6;a=i
-  if g[0][i]|g[-1][i]:
-   for R in g:R[i]=8;b=i
- g[a][b]=4;return g
+ for D in r:
+  if g[D][0]|g[D][-1]:g[D]=[2]*6;B=D
+  if g[0][D]|g[-1][D]:
+   for C in g:C[D]=8;a=D
+ g[B][a]=4;return g

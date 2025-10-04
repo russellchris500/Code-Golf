@@ -1,17 +1,17 @@
-R=range
-L=len
-def p(g):
- h,w=L(g),L(g[0])
- for r in R(1,h-1):
-  for c in R(1,w-1):
-   M=[g[r+y][c+x]for y,x in[[0,0],[0,1],[1,0],[1,1]]]
-   C=max(M)
-   if sum([1 for i in M if i>0])>2:
-    I=M.index(0)
-    for i in R(1,10):
-     if I<2:y=r-i
-     else:y=r+i+1
-     if I%2:x=c+i+1
-     else:x=c-i
-     if 0<=y<h and 0<=x<w:g[y][x]=C
- return g
+n=range
+x=len
+def p(i):
+ f,f=x(i),x(i[0])
+ for e in n(1,f-1):
+  for d in n(1,f-1):
+   r=[i[e+l][d+a]for l,a in[[0,0],[0,1],[1,0],[1,1]]]
+   t=max(r)
+   if sum([1for u in r if u>0])>2:
+    m=r.index(0)
+    for u in n(1,10):
+     if m<2:l=e-u
+     else:l=e+u+1
+     if m%2:a=d+u+1
+     else:a=d-u
+     if 0<=l<f and 0<=a<f:i[l][a]=t
+ return i

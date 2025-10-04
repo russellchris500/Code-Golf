@@ -1,9 +1,9 @@
-def p(j):
-	C,D,E=len(j),len(j[0]),range;F=[(A,B)for A in(0,C-1)for B in E(D)if j[A][B]<1]+[(A,B)for A in E(C)for B in(0,D-1)if j[A][B]<1]
-	while F:
-		A,B=F.pop()
-		if j[A][B]<1:j[A][B]=3;F+=[(A,B)for(A,B)in((A+1,B),(A-1,B),(A,B+1),(A,B-1))if 0<=A<C and 0<=B<D and j[A][B]<1]
-	for A in E(C):
-		for B in E(D):
-			if j[A][B]<1:j[A][B]=2
-	return j
+def p(H):
+ l,e,E=len(H),len(H[0]),range;d=[(i,o)for i in(0,l-1)for o in E(e)if H[i][o]<1]+[(i,o)for i in E(l)for o in(0,e-1)if H[i][o]<1]
+ while d:
+  i,o=d.pop()
+  if H[i][o]<1:H[i][o]=3;d+=[(i,o)for(i,o)in((i+1,o),(i-1,o),(i,o+1),(i,o-1))if 0<=i<l and 0<=o<e and H[i][o]<1]
+ for i in E(l):
+  for o in E(e):
+   if H[i][o]<1:H[i][o]=2
+ return H

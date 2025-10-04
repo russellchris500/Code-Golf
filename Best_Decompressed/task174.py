@@ -1,10 +1,9 @@
-def p(g):
-    n=len(g)
-    def f(i,j):
-        if n>i>=0<=j<n and g[i][j]==k and(i,j)not in s:
-            s.add((i,j));[f(i+y,j+x)for y in(-1,0,1) for x in(-1,0,1) if y|x]
-    for i in range(n):
-        for j in range(n):
-            if(k:=g[i][j]):
-                s=set();f(i,j);Y,X=zip(*s);a,b=min(Y),max(Y);c,d=min(X),max(X);S=[r[c:d+1]for r in g[a:b+1]]
-                if S==[r[::-1]for r in S]:return S
+def p(e):
+ a=len(e)
+ def t(p,r):
+  if a>p>=0<=r<a and e[p][r]==u and(p,r)not in i:i.add((p,r));[t(p+a,r+i)for a in(-1,0,1)for i in(-1,0,1)if a|i]
+ for p in range(a):
+  for r in range(a):
+   if(u:=e[p][r]):
+    i=set();t(p,r);i,r=zip(*i);n,q=min(i),max(i);i,r=min(r),max(r);b=[a[i:r+1]for a in e[n:q+1]]
+    if b==[a[::-1]for a in b]:return b

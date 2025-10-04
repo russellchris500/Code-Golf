@@ -1,7 +1,7 @@
 def p(g):
- def f(i,j):
-  try:
-   if g[i][j]<1:g[i][j]=1;f(i+1,j);f(i-1,j);f(i,j+1);f(i,j-1)
-  except:0
- for i in range(len(g)):f(i,0);f(i,-1);f(0,i);f(-1,i)
- return[[(4,0,0,3)[a]for a in r]for r in g]
+ b={-1};W=len(g)
+ for i in range(W**3):
+  k=i%(W*W);c=k%W;v=g[k//W];b|={-c-1,W*W+c}
+  if i==k:v[c]=v[c]or 4
+  if v[c]>3and(c%~-W<1or{k-1,k+1,k-W,k+W}&b):v[c]=0;b|={k}
+ return g

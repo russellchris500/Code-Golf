@@ -1,7 +1,7 @@
 from collections import*
-def p(j):
- A=[x for k in j for x in k];c=Counter(A).most_common(3);c=[c for c in c if c[0]>0][-1][0];j=[k for k in j if c in k];E=[]
- for k in j:
-  for W in range(len(k)):
-   if k[W]==c:E+=[W]
- return[k[min(E):max(E)+1]for k in j]
+def p(r):
+ n=[n for n in r for n in n];m=Counter(n).most_common(3);m=[m for m in m if m[0]>0][-1][0];r=[n for n in r if m in n];o=[]
+ for n in r:
+  for i in range(len(n)):
+   if n[i]==m:o+=[i]
+ return[n[min(o):max(o)+1]for n in r]

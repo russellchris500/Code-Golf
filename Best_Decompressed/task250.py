@@ -1,16 +1,16 @@
 from itertools import*
-L=len
-R=range
-P=list(product([0,1,-1],repeat=2))
-def p(g):
-	h,w=L(g),L(g[0])
-	for r in R(h):
-		for c in R(w):
-			if g[r][c]==2:
-				for(y,x)in P:
-					if 0<=r+y<h and 0<=c+x<w:
-						for z in R(20):
-							if 0<=r+y*z<h and 0<=c+x*z<w:
-								W=g[r+y*z][c+x*z]
-								if W==5 and g[r+y][c+x]==0:g[r+y][c+x]=5;g[r+y*z][c+x*z]=0
-	return g
+n=len
+l=range
+t=list(product([0,1,-1],repeat=2))
+def p(p):
+ d,d=n(p),n(p[0])
+ for o in l(d):
+  for r in l(d):
+   if p[o][r]==2:
+    for(e,m)in t:
+     if 0<=o+e<d and 0<=r+m<d:
+      for s in l(20):
+       if 0<=o+e*s<d and 0<=r+m*s<d:
+        a=p[o+e*s][r+m*s]
+        if a==5and p[o+e][r+m]==0:p[o+e][r+m]=5;p[o+e*s][r+m*s]=0
+ return p

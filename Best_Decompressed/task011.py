@@ -1,1 +1,1 @@
-p=lambda g,A=range:(lambda c,e:[[5if x%4==3or y%4==3else g[c*4+x//4][e*4+y//4]for y in A(11)]for x in A(11)])(*next((c,e)for c in A(3)for e in A(3)if sum(g[c*4+w][e*4+l]==0 for w in A(3)for l in A(3))==5))
+p=lambda t,r=range:(lambda f,e:[[5if s%4>2or o%4>2else t[f*4+s//4][e*4+o//4]for o in r(11)]for s in r(11)])(*next((f,e)for f in r(3)for e in r(3)if sum(t[f*4+s][e*4+o]<1for s in r(3)for o in r(3))==5))

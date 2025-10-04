@@ -1,3 +1,2 @@
-E=enumerate
-def p(g):g=[[v if(i and g[i-1][j]==v)+(i+1<len(g)and g[i+1][j]==v)+(j and r[j-1]==v)+(j+1<len(g)and r[j+1]==v)>1else 0 for j,v in E(r)]for i,r in E(g)];f=sum(g,[]);C=sorted([[f.count(c),c]for c in set(f)if c>0]);g=[[0 if c!=C[-1][1]else c for c in r]for r in g];return g
-
+s=enumerate
+def p(e):e=[[k if(d and e[d-1][r]==k)+(d+1<len(e)and e[d+1][r]==k)+(r and n[r-1]==k)+(r+1<len(e)and n[r+1]==k)>1else 0for r,k in s(n)]for d,n in s(e)];r=sum(e,[]);r=sorted([[r.count(n),n]for n in set(r)if n>0]);e=[[0if n!=r[-1][1]else n for n in n]for n in e];return e

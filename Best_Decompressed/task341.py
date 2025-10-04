@@ -1,9 +1,9 @@
-def p(g,e=enumerate):
+def p(l,p=enumerate):
  def f():
-  a=[i for i,r in e(g)if len({*r})>2]
-  for i in a[1:-1]:
-   s=set()
-   for j,x in e(g[i]):
-    if x:s.add(x)
-    if x<1&len(s)==1:g[i][j]=8
- f();g=[*map(list,zip(*g[::-1]))];f();g=[*zip(*g)][::-1];return g
+  a=[d for d,t in p(l)if len({*t})>2]
+  for d in a[1:-1]:
+   i=set()
+   for u,t in p(l[d]):
+    if t:i.add(t)
+    if t<1&len(i)==1:l[d][u]=8
+ f();l=[*map(list,zip(*l[::-1]))];f();l=[*zip(*l)][::-1];return l

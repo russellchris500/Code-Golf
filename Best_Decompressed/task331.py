@@ -1,12 +1,12 @@
-def p(j,A=enumerate):
- c=[]
- for E,k in A(j):
-  for W,l in A(k):
-   if j[E][W]==1:c+=[[E,W]]
- for J in c:
-  a,C=J
-  if a>0:j[a-1][C]=2
-  if a<9:j[a+1][C]=8
-  if C>0:j[a][C-1]=7
-  if C<9:j[a][C+1]=6
- return j
+def p(q,p=enumerate):
+ l=[]
+ for(e,x)in p(q):
+  for(k,n)in p(x):
+   if q[e][k]==1:l+=[[e,k]]
+ for p in l:
+  h,e=p
+  if h>0:q[h-1][e]=2
+  if h<9:q[h+1][e]=8
+  if e>0:q[h][e-1]=7
+  if e<9:q[h][e+1]=6
+ return q

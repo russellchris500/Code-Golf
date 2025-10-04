@@ -1,24 +1,24 @@
-def p(I):
-	L,M=len(I),len(I[0]);D=[list(A)for A in I];C,N=[],set()
-	for A in range(L):
-		for B in range(M):
-			E=I[A][B]
-			if E!=0:C.append((A,B,E));N.add(E)
-	if not C:return I
-	F=sorted(N)
-	def S(v):return F[0]if len(F)==1 or v==F[1]else F[1]
-	for(A,B,E)in C:
-		T=S(E)
-		for O in(-1,0,1):
-			for P in(-1,0,1):
-				if O==0 and P==0:continue
-				Q,R=A+O,B+P
-				if 0<=Q<L and 0<=R<M:D[Q][R]=T
-	G=min(A for(A,B,B)in C);H=max(A for(A,B,B)in C);J=min(B for(A,B,A)in C);K=max(B for(A,B,A)in C)
-	if K>J:
-		for B in range(J+1,K):
-			if min(B-J,K-B)%2==0:D[G][B]=5;D[H][B]=5
-	if H>G:
-		for A in range(G+1,H):
-			if min(A-G,H-A)%2==0:D[A][J]=5;D[A][K]=5
-	return D
+def p(t,l=range):
+ s,i=len(t),len(t[0]);e=[list(u)for u in t];n,o=[],set()
+ for u in l(s):
+  for d in l(i):
+   a=t[u][d]
+   if a!=0:n.append((u,d,a));o.add(a)
+ if not n:return t
+ g=sorted(o)
+ def x(a):return g[0]if len(g)==1or a==g[1]else g[1]
+ for(u,d,a)in n:
+  r=x(a)
+  for y in(-1,0,1):
+   for a in(-1,0,1):
+    if y==0and a==0:continue
+    t,a=u+y,d+a
+    if 0<=t<s and 0<=a<i:e[t][a]=r
+ s=min(u for(u,d,d)in n);i=max(u for(u,d,d)in n);x=min(d for(u,d,u)in n);n=max(d for(u,d,u)in n)
+ if n>x:
+  for d in l(x+1,n):
+   if min(d-x,n-d)%2==0:e[s][d]=5;e[i][d]=5
+ if i>s:
+  for u in l(s+1,i):
+   if min(u-s,i-u)%2==0:e[u][x]=5;e[u][n]=5
+ return e

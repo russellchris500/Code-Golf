@@ -1,36 +1,36 @@
-def p(I):
-	from collections import Counter as M;a,b=len(I),len(I[0]);c=M(B for A in I for B in A);R=max(c,key=c.get);K=[(A,B)for A in range(a)for B in range(b)if I[A][B]!=R]
-	if not K:return I
-	B=min(A for(A,B)in K);G=max(A for(A,B)in K);C=min(A for(B,A)in K);H=max(A for(B,A)in K);L=M(I[A][B]for A in range(B,G+1)for B in range(C,H+1));S={A for A in L if A!=R};D=set()
-	for E in range(B,G+1):D.add(I[E][C]);D.add(I[E][H])
-	for F in range(C,H+1):D.add(I[B][F]);D.add(I[G][F])
-	D.discard(R);d=S-D
-	if d:A=max(d,key=lambda c:(L[c],-c))
-	else:A=min(S,key=lambda c:(L[c],c))
-	if D:e=max(D,key=lambda c:(L[c],-c))
-	else:f=[B for B in S if B!=A];e=max(f,key=lambda c:(L[c],-c))if f else A
-	N=[sum(1 for C in range(C,H+1)if I[B][C]==A)for B in range(B,G+1)];O=[sum(1 for B in range(B,G+1)if I[B][C]==A)for C in range(C,H+1)];T=[A for A in N if A];g=[A for A in O if A];h=[];i=[]
-	if T:
-		P=M(A for A in N if A);U=max(P.items(),key=lambda kv:(kv[1],-kv[0]))[0];V=min(T);m=max(T)
-		if V>2 and m-V==1:U=V
-		h=[A for(A,B)in enumerate(N)if B==U];i=[A for(A,B)in enumerate(N)if B>U]
-	j=[];k=[]
-	if g:
-		P=M(A for A in O if A);W=max(P.items(),key=lambda kv:(kv[1],-kv[0]))[0];X=min(g)
-		if X>2 and P[X]>1:W=X
-		j=[A for(A,B)in enumerate(O)if B==W];k=[A for(A,B)in enumerate(O)if B>W]
-	J=[list(A)for A in I]
-	for E in range(B,G+1):
-		for F in range(C,H+1):J[E][F]=e
-	for Y in h:
-		Q=B+Y
-		for Z in j:J[Q][C+Z]=A
-	for Y in i:
-		Q=B+Y
-		for F in range(0,C):J[Q][F]=A
-		for F in range(H+1,b):J[Q][F]=A
-	for Z in k:
-		l=C+Z
-		for E in range(0,B):J[E][l]=A
-		for E in range(G+1,a):J[E][l]=A
-	return J
+def p(I,x=enumerate,p=range):
+ from collections import Counter as M;r,t=len(I),len(I[0]);e=M(B for d in I for B in d);c=max(e,key=e.get);K=[(d,B)for d in p(r)for B in p(t)if I[d][B]!=c]
+ if not K:return I
+ B=min(d for(d,B)in K);G=max(d for(d,B)in K);C=min(d for(B,d)in K);u=max(d for(B,d)in K);h=M(I[d][B]for d in p(B,G+1)for B in p(C,u+1));c={d for d in h if d!=c};o=set()
+ for a in p(B,G+1):o.add(I[a][C]);o.add(I[a][u])
+ for l in p(C,u+1):o.add(I[B][l]);o.add(I[G][l])
+ o.discard(c);d=c-o
+ if d:d=max(d,key=lambda e:(h[e],-e))
+ else:d=min(c,key=lambda e:(h[e],e))
+ if o:e=max(o,key=lambda e:(h[e],-e))
+ else:o=[B for B in c if B!=d];e=max(o,key=lambda e:(h[e],-e))if o else d
+ N=[sum(1for C in p(C,u+1)if I[B][C]==d)for B in p(B,G+1)];O=[sum(1for B in p(B,G+1)if I[B][C]==d)for C in p(C,u+1)];T=[d for d in N if d];n=[d for d in O if d];h=[];o=[]
+ if T:
+  P=M(d for d in N if d);c=max(P.items(),key=lambda r:(r[1],-r[0]))[0];o=min(T);l=max(T)
+  if o>2and l-o==1:c=o
+  h=[d for(d,B)in x(N)if B==c];o=[d for(d,B)in x(N)if B>c]
+ j=[];k=[]
+ if n:
+  P=M(d for d in O if d);c=max(P.items(),key=lambda r:(r[1],-r[0]))[0];X=min(n)
+  if X>2and P[X]>1:c=X
+  j=[d for(d,B)in x(O)if B==c];k=[d for(d,B)in x(O)if B>c]
+ J=[list(d)for d in I]
+ for a in p(B,G+1):
+  for l in p(C,u+1):J[a][l]=e
+ for l in h:
+  q=B+l
+  for Z in j:J[q][C+Z]=d
+ for l in o:
+  q=B+l
+  for l in p(0,C):J[q][l]=d
+  for l in p(u+1,t):J[q][l]=d
+ for Z in k:
+  l=C+Z
+  for a in p(0,B):J[a][l]=d
+  for a in p(G+1,r):J[a][l]=d
+ return J

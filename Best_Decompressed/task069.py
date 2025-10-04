@@ -1,12 +1,12 @@
-def p(g,E=enumerate):
- P=[]
- for r,R in E(g):
-  for c,C in E(R):
-   if C not in[0,8]:P+=[[r,c,C]];g[r][c]=0
- Z=P[0][:];P=[[x[0]-Z[0],x[1]-Z[1],x[2]]for x in P]
- for r,R in E(g):
-  for c,C in E(R):
-   if C==8:
-    g[r][c]=Z[2]
-    for x in P:g[r+x[0]][c+x[1]]=x[2]
- return g
+def p(e,u=enumerate):
+ j=[]
+ for(f,n)in u(e):
+  for(p,n)in u(n):
+   if n not in[0,8]:j+=[[f,p,n]];e[f][p]=0
+ t=j[0][:];j=[[j[0]-t[0],j[1]-t[1],j[2]]for j in j]
+ for(f,n)in u(e):
+  for(p,n)in u(n):
+   if n==8:
+    e[f][p]=t[2]
+    for t in j:e[f+t[0]][p+t[1]]=t[2]
+ return e

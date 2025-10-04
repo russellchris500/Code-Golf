@@ -1,4 +1,4 @@
 def p(g,e=enumerate):
- for i,r in e(g):
-  for j,x in e(r):
-   if x<1 and (a:=g[i-1][j])and a==r[j-1]:return[[a]]
+ for(o,i)in e(g):
+  for(s,d)in e(i):
+   if d<1and(r:=g[o-1][s])and r==i[s-1]:return[[r]]

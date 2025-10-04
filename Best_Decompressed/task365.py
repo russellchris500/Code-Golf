@@ -1,12 +1,11 @@
-def p(j):
-	A,c=len(j),len(j[0]);E=-1
-	for k in range(A):
-		for W in range(c):
-			if j[k][W]and(k<1 or j[k-1][W]<1)and(W<1 or j[k][W-1]<1):
-				l=J=1
-				while W+l<c and j[k][W+l]:l+=1
-				while k+J<A and j[k+J][W]:J+=1
-				a=[k[W:W+l]for k in j[k:k+J]];C=sum(k.count(2)for k in a)
-				if C>E:E=C;e=a
-	return e#
-
+def p(a):
+ n,n=len(a),len(a[0]);i=-1
+ for d in range(n):
+  for t in range(n):
+   if a[d][t]and(d<1or a[d-1][t]<1)and(t<1or a[d][t-1]<1):
+    f=o=1
+    while t+f<n and a[d][t+f]:f+=1
+    while d+o<n and a[d+o][t]:o+=1
+    u=[d[t:t+f]for d in a[d:d+o]];f=sum(d.count(2)for d in u)
+    if f>i:i=f;l=u
+ return l

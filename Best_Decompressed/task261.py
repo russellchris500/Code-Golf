@@ -1,1 +1,1 @@
-def p(j):j=[j[-1]]+j[:len(j)-1];j=[[2 if C==8 else C for C in R]for R in j];return j
+def p(d):d=[d[-1]]+d[:len(d)-1];d=[[2if d==8else d for d in d]for d in d];return d

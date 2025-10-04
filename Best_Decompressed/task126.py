@@ -1,8 +1,6 @@
-def p(j):
- A=[o[:]for o in j]
- c,E=len(j),len(j[0])
- for k in range(1,c):
-  for W in range(1,E-1):
-   if j[k][W]==0and j[k][W-1]and j[k][W+1]and j[k][W-1]==j[k][W+1]and j[k-1][W]==j[k][W-1]:A[c-1][W]=4
- return A
-
+def p(r):
+ p=[u[:]for u in r];t,s=len(r),len(r[0])
+ for q in range(1,t):
+  for u in range(1,s-1):
+   if r[q][u]==0and r[q][u-1]and r[q][u+1]and r[q][u-1]==r[q][u+1]and r[q-1][u]==r[q][u-1]:p[t-1][u]=4
+ return p

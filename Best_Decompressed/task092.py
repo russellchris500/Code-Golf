@@ -1,17 +1,17 @@
-def p(g,L=len,R=range):
- H,W=L(g),L(g[0]);o=[r[:]for r in g]
- for i in R(H):
-  x=C=None
-  for j in R(W):
-   if g[i][j]:
-    if x is not None and g[i][j]==C:
-     for k in R(x+1,j):o[i][k]=C
-    x=j;C=g[i][j]
- for j in R(W):
-  x=C=None
-  for i in R(H):
-   if g[i][j]:
-    if x is not None and g[i][j]==C:
-     for k in R(x+1,i):o[k][j]=C
-    x=i;C=g[i][j]
- return o
+def p(d,n=len,o=range):
+ l=None;t,l=n(d),n(d[0]);f=[m[:]for m in d]
+ for m in o(t):
+  s=q=l
+  for p in o(l):
+   if d[m][p]:
+    if s is not l and d[m][p]==q:
+     for n in o(s+1,p):f[m][n]=q
+    s=p;q=d[m][p]
+ for p in o(l):
+  s=q=l
+  for m in o(t):
+   if d[m][p]:
+    if s is not l and d[m][p]==q:
+     for n in o(s+1,m):f[n][p]=q
+    s=m;q=d[m][p]
+ return f

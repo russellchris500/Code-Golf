@@ -1,13 +1,13 @@
 from collections import*
-b=len
-i=range
-def p(m):
-	E=[i for i in m for i in i];k=Counter(E).most_common();k=[C for C in k if C[1]==4][0][0];s,p=b(m),b(m[0]);f=[]
-	for a in i(s):
-		for C in i(p):
-			if m[a][C]==k:f.append([a,C])
-	e=min([i[1]for i in f]);u=max([i[1]for i in f]);a=min([i[0]for i in f]);j=max([i[0]for i in f]);m=m[a+1:j];m=[i[e+1:u]for i in m];s,p=b(m),b(m[0])
-	for a in i(s):
-		for C in i(p):
-			if m[a][C]>0:m[a][C]=k
-	return m
+q=len
+g=range
+def p(s):
+ m=[g for g in s for g in g];n=Counter(m).most_common();n=[e for e in n if e[1]==4][0][0];o,p=q(s),q(s[0]);t=[]
+ for m in g(o):
+  for e in g(p):
+   if s[m][e]==n:t.append([m,e])
+ r=min([g[1]for g in t]);o=max([g[1]for g in t]);m=min([g[0]for g in t]);d=max([g[0]for g in t]);s=s[m+1:d];s=[g[r+1:o]for g in s];o,p=q(s),q(s[0])
+ for m in g(o):
+  for e in g(p):
+   if s[m][e]>0:s[m][e]=n
+ return s

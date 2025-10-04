@@ -1,1 +1,1 @@
-def p(g):f=sum(g,[]);c=f.count;m=max(map(c,f));return [[x if c(x)==m else 5for x in r]for r in g]
+def p(t):e=sum(t,[]);B=e.count;C=max(map(B,e));return[[e if B(e)==C else 5for e in e]for e in t]

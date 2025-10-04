@@ -1,1 +1,0 @@
-p=lambda g,z=((0,3,6),(1,4,7)):[[(r:=g[a[i]]).__setitem__(b[j],max(r[b[j]],sorted(r[b[0]::3])[1],sorted([g[x][b[j]]for x in a])[1]))for j in(0,1,2)for b in z]for i in(0,1,2)for a in z]and g

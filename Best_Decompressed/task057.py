@@ -1,1 +1,1 @@
-p=lambda j:(A:={i for r in j for i,x in enumerate(r)if x>0},[r[min(A):max(A)+1]*2for r in j if max(r)>0])[1]
+p=lambda j:[r[(m:=[*map(any,zip(*j))]).index(1):-m[::-1].index(1)]*2for r in j if any(r)]

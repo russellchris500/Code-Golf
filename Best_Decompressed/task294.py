@@ -1,5 +1,5 @@
-def p(g):
- for i in range(1,9):
-  for j in range(1,9):
-   if g[i+1][j]*g[i][j+1]*g[i-1][j]*g[i][j-1]:g[i][j]=2
- return g
+def p(r):
+ for A in range(1,9):
+  for B in range(1,9):
+   if r[A+1][B]*r[A][B+1]*r[A-1][B]*r[A][B-1]:r[A][B]=2
+ return r

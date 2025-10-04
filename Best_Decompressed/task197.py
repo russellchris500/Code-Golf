@@ -1,9 +1,9 @@
-def p(j):
-	A=next((c for c in j if 0 not in c),None)
-	if not A:return j
-	c=[];[c.append(W)for W in A if W not in c]
-	for(E,k)in enumerate(j):
-		if 0 in k and any(k):
-			W=[];[W.append(c)for c in k if c not in W and c]
-			if len(c)==len(W):l=dict(zip(c,W));j[E]=[l[c]for c in A]
-	return j
+def p(i):
+ n=next((e for e in i if 0not in e),None)
+ if not n:return i
+ e=[];[e.append(t)for t in n if t not in e]
+ for(f,d)in enumerate(i):
+  if 0in d and any(d):
+   t=[];[t.append(e)for e in d if e not in t and e]
+   if len(e)==len(t):d=dict(zip(e,t));i[f]=[d[e]for e in n]
+ return i

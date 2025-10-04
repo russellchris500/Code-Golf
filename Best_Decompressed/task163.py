@@ -1,14 +1,13 @@
-def p(g):
- R=range
- for r in R(3):
-  for c in R(3):
-   b=[[g[4*r+i][4*c+j]for j in R(3)]for i in R(3)]
-   for i in R(3):
-    for j in R(3):
-     if b[i][j]==4:
-      z=[[0]*11for _ in R(11)]
-      for x in R(3):
-       for y in R(3):z[4*i+x][4*j+y]=b[x][y]
-      for k in R(11):z[k][3]=z[k][7]=z[3][k]=z[7][k]=5
-      return z
-
+def p(l):
+ j=range
+ for o in j(3):
+  for e in j(3):
+   n=[[l[4*o+t][4*e+j]for j in j(3)]for t in j(3)]
+   for e in j(3):
+    for d in j(3):
+     if n[e][d]==4:
+      t=[[0]*11for j in j(11)]
+      for r in j(3):
+       for g in j(3):t[4*e+r][4*d+g]=n[r][g]
+      for n in j(11):t[n][3]=t[n][7]=t[3][n]=t[7][n]=5
+      return t

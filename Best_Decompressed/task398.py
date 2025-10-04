@@ -1,8 +1,8 @@
-def p(g,L=len,R=range):
-	A=R(L([A for A in set(g[0])if A>0])*5);B=[[0 for A in A]for B in A];g=g[0];C=0
-	for E in A:
-		for D in R(5):
-			try:B[-(E+1)][D+C]=g[D]
-			except:pass
-		C+=1
-	return B
+def p(t,D=len,s=range):
+ A=s(D([A for A in set(t[0])if A>0])*5);n=[[0for A in A]for n in A];t=t[0];e=0
+ for e in A:
+  for D in s(5):
+   try:n[-(e+1)][D+e]=t[D]
+   except:pass
+  e+=1
+ return n

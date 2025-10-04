@@ -1,22 +1,22 @@
-def X(grid):
-	A={}
-	for C in grid:
-		for B in C:A[B]=A.get(B,0)+1
-	return max(A,key=A.get)
-def p(I):
-	R,S=len(I),len(I[0]);N=X(I);C={}
-	for D in range(R):
-		for E in range(S):
-			A=I[D][E]
-			if A==N:continue
-			C.setdefault(A,[]).append((D,E))
-	if not C:return I
-	F={}
-	for(A,B)in C.items():G=[A[0]for A in B];H=[A[1]for A in B];J=max(G)-min(G)+1;K=max(H)-min(H)+1;F[A]=J,K
-	L=max(A for(A,B)in F.values());M=max(A for(B,A)in F.values());O=[[N]*M for A in range(L)]
-	for(A,B)in C.items():
-		G=[A[0]for A in B];H=[A[1]for A in B];T,U=min(G),min(H);J,K=F[A];V=(L-J)//2;W=(M-K)//2
-		for(D,E)in B:
-			P=D-T+V;Q=E-U+W
-			if 0<=P<L and 0<=Q<M:O[P][Q]=A
-	return O
+def r(n):
+ l={}
+ for d in n:
+  for n in d:l[n]=l.get(n,0)+1
+ return max(l,key=l.get)
+def p(n):
+ t,j=len(n),len(n[0]);c=r(n);d={}
+ for a in range(t):
+  for s in range(j):
+   l=n[a][s]
+   if l==c:continue
+   d.setdefault(l,[]).append((a,s))
+ if not d:return n
+ t={}
+ for(l,n)in d.items():a=[l[0]for l in n];p=[l[1]for l in n];i=max(a)-min(a)+1;o=max(p)-min(p)+1;t[l]=i,o
+ j=max(l for(l,n)in t.values());f=max(l for(n,l)in t.values());u=[[c]*f for l in range(j)]
+ for(l,n)in d.items():
+  a=[l[0]for l in n];p=[l[1]for l in n];x,e=min(a),min(p);i,o=t[l];p=(j-i)//2;c=(f-o)//2
+  for(a,s)in n:
+   k=a-x+p;n=s-e+c
+   if 0<=k<j and 0<=n<f:u[k][n]=l
+ return u

@@ -1,5 +1,5 @@
-def p(g,L=len,E=enumerate):
-	for B in set(sum(g,[])):
-		G=[[D,A]for(A,C)in E(g)for(D,F)in E(C)if F==B];C=sum(G,[]);D=C[::2];F=C[1::2];A=g[min(F):max(F)];A=[A[min(D)+1:max(D)][:]for A in A]
-		if A[0].count(B)==L(A[0]):return A[1:]
-	return g
+def p(f,s=len,m=enumerate):
+ for o in set(sum(f,[])):
+  i=[[t,i]for(i,n)in m(f)for(t,n)in m(n)if n==o];n=sum(i,[]);t=n[::2];n=n[1::2];i=f[min(n):max(n)];i=[i[min(t)+1:max(t)][:]for i in i]
+  if i[0].count(o)==s(i[0]):return i[1:]
+ return f

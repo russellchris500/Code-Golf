@@ -1,21 +1,21 @@
-def p(g):
-	F,G=len(g),len(g[0]);Q=[o[:]for o in g];E=[[False]*G for o in range(F)];S=[(1,0),(-1,0),(0,1),(0,-1)]
-	for d in range(F):
-		for s in range(G):
-			if E[d][s]:continue
-			T=g[d][s];p=[(d,s)];E[d][s]=True;i=[(d,s)];a=f=d;b=z=s
-			while p:
-				s,r=p.pop()
-				for(t,V)in S:
-					o,B=s+t,r+V
-					if 0<=o<F and 0<=B<G and not E[o][B]and g[o][B]==T:
-						E[o][B]=True;p.append((o,B));i.append((o,B))
-						if o<a:a=o
-						if o>f:f=o
-						if B<b:b=B
-						if B>z:z=B
-			P=f-a+1;R=z-b+1
-			if P==R and len(i)==P*R:
-				W=2 if P%2==0 else 7
-				for(s,r)in i:Q[s][r]=W
-	return Q
+def p(d):
+ p,x=len(d),len(d[0]);d=[y[:]for y in d];r=[[False]*x for y in range(p)];g=[(1,0),(-1,0),(0,1),(0,-1)]
+ for t in range(p):
+  for e in range(x):
+   if r[t][e]:continue
+   l=d[t][e];f=[(t,e)];r[t][e]=True;n=[(t,e)];u=a=t;h=m=e
+   while f:
+    e,c=f.pop()
+    for(q,y)in g:
+     y,j=e+q,c+y
+     if 0<=y<p and 0<=j<x and not r[y][j]and d[y][j]==l:
+      r[y][j]=True;f.append((y,j));n.append((y,j))
+      if y<u:u=y
+      if y>a:a=y
+      if j<h:h=j
+      if j>m:m=j
+   u=a-u+1;l=m-h+1
+   if u==l and len(n)==u*l:
+    y=2if u%2==0else 7
+    for(e,c)in n:d[e][c]=y
+ return d

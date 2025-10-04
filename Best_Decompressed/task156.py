@@ -1,16 +1,14 @@
-R=range
-L=len
-def p(g):
- h,w,C=L(g),L(g[0]),5
- for r in R(1,h-1):
-  if sum(g[r])<1:C+=1
-  for c in R(1,w-1):
-   if g[r][c] and g[r-1][c] and g[r+1][c] and g[r][c-1] and g[r][c+1]==4:
-    g[r][c]=C
- f=sum(g,[])
- Z=sorted([[f.count(c),c] for c in set(f) if c>4])
- for r in R(h):
-  for c in R(w):
-   if g[r][c]==Z[0][1]:g[r][c]=1
-   if g[r][c]==Z[1][1]:g[r][c]=2
- return g
+d=range
+e=len
+def p(b):
+ i,i,t=e(b),e(b[0]),5
+ for p in d(1,i-1):
+  if sum(b[p])<1:t+=1
+  for f in d(1,i-1):
+   if b[p][f]and b[p-1][f]and b[p+1][f]and b[p][f-1]and b[p][f+1]==4:b[p][f]=t
+ a=sum(b,[]);u=sorted([[a.count(p),p]for p in set(a)if p>4])
+ for p in d(i):
+  for f in d(i):
+   if b[p][f]==u[0][1]:b[p][f]=1
+   if b[p][f]==u[1][1]:b[p][f]=2
+ return b

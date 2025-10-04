@@ -1,15 +1,15 @@
-def p(j,A=range):
-	c=len(j);E=1;k,W=0,0;l=[0,5];J,a=0,0
-	for C in A(c):
-		for e in A(c):
-			if j[C][e]not in l and E:
-				E=0;J,a=C,e;K=C;w=e
-				while K<c and j[K][e]not in l:K+=1
-				while w<c and j[C][w]not in l:w+=1
-				k=K-C;W=w-e
-	for C in A(c-k+1):
-		for e in A(c-W+1):
-			if j[C][e]==5:
-				for L in A(k):
-					for b in A(W):j[C+L][e+b]=j[J+L][a+b]
-	return j
+def p(a,b=range):
+ i=len(a);j=1;l,o=0,0;d=[0,5];q,g=0,0
+ for p in b(i):
+  for t in b(i):
+   if a[p][t]not in d and j:
+    j=0;q,g=p,t;h=p;n=t
+    while h<i and a[h][t]not in d:h+=1
+    while n<i and a[p][n]not in d:n+=1
+    l=h-p;o=n-t
+ for p in b(i-l+1):
+  for t in b(i-o+1):
+   if a[p][t]==5:
+    for k in b(l):
+     for s in b(o):a[p+k][t+s]=a[q+k][g+s]
+ return a

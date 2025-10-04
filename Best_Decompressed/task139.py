@@ -1,7 +1,7 @@
 from itertools import product
-def p(j,A=range):
- for c,E in product(A(len(j)-2),A(len(j[0])-2)):
-  k=A(c,c+3)
-  if not all(4 in i for i in[j[c][E:E+3],j[c+2][E:E+3],[j[W][E]for W in k],[j[W][E+2]for W in k]]):continue
-  for W,l in product(k,A(E,E+3)):j[W][l]+=7*(j[W][l]==0)
- return j
+def p(n,q=range):
+ for(r,o)in product(q(len(n)-2),q(len(n[0])-2)):
+  u=q(r,r+3)
+  if not all(4in q for q in[n[r][o:o+3],n[r+2][o:o+3],[n[q][o]for q in u],[n[q][o+2]for q in u]]):continue
+  for(u,o)in product(u,q(o,o+3)):n[u][o]+=7*(n[u][o]==0)
+ return n

@@ -1,7 +1,7 @@
 def p(g):
- a=[0]*10;R=range(10)
- for i in R:
-  for j in R:
-   r=g[i];v=r[j]
-   if v:a[v]=r.count(v)*sum(t[j]==v for t in g)
- return[[a.index(max(a))]*2]*2
+ B=[0]*10;t=range(10)
+ for e in t:
+  for i in t:
+   r=g[e];a=r[i]
+   if a:B[a]=r.count(a)*sum(B[i]==a for B in g)
+ return[[B.index(max(B))]*2]*2

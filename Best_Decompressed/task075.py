@@ -1,9 +1,9 @@
-def p(j):
-	A=range;c=[A[:]for A in j];E=[[j[k][A]for A in A(3)]for k in A(3)]
-	for k in A(9):
-		for W in A(4,13):
-			if j[k][W]==1:
-				for l in A(-1,2):
-					for J in A(-1,2):
-						if 0<=k+l<9and 4<=W+J<13:c[k+l][W+J]=E[l+1][J+1]
-	return c
+def p(p):
+ l=range;a=[l[:]for l in p];t=[[p[i][l]for l in l(3)]for i in l(3)]
+ for i in l(9):
+  for m in l(4,13):
+   if p[i][m]==1:
+    for q in l(-1,2):
+     for g in l(-1,2):
+      if 0<=i+q<9and 4<=m+g<13:a[i+q][m+g]=t[q+1][g+1]
+ return a

@@ -1,17 +1,11 @@
-E=enumerate
-L=len
-def p(g):
- f=sum(g,[])
- C=sorted([[f.count(c),c] for c in set(f) if c>0])
- P=[[x,y] for y,r in E(g) for x,c in E(r) if c==C[-1][1]]
- f=sum(P,[]);x=f[::2];y=f[1::2]
- X=g[min(y):max(y)+1]
- X=[r[min(x):max(x)+1][:] for r in X]
- if L(X)<3:
-  if X[0].count(0)>0:X=[[0,0,0]]+X
-  else:X=X+[[0,0,0]]
- if L(X[0])<3:
-  if [X[0][0],X[1][0],X[2][0]].count(0)>0:X=[[0]+r for r in X]
-  else:X=[r+[0] for r in X]
- X=[[C[0][1] if c==0 else c for c in r] for r in X]
- return X
+t=enumerate
+m=len
+def p(s):
+ r=sum(s,[]);i=sorted([[r.count(s),s]for s in set(r)if s>0]);e=[[e,s]for(s,r)in t(s)for(e,r)in t(r)if r==i[-1][1]];r=sum(e,[]);e=r[::2];r=r[1::2];s=s[min(r):max(r)+1];s=[s[min(e):max(e)+1][:]for s in s]
+ if m(s)<3:
+  if s[0].count(0)>0:s=[[0,0,0]]+s
+  else:s=s+[[0,0,0]]
+ if m(s[0])<3:
+  if[s[0][0],s[1][0],s[2][0]].count(0)>0:s=[[0]+s for s in s]
+  else:s=[s+[0]for s in s]
+ s=[[i[0][1]if s==0else s for s in s]for s in s];return s

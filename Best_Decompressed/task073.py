@@ -1,4 +1,4 @@
-def p(g):
- for i,x in enumerate(g[2]):
-  if x:g[2][i],g[-1][i]=0,1
- return g
+def p(e):
+ for(R,d)in enumerate(e[2]):
+  if d:e[2][R],e[-1][R]=0,1
+ return e

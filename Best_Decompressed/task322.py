@@ -1,7 +1,7 @@
 def p(j,A=range):
- for c in A(len(j[0])):
-  for E in A(len(j)):
-   if j[E][c]:break
-  else:continue
-  for k in A(E,len(j)):j[k][c]=j[E][c]
- return j
+	for B in A(len(j[0])):
+		for C in A(len(j)):
+			if j[C][B]:break
+		else:continue
+		for D in A(C,len(j)):j[D][B]=j[C][B]
+	return j

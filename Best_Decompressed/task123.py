@@ -1,5 +1,5 @@
-def p(g,R=range):
-	g=[[A for A in A if A>0]for A in g if A.count(0)<2];g=[[A[0]]*10 for A in g+g+g]
-	for A in R(10):
-		for B in R(10):g[A][B]=g[B][A]
-	return g[:10]
+def p(g,e=range):
+ g=[[r for r in r if r>0]for r in g if r.count(0)<2];g=[[r[0]]*10for r in g+g+g]
+ for r in e(10):
+  for A in e(10):g[r][A]=g[A][r]
+ return g[:10]
