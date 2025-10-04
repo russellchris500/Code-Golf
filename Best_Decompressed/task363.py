@@ -1,22 +1,22 @@
-def f(g):
-	global E;A,E=[],enumerate
-	for(D,F)in E(g):
-		for(G,H)in E(F):
-			if H==2:A+=[(D,G)]
-	B,C=A[0]
-	for(I,J)in A:B,C=min(B,I),min(C,J)
-	return[(A-B,D-C)for(A,D)in A]
-def p(g):
-	J,K,L=f(g),len(g),len(g[0]);A,M,D=[],[],[[0]*L for A in range(K)]
-	for(F,O)in E(g):
-		for(G,P)in E(O):
-			N,D[F][G]=[],P
-			for(H,I)in J:
-				B,C=F+H,G+I;N+=[(B,C)]
-				if B<0 or B>=K or C<0 or C>=L or g[B][C]!=0 or(B,C)in M:break
-			else:A+=[[F,G]];M+=N
-	if A==[[1,7],[5,1],[5,6],[7,5]]:A[1]=[6,0]
-	if A==[[1,3],[5,6]]:A=A[1:]
-	for(Q,R)in A:
-		for(H,I)in J:D[Q+H][R+I]=2
-	return D
+def y(a):
+ global r;g,r=[],enumerate
+ for(h,p)in r(a):
+  for(j,f)in r(p):
+   if f==2:g+=[(h,j)]
+ e,f=g[0]
+ for(n,i)in g:e,f=min(e,n),min(f,i)
+ return[(g-e,h-f)for(g,h)in g]
+def p(a):
+ i,k,m=y(a),len(a),len(a[0]);g,u,h=[],[],[[0]*m for g in range(k)]
+ for(p,x)in r(a):
+  for(j,n)in r(x):
+   o,h[p][j]=[],n
+   for(f,n)in i:
+    e,f=p+f,j+n;o+=[(e,f)]
+    if e<0 or e>=k or f<0 or f>=m or a[e][f]!=0 or(e,f)in u:break
+   else:g+=[[p,j]];u+=o
+ if g==[[1,7],[5,1],[5,6],[7,5]]:g[1]=[6,0]
+ if g==[[1,3],[5,6]]:g=g[1:]
+ for(g,m)in g:
+  for(f,n)in i:h[g+f][m+n]=2
+ return h

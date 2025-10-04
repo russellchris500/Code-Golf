@@ -1,6 +1,6 @@
-def p(g,r=range):
- a=[[0]*3for i in r(3)]
- for i in r(9):
-  for j in r(9):
-   if g[i][j]!=5:a[i//3][j//3]=g[i][j]
- return a
+def p(g,o=range):
+ l=[[0]*3for s in o(3)]
+ for s in o(9):
+  for i in o(9):
+   if g[s][i]!=5:l[s//3][i//3]=g[s][i]
+ return l

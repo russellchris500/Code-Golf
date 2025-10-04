@@ -1,1 +1,1 @@
-def p(t,p=range):a,i=len(t),len(t[0]);r=[-1]+[a for a in p(a)if len({*t[a]})==1]+[a];r=[-1]+[i for i in p(i)if len({t[a][i]for a in p(a)})==1]+[i];d=[[t[a+1][i+1]for(i,r)in zip(r,r[1:])if i+1<r-1]for(a,i)in zip(r,r[1:])if a+1<i-1];return[a[::-1]for a in d]
+def p(d,z=range):i,n=len(d),len(d[0]);r=[-1]+[r for r in z(i)if len({*d[r]})==1]+[i];r=[-1]+[r for r in z(n)if len({d[i][r]for i in z(i)})==1]+[n];r=[[d[i+1][r+1]for(r,n)in zip(r,r[1:])if r+1<n-1]for(i,n)in zip(r,r[1:])if i+1<n-1];return[r[::-1]for r in r]

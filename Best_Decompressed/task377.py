@@ -1,12 +1,11 @@
-def p(g,L=len,R=range):
- h,w=L(g),L(g[0])
- c,C=0,[]
- for r in R(L(g)):
-  K=[g[r][0]]
-  for i in R(L(g[r])-1):
-   if g[r][i+1]!=g[r][i]:K+=[g[r][i+1]]
-  if L(K)>c:c=L(K);C=K[:]
- g=[C[:]for _ in R(L(C))]
- for r in R(L(g)//2):
-  for c in R(r,L(g[0])-r-1):g[r][c]=g[r][r];g[-(r+1)][c]=g[-(r+1)][r]
- return g
+def p(e,i=len,b=range):
+ p,p=i(e),i(e[0]);r,l=0,[]
+ for m in b(i(e)):
+  d=[e[m][0]]
+  for h in b(i(e[m])-1):
+   if e[m][h+1]!=e[m][h]:d+=[e[m][h+1]]
+  if i(d)>r:r=i(d);l=d[:]
+ e=[l[:]for m in b(i(l))]
+ for m in b(i(e)//2):
+  for r in b(m,i(e[0])-m-1):e[m][r]=e[m][m];e[-(m+1)][r]=e[-(m+1)][m]
+ return e

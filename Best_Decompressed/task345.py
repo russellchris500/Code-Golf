@@ -1,8 +1,8 @@
-def p(j):
- for a in range(len(j[0])):
-  if j[-1][a]==2:
-   c=0
-   for e in range(len(j)):
-    if j[~e][a+c]==5:c+=1;j[-e][a+c]=2
-    j[~e][a+c]=2
- return j
+def p(r):
+ for A in range(len(r[0])):
+  if r[-1][A]==2:
+   B=0
+   for e in range(len(r)):
+    if r[~e][A+B]==5:B+=1;r[-e][A+B]=2
+    r[~e][A+B]=2
+ return r

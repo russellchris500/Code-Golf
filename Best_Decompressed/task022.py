@@ -1,12 +1,11 @@
-L=len
-R=range
+f=len
+n=range
 def p(g):
- X=[[0,0,0]for _ in R(3)]
- h,w=L(g),L(g[0])
- for r in R(h):
-  for c in R(w):
-   if g[r][c]==5:
-    for i in R(-1,2):
-     for j in R(-1,2):
-      if r+i>=0 and c+j>=0 and g[r+i][c+j]!=0:X[1+i][1+j]=g[r+i][c+j]
- return X
+ e=[[0,0,0]for p in n(3)];d,d=f(g),f(g[0])
+ for p in n(d):
+  for r in n(d):
+   if g[p][r]==5:
+    for o in n(-1,2):
+     for a in n(-1,2):
+      if p+o>=0and r+a>=0and g[p+o][r+a]!=0:e[1+o][1+a]=g[p+o][r+a]
+ return e

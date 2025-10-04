@@ -1,8 +1,8 @@
-def p(d,i=len,r=range):
-	l='r';m='r';e,l,x=i(d),i(d[0]),{}
-	for a in r(e):
-		for z in r(l):
-			e=d[a][z]
-			if e in x:x[e][l]+=[a];x[e][m]+=[z]
-			else:x[e]={l:[a],m:[z]}
-	r=sorted([[i(x[e][l])*(max(x[e][m])-min(x[e][m])),e]for e in x if e>0])[0][1];d=[[r if x==r else 0 for x in x]for x in d];x=x[r];d=[l[min(x[m]):max(x[m])+1]for l in d];d=d[min(x[l]):max(x[l])+1];return d
+def p(a,i=len,r=range):
+ f='r';m='r';e,f,x=i(a),i(a[0]),{}
+ for s in r(e):
+  for n in r(f):
+   e=a[s][n]
+   if e in x:x[e][f]+=[s];x[e][m]+=[n]
+   else:x[e]={f:[s],m:[n]}
+ r=sorted([[i(x[e][f])*(max(x[e][m])-min(x[e][m])),e]for e in x if e>0])[0][1];a=[[r if x==r else 0for x in x]for x in a];x=x[r];a=[f[min(x[m]):max(x[m])+1]for f in a];a=a[min(x[f]):max(x[f])+1];return a

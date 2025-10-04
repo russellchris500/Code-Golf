@@ -1,23 +1,23 @@
-r=range
-L=len
-def p(a):
-	M=False;t=None;J,K=L(a),L(a[0]);u=[[1 if a[x][f]else 0 for f in r(3)]for x in r(3)]
-	for x in r(J-2):
-		for f in r(K-2):
-			if x<1 and f<1:continue
-			C=t;n=True
-			for i in r(3):
-				for d in r(3):
-					G=a[x+i][f+d]
-					if u[i][d]:
-						if not G or C is not t and G!=C:n=M;break
-						if C is t:C=G
-					elif G:n=M;break
-				if not n:break
-			if not n:continue
-			if any(0<=x+i+n<J and 0<=f+d+G<K and not(x<=x+i+n<x+3 and f<=f+d+G<f+3)and a[x+i+n][f+d+G]==C for i in r(3)for d in r(3)if u[i][d]for(n,G)in((1,0),(-1,0),(0,1),(0,-1))):continue
-			for i in r(3):
-				for d in r(3):
-					if u[i][d]:a[x+i][f+d]=5
-			return a
-	return a
+d=range
+t=len
+def p(y):
+ r=False;n=None;f,f=t(y),t(y[0]);n=[[1if y[e][m]else 0for m in d(3)]for e in d(3)]
+ for e in d(f-2):
+  for m in d(f-2):
+   if e<1and m<1:continue
+   o=n;u=True
+   for q in d(3):
+    for s in d(3):
+     i=y[e+q][m+s]
+     if n[q][s]:
+      if not i or o is not n and i!=o:u=r;break
+      if o is n:o=i
+     elif i:u=r;break
+    if not u:break
+   if not u:continue
+   if any(0<=e+q+u<f and 0<=m+s+i<f and not(e<=e+q+u<e+3and m<=m+s+i<m+3)and y[e+q+u][m+s+i]==o for q in d(3)for s in d(3)if n[q][s]for(u,i)in((1,0),(-1,0),(0,1),(0,-1))):continue
+   for q in d(3):
+    for s in d(3):
+     if n[q][s]:y[e+q][m+s]=5
+   return y
+ return y

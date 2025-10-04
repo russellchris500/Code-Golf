@@ -1,10 +1,10 @@
-j=len
-A=range
-def p(c):
-	E,k=j(c),j(c[0]);W=[a for W in c for a in W];W=sorted(W)[-1];c=[[0]+W+[0]for W in c];l=[[0]*(k+2)];c=l+c+l;J=[[1,1],[-1,-1],[-1,1],[1,-1],[0,1],[0,-1],[-1,0],[1,0],[0,0]]
-	for a in A(1,E+1):
-		for C in A(1,k+1):
-			if c[a][C]==W:
-				e=[c[W[0]+a][W[1]+C]for W in J]
-				if sum(e)==W:c[a][C]=0
-	c=c[1:-1];c=[W[1:-1]for W in c];return c
+i=len
+t=range
+def p(e):
+ r,s=i(e),i(e[0]);f=[f for t in e for f in t];f=sorted(f)[-1];e=[[0]+t+[0]for t in e];d=[[0]*(s+2)];e=d+e+d;d=[[1,1],[-1,-1],[-1,1],[1,-1],[0,1],[0,-1],[-1,0],[1,0],[0,0]]
+ for r in t(1,r+1):
+  for g in t(1,s+1):
+   if e[r][g]==f:
+    u=[e[t[0]+r][t[1]+g]for t in d]
+    if sum(u)==f:e[r][g]=0
+ e=e[1:-1];e=[t[1:-1]for t in e];return e

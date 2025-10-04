@@ -1,38 +1,38 @@
-def p(g):
-	M=[A[:]for A in g];a,b=len(M),len(M[0]);A=[]
-	for W in M:
-		b=[]
-		for X in W:b+=[X]*2
-		A.extend([b[:],b[:]])
-	J,K=len(A),len(A[0]);L=[[False]*K for A in range(J)];D=[]
-	for B in range(J):
-		for a in range(K):
-			if A[B][a]!=2 or L[B][a]:continue
-			O=[(B,a)];L[B][a]=True;P=[]
-			while O:
-				E,Q=O.pop();P.append((E,Q))
-				for R in(-1,0,1):
-					for S in(-1,0,1):
-						if R==S==0:continue
-						F,G=E+R,Q+S
-						if 0<=F<J and 0<=G<K and not L[F][G]and A[F][G]==2:L[F][G]=True;O.append((F,G))
-			D.append(P)
-	Y={(B,a)for B in range(J)for a in range(K)if A[B][a]==2}
-	def T(si,q,u,ej):
-		for B in range(si,u+1):
-			for a in range(q,ej+1):A[B][a]=4
-	for E in D:H=[A for(A,B)in E];I=[A for(B,A)in E];T(min(H),min(I),max(H),max(I))
-	def Z(A,B):
-		a=10**9
-		for(E,F)in A:
-			for(G,H)in B:
-				D=abs(E-G)+abs(F-H)
-				if D<a:a=D
-				if a==0:return 0
-		return a
-	d=len(D)
-	for B in range(d):
-		for a in range(d):
-			if Z(D[B],D[a])<5:k=D[B]+D[a];H=[A for(A,B)in k];I=[A for(B,A)in k];T(min(H),min(I),max(H),max(I))
-	for(B,a)in Y:A[B][a]=2
-	return[A[::2]for A in A[::2]]
+def p(g,i=range):
+ a=[s[:]for s in g];s,e=len(a),len(a[0]);f=[]
+ for g in a:
+  e=[]
+  for s in g:e+=[s]*2
+  f.extend([e[:],e[:]])
+ h,e=len(f),len(f[0]);a=[[False]*e for s in i(h)];p=[]
+ for r in i(h):
+  for s in i(e):
+   if f[r][s]!=2or a[r][s]:continue
+   d=[(r,s)];a[r][s]=True;k=[]
+   while d:
+    o,b=d.pop();k.append((o,b))
+    for j in(-1,0,1):
+     for g in(-1,0,1):
+      if j==g==0:continue
+      c,z=o+j,b+g
+      if 0<=c<h and 0<=z<e and not a[c][z]and f[c][z]==2:a[c][z]=True;d.append((c,z))
+   p.append(k)
+ n={(s,r)for s in i(h)for r in i(e)if f[s][r]==2}
+ def g(p,m,n,h):
+  for s in i(p,n+1):
+   for r in i(m,h+1):f[s][r]=4
+ for o in p:k=[s for(s,f)in o];o=[s for(f,s)in o];g(min(k),min(o),max(k),max(o))
+ def a(s,f):
+  r=10**9
+  for(o,c)in s:
+   for(z,k)in f:
+    p=abs(o-z)+abs(c-k)
+    if p<r:r=p
+    if r==0:return 0
+  return r
+ e=len(p)
+ for r in i(e):
+  for s in i(e):
+   if a(p[r],p[s])<5:y=p[r]+p[s];k=[s for(s,f)in y];o=[s for(f,s)in y];g(min(k),min(o),max(k),max(o))
+ for(r,s)in n:f[r][s]=2
+ return[s[::2]for s in f[::2]]

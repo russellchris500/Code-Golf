@@ -1,6 +1,6 @@
 from collections import*
-def p(j,A=range):
- c=Counter([x for r in j for x in r]).most_common(9);E,k=c[0][1],len(c);j=[[0 for _ in A(k)]for _ in A(E)]
- for W in A(k):
-  for l in A(c[W][1]):j[l][W]=c[W][0]
- return j
+def p(s,b=range):
+ m=Counter([r for r in s for r in r]).most_common(9);q,o=m[0][1],len(m);s=[[0for r in b(o)]for r in b(q)]
+ for d in b(o):
+  for r in b(m[d][1]):s[r][d]=m[d][0]
+ return s

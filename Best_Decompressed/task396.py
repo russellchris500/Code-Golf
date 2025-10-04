@@ -1,14 +1,14 @@
-def p(j):
-	A=range;c,E=len(j),len(j[0]);k={}
-	for W in A(c):
-		for l in A(E):
-			if j[W][l]:k[j[W][l]]=k.get(j[W][l],0)+1
-	J,a=max(k,key=k.get),min(k,key=k.get);C,e=0,None
-	for K in A(c-2):
-		for w in A(E-2):
-			for L in A(K+2,c):
-				for b in A(w+2,E):
-					if all(j[K][A]==J for A in A(w,b+1))and all(j[L][A]==J for A in A(w,b+1))and all(j[A][w]==J for A in A(K,L+1))and all(j[A][b]==J for A in A(K,L+1)):
-						d=(L-K+1)*(b-w+1)
-						if d>C:C,e=d,(K,w,L,b)
-	K,w,L,b=e;return[[a if j[K+L][w+A]==J else j[K+L][w+A]for A in A(b-w+1)]for L in A(L-K+1)]
+def p(g):
+ a=range;q,y=len(g),len(g[0]);e={}
+ for m in a(q):
+  for i in a(y):
+   if g[m][i]:e[g[m][i]]=e.get(g[m][i],0)+1
+ d,f=max(e,key=e.get),min(e,key=e.get);h,r=0,None
+ for m in a(q-2):
+  for t in a(y-2):
+   for u in a(m+2,q):
+    for i in a(t+2,y):
+     if all(g[m][a]==d for a in a(t,i+1))and all(g[u][a]==d for a in a(t,i+1))and all(g[a][t]==d for a in a(m,u+1))and all(g[a][i]==d for a in a(m,u+1)):
+      p=(u-m+1)*(i-t+1)
+      if p>h:h,r=p,(m,t,u,i)
+ m,t,u,i=r;return[[f if g[m+u][t+a]==d else g[m+u][t+a]for a in a(i-t+1)]for u in a(u-m+1)]

@@ -1,4 +1,4 @@
-def p(g,E=enumerate):
-	H=len(g[0]);A=[-1]+[A for(A,B)in E(zip(*g))if not any(B)]+[H];B=[[C[A[B]+1:A[B+1]]for C in g]for B in range(len(A)-1)if A[B]+1<A[B+1]];C=B[:1]
-	for D in B[1:]:I=C[-1];J=next((B for(B,A)in E(I)if A and A[-1]==5),0);K=next((B for(B,A)in E(D)if A and A[0]==5),0);F=J-K;G=[[0]*len(D[0])]*3;C+=[(G+D+G)[3-F:6-F]]
-	L=[next((A for B in A for A in B if A>0 and A!=5),0)for A in B];M=[[[B if A==5 else A for A in A]for A in A]for(A,B)in zip(C,L)];return[sum(A,[])for A in zip(*M)]
+def p(r,l=enumerate):
+ t=len(r[0]);t=[-1]+[t for(t,a)in l(zip(*r))if not any(a)]+[t];a=[[n[t[a]+1:t[a+1]]for n in r]for a in range(len(t)-1)if t[a]+1<t[a+1]];n=a[:1]
+ for u in a[1:]:t=n[-1];t=next((a for(a,t)in l(t)if t and t[-1]==5),0);r=next((a for(a,t)in l(u)if t and t[0]==5),0);r=t-r;t=[[0]*len(u[0])]*3;n+=[(t+u+t)[3-r:6-r]]
+ t=[next((t for a in t for t in a if t>0and t!=5),0)for t in a];r=[[[a if t==5else t for t in t]for t in t]for(t,a)in zip(n,t)];return[sum(t,[])for t in zip(*r)]

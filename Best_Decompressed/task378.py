@@ -1,12 +1,12 @@
-def f(o,x,s,i,h):
- f=o[x][s]
- if f==0:return
- if not sum(o[x][s+d]==f for d in(1,-1))==sum(o[x+d][s]==f for d in(1,-1))==1:return
- k,g,d,a=2*(o[x+1][s]==f)-1,2*(o[x][s+1]==f)-1,s,x
- if o[x+k][s+g]==f:return
- while 1<=d<h-1and 1<=a<i-1:a-=k;d-=g;o[a][d]=o[x+2*k][s+2*g]
+def r(o,n,s,j,e):
+ r=o[n][s]
+ if r==0:return
+ if not sum(o[n][s+d]==r for d in(1,-1))==sum(o[n+d][s]==r for d in(1,-1))==1:return
+ f,m,d,a=2*(o[n+1][s]==r)-1,2*(o[n][s+1]==r)-1,s,n
+ if o[n+f][s+m]==r:return
+ while 1<=d<e-1and 1<=a<j-1:a-=f;d-=m;o[a][d]=o[n+2*f][s+2*m]
 def p(o):
- i,h=len(o),len(o[0])
- for x in range(1,i-1):
-  for s in range(1,h-1):f(o,x,s,i,h)
+ j,e=len(o),len(o[0])
+ for n in range(1,j-1):
+  for s in range(1,e-1):r(o,n,s,j,e)
  return o

@@ -1,11 +1,11 @@
-def p(j):
-	A=range;c=[e[:]for e in j];E,k=len(j),len(j[0]);W=[(e,l)for e in A(E)for l in A(k)if j[e][l]==8]
-	for(l,J)in W:
-		for(a,C)in[(0,1),(1,0),(0,-1),(-1,0)]:
-			e=1
-			while 0<=l+e*a<E and 0<=J+e*C<k:
-				if j[l+e*a][J+e*C]==8:
-					for K in A(1,e):c[l+K*a][J+K*C]=3
-					break
-				e+=1
-	return c
+def p(c):
+ d=range;c=[e[:]for e in c];f,p=len(c),len(c[0]);e=[(e,i)for e in d(f)for i in d(p)if c[e][i]==8]
+ for(i,h)in e:
+  for(a,q)in[(0,1),(1,0),(0,-1),(-1,0)]:
+   e=1
+   while 0<=i+e*a<f and 0<=h+e*q<p:
+    if c[i+e*a][h+e*q]==8:
+     for e in d(1,e):c[i+e*a][h+e*q]=3
+     break
+    e+=1
+ return c

@@ -1,1 +1,1 @@
-p=lambda g:[[c*2 for c in r]for r in g+(g[:3],g[2:5])[g[1]!=g[4]]]
+p=lambda r:[[c*2for c in r]for r in r+(r[:3],r[2:5])[r[1]!=r[4]]]

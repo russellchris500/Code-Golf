@@ -1,29 +1,28 @@
 def p(g):
- v=set();R=[]
- for i in range(100):
-  r,c=i//10,i%10
-  if(r,c)in v:continue
-  V=g[r][c];q=[(r,c)];C={(r,c)};v|={q[0]}
-  for x,y in q:
-   for n in[(x+d,y+e)for d,e in[(0,1),(0,-1),(1,0),(-1,0)]]:
-    if 0<=n[0]<10>n[1]>=0 and n not in v and g[n[0]][n[1]]==V:v|={n};q+=[n];C|={n}
-  R+=[(V,C)]
- F=[c for v,c in R if v==5];H=[];P=[]
- for v,c in R:
-  if v==0:
-   b=lambda s,i:[min,max][i>1](x[i%2]for x in s)
-   if any(all(b(c,i)>=b(f,i)if i<2 else b(c,i)<=b(f,i)for i in range(4))for f in F):H+=[c]
-  elif v>0 and v!=5:P+=[(v,c)]
- N=lambda s:frozenset((r-(m:=min(s))[0],c-m[1])for r,c in s)
- h={};p={}
- for x in H:k=N(x);h[k]=h.get(k,[])+[x]
- for v,x in P:k=N(x);p[k]=p.get(k,[])+[(v,x)]
- C={v:sum(1 for x,_ in P if x==v)for v,_ in P}
- for k,L in h.items():
-  if k in p:
-   Q=p[k]
-   if len(Q)>1 and C:Q=[x for x in Q if x[0]!=max(C,key=C.get)]or Q
-   for a,(v,b)in zip(L,Q):
-    for r,c in b:g[r][c]=0
-    for r,c in a:g[r][c]=v
+ c=set();t=[]
+ for a in range(100):
+  n,a=a//10,a%10
+  if(n,a)in c:continue
+  r=g[n][a];p=[(n,a)];u={(n,a)};c|={p[0]}
+  for(f,x)in p:
+   for a in[(f+c,x+a)for(c,a)in[(0,1),(0,-1),(1,0),(-1,0)]]:
+    if 0<=a[0]<10>a[1]>=0and a not in c and g[a[0]][a[1]]==r:c|={a};p+=[a];u|={a}
+  t+=[(r,u)]
+ r=[a for(c,a)in t if c==5];p=[];j=[]
+ for(c,a)in t:
+  if c==0:
+   f=lambda s,p:[min,max][p>1](c[p%2]for c in s)
+   if any(all(f(a,c)>=f(n,c)if c<2else f(a,c)<=f(n,c)for c in range(4))for n in r):p+=[a]
+  elif c>0and c!=5:j+=[(c,a)]
+ r=lambda s:frozenset((a-(c:=min(s))[0],n-c[1])for(a,n)in s);a={};l={}
+ for f in p:s=r(f);a[s]=a.get(s,[])+[f]
+ for(c,f)in j:s=r(f);l[s]=l.get(s,[])+[(c,f)]
+ u={c:sum(1for(a,n)in j if a==c)for(c,a)in j}
+ for(s,a)in a.items():
+  if s in l:
+   r=l[s]
+   if len(r)>1and u:r=[c for c in r if c[0]!=max(u,key=u.get)]or r
+   for(z,(c,f))in zip(a,r):
+    for(n,a)in f:g[n][a]=0
+    for(n,a)in z:g[n][a]=c
  return g

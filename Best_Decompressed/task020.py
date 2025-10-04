@@ -1,13 +1,13 @@
-def p(g,H=enumerate):
- t=l=9**9;b=r=-1
- for y,a in H(g):
-  for x,v in H(a):
-   if v:t=min(t,y);b=max(b,y);l=min(l,x);r=max(r,x)
- s=t+b;S=l+r
- for y in range(t,b+1):
-  for x in range(l,r+1):
-   Y=s-y;X=S-x;u=t+x-l;v=l+y-t;U=t+r-x;V=l+b-y
-   P=((y,x),(y,X),(Y,x),(Y,X),(u,v),(U,v),(u,V),(U,V))
-   c=max(g[i][j]for i,j in P)
-   for i,j in P:g[i][j]=c
- return g
+def p(o,r=enumerate):
+ a=f=9**9;p=i=-1
+ for h,j in r(o):
+  for t,d in r(j):
+   if d:a=min(a,h);p=max(p,h);f=min(f,t);i=max(i,t)
+ u=a+p;l=f+i
+ for h in range(a,p+1):
+  for t in range(f,i+1):
+   r=u-h;t=l-t;m=a+t-f;d=f+h-a;m=a+i-t;j=f+p-h
+   r=((h,t),(h,t),(r,t),(r,t),(m,d),(m,d),(m,j),(m,j))
+   e=max(o[r][m]for r,m in r)
+   for r,m in r:o[r][m]=e
+ return o

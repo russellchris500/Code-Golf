@@ -1,15 +1,15 @@
-L=len
-R=range
-P=[[0,1],[0,-1],[1,0],[-1,0]]
-def p(g):
- h,w=L(g),L(g[0])
- for r in R(h):
-  for c in R(w):
-   if g[r][c]==8:
-    for y,x in P:
-     if g[r+y][c+x]==0:
-      for z in R(20):
-        if 0<=r+(y*z)<h and 0<=c+(x*z)<w:
-         W=g[r+(y*z)][c+(x*z)]
-         if W>0:g[r][c]=W
- return g
+h=len
+b=range
+r=[[0,1],[0,-1],[1,0],[-1,0]]
+def p(a):
+ c,c=h(a),h(a[0])
+ for t in b(c):
+  for o in b(c):
+   if a[t][o]==8:
+    for(p,u)in r:
+     if a[t+p][o+u]==0:
+      for d in b(20):
+       if 0<=t+p*d<c and 0<=o+u*d<c:
+        l=a[t+p*d][o+u*d]
+        if l>0:a[t][o]=l
+ return a

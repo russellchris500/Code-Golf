@@ -1,16 +1,16 @@
-def p(a):
-	J=None;F=range;K=lambda g:[list(A)for A in zip(*g)];B=a;L=0
-	if not any(all(A==8 for A in A)for A in a):B,L=K(a),1
-	H,M=len(B),len(B[0]);G=[A[:]for A in B];N=[A for A in F(H)if all(A==8 for A in B[A])]
-	for D in F(H):
-		for C in F(M):
-			if B[D][C]!=2:continue
-			for A in(max([A for A in N if A<D],default=J),min([A for A in N if A>D],default=J)):
-				if A is J:continue
-				for E in(A-1,A,A+1):
-					if 0<=E<H:
-						for I in(C-1,C,C+1):
-							if 0<=I<M:G[E][I]=2 if E==A and I==C else 8
-				O=1-2*(A<D)
-				for E in F(D,A-O,O):G[E][C]=2
-	return K(G)if L else G
+def p(r):
+ o=None;F=range;a=lambda c:[list(e)for e in zip(*c)];z=r;o=0
+ if not any(all(e==8for e in e)for e in r):z,o=a(r),1
+ i,c=len(z),len(z[0]);f=[e[:]for e in z];d=[e for e in F(i)if all(e==8for e in z[e])]
+ for n in F(i):
+  for p in F(c):
+   if z[n][p]!=2:continue
+   for e in(max([e for e in d if e<n],default=o),min([e for e in d if e>n],default=o)):
+    if e is o:continue
+    for r in(e-1,e,e+1):
+     if 0<=r<i:
+      for m in(p-1,p,p+1):
+       if 0<=m<c:f[r][m]=2if r==e and m==p else 8
+    u=1-2*(e<n)
+    for r in F(n,e-u,u):f[r][p]=2
+ return a(f)if o else f

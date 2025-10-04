@@ -1,13 +1,13 @@
-def p(g,L=len,R=range):
-	E,F=L(g),L(g[0]);D=[A for A in R(L(g))if 5 in g[A]][0]
-	for A in R(E):
-		for B in R(F):
-			if g[A][B]==1 and A<D:
-				for C in R(A,-1,-1):g[C][B]=1
-			elif g[A][B]==1 and A>D:
-				for C in R(A,E):g[C][B]=1
-			if g[A][B]==2 and A<D:
-				for C in R(A,D):g[C][B]=2
-			elif g[A][B]==2 and A>D:
-				for C in R(D+1,A):g[C][B]=2
-	return g
+def p(g,l=len,p=range):
+ e,e=l(g),l(g[0]);f=[u for u in p(l(g))if 5in g[u]][0]
+ for u in p(e):
+  for o in p(e):
+   if g[u][o]==1and u<f:
+    for i in p(u,-1,-1):g[i][o]=1
+   elif g[u][o]==1and u>f:
+    for i in p(u,e):g[i][o]=1
+   if g[u][o]==2and u<f:
+    for i in p(u,f):g[i][o]=2
+   elif g[u][o]==2and u>f:
+    for i in p(f+1,u):g[i][o]=2
+ return g

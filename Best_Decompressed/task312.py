@@ -1,5 +1,5 @@
 def p(j):
- for A in j:
-  for c in A:
-   if c and c-5:A[:]=[c*(x==5)+x*(x!=5)for x in A];break
- return j
+	for A in j:
+		for B in A:
+			if B and B-5:A[:]=[B*(A==5)+A*(A!=5)for A in A];break
+	return j

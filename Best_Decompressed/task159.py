@@ -1,23 +1,18 @@
-R=range
-L=len
-def p(g):
- h,w=L(g),L(g[0])
- S,N=[],[99,99,0,0]
- Z=[i for i in sum(g,[]) if i not in [0,2]][0]
- for r in R(h):
-  C=g[r].count(2)
-  if C>1 and len(S)<1:S=[r,g[r].index(2),C]
-  C=g[r].count(Z)
-  if C>0:
-   N[0]=min([r,N[0]])
-   for c in R(w):
-    if g[r][c]==Z:N[1]=min([c,N[1]])
- X=S[2]//3
- for r in R(3):
-  for c in R(3):
-   for y in R(X):
-    for x in R(X):
-     g[S[0]+(r*X)+y+1][S[1]+(c*X)+x+1]=g[N[0]+r][N[1]+c]
- g=g[S[0]:S[0]+S[2]]
- g=[r[S[1]:S[1]+S[2]] for r in g]
- return g
+a=range
+c=len
+def p(p):
+ g,t=c(p),c(p[0]);f,o=[],[99,99,0,0];x=[f for f in sum(p,[])if f not in[0,2]][0]
+ for u in a(g):
+  e=p[u].count(2)
+  if e>1and len(f)<1:f=[u,p[u].index(2),e]
+  e=p[u].count(x)
+  if e>0:
+   o[0]=min([u,o[0]])
+   for t in a(t):
+    if p[u][t]==x:o[1]=min([t,o[1]])
+ e=f[2]//3
+ for u in a(3):
+  for t in a(3):
+   for l in a(e):
+    for n in a(e):p[f[0]+u*e+l+1][f[1]+t*e+n+1]=p[o[0]+u][o[1]+t]
+ p=p[f[0]:f[0]+f[2]];p=[u[f[1]:f[1]+f[2]]for u in p];return p

@@ -1,8 +1,8 @@
-def p(j):
-	A=range;c=[E[:]for E in j];E=[(E,c)for E in A(len(j))for c in A(len(j[0]))if j[E][c]==8]
-	if E:
-		k,W=min(E for(E,A)in E),max(E for(E,A)in E);l,J=min(E for(A,E)in E),max(E for(A,E)in E)
-		for a in A(k,W+1):
-			for C in A(l,J+1):
-				if j[a][C]==1:c[a][C]=3
-	return c
+def p(t):
+ p=range;n=[e[:]for e in t];e=[(e,n)for e in p(len(t))for n in p(len(t[0]))if t[e][n]==8]
+ if e:
+  l,o=min(e for(e,p)in e),max(e for(e,p)in e);d,e=min(e for(p,e)in e),max(e for(p,e)in e)
+  for l in p(l,o+1):
+   for e in p(d,e+1):
+    if t[l][e]==1:n[l][e]=3
+ return n

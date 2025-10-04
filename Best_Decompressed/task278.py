@@ -1,10 +1,10 @@
-j=lambda A:[[A[c][E]for c in range(len(A))]for E in range(len(A[0]))]
-def h(A,c,E):
- if A[c][E]!=2or A[c][E+1]!=2:return
- for k in range(max(0,c-1),min(len(A),c+2)):
-  for W in range(max(0,E-1),min(len(A[0]),E+3)):
-   if A[k][W]!=2:A[k][W]=3
-def f(A):
- for c in range(len(A)):
-  for E in range(len(A[0])-1):h(A,c,E)
-def p(A):f(A);A=j(A);f(A);return j(A)
+g=lambda f:[[f[g][a]for g in range(len(f))]for a in range(len(f[0]))]
+def o(f,a,o):
+ if f[a][o]!=2or f[a][o+1]!=2:return
+ for a in range(max(0,a-1),min(len(f),a+2)):
+  for g in range(max(0,o-1),min(len(f[0]),o+3)):
+   if f[a][g]!=2:f[a][g]=3
+def n(f):
+ for a in range(len(f)):
+  for g in range(len(f[0])-1):o(f,a,g)
+def p(f):n(f);f=g(f);n(f);return g(f)

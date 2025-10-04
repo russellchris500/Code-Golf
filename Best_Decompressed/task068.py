@@ -1,12 +1,12 @@
-def p(j):
-	A={};c=range
-	for E in c(10):
-		for k in c(10):
-			if j[E][k]:A[j[E][k]]=A.get(j[E][k],0)+1
-	W=next(A for(A,c)in A.items()if c==1);l,A=next((A,E)for A in c(10)for E in c(10)if j[A][E]==W);J=[[0]*10 for A in c(10)];J[l][A]=W
-	for a in[-1,0,1]:
-		for C in[-1,0,1]:
-			if a or C:
-				e,K=l+a,A+C
-				if 0<=e<10 and 0<=K<10:J[e][K]=2
-	return J
+def p(n):
+ i={};t=range
+ for z in t(10):
+  for a in t(10):
+   if n[z][a]:i[n[z][a]]=i.get(n[z][a],0)+1
+ h=next(i for(i,t)in i.items()if t==1);z,i=next((i,z)for i in t(10)for z in t(10)if n[i][z]==h);n=[[0]*10for i in t(10)];n[z][i]=h
+ for a in[-1,0,1]:
+  for t in[-1,0,1]:
+   if a or t:
+    t,r=z+a,i+t
+    if 0<=t<10and 0<=r<10:n[t][r]=2
+ return n

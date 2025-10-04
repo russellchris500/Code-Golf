@@ -1,13 +1,7 @@
-R=range
-L=len
+e=range
+f=len
 def p(g):
- h,w=L(g),L(g[0])
- X=[[0]*3 for _ in R(3)]
- y=min([r for r in R(h) if g[r].count(5)>0])
- x=min([r.index(5) for r in g if r.count(5)>0])
- g=[r[x:x+9] for r in g[y:y+9]]
- for r in R(0,9,3):
-  for c in R(0,9,3):
-   X[r//3][c//3]=g[r][c]
- g=[[X[r//3][c//3]and X[r%3][c%3]for c in R(9)]for r in R(9)]
- return g
+ p,i=f(g),f(g[0]);r=[[0]*3for r in e(3)];t=min([r for r in e(p)if g[r].count(5)>0]);d=min([r.index(5)for r in g if r.count(5)>0]);g=[r[d:d+9]for r in g[t:t+9]]
+ for d in e(0,9,3):
+  for p in e(0,9,3):r[d//3][p//3]=g[d][p]
+ g=[[r[t//3][d//3]and r[t%3][d%3]for d in e(9)]for t in e(9)];return g

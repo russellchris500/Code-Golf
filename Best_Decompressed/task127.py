@@ -1,8 +1,8 @@
 def p(g):
- R=range;Z=[r[:]for r in g];h,w=len(g),len(g[0])
- for r in R(1,h,4):
-  for c in R(1,w,4):
-   C=g[r][c]+5
-   for y in R(3):
-    for x in R(3):Z[r-1+y][c-1+x]=C
- return Z
+	A=range;B=[A[:]for A in g];E,F=len(g),len(g[0])
+	for C in A(1,E,4):
+		for D in A(1,F,4):
+			G=g[C][D]+5
+			for H in A(3):
+				for I in A(3):B[C-1+H][D-1+I]=G
+	return B

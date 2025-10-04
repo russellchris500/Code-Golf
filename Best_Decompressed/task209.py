@@ -1,52 +1,51 @@
-from itertools import product as P, groupby as G
-def p(f):
- R,C=len(f),len(f[0])
- s=sorted((y,x)for y,x in P(range(R),range(C))if f[y][x]==4)
- if len(s)!=4:return[]
- y1,x1,y2,x2=s[0]+s[3]
- A=[(y,x)for y,x in P(range(R),range(C))if f[y][x]and not(y1<=y<=y2 and x1<=x<=x2)]
- if not A:return[[4 if(y,x)in((0,0),(0,x2-x1),(y2-y1,0),(y2-y1,x2-x1))else 0 for x in range(x2-x1+1)]for y in range(y2-y1+1)]
- mr,mc=min(y for y,_ in A),min(x for _,x in A)
- B=[(y,x)for y in range(y1,y2+1)for x in range(x1,x2+1)if f[y][x]not in(0,4)]
+from itertools import product as P, groupby as f
+def p(b):
+ R,l=len(b),len(b[0])
+ e=sorted((d,x)for d,x in P(range(R),range(l))if b[d][x]==4)
+ if len(e)!=4:return[]
+ y1,x1,y2,x2=e[0]+e[3]
+ n=[(d,x)for d,x in P(range(R),range(l))if b[d][x]and not(y1<=d<=y2 and x1<=x<=x2)]
+ if not n:return[[4 if(d,x)in((0,0),(0,x2-x1),(y2-y1,0),(y2-y1,x2-x1))else 0 for x in range(x2-x1+1)]for d in range(y2-y1+1)]
+ t,mc=min(d for d,_ in n),min(x for _,x in n)
+ B=[(d,x)for d in range(y1,y2+1)for x in range(x1,x2+1)if b[d][x]not in(0,4)]
  if not B:
-  q=[[0]*(x2-x1+1)for _ in range(y2-y1+1)]
-  q[0][0]=q[0][-1]=q[-1][0]=q[-1][-1]=4
-  return q
- def d(f,y1,y2,x1,x2):
-  D=float('inf')
-  for i in range(y1,y2+1):
-   a=[f[i][j]for j in range(x1,x2+1)if f[i][j]not in(0,4)]
-   if a:D=min(D,max(sum(1for _ in g)for _,g in G(a)))
-  for j in range(x1,x2+1):
-   a=[f[i][j]for i in range(y1,y2+1)if f[i][j]not in(0,4)]
-   if a:D=min(D,max(sum(1for _ in g)for _,g in G(a)))
-  return D if D!=float('inf')else 1
- D=d(f,y1,y2,x1,x2)
+  r=[[0]*(x2-x1+1)for _ in range(y2-y1+1)]
+  r[0][0]=r[0][-1]=r[-1][0]=r[-1][-1]=4
+  return r
+ def a(b,y1,y2,x1,x2):
+  l=float('inf')
+  for g in range(y1,y2+1):
+   a=[b[g][u]for u in range(x1,x2+1)if b[g][u]not in(0,4)]
+   if a:l=min(l,max(sum(1for _ in g)for _,g in f(a)))
+  for u in range(x1,x2+1):
+   a=[b[g][u]for g in range(y1,y2+1)if b[g][u]not in(0,4)]
+   if a:l=min(l,max(sum(1for _ in g)for _,g in f(a)))
+  return l if l!=float('inf')else 1
+ l=a(b,y1,y2,x1,x2)
  M={}
- for y,x in B:
-  n=f[y][x]
-  if n not in M:M[n]=[[f[y+i][x+j]for j in range(D)]for i in range(D)]
- fb=B[0];fn=f[fb[0]][fb[1]]
- fa=next(((y-mr,x-mc)for y,x in A if f[y][x]==fn),(-1,-1))
- def b(yo,xo):
-  q=[[0]*(x2-x1+1)for _ in range(y2-y1+1)]
-  q[0][0]=q[0][-1]=q[-1][0]=q[-1][-1]=4
-  for y,x in A:
-   m=M.get(f[y][x],[[f[y][x]]*D]*D)
-   sy,sx=yo+(y-mr)*D,xo+(x-mc)*D
-   for dy,dx in P(range(D),repeat=2):
-    ny,nx=sy+dy,sx+dx
-    if 0<=ny<len(q)and 0<=nx<len(q[0]):q[ny][nx]=m[dy][dx]
-  return q
- yo=(fb[0]-y1)-fa[0]*D if fa!=(-1,-1)else 0
- xo=(fb[1]-x1)-fa[1]*D if fa!=(-1,-1)else 0
- q=b(yo,xo)
- if any(f[y][x]not in(0,4)and not q[y-y1][x-x1]for y,x in P(range(y1,y2+1),range(x1,x2+1))):
-  rb,cb,nb=next((y,x,f[y][x])for y in range(y2,y1-1,-1)for x in range(x1,x2+1)if f[y][x]not in(0,4))
-  T=[(y,x)for y,x in A if f[y][x]==nb]
-  my,mx=max(y for y,_ in T),min(x for _,x in T)
-  yo=(rb-y1)-((my-mr)*D+D-1)
-  xo=(cb-x1)-(mx-mc)*D
-  q=b(yo,xo)
- return q
-
+ for d,x in B:
+  p=b[d][x]
+  if p not in M:M[p]=[[b[d+g][x+u]for u in range(l)]for g in range(l)]
+ o=B[0];fn=b[o[0]][o[1]]
+ m=next(((d-t,x-mc)for d,x in n if b[d][x]==fn),(-1,-1))
+ def c(yo,o):
+  r=[[0]*(x2-x1+1)for _ in range(y2-y1+1)]
+  r[0][0]=r[0][-1]=r[-1][0]=r[-1][-1]=4
+  for d,x in n:
+   m=M.get(b[d][x],[[b[d][x]]*l]*l)
+   x,e=yo+(d-t)*l,o+(x-mc)*l
+   for q,y in P(range(l),repeat=2):
+    d,s=x+q,e+y
+    if 0<=d<len(r)and 0<=s<len(r[0]):r[d][s]=m[q][y]
+  return r
+ yo=(o[0]-y1)-m[0]*l if m!=(-1,-1)else 0
+ o=(o[1]-x1)-m[1]*l if m!=(-1,-1)else 0
+ r=c(yo,o)
+ if any(b[d][x]not in(0,4)and not r[d-y1][x-x1]for d,x in P(range(y1,y2+1),range(x1,x2+1))):
+  rb,z,nb=next((d,x,b[d][x])for d in range(y2,y1-1,-1)for x in range(x1,x2+1)if b[d][x]not in(0,4))
+  T=[(d,x)for d,x in n if b[d][x]==nb]
+  i,mx=max(d for d,_ in T),min(x for _,x in T)
+  yo=(rb-y1)-((i-t)*l+l-1)
+  o=(z-x1)-(mx-mc)*l
+  r=c(yo,o)
+ return r

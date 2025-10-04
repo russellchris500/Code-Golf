@@ -1,1 +1,0 @@
-p=lambda g,R=range,L=len:(v:=next(x for r in g[::-1] for x in r[::-1] if x),[(any(g[r][j]==v for r in R(L(g)))and(i:=max(r for r in R(L(g))if g[r][j]==v),(s:=next((r for r in R(i-1,-1,-1)if(a:=g[r][j])and a!=v),-1))+1 and[g[r].__setitem__(j,v)for r in R(s+1,L(g))]))for j in R(L(g[0]))],g)[2]

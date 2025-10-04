@@ -1,4 +1,4 @@
-def p(g):
- c=sum(g[i][j]==g[i][j+1]==g[i+1][j]==g[i+1][j+1]==2for i in range(len(g)-1) for j in range(len(g)-1));a=[[0]*3for _ in'***']
- for i in range(c):a[i*2//3][i*2%3]=1
- return a
+def p(i,r=range):
+ l=sum(i[d][h]==i[d][h+1]==i[d+1][h]==i[d+1][h+1]==2for d in r(len(i)-1)for h in r(len(i)-1));d=[[0]*3for d in'***']
+ for h in r(l):d[h*2//3][h*2%3]=1
+ return d

@@ -1,7 +1,7 @@
 def p(j):
- for A in range(4):
-  for c in range(3):
-   j[A][c]+=j[A][c+4]
-   if j[A][c]>0:j[A][c]=0
-   else:j[A][c]=3
- return[R[:3]for R in j]
+	for A in range(4):
+		for B in range(3):
+			j[A][B]+=j[A][B+4]
+			if j[A][B]>0:j[A][B]=0
+			else:j[A][B]=3
+	return[A[:3]for A in j]

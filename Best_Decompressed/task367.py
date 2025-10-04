@@ -1,15 +1,15 @@
-def p(I):
-	E,F=len(I),len(I[0])
-	def J(g,c):
-		G=[[0]*F for A in range(E)];J=[]
-		for A in range(E):
-			for B in range(F):
-				if G[A][B]or g[A][B]!=c:G[A][B]=1;continue
-				G[A][B]=1;H=[(A,B)];I=0;K=[(A,B)]
-				while I<len(H):C,D=H[I];I+=1;[H.append((C+A,D+B))or K.append((C+A,D+B))or G[C+A].__setitem__(D+B,1)for(A,B)in[(1,0),(-1,0),(0,1),(0,-1)]if 0<=C+A<E and 0<=D+B<F and not G[C+A][D+B]and g[C+A][D+B]==c]
-				J.append(K)
-		return J
-	A=lambda L:(min(A for(A,B)in L),min(A for(B,A)in L),max(A for(A,B)in L),max(A for(B,A)in L));K=lambda L:(lambda u,l,d,r:len(L)==(d-u+1)*(r-l+1))(*A(L));L=lambda L:(lambda u,l,d,r:{(A,l-1)for A in range(u-1,d+2)}|{(A,r+1)for A in range(u-1,d+2)}|{(u-1,A)for A in range(l-1,r+2)}|{(d+1,A)for A in range(l-1,r+2)})(*A(L));M={(A,B)for A in range(E)for B in range(F)if I[A][B]==5};C=set()
-	for B in J(I,0):
-		if K(B):D=L(B);G=set();[G.add((A+C,B+D))for(A,B)in(lambda u,l,d,r:{(u,l),(u,r),(d,l),(d,r)})(*A(list(D)))for(C,D)in[(1,0),(-1,0),(0,1),(0,-1)]];M.isdisjoint(G-D)and C.update(B)
-	H=[list(A)for A in I];[H[A].__setitem__(B,4)for(A,B)in C if 0<=A<E and 0<=B<F];return[list(A)for A in H]
+def p(l,x=range):
+ t,o=len(l),len(l[0])
+ def e(u,g):
+  a=[[0]*o for q in x(t)];e=[]
+  for q in x(t):
+   for n in x(o):
+    if a[q][n]or u[q][n]!=g:a[q][n]=1;continue
+    a[q][n]=1;h=[(q,n)];l=0;f=[(q,n)]
+    while l<len(h):j,p=h[l];l+=1;[h.append((j+q,p+n))or f.append((j+q,p+n))or a[j+q].__setitem__(p+n,1)for(q,n)in[(1,0),(-1,0),(0,1),(0,-1)]if 0<=j+q<t and 0<=p+n<o and not a[j+q][p+n]and u[j+q][p+n]==g]
+    e.append(f)
+  return e
+ q=lambda h:(min(q for(q,n)in h),min(q for(n,q)in h),max(q for(q,n)in h),max(q for(n,q)in h));f=lambda h:(lambda i,n,s,r:len(h)==(s-i+1)*(r-n+1))(*q(h));h=lambda h:(lambda i,n,s,r:{(q,n-1)for q in x(i-1,s+2)}|{(q,r+1)for q in x(i-1,s+2)}|{(i-1,q)for q in x(n-1,r+2)}|{(s+1,q)for q in x(n-1,r+2)})(*q(h));r={(q,n)for q in x(t)for n in x(o)if l[q][n]==5};j=set()
+ for n in e(l,0):
+  if f(n):p=h(n);a=set();[a.add((q+j,n+p))for(q,n)in(lambda i,n,s,r:{(i,n),(i,r),(s,n),(s,r)})(*q(list(p)))for(j,p)in[(1,0),(-1,0),(0,1),(0,-1)]];r.isdisjoint(a-p)and j.update(n)
+ h=[list(q)for q in l];[h[q].__setitem__(n,4)for(q,n)in j if 0<=q<t and 0<=n<o];return[list(q)for q in h]

@@ -1,11 +1,11 @@
-def p(j,A=range):
- c,E,k,W=len(j),len(j[0]),0,0
- for l in A(c):
-  for J in A(E):
-   if j[l][J]:k,W=l+2,J
- def s(l,J,a):
-  if 0<=J<E:j[l][J]=a
- for C in A(E):
-  k,a=k-1,7+C%2
-  for l in A(k):s(l,W-C,a);s(l,W+C,a)
- return j
+def p(n,l=range):
+ p,x,e,f=len(n),len(n[0]),0,0
+ for i in l(p):
+  for r in l(x):
+   if n[i][r]:e,f=i+2,r
+ def p(i,r,a):
+  if 0<=r<x:n[i][r]=a
+ for g in l(x):
+  e,a=e-1,7+g%2
+  for i in l(e):p(i,f-g,a);p(i,f+g,a)
+ return n
