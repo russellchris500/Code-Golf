@@ -1,1 +1,1 @@
-p=lambda j:[[k]for k,_ in __import__('collections').Counter(i for r in j for i in r).most_common(4)[1:]]
+p=lambda g:[*zip(sorted(range(10),key=sum(g,[]).count)[8:5:-1])]
