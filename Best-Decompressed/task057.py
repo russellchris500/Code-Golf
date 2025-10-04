@@ -1,0 +1,1 @@
+p=lambda j:(m:=[*map(any,zip(*j))],[r[m.index(1):len(m)-m[::-1].index(1)]*2for r in j if any(r)])[1]
