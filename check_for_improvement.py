@@ -287,7 +287,7 @@ def process_task(task_num: int) -> dict:
 
     pc_dir = Path("Private-Compressed"); pc_dir.mkdir(exist_ok=True)
     best_dir = Path("Best"); best_dir.mkdir(exist_ok=True)
-    best_dec_dir = Path("Best-Decompressed"); best_dec_dir.mkdir(exist_ok=True)
+    best_dec_dir = Path("Best_Decompressed"); best_dec_dir.mkdir(exist_ok=True)
 
     original = src_path.read_bytes().strip()
     optimized = optimize_whitespace(original)
@@ -416,7 +416,7 @@ def run_gui():
                     f"Private-Compressed: {pc_prev_text} → {'updated' if info['pc_written'] else 'kept'}",
                     f"Best: {best_prev_text} → {best_status}",
                     f"Validation: {validation_status}",
-                    f"Best-Decompressed: {'updated' if info['best_decompressed_written'] else 'kept'}",
+                    f"Best_Decompressed: {'updated' if info['best_decompressed_written'] else 'kept'}",
                 ]
                 msg = "\n".join(msg_lines)
                 root.after(0, lambda: out.set(msg))
