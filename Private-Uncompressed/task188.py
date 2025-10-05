@@ -1,1 +1,1 @@
-p=lambda g,l=len:[g[:l(g)//2],(a:=[r[:l(r)//2]for r in g])][[r[l(r)//2:]for r in g]==a]
+p=lambda j:list(map(lambda b:[6*(j[b][c]+j[b][c+3]>0)for c in range(3)],range(3)))
