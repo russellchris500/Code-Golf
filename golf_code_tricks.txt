@@ -1,0 +1,127 @@
+Golf Code Tricks & Mini-Examples
+==================================
+
+1) Short aliases for builtins
+-----------------------------
+R=range; L=len; Z=zip; E=enumerate
+H=len(g); W=len(g[0])
+
+2) Transpose to turn columns into rows (and back)
+-------------------------------------------------
+T=lambda G:tuple(Z(*G))         # tuple-of-tuples (short to print/return)
+t=list(map(list,Z(*g)))         # list-of-lists (mutable)
+# ... mutate columns as rows in t ...
+g=[*Z(*t)]                      # transpose back (tuple rows OK for return)
+
+3) Flattening + indexing with divmod
+------------------------------------
+F=sum(g,[])                                   # flatten grid
+ij=[divmod(i,W) for i,v in E(F) if v]         # coords of nonzeros
+
+4) Slice “painting” (fast runs without loops)
+---------------------------------------------
+row[i:j]=[v]*(j-i)           # fill a run with color v
+g[r][c:d]=[k]*(d-c)
+
+5) Column writes via transpose (avoid nested loops)
+---------------------------------------------------
+t=list(map(list,Z(*g)))
+t[x][y0:y1]=[v]*(y1-y0)
+g=[*Z(*t)]
+
+6) Walrus for compute-and-test in one shot
+------------------------------------------
+v:=(g[0])     # capture first row while computing width
+if A:=(C.pop(z,0)): ...   # pop+test in one expression
+
+7) Boolean arithmetic instead of if/else
+----------------------------------------
+out = a*(cond) or b*(not cond)
+val = (x&1)*A or (~x&1)*B      # parity selector
+k  = u*(m==1) or v*(m!=1)
+
+8) Bitwise / mod tests for tiny predicates
+------------------------------------------
+g[r][c]&2      # “is color 2?” style check
+i&1            # odd
+i%3-1 + i//3*W - W   # neighbor offset in a 3×3 stencil
+
+9) Side-effects inside comprehensions
+------------------------------------
+[ row.__setitem__(j,v) for j in R(a,b) ]          # in-place paint
+[ g[r+u*M+i//M].__setitem__(c+v*M+i%M,V) for i in R(M*M) ]  # block copy
+
+10) Set/dict of coordinate pixels (fast grouping)
+-------------------------------------------------
+P={(r,c):g[r][c] for r,row in E(g) for c,v in E(row) if v}  # dict of nonzeros
+# DFS via dict pop:
+def B(z):
+  if A:=P.pop(z,0): C[z]=A; [B(n) for n in ((z[0]+1,z[1]),(z[0]-1,z[1]),(z[0],z[1]+1),(z[0],z[1]-1))]
+while P: C={}; B(next(iter(P)))  # harvest one sprite; repeat
+
+11) Fast min/max geometry & anchors
+-----------------------------------
+r,c=min(X); M=max(X)[0]-r+1     # top-left and size from coord set X
+I,=S0_colors & S1_colors        # intersection with set ops
+
+12) Grab borders with star-unpack
+---------------------------------
+a,*_,c = Z(*g)     # first/last columns as tuples a,c
+top,bot = g[0], g[-1]
+
+13) next(...) to fetch “the first”
+----------------------------------
+j = next(i for i,row in E(g) if any(row))
+y,x = next((i,j) for i,row in E(g) for j,v in E(row) if v)
+
+14) Tuple expression to “return what you mutated”
+-------------------------------------------------
+(..., g)[-1]           # force expression context but yield g
+exec('...mutate g...') or g
+
+15) Pack nested loops into math (block writes)
+----------------------------------------------
+# write an M×M block at (r+u*M, c+v*M) via one loop:
+for i in R(M*M): g[r+u*M+i//M][c+v*M+i%M]=V
+
+16) Compact condition chains
+----------------------------
+ans = cond1 and A or cond2 and B or C     # ladder without if/elif
+
+17) Truthiness over len(...)
+----------------------------
+if S: ...      # faster/shorter than if len(S)>0
+
+18) Compression stub patterns (choose shortest)
+-----------------------------------------------
+# Latin-1 exact bytes:
+b = zopfli.zlib.compress(src_bytes)
+wrapped = b"#coding:L1\nimport zlib;exec(zlib.decompress(bytes(%s,'L1')))" % (
+  (b"'" + b + b"'" if b'"' in b else b'"' + b + b'"')
+)
+# Prefer zopfli payload if shorter; else keep raw source.
+
+19) Quote-choosing to avoid escapes
+-----------------------------------
+payload = b"'" + data + b"'" if b'"' in data else b'"' + data + b'"'
+
+20) “Rotate problem to easy case” via transpose
+-----------------------------------------------
+s = same_col_condition
+g = s and list(map(list,Z(*g))) or g
+# ... do horizontal logic ...
+g = s and [*Z(*g)] or g
+
+21) One-pass detect-then-act with walrus + comprehension
+--------------------------------------------------------
+I=[divmod(i,W) for i,v in E(sum(g,[])) if v]    # collect hits
+(y,x),(Y,X)=I; m=(X-x)//2; g[y][x:x+m]=[a]*m    # then paint
+
+22) Minimal boundary checks with any/all
+----------------------------------------
+if all(row): ...
+if any(t[x] for t in g): ...
+
+23) Use tuples when immutability shrinks bytes
+----------------------------------------------
+return tuple(Z(*g))   # shorter literal than list-of-lists when OK
