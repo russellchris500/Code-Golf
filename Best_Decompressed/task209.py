@@ -1,51 +1,8 @@
-from itertools import product as P, groupby as f
-def p(b):
- R,l=len(b),len(b[0])
- e=sorted((d,x)for d,x in P(range(R),range(l))if b[d][x]==4)
- if len(e)!=4:return[]
- y1,x1,y2,x2=e[0]+e[3]
- n=[(d,x)for d,x in P(range(R),range(l))if b[d][x]and not(y1<=d<=y2 and x1<=x<=x2)]
- if not n:return[[4 if(d,x)in((0,0),(0,x2-x1),(y2-y1,0),(y2-y1,x2-x1))else 0 for x in range(x2-x1+1)]for d in range(y2-y1+1)]
- t,mc=min(d for d,_ in n),min(x for _,x in n)
- B=[(d,x)for d in range(y1,y2+1)for x in range(x1,x2+1)if b[d][x]not in(0,4)]
- if not B:
-  r=[[0]*(x2-x1+1)for _ in range(y2-y1+1)]
-  r[0][0]=r[0][-1]=r[-1][0]=r[-1][-1]=4
-  return r
- def a(b,y1,y2,x1,x2):
-  l=float('inf')
-  for g in range(y1,y2+1):
-   a=[b[g][u]for u in range(x1,x2+1)if b[g][u]not in(0,4)]
-   if a:l=min(l,max(sum(1for _ in g)for _,g in f(a)))
-  for u in range(x1,x2+1):
-   a=[b[g][u]for g in range(y1,y2+1)if b[g][u]not in(0,4)]
-   if a:l=min(l,max(sum(1for _ in g)for _,g in f(a)))
-  return l if l!=float('inf')else 1
- l=a(b,y1,y2,x1,x2)
- M={}
- for d,x in B:
-  p=b[d][x]
-  if p not in M:M[p]=[[b[d+g][x+u]for u in range(l)]for g in range(l)]
- o=B[0];fn=b[o[0]][o[1]]
- m=next(((d-t,x-mc)for d,x in n if b[d][x]==fn),(-1,-1))
- def c(yo,o):
-  r=[[0]*(x2-x1+1)for _ in range(y2-y1+1)]
-  r[0][0]=r[0][-1]=r[-1][0]=r[-1][-1]=4
-  for d,x in n:
-   m=M.get(b[d][x],[[b[d][x]]*l]*l)
-   x,e=yo+(d-t)*l,o+(x-mc)*l
-   for q,y in P(range(l),repeat=2):
-    d,s=x+q,e+y
-    if 0<=d<len(r)and 0<=s<len(r[0]):r[d][s]=m[q][y]
-  return r
- yo=(o[0]-y1)-m[0]*l if m!=(-1,-1)else 0
- o=(o[1]-x1)-m[1]*l if m!=(-1,-1)else 0
- r=c(yo,o)
- if any(b[d][x]not in(0,4)and not r[d-y1][x-x1]for d,x in P(range(y1,y2+1),range(x1,x2+1))):
-  rb,z,nb=next((d,x,b[d][x])for d in range(y2,y1-1,-1)for x in range(x1,x2+1)if b[d][x]not in(0,4))
-  T=[(d,x)for d,x in n if b[d][x]==nb]
-  i,mx=max(d for d,_ in T),min(x for _,x in T)
-  yo=(rb-y1)-((i-t)*l+l-1)
-  o=(z-x1)-(mx-mc)*l
-  r=c(yo,o)
- return r
+def p(g):
+ W=len(g[0]);r1,c1=min(y:=[divmod(i,W)for i,v in enumerate(sum(g,[]))if v==4]);r2,c2=max(y);b=r2+1-r1;a=c2+1-c1;mr,mc,*_=min(t:=[(r,c,g[r][c])for r in range(len(g))for c in range(W)if r>r2 and g[r][c]>0]);i=[(r-r1,c-c1,g[r][c])for r in range(r1,r2+1)for c in range(c1,c2+1)if g[r][c]>0!=g[r][c]-4]
+ for M in range(1,5):
+  I,J,V=min(i)
+  for R,C,w in t:
+   if w==V:
+    d,e=I-(R-mr)*M,J-(C-mc)*M;o=[[0]*a for _ in range(b)];[(r:=(R-mr)*M+d+k//M,c:=(C-mc)*M+e+k%M,b>r>=0<=c<a and o[r].__setitem__(c,v))for R,C,v in t for k in range(M*M)]
+    if all(o[r][c]==g[r1+r][c1+c]for r,c,_ in i):o[0][0]=o[0][-1]=o[-1][0]=o[-1][-1]=4;return o
