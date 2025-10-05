@@ -3,5 +3,5 @@
 #p=lambda g:[*filter(any,zip(*filter(any,zip(*g))))]
 # p=lambda g:[eval("*filter(any,zip("*2+"*g))))")]
 #p=lambda g,c=2:[r for r in g if any(r)]
-p=lambda g,c=2:[*zip(*filter(any,g))]
-#p=lambda g,c=2:[g,p([*filter(any,zip(*g))],c-1)][c>0]
+p=lambda g:[*zip(*filter(any,zip(*filter(any,g))))]
+p=lambda g,c=60:c>0and p([*zip(*g[::-1])],c-1)or g
