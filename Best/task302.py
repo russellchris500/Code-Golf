@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚeQ=oƒ0áWx´ƒƒ`HU"”²g°<8äÒ‚‰‰Ò´ÿ¾g7¥C%Ë÷áw÷ïNp&W:°"¶¼#Xx02S¬Ü	‰vÕ‘óäÈ‘ô–ª4Bª8:a)Ğ}qÔ|UîäAÉQ‰¼ÔK®9bïı¤ñğx+šô:])ó!¶§¾g½•4ã9ã4çŞ_û`í#\n£#7’o“}ˆû3±ÓL³J«-ÑöDĞ5UÇŠZde7Ù¹·wø…ò¨¤QUXHv?™âiQw“ p¤Aázq±ƒùî,ÑûÔÆø9,“qÚ¾İ†qødó—ìğá„ÇEGóOG£\nƒ”€œç4émr35ğåwÃ|€»ÈYàE”Æ‘°÷8=5 —ŞÒW~ÑŸô%lS³Õ*İ$i–l{ê«½>]²Æ+¼s¥Dÿ~sˆ¿sI”^',"L1")))
+p=lambda g:[[(s:=[0,2,2,1,0,3,4,4,4,4][p+s])and[0,s>1or(c:=5+r[i:].index(5)),c,5,5][s]for i,p in enumerate(r)]for r in g if~(s:=0)|(c:=0)]
