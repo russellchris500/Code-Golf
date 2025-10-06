@@ -1,0 +1,1 @@
+def p(a):t,d=next(((i,r.index(5))for i,r in enumerate(a)if 5 in r),(0,0));return[[a[t+i//3*3][d+j//3*3]&a[t+i%3*3][d+j%3*3]for j in range(9)]for i in range(9)]
