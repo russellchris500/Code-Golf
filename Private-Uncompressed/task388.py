@@ -1,0 +1,1 @@
+def p(d):l=len(d);d=[[8if not x and any(r[i]for r in d)else x for i,x in enumerate(r)]for r in d];return[[d[a%l][f%l]for f in range(2*l)]for a in range(2*l)]
