@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚUŽg1…È¯(IwG»+ý##8$B›‹‘£?¿“ÝÚîÂdÞç½—‰žï5G•üW¬Šb‚¦³™4[|’ÕÊÀ[0{”÷Õ¥C©µ3aéþ»TÞLI‘Ãåóñ¬]¿›Ñ@ÖK©„î‘à³;{d¤™Þ¦ðïÃ>wAÁ`´}w³“uãæ¶d¤ëÕlcúŒ$«¤¥û€›á^	¼-ãÐ>™Uõ]-û“å˜_G_|","L1")))
+def p(a):t=next((i for i,r in enumerate(a)if 5in r),0);d=min(r.index(5)for r in a if 5in r);return[[a[t+i//3*3][d+j//3*3]&a[t+i%3*3][d+j%3*3]for j in range(9)]for i in range(9)]
