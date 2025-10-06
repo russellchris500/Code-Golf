@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚUŒa€_e] ôÛ“ÌalË1ë¬éİ[å¯;ß·o5˜·2œfL³6G×(ÑvI`˜¢Ş`&!ÉÆg$:şâC¾i€úUûfõáCü£–z»gU»ñªk,úÃ®_,ø8=À","L1")))
+def p(d):n=len(d);return[[8if not d[a%n][f%n]and any(r[f%n]for r in d)else d[a%n][f%n]for f in range(2*n)]for a in range(2*n)]

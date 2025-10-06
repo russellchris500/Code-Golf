@@ -243,7 +243,6 @@ Task 112   181      234        192      109    72       pattern completion
 Task 27    325      136        415      103    33       pattern completion            
 Task 361   221      -          221      193    28       pattern completion            
 Task 118   280      -          280      271    9        pattern completion            
-Task 137   419      -          433      141    278      pattern extension             
 Task 124   274      -          295      96     178      pattern extension             
 Task 348   206      -          216      94     112      pattern extension             
 Task 13    246      576        258      140    106      pattern extension             
@@ -256,6 +255,7 @@ Task 297   72       -          72       43     29       pattern extension
 Task 114   79       79         107      64     15       pattern extension             
 Task 7     75       75         142      62     13       pattern extension             
 Task 82    65       63         112      50     13       pattern extension             
+Task 137   152      152        433      141    11       pattern extension             
 Task 3     65       63         66       58     5        pattern extension             
 Task 343   65       65         453      65     0        pattern extension             
 Task 255   728      -          779      242    486      rectangle finding             
@@ -327,7 +327,6 @@ Task 1     61       86         61       58     3        short operation
 Task 6     53       53         66       51     2        short operation               
 Task 244   207      -          212      64     143      short transform               
 Task 317   193      -          206      59     134      short transform               
-Task 108   176      -          176      56     120      short transform               
 Task 221   189      -          189      87     102      short transform               
 Task 203   158      -          158      64     94       short transform               
 Task 389   128      -          130      57     71       short transform               
@@ -350,6 +349,7 @@ Task 329   68       68         107      54     14       short transform
 Task 16    55       59         59       43     12       short transform               
 Task 276   48       -          48       38     10       short transform               
 Task 385   34       34         111      25     9        short transform               
+Task 108   64       64         176      56     8        short transform               
 Task 262   46       -          46       39     7        short transform               
 Task 52    45       45         46       40     5        short transform               
 Task 142   45       -          45       40     5        short transform               
