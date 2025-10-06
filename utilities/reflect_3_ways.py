@@ -17,4 +17,49 @@ def reflect_4fold_without_flattening(a):
 r=lambda a:(o:=[r+r[::-1]for r in a])+o[::-1]
 
 a = [[1,2],[3,4]]
-print(reflect_4fold_without_flattening(a))
+# print(reflect_4fold_without_flattening(a))
+
+#reflect from starting point of all 4 different quadrants:
+a=[[1,2],
+   [3,4]]
+
+r=lambda a:(o:=[r+r[::-1]for r in a])+o[::-1]
+r_ur=lambda a:r([r[::-1]for r in a])[::-1]
+r_ll=lambda a:r(a[::-1])[::-1]
+r_lr=lambda a:[r[::-1]for r in r([r[::-1]for r in a][::-1])][::-1]
+
+print("reflected from upper left:")
+for row in r(a):
+ print(row)
+print("reflected from upper right:")
+for row in r_ur(a):
+ print(row)
+print("reflected from lower left:")
+for row in r_ll(a):
+ print(row)
+print("reflected from lower right:")
+for row in r_lr(a):
+ print(row)
+
+#or, if you need all 4 of them in one script:
+r=lambda a:(o:=[r+r[::-1]for r in a])+o[::-1]
+R=lambda a:[r[::-1]for r in a]
+
+r_ul=r
+r_ur=lambda a:r(R(a))[::-1]
+r_ll=lambda a:r(a[::-1])[::-1]
+r_lr=lambda a:R(r(R(a)[::-1]))[::-1] 
+
+a=[[1,2],[3,4]]
+print("reflected from upper left:")
+for row in r(a):
+ print(row)
+print("reflected from upper right:")
+for row in r_ur(a):
+ print(row)
+print("reflected from lower left:")
+for row in r_ll(a):
+ print(row)
+print("reflected from lower right:")
+for row in r_lr(a):
+ print(row)
