@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚ…Ïƒ!`\x00ú(áDû#9ŒU>æš×öÿw%Æ>ˆž÷^çn¥ÒÃŠGºñ-á*­¸hJ°â¼>9°3T;´5»‰ôh¯$œ;§TV:ùâ7žö·¦¹âR›vTûÝ7ÕÊó•7žWÉøñ)gP","L1")))
+def p(n,r=len,g=range):n[:4]=[[(v:=n[i][j])or next((x for x in(n[i][j+5],n[i+5][j],n[i+5][j+5])if x>0),0)for j in g(4)]for i in g(4)];return n[:4]

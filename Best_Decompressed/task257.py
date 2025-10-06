@@ -1,11 +1,1 @@
-def p(n,r=len,g=range):
- r,r=r(n),r(n[0])
- for r in g(4):
-  for o in g(4):
-   if n[r][o]==0:
-    if n[r][o+5]>0:n[r][o]=n[r][o+5]
-   if n[r][o]==0:
-    if n[r+5][o]>0:n[r][o]=n[r+5][o]
-   if n[r][o]==0:
-    if n[r+5][o+5]>0:n[r][o]=n[r+5][o+5]
- return[r[:4]for r in n[:4]]
+def p(n,r=len,g=range):n[:4]=[[(v:=n[i][j])or next((x for x in(n[i][j+5],n[i+5][j],n[i+5][j+5])if x>0),0)for j in g(4)]for i in g(4)];return n[:4]
