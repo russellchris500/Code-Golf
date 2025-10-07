@@ -40,7 +40,7 @@ Task 88    289      -          307      101    188      cropping
 Task 174   269      -          510      97     172      cropping                      
 Task 14    230      285        251      70     160      cropping                      
 Task 313   215      -          228      63     152      cropping                      
-Task 62    290      -          317      143    147      cropping                      
+Task 62    290      291        317      143    147      cropping                      
 Task 384   199      -          200      62     137      cropping                      
 Task 91    192      -          199      63     129      cropping                      
 Task 259   204      -          217      85     119      cropping                      
@@ -148,7 +148,6 @@ Task 323   245      -          252      102    143      line extension
 Task 47    194      -          207      55     139      line extension                
 Task 58    241      -          270      103    138      line extension                
 Task 37    242      -          272      105    137      line extension                
-Task 63    211      -          225      74     137      line extension                
 Task 148   276      -          292      141    135      line extension                
 Task 356   238      -          256      105    133      line extension                
 Task 378   274      -          277      143    131      line extension                
@@ -160,7 +159,6 @@ Task 303   183      -          183      62     121      line extension
 Task 398   198      -          199      77     121      line extension                
 Task 161   200      204        320      82     118      line extension                
 Task 237   184      -          192      67     117      line extension                
-Task 388   174      -          180      61     113      line extension                
 Task 136   215      -          229      105    110      line extension                
 Task 212   215      -          236      105    110      line extension                
 Task 382   243      -          247      134    109      line extension                
@@ -178,11 +176,13 @@ Task 9     189      189        282      109    80       line extension
 Task 327   141      -          142      67     74       line extension                
 Task 345   162      -          162      90     72       line extension                
 Task 200   153      153        199      84     69       line extension                
+Task 388   126      126        180      61     65       line extension                
 Task 312   107      -          107      44     63       line extension                
 Task 293   108      -          108      59     49       line extension                
 Task 288   123      -          123      89     34       line extension                
 Task 10    95       152        96       68     27       line extension                
 Task 45    70       -          70       45     25       line extension                
+Task 63    96       96         225      74     22       line extension                
 Task 41    67       -          67       49     18       line extension                
 Task 328   175      -          175      163    12       line extension                
 Task 392   161      -          161      149    12       line extension                
@@ -191,10 +191,10 @@ Task 60    52       52         71       48     4        line extension
 Task 134   368      -          380      158    210      misc                          
 Task 213   283      -          302      92     191      misc                          
 Task 178   219      -          232      47     172      misc                          
-Task 195   250      -          260      105    145      misc                          
 Task 146   141      -          141      58     83       misc                          
 Task 104   158      -          158      84     74       misc                          
 Task 275   197      -          204      136    61       misc                          
+Task 195   177      159        260      105    54       misc                          
 Task 364   612      -          651      155    457      object find                   
 Task 279   470      -          507      107    363      object find                   
 Task 277   453      -          468      194    259      object find                   
@@ -305,11 +305,11 @@ Task 291   113      -          115      61     52       rectangle finding
 Task 302   138      138        407      89     49       rectangle finding             
 Task 304   237      -          250      92     145      short operation               
 Task 207   205      -          212      81     124      short operation               
-Task 257   187      -          203      74     113      short operation               
 Task 321   155      -          155      55     100      short operation               
 Task 386   147      -          147      52     95       short operation               
 Task 217   189      -          189      95     94       short operation               
 Task 236   144      -          144      54     90       short operation               
+Task 257   146      119        203      74     45       short operation               
 Task 395   98       -          98       53     45       short operation               
 Task 296   98       -          98       63     35       short operation               
 Task 318   82       -          84       54     28       short operation               
