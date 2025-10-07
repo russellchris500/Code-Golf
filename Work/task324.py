@@ -17,7 +17,7 @@ def p(z):
  Z={(r,c)for _,h in A for y,x in h for d,e in((1,1),(-1,-1),(1,-1),(-1,1))for r,c in[(y+d*n,x+e*n)for n in R(max(I,J))]if 0<=r<I and 0<=c<J}
  E={}
  for c,_ in A:E[c]=E.get(c,0)+1
- L=sorted(E,key=lambda c:(-E[c],c));f,q=(L+[L[0]])[:2];M=lambda m:sum((C[y+d][x+e]==g)-(C[y+d][x+e]==k)for c,h in A if c==m for y,x in[next(iter(h))]for d in(-1,0,1)for e in(-1,0,1)if(d or e)and 0<=y+d<I and 0<=x+e<J);a,b=M(f),M(q);D,E=(f,q)if a>0and b<0else(q,f)if a<0and b>0else(q,f)if b>0else(f,q);e=[list(r)for r in C]
+ L=sorted(E,key=lambda c:(-E[c],c));A1,B1=(L+[L[0]])[:2];M=lambda m:sum((C[y+d][x+e]==g)-(C[y+d][x+e]==k)for c,h in A if c==m for y,x in[next(iter(h))]for d in(-1,0,1)for e in(-1,0,1)if(d or e)and 0<=y+d<I and 0<=x+e<J);a,b=M(A1),M(B1);D,E=(A1,B1)if a>0and b<0else(B1,A1)if a<0and b>0else(B1,A1)if b>0else(A1,B1);e=[list(r)for r in C]
  for y,x in Z&X:e[y][x]=D
  for y,x in Z&Y:e[y][x]=E
  return e

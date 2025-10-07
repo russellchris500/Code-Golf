@@ -1,0 +1,1 @@
+p=lambda g:[[v*any(g[y+i][x+j]for i in-1,0,1for j in-1,0,1if i|j if y+i>=0if x+j>=0)for x,v in enumerate(r)]for y,r in enumerate(g)]
