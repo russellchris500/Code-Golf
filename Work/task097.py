@@ -1,0 +1,1 @@
+def p(g):H=len(g);W=len(g[0]);R=range;[exec("g[k//W][k%W]=0")for k in R(H*W)if not{k-W-1,k-W,k-W+1,k-1,k+1,k+W-1,k+W,k+W+1}&{x*W+y for x in R(H)for y in R(W)if g[x][y]}];return g
