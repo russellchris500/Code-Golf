@@ -1,30 +1,30 @@
-def p(a):
-	o,d=len(a),len(a[0]);e=[(m,s)for m in(-4,0,4)for s in(-4,0,4)if m|s];t=range;q=[d]*10;r=[o]*10;j=[-1]*10;b=[-1]*10
-	for s in t(o):
-		for h in t(d):
-			m=a[s][h]
-			if h<q[m]:q[m]=h
-			if s<r[m]:r[m]=s
-			if h>j[m]:j[m]=h
-			if s>b[m]:b[m]=s
-	for m in t(1,10):
-		if j[m]-q[m]==2 and b[m]-r[m]==2:c,i=q[m],r[m];break
-	r=[[0]*d for m in a]
-	for x in t(3):r[i+x][c:c+3]=a[i+x][c:c+3]
-	z=[(s,m)for m in t(3)for s in t(3)if a[i+m][c+s]]
-	for(f,u)in e:
-		h=c+f;s=i+u;m=0
-		for k in t(3):
-			for y in t(3):
-				v,l=h+y,s+k
-				if 0<=v<d and 0<=l<o and a[l][v]:m=a[l][v];break
-			if m:break
-		if not m:continue
-		h=c;s=i
-		while 1:
-			h+=f;s+=u
-			if not(-3<h<d and-3<s<o):break
-			for(y,k)in z:
-				v,l=h+y,s+k
-				if 0<=v<d and 0<=l<o:r[l][v]=m
-	return r
+def p(r):
+ l,l=len(r),len(r[0]);p=[(o,h)for o in(-4,0,4)for h in(-4,0,4)if o|h];t=range;f=[l]*10;a=[l]*10;s=[-1]*10;j=[-1]*10
+ for h in t(l):
+  for n in t(l):
+   o=r[h][n]
+   if n<f[o]:f[o]=n
+   if h<a[o]:a[o]=h
+   if n>s[o]:s[o]=n
+   if h>j[o]:j[o]=h
+ for o in t(1,10):
+  if s[o]-f[o]==2and j[o]-a[o]==2:c,e=f[o],a[o];break
+ a=[[0]*l for o in r]
+ for o in t(3):a[e+o][c:c+3]=r[e+o][c:c+3]
+ q=[(h,o)for o in t(3)for h in t(3)if r[e+o][c+h]]
+ for(f,s)in p:
+  n=c+f;h=e+s;o=0
+  for p in t(3):
+   for j in t(3):
+    i,b=n+j,h+p
+    if 0<=i<l and 0<=b<l and r[b][i]:o=r[b][i];break
+   if o:break
+  if not o:continue
+  n=c;h=e
+  while 1:
+   n+=f;h+=s
+   if not(-3<n<l and-3<h<l):break
+   for(j,p)in q:
+    i,b=n+j,h+p
+    if 0<=i<l and 0<=b<l:a[b][i]=o
+ return a

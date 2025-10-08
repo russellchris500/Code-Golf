@@ -1,21 +1,21 @@
-def p(g):
-	G,H=len(g),len(g[0]);W=sum(g,[]);J={};[J.update({A:J.get(A,0)+1})for A in W];X=max(J,key=J.get);O=[[0]*H for A in range(G)];T=[]
-	for K in range(G):
-		for L in range(H):
-			if not O[K][L]and g[K][L]!=X:
-				P=[];Q=[(K,L)];A=g[K][L]
-				while Q:
-					D,E=Q.pop()
-					if D<0 or D>=G or E<0 or E>=H or O[D][E]or g[D][E]!=A:continue
-					O[D][E]=1;P.append((D,E));Q.extend([(D+A,E+B)for(A,B)in[(0,1),(0,-1),(1,0),(-1,0)]])
-				P and T.append(frozenset((A,B)for B in P))
-	U,V=[],[]
-	for C in T:
-		I=[A for(B,A)in C]
-		if I:R,Y,S,Z=min(A[0]for A in I),max(A[0]for A in I),min(A[1]for A in I),max(A[1]for A in I);M,N=Y-R+1,Z-S+1;a=[[g[R+A][S+B]if 0<=R+A<G and 0<=S+B<H else 0 for B in range(N)]for A in range(M)];b=[[a[A][B]for B in range(1,N-1)]for A in range(1,M-1)]if M>2 and N>2 else[];c=set(sum(b,[]));3 in c and U.append(C);len(C)==M+N-1 and V.append(C)
-	F=[[6 if A==3 else A for A in A]for A in g]
-	for C in U:
-		for(d,(B,A))in C:0<=B<G and 0<=A<H and F.__setitem__(B,F[B][:A]+[2]+F[B][A+1:])
-	for C in V:
-		for(d,(B,A))in C:0<=B<G and 0<=A<H and F.__setitem__(B,F[B][:A]+[1]+F[B][A+1:])
-	return F
+def p(e,c=range):
+ d,m=len(e),len(e[0]);g=sum(e,[]);l={};[l.update({s:l.get(s,0)+1})for s in g];b=max(l,key=l.get);z=[[0]*m for s in c(d)];y=[]
+ for p in c(d):
+  for x in c(m):
+   if not z[p][x]and e[p][x]!=b:
+    g=[];n=[(p,x)];s=e[p][x]
+    while n:
+     r,f=n.pop()
+     if r<0 or r>=d or f<0 or f>=m or z[r][f]or e[r][f]!=s:continue
+     z[r][f]=1;g.append((r,f));n.extend([(r+s,f+t)for(s,t)in[(0,1),(0,-1),(1,0),(-1,0)]])
+    g and y.append(frozenset((s,t)for t in g))
+ u,i=[],[]
+ for t in y:
+  p=[s for(t,s)in t]
+  if p:z,p,y,a=min(s[0]for s in p),max(s[0]for s in p),min(s[1]for s in p),max(s[1]for s in p);n,p=p-z+1,a-y+1;o=[[e[z+s][y+t]if 0<=z+s<d and 0<=y+t<m else 0for t in c(p)]for s in c(n)];l=[[o[s][t]for t in c(1,p-1)]for s in c(1,n-1)]if n>2and p>2else[];z=set(sum(l,[]));3in z and u.append(t);len(t)==n+p-1and i.append(t)
+ b=[[6if s==3else s for s in s]for s in e]
+ for t in u:
+  for(p,(t,s))in t:0<=t<d and 0<=s<m and b.__setitem__(t,b[t][:s]+[2]+b[t][s+1:])
+ for t in i:
+  for(p,(t,s))in t:0<=t<d and 0<=s<m and b.__setitem__(t,b[t][:s]+[1]+b[t][s+1:])
+ return b

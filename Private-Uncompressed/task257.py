@@ -1,0 +1,1 @@
+def p(n):n[:4]=[[(v:=n[i][j])or(n[i][j+5]*(n[i][j+5]>0)or n[i+5][j]*(n[i+5][j]>0)or n[i+5][j+5]*(n[i+5][j+5]>0))for j in range(4)]for i in range(4)];return n[:4]

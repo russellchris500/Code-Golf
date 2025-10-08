@@ -1,15 +1,15 @@
-R=range
-L=len
-def p(a):
-	K,C=L(a),L(a[0]);E=F=M=N=O=P=0
-	for G in R(K):
-		H=[0]*C;I=[0]*C
-		for D in R(G,K):
-			H=[A+(B==2)for(A,B)in zip(H,a[D])];I=[A+(B==0)for(A,B)in zip(I,a[D])];B=J=0
-			for A in R(C+1):
-				if A<C and I[A]==0:B+=H[A]
-				else:
-					Q=A-J;S=(D-G+1)*Q
-					if Q and(B>E or B==E and S>F):E,F,M,N,O,P=B,S,G,J,D,A-1
-					J=A+1;B=0
-	return[A[N:P+1]for A in a[M:O+1]]if F else[]
+t=range
+a=len
+def p(n):
+ f,p=a(n),a(n[0]);b=y=k=d=m=u=0
+ for l in t(f):
+  r=[0]*p;e=[0]*p
+  for z in t(l,f):
+   r=[c+(i==2)for(c,i)in zip(r,n[z])];e=[c+(i==0)for(c,i)in zip(e,n[z])];i=q=0
+   for c in t(p+1):
+    if c<p and e[c]==0:i+=r[c]
+    else:
+     o=c-q;o=(z-l+1)*o
+     if o and(i>b or i==b and o>y):b,y,k,d,m,u=i,o,l,q,z,c-1
+     q=c+1;i=0
+ return[c[d:u+1]for c in n[k:m+1]]if y else[]

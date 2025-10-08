@@ -1,11 +1,11 @@
-def p(j,A=range):
-	c,E=len(j),len(j[0]);k=[A[:]for A in j];W,l=[A for A in A(c)if all(A==8 for A in j[A])];J,a=[C for C in A(E)if all(j[A][C]==8 for A in A(c))]
-	for C in A(c):
-		for e in A(E):
-			if not k[C][e]:
-				if C<W and J<e<a:k[C][e]=2
-				elif W<C<l and e<J:k[C][e]=4
-				elif W<C<l and J<e<a:k[C][e]=6
-				elif W<C<l and e>a:k[C][e]=3
-				elif C>l and J<e<a:k[C][e]=1
-	return k
+def p(r,k=range):
+ i,g=len(r),len(r[0]);u=[k[:]for k in r];l,f=[k for k in k(i)if all(k==8for k in r[k])];d,e=[n for n in k(g)if all(r[k][n]==8for k in k(i))]
+ for n in k(i):
+  for t in k(g):
+   if not u[n][t]:
+    if n<l and d<t<e:u[n][t]=2
+    elif l<n<f and t<d:u[n][t]=4
+    elif l<n<f and d<t<e:u[n][t]=6
+    elif l<n<f and t>e:u[n][t]=3
+    elif n>f and d<t<e:u[n][t]=1
+ return u

@@ -1,14 +1,14 @@
-def p(j):
-	A=range;c=[L[:]for L in j];E=set();k=[(0,1),(1,0),(0,-1),(-1,0)]
-	for W in A(10):
-		for l in A(10):
-			if j[W][l]==5 and(W,l)not in E:
-				J,a=set(),[(W,l)];J.add((W,l));E.add((W,l))
-				while a:
-					C,e=a.pop(0)
-					for(K,w)in k:
-						L,b=C+K,e+w
-						if 0<=L<10 and 0<=b<10 and j[L][b]==5 and(L,b)not in J:J.add((L,b));E.add((L,b));a.append((L,b))
-				d=5-len(J)
-				for(C,e)in J:c[C][e]=d
-	return c
+def p(h):
+ c=range;y=[i[:]for i in h];l=set();s=[(0,1),(1,0),(0,-1),(-1,0)]
+ for a in c(10):
+  for g in c(10):
+   if h[a][g]==5and(a,g)not in l:
+    l,f=set(),[(a,g)];l.add((a,g));l.add((a,g))
+    while f:
+     n,t=f.pop(0)
+     for(p,q)in s:
+      i,g=n+p,t+q
+      if 0<=i<10and 0<=g<10and h[i][g]==5and(i,g)not in l:l.add((i,g));l.add((i,g));f.append((i,g))
+    g=5-len(l)
+    for(n,t)in l:y[n][t]=g
+ return y

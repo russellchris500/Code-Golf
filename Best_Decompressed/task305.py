@@ -1,7 +1,7 @@
-def p(j):
-	A=len(j);c=[A for c in j for A in c if A]
-	if not c:return j
-	E=sorted(set(c));k=len(E);W=[[0]*A for c in[0]*A]
-	for l in range(A):
-		for J in range(A):W[l][J]=E[(l+J)%k]
-	return W
+def p(r):
+ n=len(r);t=[n for t in r for n in t if n]
+ if not t:return r
+ d=sorted(set(t));a=len(d);t=[[0]*n for t in[0]*n]
+ for r in range(n):
+  for g in range(n):t[r][g]=d[(r+g)%a]
+ return t

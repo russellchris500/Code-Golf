@@ -1,4 +1,4 @@
-def p(j):
-	A=range;B=[[[j[D+B*3][A+C*3]for A in A(3)]for D in A(3)]for B in A(len(j)//3)for C in A(len(j[0])//3)]
-	for C in B:
-		if[tuple(tuple(B[C][A]==0 for A in A(3))for C in A(3))for B in B].count(tuple(tuple(C[B][A]==0 for A in A(3))for B in A(3)))==1:return C
+def p(p):
+ d=range;e=[[[p[n+e*3][d+r*3]for d in d(3)]for n in d(3)]for e in d(len(p)//3)for r in d(len(p[0])//3)]
+ for r in e:
+  if[tuple(tuple(e[r][d]==0for d in d(3))for r in d(3))for e in e].count(tuple(tuple(r[e][d]==0for d in d(3))for e in d(3)))==1:return r

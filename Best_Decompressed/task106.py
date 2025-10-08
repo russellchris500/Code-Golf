@@ -1,2 +1,2 @@
-z=lambda g:[*map(list,zip(*g[::-1]))]
-p=lambda g:((g:=[a+b for a,b in zip(g,z(g))]),g+z(z(g)))[1]
+t=lambda A:[*map(list,zip(*A[::-1]))]
+p=lambda A:((A:=[A+t for(A,t)in zip(A,t(A))]),A+t(t(A)))[1]

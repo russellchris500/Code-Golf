@@ -1,0 +1,1 @@
+def p(n):n[:4]=[[(v:=n[i][j])or next((n[i][j+k%3*5]for k in(1,2,3)),0)for j in range(4)]for i in range(4)];return n[:4]

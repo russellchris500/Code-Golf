@@ -1,27 +1,27 @@
 from collections import deque
-def p(g):
-	E,F=len(g),len(g[0]);G=[[0]*F for A in range(E)];K={}
-	for H in range(E):
-		for I in range(F):
-			if not G[H][I]:
-				P=g[H][I];L=deque([(H,I)]);G[H][I]=1;Q=[]
-				while L:
-					A,B=L.popleft();Q.append((A,B))
-					for(M,N)in((1,0),(-1,0),(0,1),(0,-1)):
-						C,D=A+M,B+N
-						if 0<=C<E and 0<=D<F and not G[C][D]and g[C][D]==P:G[C][D]=1;L.append((C,D))
-				K.setdefault(P,[]).append(set(Q))
-	R=[A for A in K.get(9,[])if not any(A==0 or B==0 or A==E-1 or B==F-1 for(A,B)in A)];S=set()
-	for J in R:S|=J
-	T=[A[:]for A in g];U=K.get(1,[])
-	if U and R:
-		V=S
-		for J in U:
-			O=False
-			for(A,B)in J:
-				for(M,N)in((1,0),(-1,0),(0,1),(0,-1)):
-					if(A+M,B+N)in V:O=True;break
-				if O:break
-			if O:
-				for(A,B)in J:T[A][B]=8
-	return T
+def p(l,t=range):
+ i,r=len(l),len(l[0]);z=[[0]*r for n in t(i)];g={}
+ for s in t(i):
+  for p in t(r):
+   if not z[s][p]:
+    e=l[s][p];a=deque([(s,p)]);z[s][p]=1;f=[]
+    while a:
+     n,o=a.popleft();f.append((n,o))
+     for(c,y)in((1,0),(-1,0),(0,1),(0,-1)):
+      q,m=n+c,o+y
+      if 0<=q<i and 0<=m<r and not z[q][m]and l[q][m]==e:z[q][m]=1;a.append((q,m))
+    g.setdefault(e,[]).append(set(f))
+ c=[n for n in g.get(9,[])if not any(n==0 or o==0 or n==i-1or o==r-1for(n,o)in n)];m=set()
+ for q in c:m|=q
+ f=[n[:]for n in l];e=g.get(1,[])
+ if e and c:
+  a=m
+  for q in e:
+   u=False
+   for(n,o)in q:
+    for(c,y)in((1,0),(-1,0),(0,1),(0,-1)):
+     if(n+c,o+y)in a:u=True;break
+    if u:break
+   if u:
+    for(n,o)in q:f[n][o]=8
+ return f

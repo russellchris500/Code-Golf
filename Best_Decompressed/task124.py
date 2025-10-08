@@ -1,18 +1,18 @@
-R=range
-L=len
-def p(a):
-	C,B=L(a),L(a[0])
-	def E(r,s):
-		A=[0]*B
-		for(E,C)in enumerate(r):
-			D=E+s
-			if C and 0<=D<B:A[D]=C
-		return A
-	for A in R(1,C+1):
-		F=a[:A]
-		for G in R(-B,B+1):
-			H=True
-			for D in R(C):
-				if E(F[D%A],D//A*G)!=a[D]:H=False;break
-			if H:return[E(F[B%A],B//A*G)for B in R(10)]
-	return[a[A%C][:]for A in R(10)]
+u=range
+n=len
+def p(s):
+ t,d=n(s),n(s[0])
+ def f(u,s):
+  e=[0]*d
+  for(f,t)in enumerate(u):
+   T=f+s
+   if t and 0<=T<d:e[T]=t
+  return e
+ for e in u(1,t+1):
+  i=s[:e]
+  for g in u(-d,d+1):
+   r=True
+   for T in u(t):
+    if f(i[T%e],T//e*g)!=s[T]:r=False;break
+   if r:return[f(i[d%e],d//e*g)for d in u(10)]
+ return[s[e%t][:]for e in u(10)]

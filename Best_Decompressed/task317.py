@@ -1,8 +1,8 @@
-def p(j,A=range):
- c=len(j);E=[[0 for _ in A(c)]for _ in A(c)]
- for k in A(c):
-  for W in A(c):
-   if j[k][W]==5:
-    for l in A(max(0,k-1),min(c,k+2)):
-     for J in A(max(0,W-1),min(c,W+2)):E[l][J]=1
- return E
+def p(n,x=range):
+ e=len(n);a=[[0for x in x(e)]for g in x(e)]
+ for g in x(e):
+  for l in x(e):
+   if n[g][l]==5:
+    for p in x(max(0,g-1),min(e,g+2)):
+     for i in x(max(0,l-1),min(e,l+2)):a[p][i]=1
+ return a

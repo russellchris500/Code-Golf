@@ -1,15 +1,15 @@
-def p(g,V=range):
- r=[d[:]for d in g]
- v=set()
- for i in V(len(g)-2):
-  for j in V(len(g[0])):
-   if g[i][j]and(i,j)not in v:
-    c=g[i][j]
-    if all(g[i+k][j]==c for k in V(3)):
-     a=j
-     while a<len(g[0])and all(g[i+k][a]==c for k in V(3)):
-      for k in V(3):v.add((i+k,a))
-      a+=1
-     for x in V(j,a):
-      if(x-j)%2==1:r[i+1][x]=0
- return r
+def p(a,u=range):
+ f=[e[:]for e in a]
+ s=set()
+ for e in u(len(a)-2):
+  for l in u(len(a[0])):
+   if a[e][l]and(e,l)not in s:
+    i=a[e][l]
+    if all(a[e+d][l]==i for d in u(3)):
+     n=l
+     while n<len(a[0])and all(a[e+d][n]==i for d in u(3)):
+      for d in u(3):s.add((e+d,n))
+      n+=1
+     for d in u(l,n):
+      if(d-l)%2==1:f[e+1][d]=0
+ return f

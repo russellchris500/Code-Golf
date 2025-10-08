@@ -1,18 +1,18 @@
-def p(g):
- o=[r[:]for r in g];R,C=len(g),len(g[0]);G={(r,c)for r in range(R)for c in range(C)if g[r][c]==3};U=set()
- for m in[3,2,1]:
-  for r in range(R):
-   for c in range(C):
-    for f in[0,1]:
-     c1,c2,c0,c3=(c+m,c,c-m,c+2*m)if f else(c,c+m,c+2*m,c-m);E=set()
-     for d in range(m):
-      for e in range(m):
-       if 0<=r+d<R and 0<=c1+e<C:E.add((r+d,c1+e))
-       if 0<=r+d+m<R and 0<=c2+e<C:E.add((r+d+m,c2+e))
-     if len(E)==2*m*m and E<=G and not E&U:
-      U|=E
-      for d in range(m):
-       for e in range(m):
-        if 0<=r+d-m<R and 0<=c0+e<C:o[r+d-m][c0+e]=8
-        if 0<=r+d+2*m<R and 0<=c3+e<C:o[r+d+2*m][c3+e]=8
+def p(p):
+ o=[r[:]for r in p];b,b=len(p),len(p[0]);a={(r,c)for r in range(b)for c in range(b)if p[r][c]==3};t=set()
+ for k in[3,2,1]:
+  for r in range(b):
+   for c in range(b):
+    for p in[0,1]:
+     f,l,e,c3=(c+k,c,c-k,c+2*k)if p else(c,c+k,c+2*k,c-k);n=set()
+     for d in range(k):
+      for p in range(k):
+       if 0<=r+d<b and 0<=f+p<b:n.add((r+d,f+p))
+       if 0<=r+d+k<b and 0<=l+p<b:n.add((r+d+k,l+p))
+     if len(n)==2*k*k and n<=a and not n&t:
+      t|=n
+      for d in range(k):
+       for p in range(k):
+        if 0<=r+d-k<b and 0<=e+p<b:o[r+d-k][e+p]=8
+        if 0<=r+d+2*k<b and 0<=c3+p<b:o[r+d+2*k][c3+p]=8
  return o

@@ -1,21 +1,21 @@
-def p(g):
-	N='h';J,D=len(g),len(g[0]);S=[[not g[A][B]and all(not(0<=A+C<J and 0<=B+E<D)or not g[A+C][B+E]for C in(-1,0,1)for E in(-1,0,1)if C or E)for B in range(D)]for A in range(J)];K=[0]*D;E=[]
-	for O in range(J):
-		for P in range(D):K[P]=S[O][P]and K[P]+1
-		for L in range(D):
-			C=K[L]
-			if C:
-				for B in range(L,D):
-					if not K[B]:break
-					C=min(C,K[B]);[E.append((O-A+1,L,O,B,(B-L+1)*A))for A in range(1,C+1)]
-	if not E:return[[*A]for A in g]
-	F,I=lambda x:x[3]-x[1]+1,lambda x:x[2]-x[0]+1;E.sort(key=lambda r:(-r[4],r[0],r[1]));G=next((A for A in E if F(A)>I(A)),0);H=next((A for A in E if I(A)>F(A)),0);A=G and H and(G if F(G)>I(H)else H if F(G)<I(H)else G if G[4]>=H[4]else H)or G or H or E[0];M=[[*A]for A in g]
-	def Q(a):
-		for A in range(a[0],a[2]+1):M[A][a[1]:a[3]+1]=[3]*F(a)
-	T=lambda a,b:a[1]<=b[3]and b[1]<=a[3]and a[0]<=b[2]and b[0]<=a[2];C='vh'[F(A)<=I(A)];U=lambda a:a[1]==0 or a[3]==D-1 if C==N else a[0]==0 or a[2]==J-1;V=lambda a:(a[3]+1==A[1]or a[1]-1==A[3])and a[0]<=A[2]and a[2]>=A[0]if C==N else(a[2]+1==A[0]or a[0]-1==A[2])and a[1]<=A[3]and a[3]>=A[1];W=lambda a:all(not(0<=A<J and 3 in M[A][a[1]:a[3]+1])for A in(a[0]-1,a[2]+1))if C==N else all(not(0<=A<D and 3 in[*zip(*M[a[0]:a[2]+1])][A])for A in(a[1]-1,a[3]+1));Q(A);R=[A]
-	while 1:
-		for B in sorted(E,key=lambda r:(not U(r),-r[4],r[0],r[1])):
-			if(F,I)[C>N](B)<5 or not W(B)or not V(B)or any(T(B,A)for A in R):continue
-			Q(B);R+=[B];break
-		else:break
-	return M
+def p(f,x=range):
+ k='h';g,g=len(f),len(f[0]);h=[[not f[i][z]and all(not(0<=i+l<g and 0<=z+a<g)or not f[i+l][z+a]for l in(-1,0,1)for a in(-1,0,1)if l or a)for z in x(g)]for i in x(g)];p=[0]*g;a=[]
+ for y in x(g):
+  for b in x(g):p[b]=h[y][b]and p[b]+1
+  for M in x(g):
+   l=p[M]
+   if l:
+    for z in x(M,g):
+     if not p[z]:break
+     l=min(l,p[z]);[a.append((y-i+1,M,y,z,(z-M+1)*i))for i in x(1,l+1)]
+ if not a:return[[*i]for i in f]
+ t,e=lambda g:g[3]-g[1]+1,lambda g:g[2]-g[0]+1;a.sort(key=lambda t:(-t[4],t[0],t[1]));j=next((i for i in a if t(i)>e(i)),0);p=next((i for i in a if e(i)>t(i)),0);i=j and p and(j if t(j)>e(p)else p if t(j)<e(p)else j if j[4]>=p[4]else p)or j or p or a[0];s=[[*i]for i in f]
+ def u(e):
+  for i in x(e[0],e[2]+1):s[i][e[1]:e[3]+1]=[3]*t(e)
+ h=lambda e,i:e[1]<=i[3]and i[1]<=e[3]and e[0]<=i[2]and i[0]<=e[2];l='vh'[t(i)<=e(i)];n=lambda e:e[1]==0 or e[3]==g-1if l==k else e[0]==0 or e[2]==g-1;b=lambda e:(e[3]+1==i[1]or e[1]-1==i[3])and e[0]<=i[2]and e[2]>=i[0]if l==k else(e[2]+1==i[0]or e[0]-1==i[2])and e[1]<=i[3]and e[3]>=i[1];c=lambda e:all(not(0<=i<g and 3in s[i][e[1]:e[3]+1])for i in(e[0]-1,e[2]+1))if l==k else all(not(0<=i<g and 3in[*zip(*s[e[0]:e[2]+1])][i])for i in(e[1]-1,e[3]+1));u(i);r=[i]
+ while 1:
+  for z in sorted(a,key=lambda t:(not n(t),-t[4],t[0],t[1])):
+   if(t,e)[l>k](z)<5or not c(z)or not b(z)or any(h(z,i)for i in r):continue
+   u(z);r+=[z];break
+  else:break
+ return s

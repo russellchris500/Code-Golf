@@ -1,10 +1,10 @@
-def p(j,A=range):
- c=len(j)
- for E in A(1,c-1):
-  k=W=0
-  for l in A(c):
-   J=j[E][l];k=[k,1][k<1and J>1]
-   if k==1and J<1:k=2;W=[W,l][~W]
-   if k>1and J>1:
-    for a in A(W,l):j[E][a]=9;k=1;W=0
- return j
+def p(t,q=range):
+ s=len(t)
+ for o in q(1,s-1):
+  n=p=0
+  for r in q(s):
+   d=t[o][r];n=[n,1][n<1and d>1]
+   if n==1and d<1:n=2;p=[p,r][~p]
+   if n>1and d>1:
+    for r in q(p,r):t[o][r]=9;n=1;p=0
+ return t

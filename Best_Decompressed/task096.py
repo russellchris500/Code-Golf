@@ -1,60 +1,38 @@
-M=max
-m=min
-R=range
+d=max
+z=min
+m=range
 def p(g):
-    from collections import Counter,deque
-    b=Counter(x for r in g for x in r).most_common(1)[0][0]
-    U,C=len(g),len(g[0])
-    S={}
-    for i in R(U):
-        for j in R(C):
-            v=g[i][j]
-            if v!=b:S.setdefault(v,set()).add((i,j))
-    def cp(T):
-        V=set();L=[]
-        for s in T:
-            if s in V:continue
-            q=deque([s]);V.add(s);W={s}
-            while q:
-                x,y=q.popleft()
-                for dx,dy in((1,0),(-1,0),(0,1),(0,-1)):
-                    t=(x+dx,y+dy)
-                    if t in T and t not in V:V.add(t);q.append(t);W.add(t)
-            L.append(W)
-        return L
-    def box(T):
-        rs=[r for r,c in T];cs=[c for r,c in T]
-        return m(rs),m(cs),M(rs),M(cs)
-    def nm(T):
-        r0,c0,_,_=box(T);return {(r-r0,c-c0)for r,c in T}
-    def h(T):
-        r0,_,r1,_=box(T);s=r0+r1;return {(s-r,c)for r,c in T}
-    def v(T):
-        _,c0,_,c1=box(T);s=c0+c1;return {(r,s-c)for r,c in T}
-    def d(T):
-        r0,c0,_,_=box(T);return {(c-c0+r0,r-r0+c0)for r,c in T}
-    def c(T):return v(d(v(T)))
-    def cn(T):
-        C=[v(T),d(T),c(T),h(T)]
-        return m(C,key=lambda U:sorted(nm(U)))
-    def man(a,b):return m(abs(x-u)+abs(y-v)for x,y in a for u,v in b)
-    def key(v):
-        L=cp(S[v])
-        W=M((M(c for r,c in w)-m(c for r,c in w)+1 for w in L),default=0)
-        ds=[man(L[i],L[j])for i in R(len(L))for j in R(i+1,len(L))]
-        G=(m(ds)-1) if ds else -2
-        return -(2*W+G)
-    cols=sorted(S,key=key)
-    shp={v:nm(cn(S[v])) for v in cols}
-    n=len(cols)
-    D=n if any(len(S[v])==1 for v in cols)else n+1
-    s=2*D-1
-    o=[[b]*s for _ in R(s)]
-    E=[(v,(r+i,c+i))for i,v in enumerate(cols)for r,c in shp[v]]
-    def rt(a):return [list(x) for x in zip(*a[::-1])]
-    def pa(a):
-        for v,(r,c) in E:
-            if 0<=r<s and 0<=c<s:a[r][c]=v
-        return a
-    for _ in R(3):o=pa(o);o=rt(o)
-    return pa(o)
+ from collections import Counter as r,deque;e=r(n for a in g for n in a).most_common(1)[0][0];i,o=len(g),len(g[0]);n={}
+ for f in m(i):
+  for r in m(o):
+   a=g[f][r]
+   if a!=e:n.setdefault(a,set()).add((f,r))
+ def q(g):
+  n=set();p=[]
+  for f in g:
+   if f in n:continue
+   y=deque([f]);n.add(f);h={f}
+   while y:
+    e,f=y.popleft()
+    for(r,i)in((1,0),(-1,0),(0,1),(0,-1)):
+     a=e+r,f+i
+     if a in g and a not in n:n.add(a);y.append(a);h.add(a)
+   p.append(h)
+  return p
+ def y(g):a=[a for(a,n)in g];n=[a for(n,a)in g];return z(a),z(n),d(a),d(n)
+ def i(g):a,n,f,f=y(g);return{(f-a,y-n)for(f,y)in g}
+ def j(g):a,n,f,n=y(g);p=a+f;return{(p-a,n)for(a,n)in g}
+ def a(g):a,n,a,f=y(g);p=n+f;return{(a,p-n)for(a,n)in g}
+ def f(g):a,n,f,f=y(g);return{(y-n+a,f-a+n)for(f,y)in g}
+ def u(g):return a(f(a(g)))
+ def g(g):n=[a(g),f(g),u(g),j(g)];return z(n,key=lambda j:sorted(i(j)))
+ def r(y,p):return z(abs(a-f)+abs(n-y)for(a,n)in y for(f,y)in p)
+ def b(a):a=q(n[a]);y=d((d(a for(n,a)in a)-z(a for(n,a)in a)+1for a in a),default=0);f=[r(a[n],a[f])for n in m(len(a))for f in m(n+1,len(a))];p=z(f)-1if f else-2;return-(2*y+p)
+ p=sorted(n,key=b);i={a:i(g(n[a]))for a in p};x=len(p);r=x if any(len(n[a])==1for a in p)else x+1;h=2*r-1;f=[[e]*h for a in m(h)];p=[(n,(f+a,y+a))for(a,n)in enumerate(p)for(f,y)in i[n]]
+ def y(y):return[list(a)for a in zip(*y[::-1])]
+ def e(y):
+  for(f,(a,n))in p:
+   if 0<=a<h and 0<=n<h:y[a][n]=f
+  return y
+ for t in m(3):f=e(f);f=y(f)
+ return e(f)

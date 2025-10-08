@@ -1,1 +1,1 @@
-def p(g):a,b=range(len(g)),range(len(g[0]));d={(i+j)%3:g[i][j]for i in a for j in b if g[i][j]};return[[d.get((i+j)%3,0)for j in b]for i in a]
+p=lambda g,R=range:[[max(sum(g,[])[(x+y)%3::3])for y in R(7)]for x in R(7)]

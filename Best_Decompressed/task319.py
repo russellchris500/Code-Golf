@@ -1,12 +1,12 @@
-def p(g):
-	if not g or not g[0]:return[list(A)for A in g]
-	E=tuple(tuple(A)for A in g);U,V=len(E),len(E[0]);F=lambda x:(min(A for(A,B)in x),min(A for(B,A)in x),max(A for(A,B)in x),max(A for(B,A)in x))if x else(0,0,0,0);J=lambda x:{(A-F(x)[0],B-F(x)[1])for(A,B)in x}if x else set();G=tuple(tuple(A[::-1])for A in E);from collections import Counter as W;K=max(W(sum(G,())).items(),key=lambda kv:kv[1])[0];A={};[A.setdefault(G[B][C],set()).add((B,C))for B in range(U)for C in range(V)if G[B][C]!=K]
-	if not A:return[list(A)for A in E]
-	C=max(A,key=lambda c:len(A[c]));H=J(A[C]);B=None
-	for(L,D)in A.items():
-		if L==C or len(D)==len(A[C]):continue
-		X=J(D);I={(2*A+C,2*B+D)for(A,B)in X for C in(0,1)for D in(0,1)}
-		if I and H:M,N,O,P=[A for(A,B)in I],[A for(B,A)in I],[A for(A,B)in H],[A for(B,A)in H];Q=max(sum((C+A,D+B)in H for(C,D)in I)for A in range(min(O)-max(M),max(O)-min(M)+1)for B in range(min(P)-max(N),max(P)-min(N)+1))
-		else:Q=0
-		R=Q-2*len(D),len(D),F(D)[3],L;B=R if B is None or R>B else B
-	S=B[3]if B else(lambda o:max(o,key=lambda c:len(A[c]))if o else C)([A for A in A if A!=C]);Y,Z,a,b=F(A[S]);T=[list(G[A][Z:b+1])for A in range(Y,a+1)];[[A.__setitem__(B,K)for B in range(len(A))if A[B]!=S]for A in T];return[list(A[::-1])for A in T]
+def p(o,d=range):
+ if not o or not o[0]:return[list(f)for f in o]
+ f=tuple(tuple(f)for f in o);h,b=len(f),len(f[0]);p=lambda u:(min(f for(f,q)in u),min(f for(q,f)in u),max(f for(f,q)in u),max(f for(q,f)in u))if u else(0,0,0,0);i=lambda u:{(f-p(u)[0],q-p(u)[1])for(f,q)in u}if u else set();u=tuple(tuple(f[::-1])for f in f);from collections import Counter as f;j=max(f(sum(u,())).items(),key=lambda a:a[1])[0];f={};[f.setdefault(u[q][s],set()).add((q,s))for q in d(h)for s in d(b)if u[q][s]!=j]
+ if not f:return[list(f)for f in f]
+ s=max(f,key=lambda h:len(f[h]));h=i(f[s]);q=None
+ for(r,o)in f.items():
+  if r==s or len(o)==len(f[s]):continue
+  o=i(o);l={(2*f+s,2*q+o)for(f,q)in o for s in(0,1)for o in(0,1)}
+  if l and h:g,g,m,m=[f for(f,q)in l],[f for(q,f)in l],[f for(f,q)in h],[f for(q,f)in h];a=max(sum((s+f,o+q)in h for(s,o)in l)for f in d(min(m)-max(g),max(m)-min(g)+1)for q in d(min(m)-max(g),max(m)-min(g)+1))
+  else:a=0
+  b=a-2*len(o),len(o),p(o)[3],r;q=b if q is None or b>q else q
+ m=q[3]if q else(lambda f:max(f,key=lambda h:len(f[h]))if f else s)([f for f in f if f!=s]);i,k,f,b=p(f[m]);p=[list(u[f][k:b+1])for f in d(i,f+1)];[[f.__setitem__(q,j)for q in d(len(f))if f[q]!=m]for f in p];return[list(f[::-1])for f in p]

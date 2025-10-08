@@ -1,10 +1,11 @@
-l=len;r=range
+e=len
+z=range
 def p(g):
- d=[0]
- for _ in r(4):
+ f=[0]
+ for d in z(4):
   g=[*map(list,zip(*g[::-1]))]
-  for i in r(1,l(g)-1):
-   a=g[i];c=a[0];d+=[c];t=1
-   for j in r(1,l(a)-1):
-    if a[j]==c:a[t]=c;a[j]=0;t+=1
- return [[x*(x in d)for x in y]for y in g]
+  for d in z(1,e(g)-1):
+   i=g[d];d=i[0];f+=[d];t=1
+   for r in z(1,e(i)-1):
+    if i[r]==d:i[t]=d;i[r]=0;t+=1
+ return[[i*(i in f)for i in i]for i in g]

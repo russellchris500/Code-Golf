@@ -1,11 +1,11 @@
-def p(j,A=range):
-	c,E=len(j),len(j[0]);k=[0 for W in A(E)]
-	for W in A(E):
-		for l in A(c):
-			if j[l][W]>0:k[W]+=1
-			j[l][W]=0
-	J=min([W for W in k if W>0]);W=k.index(J)
-	for l in A(k[W]):j[-(l+1)][W]=2
-	W=k.index(max(k))
-	for l in A(k[W]):j[-(l+1)][W]=1
-	return j
+def p(b,p=range):
+ a,r=len(b),len(b[0]);m=[0for p in p(r)]
+ for n in p(r):
+  for r in p(a):
+   if b[r][n]>0:m[n]+=1
+   b[r][n]=0
+ i=min([p for p in m if p>0]);n=m.index(i)
+ for r in p(m[n]):b[-(r+1)][n]=2
+ n=m.index(max(m))
+ for r in p(m[n]):b[-(r+1)][n]=1
+ return b

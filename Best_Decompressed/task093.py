@@ -1,10 +1,7 @@
-def p(g):
- x=0
- if g[0].count(5)==0:g=list(map(list,zip(*g[::-1])));x=3
- C=g[0].count(5)
- X=[r[:]for r in g]
- g=[[5 if c==5 else 0 for c in r]for r in g]
- s=g[0].index(5)
- for r in range(len(g)):M=sum([1 for c in X[r][:s]if c>0]);N=sum([1 for c in X[r][s+C:]if c>0]);g[r]=g[r][:s-M]+[5]*(C+M+N)+g[r][s+C+N:]
- for i in range(x):g=list(map(list,zip(*g[::-1])))
- return g
+def p(n):
+ a=0
+ if n[0].count(5)==0:n=list(map(list,zip(*n[::-1])));a=3
+ p=n[0].count(5);r=[e[:]for e in n];n=[[5if e==5else 0for e in e]for e in n];d=n[0].index(5)
+ for e in range(len(n)):t=sum([1for e in r[e][:d]if e>0]);i=sum([1for e in r[e][d+p:]if e>0]);n[e]=n[e][:d-t]+[5]*(p+t+i)+n[e][d+p+i:]
+ for r in range(a):n=list(map(list,zip(*n[::-1])))
+ return n

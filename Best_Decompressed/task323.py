@@ -1,18 +1,18 @@
-def p(f):
- n=13;i=[n[:]for n in f]
- j,W=next((j,W)for j in range(n)for W in range(n)if f[j][W])
- for l,o in(-1,1),(1,-1):
-  a,C=j,W
+def p(e):
+ n=13;u=[n[:]for n in e]
+ t,o=next((t,o)for t in range(n)for o in range(n)if e[t][o])
+ for f,e in(-1,1),(1,-1):
+  l,r=t,o
   while 1:
-   for e in[0]*2:
-    a+=l
-    if 0<=a<n:i[a][C]=5
+   for a in[0]*2:
+    l+=f
+    if 0<=l<n:u[l][r]=5
     else:break
    else:
-    for e in[0]*2:
-     C+=o
-     if 0<=C<n:i[a][C]=5
+    for a in[0]*2:
+     r+=e
+     if 0<=r<n:u[l][r]=5
      else:break
     else:continue
    break
- return i
+ return u

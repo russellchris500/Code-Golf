@@ -1,16 +1,16 @@
-def p(j):
-	A=range;c=len(j);E=[[0]*c for W in A(c)];k,W=0,0;l=[(0,1),(1,0),(0,-1),(-1,0)]
-	for J in A(c):
-		E[k][W]=3
-		if J<c-1:W+=1
-	a=c-1;C=1
-	while a>0:
-		for e in A(2):
-			if a>0:
-				k,W=k+l[C][0],W+l[C][1]
-				for J in A(a):
-					E[k][W]=3
-					if J<a-1:k,W=k+l[C][0],W+l[C][1]
-				C=(C+1)%4
-		a-=2
-	return E
+def p(o):
+ u=range;r=len(o);i=[[0]*r for o in u(r)];m,o=0,0;a=[(0,1),(1,0),(0,-1),(-1,0)]
+ for l in u(r):
+  i[m][o]=3
+  if l<r-1:o+=1
+ r=r-1;f=1
+ while r>0:
+  for l in u(2):
+   if r>0:
+    m,o=m+a[f][0],o+a[f][1]
+    for l in u(r):
+     i[m][o]=3
+     if l<r-1:m,o=m+a[f][0],o+a[f][1]
+    f=(f+1)%4
+  r-=2
+ return i

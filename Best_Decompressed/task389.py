@@ -1,1 +1,1 @@
-def p(j):A=[i for s in j for i in s];A=[c for c in set(A)if c not in[0,5]][0];j=[[A if C==5 else 0 for C in R]for R in j];return j
+def p(r):t=[i for t in r for i in t];t=[t for t in set(t)if t not in[0,5]][0];r=[[t if i==5else 0for i in i]for i in r];return r

@@ -1,18 +1,16 @@
-L=len
-R=range
-B=[1,4,9,16,25,36,49,64,81]
-S=[-1,0,1]
-P=[[x,y]for x in S for y in S]
-Z=[264,246,236,194,285,134,156,66,104]
-def p(g):
- h,w=L(g),L(g[0])
- X=[[0]*9 for _ in R(9)]
- for r in R(1,h-1):
-  for c in R(1,w-1):
-    M=[g[r+y][c+x]for y,x in P]
-    f=sum([B[i]for i in R(9)if M[i]==5])
-    if f in Z and 0 not in M:
-     j=Z.index(f)
-     for y in R(3):
-      for x in R(3):X[y+(j//3*3)][x+(j%3*3)]=g[r-1+y][c-1+x]
- return X
+j=len
+a=range
+n=[1,4,9,16,25,36,49,64,81]
+s=[-1,0,1]
+x=[[f,n]for f in s for n in s]
+e=[264,246,236,194,285,134,156,66,104]
+def p(h):
+ d,u=j(h),j(h[0]);f=[[0]*9for f in a(9)]
+ for d in a(1,d-1):
+  for l in a(1,u-1):
+   g=[h[d+f][l+n]for(f,n)in x];t=sum([n[f]for f in a(9)if g[f]==5])
+   if t in e and 0not in g:
+    g=e.index(t)
+    for s in a(3):
+     for k in a(3):f[s+g//3*3][k+g%3*3]=h[d-1+s][l-1+k]
+ return f

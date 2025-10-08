@@ -1,19 +1,19 @@
-def p(a):
-	C=None;F,G=len(a),len(a[0]);D=[(lambda s:next(iter(s))if len(s)<=1 else C)({A for A in A if A})for A in a];E=[(lambda s:next(iter(s))if len(s)<=1 else C)({a[B][A]for B in range(F)if a[B][A]})for A in range(G)]
-	def H(v):
-		B=[];C=0
-		for A in range(1,len(v)+1):
-			if A==len(v)or v[A]!=v[A-1]:B.append((C,A-1));C=A
-		return B
-	if all(A is not C for A in D)and len(set(D))>1:
-		for(I,J)in H(D):
-			for A in range(G):
-				if any(a[B][A]==0 for B in range(I,J+1)):
-					for B in range(I,J+1):a[B][A]=0
-		return a
-	if all(A is not C for A in E)and len(set(E))>1:
-		for(K,L)in H(E):
-			for B in range(F):
-				if any(a[B][A]==0 for A in range(K,L+1)):
-					for A in range(K,L+1):a[B][A]=0
-	return a
+def p(l,g=range):
+ t=None;A,n=len(l),len(l[0]);D=[(lambda s:next(iter(s))if len(s)<=1else t)({t for t in B if t})for B in l];N=[(lambda s:next(iter(s))if len(s)<=1else t)({l[t][B]for t in g(A)if l[t][B]})for B in g(n)]
+ def s(v):
+  B=[];C=0
+  for t in g(1,len(v)+1):
+   if t==len(v)or v[t]!=v[t-1]:B.append((C,t-1));C=t
+  return B
+ if all(B is not t for B in D)and len(set(D))>1:
+  for(I,t)in s(D):
+   for B in g(n):
+    if any(l[t][B]==0for t in g(I,t+1)):
+     for C in g(I,t+1):l[C][B]=0
+  return l
+ if all(B is not t for B in N)and len(set(N))>1:
+  for(E,L)in s(N):
+   for C in g(A):
+    if any(l[C][t]==0for t in g(E,L+1)):
+     for B in g(E,L+1):l[C][B]=0
+ return l

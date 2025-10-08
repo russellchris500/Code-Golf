@@ -1,1 +1,1 @@
-def p(g):B=sum(g,[]);C=max([B.count(A)for A in set(B)if A>0]);A=sum(map(list,zip(*g[::-1])),[]);A=[B for(C,B)in enumerate(A)if A.index(B)==C];g=[[A for A in A if B.count(A)==C]]*C;return g
+def p(g):b=sum(g,[]);c=max(b.count(x)for x in b if x>0);return[[x for x in dict.fromkeys(sum(zip(*g[::-1]),()))if b.count(x)==c]]*c

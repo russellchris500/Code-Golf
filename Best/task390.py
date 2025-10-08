@@ -1,5 +1,2 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("""xÚTNµu1mE™88^ndÞ2ˆÌlWo1ü´¬º#Šc\r{dnÐÚn|õ£jKUƒÀ>ÌaŠ¶-<>_“‘6Ç¶´uÄ+8´¥ûžw»ÀQ`«]±;r×–Ú+À¹
-N­`
-ö…ï¾¥ÒrˆYæÂ(­H•ùv*dÄÉs¬—6ÈÛí(íE[®9q¿kù°>=?Ü Ðß™õ¿ÌŸã\x00)PFÑ""","L1")))
+q=lambda g:[g[[6*(a:=2in g[3]),7-2*a,6-6*a,3,4,5-3*a,0,0,0,9-9*(b:=2in g[11]),10,11,8-8*b,7+2*b,8*b][r]]for r in range(15)]
+p=lambda g:[q(g),[*zip(*q([*zip(*g)]))]][2 in g[6]]

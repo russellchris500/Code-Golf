@@ -1,6 +1,1 @@
-def p(j,A=range(3)):
- for c in A:
-  for E in A:
-   j[c][E]+=j[c][E+3]
-   if j[c][E]>0:j[c][E]=6
- return[R[:3]for R in j]
+p=lambda j:[[6*(x+y>0)for x,y in zip(r[:3],r[3:])]for r in j]

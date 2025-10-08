@@ -1,12 +1,12 @@
-e=range
-o=len
+a=range
+f=len
 def p(i):
- for t in e(4):
+ for s in a(4):
   i=list(map(list,zip(*i[::-1])))
-  if i[0][2]==8 and i[2][0]==8:
-   for t in e(3,o(i)):
-    for n in e(3,o(i[0])):
-     if i[t][n]>0:
-      i[t][n]=i[(t-2)//4][(n-2)//4]
-   i=[t[3:] for t in i[3:]]
+  if i[0][2]==8and i[2][0]==8:
+   for s in a(3,f(i)):
+    for p in a(3,f(i[0])):
+     if i[s][p]>0:
+      i[s][p]=i[(s-2)//4][(p-2)//4]
+   i=[s[3:] for s in i[3:]]
  return i

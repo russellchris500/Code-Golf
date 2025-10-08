@@ -1,8 +1,8 @@
-def p(j):
-	A=[k[:]for k in j];c,E=len(j),len(j[0])
-	for k in range(c):
-		for W in range(E):
-			if j[k][W]==3:
-				for(l,J)in[(0,1),(1,0),(0,-1),(-1,0)]:
-					if 0<=k+l<c and 0<=W+J<E and j[k+l][W+J]==3:A[k][W]=8;break
-	return A
+def p(a):
+ t=[n[:]for n in a];g,u=len(a),len(a[0])
+ for n in range(g):
+  for f in range(u):
+   if a[n][f]==3:
+    for(i,d)in[(0,1),(1,0),(0,-1),(-1,0)]:
+     if 0<=n+i<g and 0<=f+d<u and a[n+i][f+d]==3:t[n][f]=8;break
+ return t

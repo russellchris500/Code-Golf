@@ -1,17 +1,17 @@
-def p(q):
-	r,z=len(q),len(q[0]);d,r,f,G=r,z,-1,-1
-	for y in range(r):
-		for o in range(z):
-			if q[y][o]!=0:
-				if y<d:d=y
-				if y>f:f=y
-				if o<r:r=o
-				if o>G:G=o
-	if f<0:return[[]]
-	N=[tuple(q[y][r:G+1])for y in range(d,f+1)];H=[];z=None
-	for o in N:
-		if o!=z:H.append(o);z=o
-	p=list(zip(*H))if H else[];J=[];z=None
-	for o in p:
-		if o!=z:J.append(o);z=o
-	return[list(y)for y in zip(*J)]
+def p(a):
+ u,n=len(a),len(a[0]);f,u,r,d=u,n,-1,-1
+ for t in range(u):
+  for o in range(n):
+   if a[t][o]!=0:
+    if t<f:f=t
+    if t>r:r=t
+    if o<u:u=o
+    if o>d:d=o
+ if r<0:return[[]]
+ a=[tuple(a[t][u:d+1])for t in range(f,r+1)];s=[];n=None
+ for o in a:
+  if o!=n:s.append(o);n=o
+ p=list(zip(*s))if s else[];s=[];n=None
+ for o in p:
+  if o!=n:s.append(o);n=o
+ return[list(t)for t in zip(*s)]

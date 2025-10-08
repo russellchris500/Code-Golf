@@ -1,34 +1,34 @@
-def p(g):
-	D,E=len(g),len(g[0]);K=[A[:]for A in g];F=[[0]*E for A in range(D)];L=[]
-	for G in range(D):
-		for H in range(E):
-			if F[G][H]or g[G][H]==0:continue
-			I=[(G,H)];C=[]
-			while I:
-				A,B=I.pop()
-				if A<0 or A>=D or B<0 or B>=E or F[A][B]or g[A][B]==0:continue
-				F[A][B]=1;C.append((A,B,g[A][B]));I.extend([(A+C,B+G)for(C,G)in[(0,1),(0,-1),(1,0),(-1,0),(1,1),(1,-1),(-1,1),(-1,-1)]if 0<=A+C<D and 0<=B+G<E and not F[A+C][B+G]and g[A+C][B+G]!=0])
-			C and L.append(C)
-	M,N,O,P=[],[],[],[]
-	for C in L:
-		Q={B for(A,A,B)in C}
-		if len(C)==1:
-			R,A,S=C[0]
-			if S==2:O.append((R,A))
-			elif S==3:P.append((R,A))
-		else:
-			if 2 in Q:M.append(C)
-			if 3 in Q:N.append(C)
-	def T(tp,tc,ms,f=0):
-		B=next(((A,B)for(A,B,C)in tp if C==tc),None)
-		if not B:return
-		G,H=B
-		for(I,J)in ms:
-			for(L,M,N)in tp:
-				O,A=L-G,M-H
-				if f:A=-A
-				C,F=I+O,J+A
-				if 0<=C<D and 0<=F<E:K[C][F]=N
-	for J in M:T(J,2,O,1)
-	for J in N:T(J,3,P)
-	return K
+def p(p,f=range):
+ l,o=len(p),len(p[0]);s=[h[:]for h in p];k=[[0]*o for h in f(l)];d=[]
+ for i in f(l):
+  for q in f(o):
+   if k[i][q]or p[i][q]==0:continue
+   r=[(i,q)];a=[]
+   while r:
+    h,n=r.pop()
+    if h<0 or h>=l or n<0 or n>=o or k[h][n]or p[h][n]==0:continue
+    k[h][n]=1;a.append((h,n,p[h][n]));r.extend([(h+a,n+i)for(a,i)in[(0,1),(0,-1),(1,0),(-1,0),(1,1),(1,-1),(-1,1),(-1,-1)]if 0<=h+a<l and 0<=n+i<o and not k[h+a][n+i]and p[h+a][n+i]!=0])
+   a and d.append(a)
+ g,e,c,p=[],[],[],[]
+ for a in d:
+  d={n for(h,h,n)in a}
+  if len(a)==1:
+   r,h,n=a[0]
+   if n==2:c.append((r,h))
+   elif n==3:p.append((r,h))
+  else:
+   if 2in d:g.append(a)
+   if 3in d:e.append(a)
+ def a(u,z,a,t=0):
+  n=next(((h,n)for(h,n,a)in u if a==z),None)
+  if not n:return
+  i,q=n
+  for(r,n)in a:
+   for(d,g,e)in u:
+    c,h=d-i,g-q
+    if t:h=-h
+    a,k=r+c,n+h
+    if 0<=a<l and 0<=k<o:s[a][k]=e
+ for n in g:a(n,2,c,1)
+ for n in e:a(n,3,p)
+ return s

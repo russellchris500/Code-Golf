@@ -1,12 +1,12 @@
-def p(j):
-	m=range;s,e=len(j),len(j[0]);c=set();u=[n[:]for n in j]
-	def p(l,u):
-		if(l,u)in c or not(0<=l<s and 0<=u<e)or j[l][u]!=1:return[]
-		c.add((l,u));return[(l,u)]+sum([p(l+n,u+m)for(n,m)in[(-1,0),(1,0),(0,-1),(0,1)]],[])
-	for D in m(s):
-		for k in m(e):
-			if j[D][k]==1 and(D,k)not in c:
-				n=p(D,k);F,i,H,I=min(n[0]for n in n),max(n[0]for n in n),min(n[1]for n in n),max(n[1]for n in n)
-				if len(n)==2*(i-F+I-H)and i>F and I>H and any(j[n][c]==0 for n in m(F+1,i)for c in m(H+1,I)):
-					for(N,f)in n:u[N][f]=3
-	return u
+def p(p):
+ n=range;c,t=len(p),len(p[0]);r=set();o=[d[:]for d in p]
+ def f(s,a):
+  if(s,a)in r or not(0<=s<c and 0<=a<t)or p[s][a]!=1:return[]
+  r.add((s,a));return[(s,a)]+sum([f(s+d,a+n)for(d,n)in[(-1,0),(1,0),(0,-1),(0,1)]],[])
+ for s in n(c):
+  for m in n(t):
+   if p[s][m]==1and(s,m)not in r:
+    d=f(s,m);s,m,l,y=min(d[0]for d in d),max(d[0]for d in d),min(d[1]for d in d),max(d[1]for d in d)
+    if len(d)==2*(m-s+y-l)and m>s and y>l and any(p[d][r]==0for d in n(s+1,m)for r in n(l+1,y)):
+     for(e,y)in d:o[e][y]=3
+ return o

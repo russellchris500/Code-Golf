@@ -1,18 +1,18 @@
-def p(j,A=len,c=enumerate,E=min,k=max,W=range):
-	l,J=A(j),A(j[0]);a=[(L,b)for(L,f)in c(j)for(b,K)in c(f)if K==5];C=E(L for(L,f)in a);e=k(L for(L,f)in a);K=E(L for(f,L)in a);w=k(L for(f,L)in a)
-	for L in range(C+1,e):j[L][K+1:w]=[8]*(w-K-1)
-	b=None;d=0,0
-	for f in W(K,w+1):
-		if j[C][f]==0:b=C,f;d=-1,0;break
-	if not b:
-		for f in range(K,w+1):
-			if j[e][f]==0:b=e,f;d=1,0;break
-	if not b:
-		for L in range(C,e+1):
-			if j[L][K]==0:b=L,K;d=0,-1;break
-	if not b:
-		for L in range(C,e+1):
-			if j[L][w]==0:b=L,w;d=0,1;break
-	L,f=b;g,h=d
-	while 0<=L<l and 0<=f<J and j[L][f]==0:j[L][f]=8;L+=g;f+=h
-	return j
+def p(n,h=len,r=enumerate,p=min,l=max,u=range):
+ t,o=h(n),h(n[0]);s=[(h,e)for(h,z)in r(n)for(e,i)in r(z)if i==5];a=p(h for(h,z)in s);m=l(h for(h,z)in s);f=p(h for(z,h)in s);e=l(h for(z,h)in s)
+ for z in range(a+1,m):n[z][f+1:e]=[8]*(e-f-1)
+ i=None;h=0,0
+ for e in u(f,e+1):
+  if n[a][e]==0:i=a,e;h=-1,0;break
+ if not i:
+  for e in range(f,e+1):
+   if n[m][e]==0:i=m,e;h=1,0;break
+ if not i:
+  for z in range(a,m+1):
+   if n[z][f]==0:i=z,f;h=0,-1;break
+ if not i:
+  for z in range(a,m+1):
+   if n[z][e]==0:i=z,e;h=0,1;break
+ z,e=i;f,s=h
+ while 0<=z<t and 0<=e<o and n[z][e]==0:n[z][e]=8;z+=f;e+=s
+ return n

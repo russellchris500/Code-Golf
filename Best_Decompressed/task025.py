@@ -1,20 +1,20 @@
 d=len
-r=range
-def p(g):
+a=range
+def p(r):
  f=[0]
- for i in range(8):
-  g=list(map(list,zip(*g[::-1])))
-  q,o=d(g),d(g[0])
-  for i in r(q):
-   if len(set(g[i]))<2 and g[i][0]>0:
-    p=g[i][0];f+=[p]
-    for e in r(0,i-1):
-     n=0
-     for t in r(o):
-      if g[e][t]==p:g[e][t]=0;n-=1;g[i+n][t]=p
-    for e in r(i+1,q):
-     n=0
-     for t in r(o):
-      if g[e][t]==p:g[e][t]=0;n+=1;g[i+n][t]=p
- g=[[t if t in f else 0 for t in i] for i in g]
- return g
+ for s in range(8):
+  r=list(map(list,zip(*r[::-1])))
+  l,o=d(r),d(r[0])
+  for s in a(l):
+   if len(set(r[s]))<2and r[s][0]>0:
+    p=r[s][0];f+=[p]
+    for e in a(0,s-1):
+     l=0
+     for t in a(o):
+      if r[e][t]==p:r[e][t]=0;l-=1;r[s+l][t]=p
+    for e in a(s+1,l):
+     l=0
+     for t in a(o):
+      if r[e][t]==p:r[e][t]=0;l+=1;r[s+l][t]=p
+ r=[[t if t in f else 0for t in s] for s in r]
+ return r

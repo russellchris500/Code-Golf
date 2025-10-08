@@ -1,5 +1,5 @@
-L=len
-R=range
-E=enumerate
-def M(m,C,Z):P=[[x,y]for y,r in E(m)for x,c in E(r)if c==C];f=sum(P,[]);x=f[::2];y=f[1::2];X=m[min(y):max(y)+1];X=[r[min(x):max(x)+1]for r in X];return sum(X,[]).count(Z)
-def p(g):f=sum(g,[]);Z=sorted([[f.count(k),k]for k in set(f)]);Z=[x[1]for x in Z];P=[M(g,Z[i],Z[0])for i in R(1,L(Z))];return[[Z[P.index(max(P))+1]]]
+r=len
+t=range
+m=enumerate
+def u(r,d,u):e=[[a,n]for(n,e)in m(r)for(a,e)in m(e)if e==d];e=sum(e,[]);a=e[::2];e=e[1::2];n=r[min(e):max(e)+1];n=[n[min(a):max(a)+1]for n in n];return sum(n,[]).count(u)
+def p(a):e=sum(a,[]);n=sorted([[e.count(n),n]for n in set(e)]);n=[n[1]for n in n];d=[u(a,n[e],n[0])for e in t(1,r(n))];return[[n[d.index(max(d))+1]]]

@@ -1,11 +1,11 @@
 from collections import*
-def p(j,A=range):
-	c=[[8 if J==8 else 0 for J in R]for R in j]
-	for E in A(len(j)-1):
-		for k in A(len(j[0])-1):
-			W=[j[E][k:k+2],j[E+1][k:k+2]];l=[x for R in W for x in R];J=Counter(l).most_common(1)
-			if J[0][1]==3and J[0][0]!=0:
-				for a in A(E,E+2):
-					for C in A(k,k+2):
-						if c[a][C]==0:c[a][C]=1
-	return c
+def p(f,r=range):
+ i=[[8if n==8else 0for n in e]for e in f]
+ for d in r(len(f)-1):
+  for x in r(len(f[0])-1):
+   e=[f[d][x:x+2],f[d+1][x:x+2]];n=[t for e in e for t in e];n=Counter(n).most_common(1)
+   if n[0][1]==3and n[0][0]!=0:
+    for u in r(d,d+2):
+     for e in r(x,x+2):
+      if i[u][e]==0:i[u][e]=1
+ return i

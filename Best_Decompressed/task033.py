@@ -1,6 +1,6 @@
-def p(j):
-	A=range;c=[A[:]for A in j];E=j[5][0];k=[[j[l+1][A+1]for A in A(3)]for l in A(3)]
-	for W in[(0,6),(0,12),(6,0),(6,6),(6,12),(12,0),(12,6),(12,12)]:
-		for l in A(3):
-			for J in A(3):a,C=W[0]+l+1,W[1]+J+1;c[a][C]=j[a][C]if k[l][J]==j[a][C]else E if k[l][J]else 0
-	return c
+def p(e):
+ r=range;e=[r[:]for r in e];f=e[5][0];g=[[e[p+1][r+1]for r in r(3)]for p in r(3)]
+ for s in[(0,6),(0,12),(6,0),(6,6),(6,12),(12,0),(12,6),(12,12)]:
+  for p in r(3):
+   for t in r(3):i,x=s[0]+p+1,s[1]+t+1;e[i][x]=e[i][x]if g[p][t]==e[i][x]else f if g[p][t]else 0
+ return e

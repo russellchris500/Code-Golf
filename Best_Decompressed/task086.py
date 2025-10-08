@@ -1,22 +1,21 @@
-def p(a):
- from collections import deque,Counter
- R,L=range,len;n,m=L(a),L(a[0]);o=[[0]*m for _ in R(n)];v=[[0]*m for _ in R(n)]
- for i in R(n):
-  for j in R(m):
-   if a[i][j]and not v[i][j]:
-    q=deque([(i,j)]);v[i][j]=1;P=[];c=Counter()
-    while q:
-     r,x=q.popleft();P.append((r,x));c[a[r][x]]+=1
-     for dr,dc in((1,0),(-1,0),(0,1),(0,-1)):
-      y,z=r+dr,x+dc
-      if 0<=y<n and 0<=z<m and a[y][z]and not v[y][z]:v[y][z]=1;q.append((y,z))
-    oc,ic=[k for k,_ in c.most_common(2)];S=[(r,x)for r,x in P if a[r][x]==ic];r0,c0,l=min(r for r,_ in S),min(x for _,x in S),max(r for r,_ in S)-min(r for r,_ in S)+1
-    for r in R(r0-l-1,r0+2*l+1):
-     for x in R(c0-l-1,c0+2*l+1):
-      if(r<r0-1 or r>r0+l)and(x<c0-1 or x>c0+l):continue
-      o[r][x]=oc
-    for r in R(r0-1,r0+l+1):
-     for x in R(c0-1,c0+l+1):o[r][x]=ic
-    for r in R(r0,r0+l):
-     for x in R(c0,c0+l):o[r][x]=oc
- return o
+def p(l):
+ from collections import deque,Counter as c;f,p=range,len;z,z=p(l),p(l[0]);g=[[0]*z for i in f(z)];g=[[0]*z for i in f(z)]
+ for a in f(z):
+  for i in f(z):
+   if l[a][i]and not g[a][i]:
+    r=deque([(a,i)]);g[a][i]=1;p=[];m=c()
+    while r:
+     i,y=r.popleft();p.append((i,y));m[l[i][y]]+=1
+     for(j,s)in((1,0),(-1,0),(0,1),(0,-1)):
+      i,n=i+j,y+s
+      if 0<=i<z and 0<=n<z and l[i][n]and not g[i][n]:g[i][n]=1;r.append((i,n))
+    b,j=[i for(i,y)in m.most_common(2)];d=[(i,y)for(i,y)in p if l[i][y]==j];t,o,n=min(i for(i,y)in d),min(i for(y,i)in d),max(i for(i,y)in d)-min(i for(i,y)in d)+1
+    for i in f(t-n-1,t+2*n+1):
+     for y in f(o-n-1,o+2*n+1):
+      if(i<t-1or i>t+n)and(y<o-1or y>o+n):continue
+      g[i][y]=b
+    for i in f(t-1,t+n+1):
+     for y in f(o-1,o+n+1):g[i][y]=j
+    for i in f(t,t+n):
+     for y in f(o,o+n):g[i][y]=b
+ return g

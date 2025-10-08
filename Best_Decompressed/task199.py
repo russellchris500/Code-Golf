@@ -1,7 +1,7 @@
 def p(j,A=enumerate):
- for c,E in A(j):
-  for k,W in A(E):
-   if W and W^4:
-    j[c+1][k]=W
-    for l in range(c+1):j[l][k&1::2]=[4]*len(j[l][k&1::2])
-    return j
+	for(D,F)in A(j):
+		for(B,C)in A(F):
+			if C and C^4:
+				j[D+1][B]=C
+				for E in range(D+1):j[E][B&1::2]=[4]*len(j[E][B&1::2])
+				return j
