@@ -1,9 +1,15 @@
-def p(s,u=enumerate):
- q,f=[(q,b)for(q,f)in u(s)for(b,d)in u(f)if d==2],[(q,b)for(q,f)in u(s)for(b,d)in u(f)if d==8]
- if not q or not f:return s
- m=lambda b:(min(q for(q,f)in b),max(q for(q,f)in b),min(q for(f,q)in b),max(q for(f,q)in b));l,n,a,r=m(q);e,i,w,m=m(f);b=d=0
- if r<w:d=w-r-1
- elif m<a:d=m-a+1
- elif n<e:b=e-n-1
- elif i<l:b=i-l+1
- e,n={*q},{*f};return[[8if(q,f)in n else 2if(q-b,f-d)in e else 0for(f,m)in u(s[0])]for(q,f)in u(s)]
+def p(g):
+ def f(h):
+  s=o=-1
+  for r in range(len(h)-1):
+   if 8 in h[r]and 8 in h[r+1]:s=r;break
+  for r in range(len(h)):
+   if 2 in h[r]:o=r;break
+  if s>o>-1:
+   e=sum(1 for r in h[o+1:s]if 0==max(r))
+   return[[0]*len(h[0])]*e+[r for i,r in enumerate(h)if i<=o or i>=s or max(r)]
+  return h
+ for _ in 0,1:
+  for _ in 0,1:g=f(g);g=g[::-1]
+  g=[*map(list,zip(*g))]
+ return g

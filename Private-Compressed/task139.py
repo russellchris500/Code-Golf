@@ -1,5 +1,5 @@
-def p(g):
- F=[(i//9,i%9)for i in range(81)if g[i//9][i%9]==4]
- for T in[[(i,j)for i,j in F if i+j<8],[(i,j)for i,j in F if i+j>=8]]:
-  if T:I,J=zip(*T);[[g[i].__setitem__(j,7)for j in range(min(J),max(J)+1)if g[i][j]<1]for i in range(min(I),max(I)+1)]
- return g
+#coding:L1
+import zlib
+exec(zlib.decompress(bytes("""xÚuÁ
+Â0DïýŠ½‰\r–‚`­ÇB{î-,¥`6ÐXbñëM,"ž–eÞìÌ^ô33¼L –ŠQ–mŽ|¼z  ~pF³"ç4‚QQG\x00”r	D¬˜
+VaW—°ÑWC0Pj«Å_ñ,Ä×®lD+Ÿ4³mÇOJ…0ÜõýM/´è©ï™‡÷\rû­5‘c-Óð#ýtDe±Êñç…È6+ÛD6´÷z¹{&ynåNj""","L1")))

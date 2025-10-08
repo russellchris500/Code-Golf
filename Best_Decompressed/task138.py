@@ -1,2 +1,1 @@
-p=lambda g,R=range,Z=zip,L=len:(T:=lambda G:list(Z(*G)),F:=lambda G,k=0:[r for r in G if(k:=k+(t:=all(r)))and(k<2|t)],h:=T(F(T(F(g)))),[[(r:=h[i])[j]or r[0]*(r[0]in r[j+1:-1])|r[-1]*(r[-1]in r[1:j])|(c:=T(h)[j])[0]*(c[0]in c[i+1:-1])|c[-1]*(c[-1]in c[1:i])for j in R(L(h[0]))]for i in R(L(h))])[-1]
-
+p=lambda g,R=range,Z=zip,L=len:(T:=lambda G:[*Z(*G)],F:=lambda G,k=0:[r for r in G if(k:=k+(t:=all(r)))and(k<2|t)],h:=T(F(T(F(g)))),[[(r:=h[i])[j]or r[0]*(r[0]in r[j+1:-1])|r[-1]*(r[-1]in r[1:j])|(c:=T(h)[j])[0]*(c[0]in c[i+1:-1])|c[-1]*(c[-1]in c[1:i])for j in R(L(h[0]))]for i in R(L(h))])[-1]

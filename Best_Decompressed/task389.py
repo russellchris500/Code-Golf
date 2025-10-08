@@ -1,1 +1,1 @@
-def p(r):t=[i for t in r for i in t];t=[t for t in set(t)if t not in[0,5]][0];r=[[t if i==5else 0for i in i]for i in r];return r
+def p(r):t=[i for t in r for i in t];t=[t for t in {*t}if t not in[0,5]][0];r=[[t if i==5else 0for i in i]for i in r];return r

@@ -1,2 +1,1 @@
-def p(g):
- r,c=[i for i,o in enumerate(g)if o[0]>0][0],[i for i,o in enumerate(zip(*g))if o[0]>0][0];z=[*map(list,g)];[z[r+a].__setitem__(c+b,4)for a in[-1,0,1]for b in[-1,0,1]if-1<r+a<len(g)and-1<c+b<len(g[0])and a|b];return z
+def p(j):A=lambda c:[*map(all,c)].index(1);E,k=A(j),A(zip(*j));j[E-1][k-1:k+2]=j[E+1][k-1:k+2]=[4]*3;j[E][k-1]=j[E][k+1]=4;return j

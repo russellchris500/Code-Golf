@@ -1,5 +1,5 @@
 def p(z):
- C=tuple(map(tuple,z));R=range;I,J=len(C),len(C[0]);v=[[0]*J for _ in R(I)];S=[];O=[]
+ C=(*map(tuple,z),);R=range;I,J=len(C),len(C[0]);v=[[0]*J for _ in R(I)];S=[];O=[]
  for i in R(I):
   for j in R(J):
    if v[i][j]:continue

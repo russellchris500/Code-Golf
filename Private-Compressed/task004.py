@@ -1,18 +1,5 @@
-def p(g):
- a=[any(r) for r in g]+[0]
- c=[]
- for b in range(len(g),0,-1):
-  if not a[b] and a[b-1]:
-   c+=[b-1]
- for d in c:
-  i=0
-  while g[d][i]==0:
-   i+=1
-  g[d][i-1]=g[d][i]
-  i=len(g[0])-1
-  while g[d][i]==0:
-   i-=1
-  g[d-1][i]=0
-  g[d-1][i-1]=g[d][i]
-  g[d][i]=0
- return [[0]+r[:-1]for r in g]
+#coding:L1
+import zlib
+exec(zlib.decompress(bytes("""xÚuÁ
+Ã †ï>EŽ-VÐk!O<ØjPìŽ±·o´+t‡]ó'ßŸ <»Ø’ËŸ®ô°l
+¤ÑJÒVÀŒÄ±ÊS•‹Ë1tkÈzP¦âÈÛŽ&.ûúPÆÖÌ[qzøê175Ç÷#­"yKÉ"ê†$‰†ó©2Šß~£Új¾¬Wæ/¯.žáªë[õëw‘<QÂþ*ˆ½e¡‘çn!Ä%T´""","L1")))

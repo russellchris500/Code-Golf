@@ -1,1 +1,1 @@
-p=lambda g:[(r[:6+2*(r[:4]in(r[4:8],r[8:12]))]*3)[:15]for r in g]
+p=lambda g,r=range:[[g[i%5][j%6]for j in r(len(g[0])*2)]for i in r(len(g))]

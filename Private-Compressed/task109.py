@@ -1,2 +1,4 @@
-def p(g):
- n,t=(len(g))//2,g[0][(len(g))//2];q=[[t if g[i][j]and g[i][j]!=t else 0 for j in range(n)]for i in range(n)];return[q[i]+q[i][::-1]for i in range(n)]+[q[~i]+q[~i][::-1]for i in range(n)]
+#coding:L1
+import zlib
+exec(zlib.decompress(bytes("""xÚu‹A
+ƒ0D÷bºKĞ¢í2’“|²ü	ù­iÜzöFAh¡İ37#{<UĞ¦‚4Ùª™¥,İ¶÷&Pçè¸~±DÑ#Pt4¹AÆ³^lÏ/FÿH˜iÀJ´ÛIü"}â¼&¡¥¼ë=È˜ëí‡Xe;œí¿T½	Z?“""","L1")))

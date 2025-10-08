@@ -11,7 +11,7 @@ def p(a):
  a=[tuple(a[t][u:d+1])for t in range(f,r+1)];s=[];n=None
  for o in a:
   if o!=n:s.append(o);n=o
- p=list(zip(*s))if s else[];s=[];n=None
+ p=[*zip(*s)]if s else[];s=[];n=None
  for o in p:
   if o!=n:s.append(o);n=o
- return[list(t)for t in zip(*s)]
+ return[[*t]for t in zip(*s)]

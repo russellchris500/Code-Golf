@@ -1,9 +1,3 @@
-from collections import*
-def p(i):
- t=Counter(v for v in sum(i,[])if v).most_common()[-1][0]
- a=b=l=r=-1
- for y,row in enumerate(i):
-  for x,v in enumerate(row):
-   if v==t:
-    a=y if a<0 else a;b=y;l=x if l<0 or x<l else l;r=max(r,x)
- return[i[y][l:r+1]for y in range(a,b+1)]
+#coding:L1
+import zlib
+exec(zlib.decompress(bytes('xÚU=nÃ0…w‚£Ô8E¼Æá”cB!»t!@ZvíÛ×R¦nÄûø~fáÇHS	œéÅR>Ô7ÍğÒÁÜ|òš‰Ş`f\rB†eM:tÖ™0Ãf>/åkâ”8kc¯½³7§Àãˆ¯½jÎ£ş­nÊk"ñ…Ş\r\rîİö¿\rB­@,í>3*øÇ\r(.~ñ"îU§Z£ñ\rã ˜ü®¥Û¡²J¶ÁÎÆ»\\z×FÕVñù‡´ïÆKoœú6X¦',"L1")))

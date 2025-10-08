@@ -1,1 +1,1 @@
-p=lambda r:[[c*2for c in r]for r in r+(r[:3],r[2:5])[r[1]!=r[4]]]
+p=lambda g:[[c*2for c in r]for r in (g[:(g[1]!=g[4])+3])*3][:9]

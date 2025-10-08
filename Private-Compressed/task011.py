@@ -1,8 +1,5 @@
-def p(i):
- for r in[0,4,8]:
-  for c in[0,4,8]:
-   if all(i[r+x][c+y]-8 for x in range(3)for y in range(3)if r+x<11>c+y-1):
-    o=[[i[r+x//4][c+y//4]if r+x//4<11>c+y//4-1 else 0 for y in range(11)]for x in range(11)]
-    for j in[3,7]:
-     for k in range(11):o[j][k]=o[k][j]=5
-    return o
+#coding:L1
+import zlib
+exec(zlib.decompress(bytes("""xÚ]ŽA
+ƒ0E÷žb–\rZ*R{‘!±±D%‘´½}'cÕM2<Þÿ3=ÀÑD08ŒÅ"­ÒZaÔ˜ºyŽ\rúdUØ'›ÊjWÁwö©ãR°ýŠQà&å"™Ü®Eä¦<¯¸,ü»JÓÏ¦)“ ç—†NÅR
+uZ—>†ëËôºß¾³éà6G…“j=4¶6½~¼E_Š‰S‰""","L1")))
