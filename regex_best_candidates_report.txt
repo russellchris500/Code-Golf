@@ -1,0 +1,118 @@
+Analyzing tasks for BEST regex candidates (grids <=10x10)...
+
+Found 85 tasks with fixed dimensions <=10x10
+
+==========================================================================================
+BEST REGEX CANDIDATES (sorted by grid size, then cell changes)
+==========================================================================================
+
+task322:  3x 3 (  9 cells) | Input:   2.7 -> Output:   5.5 (+2.8  ) | Avg   2.8 cells change
+task380:  3x 3 (  9 cells) | Input:   4.8 -> Output:   4.8 (+0.0  ) | Avg   3.7 cells change
+task229:  3x 3 (  9 cells) | Input:   9.0 -> Output:   9.0 (+0.0  ) | Avg   4.2 cells change
+task179:  3x 3 (  9 cells) | Input:   9.0 -> Output:   9.0 (+0.0  ) | Avg   4.3 cells change
+task053:  3x 3 (  9 cells) | Input:   2.6 -> Output:   2.6 (+0.0  ) | Avg   4.3 cells change
+task186:  3x 3 (  9 cells) | Input:   3.3 -> Output:   3.3 (+0.0  ) | Avg   5.2 cells change
+task087:  3x 3 (  9 cells) | Input:   9.0 -> Output:   9.0 (+0.0  ) | Avg   5.4 cells change
+task129:  3x 3 (  9 cells) | Input:   8.1 -> Output:   8.0 (-0.1  ) | Avg   6.0 cells change
+task140:  3x 3 (  9 cells) | Input:   5.4 -> Output:   5.4 (+0.0  ) | Avg   7.2 cells change
+task016:  3x 3 (  9 cells) | Input:   9.0 -> Output:   9.0 (+0.0  ) | Avg   9.0 cells change
+task052:  3x 3 (  9 cells) | Input:   9.0 -> Output:   4.5 (-4.5  ) | Avg   9.0 cells change
+task167:  3x 3 (  9 cells) | Input:   9.0 -> Output:   3.0 (-6.0  ) | Avg   9.0 cells change
+task262:  3x 3 (  9 cells) | Input:   3.0 -> Output:   9.0 (+6.0  ) | Avg   9.0 cells change
+task373:  2x 6 ( 12 cells) | Input:  12.0 -> Output:  12.0 (+0.0  ) | Avg   6.0 cells change
+task266:  3x 5 ( 15 cells) | Input:   1.0 -> Output:   2.2 (+1.2  ) | Avg   3.2 cells change
+task073:  5x 5 ( 25 cells) | Input:   8.2 -> Output:   6.6 (-1.6  ) | Avg   3.2 cells change
+task299:  6x 6 ( 36 cells) | Input:   4.0 -> Output:  11.0 (+7.0  ) | Avg   7.0 cells change
+task225:  6x 6 ( 36 cells) | Input:   4.0 -> Output:  15.0 (+11.0 ) | Avg  11.0 cells change
+task385: 10x 4 ( 40 cells) | Input:  11.9 -> Output:  23.8 (+11.9 ) | Avg  11.9 cells change
+task081:  7x 7 ( 49 cells) | Input:   7.2 -> Output:   9.6 (+2.4  ) | Avg   2.4 cells change
+task267:  7x 7 ( 49 cells) | Input:  14.4 -> Output:  13.4 (-1.0  ) | Avg  14.4 cells change
+task007:  7x 7 ( 49 cells) | Input:  11.2 -> Output:  49.0 (+37.8 ) | Avg  37.8 cells change
+task181:  6x 9 ( 54 cells) | Input:   9.7 -> Output:  14.4 (+4.7  ) | Avg   4.7 cells change
+task314:  8x 8 ( 64 cells) | Input:  36.0 -> Output:  36.0 (+0.0  ) | Avg   2.0 cells change
+task015:  9x 9 ( 81 cells) | Input:   3.2 -> Output:   9.9 (+6.7  ) | Avg   6.7 cells change
+task139:  9x 9 ( 81 cells) | Input:   9.2 -> Output:  18.0 (+8.8  ) | Avg   8.8 cells change
+task217:  9x 9 ( 81 cells) | Input:   4.3 -> Output:  18.8 (+14.5 ) | Avg  14.5 cells change
+task034:  9x 9 ( 81 cells) | Input:   4.0 -> Output:  20.6 (+16.6 ) | Avg  18.6 cells change
+task010:  9x 9 ( 81 cells) | Input:  19.9 -> Output:  19.9 (+0.0  ) | Avg  19.9 cells change
+task254:  9x 9 ( 81 cells) | Input:  21.1 -> Output:   9.9 (-11.2 ) | Avg  21.1 cells change
+task095:  9x 9 ( 81 cells) | Input:   3.5 -> Output:  31.3 (+27.8 ) | Avg  27.8 cells change
+task047:  9x 9 ( 81 cells) | Input:   2.0 -> Output:  32.0 (+30.0 ) | Avg  30.0 cells change
+task282:  9x 9 ( 81 cells) | Input:   3.5 -> Output:  27.9 (+24.4 ) | Avg  31.3 cells change
+task317:  9x 9 ( 81 cells) | Input:   4.5 -> Output:  40.8 (+36.2 ) | Avg  40.8 cells change
+task020: 10x10 (100 cells) | Input:  10.0 -> Output:  13.0 (+3.0  ) | Avg   3.0 cells change
+task143: 10x10 (100 cells) | Input:  24.5 -> Output:  24.5 (+0.0  ) | Avg   3.5 cells change
+task333: 10x10 (100 cells) | Input:  10.0 -> Output:  14.0 (+4.0  ) | Avg   4.0 cells change
+task042: 10x10 (100 cells) | Input:   5.1 -> Output:   9.1 (+4.0  ) | Avg   4.0 cells change
+task190: 10x10 (100 cells) | Input:   6.0 -> Output:  10.3 (+4.3  ) | Avg   4.3 cells change
+task168: 10x10 (100 cells) | Input:   7.4 -> Output:  12.0 (+4.5  ) | Avg   4.5 cells change
+task035: 10x10 (100 cells) | Input:  15.0 -> Output:  15.0 (+0.0  ) | Avg   4.6 cells change
+task027: 10x10 (100 cells) | Input:  22.0 -> Output:  26.7 (+4.8  ) | Avg   4.8 cells change
+task136: 10x10 (100 cells) | Input:   8.0 -> Output:  13.8 (+5.8  ) | Avg   5.8 cells change
+task040: 10x10 (100 cells) | Input:  26.2 -> Output:  26.2 (+0.0  ) | Avg   6.2 cells change
+task356: 10x10 (100 cells) | Input:   5.8 -> Output:  12.3 (+6.5  ) | Avg   6.5 cells change
+task273: 10x10 (100 cells) | Input:   6.0 -> Output:  13.1 (+7.1  ) | Avg   7.1 cells change
+task363: 10x10 (100 cells) | Input:  65.7 -> Output:  73.0 (+7.4  ) | Avg   7.4 cells change
+task361: 10x10 (100 cells) | Input:   9.6 -> Output:  17.1 (+7.4  ) | Avg   7.4 cells change
+task045: 10x10 (100 cells) | Input:   9.0 -> Output:  16.6 (+7.6  ) | Avg   7.6 cells change
+task228: 10x10 (100 cells) | Input:  20.1 -> Output:  20.1 (+0.0  ) | Avg   8.0 cells change
+task342: 10x10 (100 cells) | Input:   8.0 -> Output:   4.0 (-4.0  ) | Avg   8.0 cells change
+task037: 10x10 (100 cells) | Input:   6.5 -> Output:  14.9 (+8.5  ) | Avg   8.5 cells change
+task381: 10x10 (100 cells) | Input:  26.4 -> Output:  35.6 (+9.3  ) | Avg   9.3 cells change
+task341: 10x10 (100 cells) | Input:  39.3 -> Output:  49.4 (+10.1 ) | Avg  10.1 cells change
+task041: 10x10 (100 cells) | Input:  14.1 -> Output:  24.4 (+10.3 ) | Avg  10.3 cells change
+task160: 10x10 (100 cells) | Input:  24.0 -> Output:  20.2 (-3.8  ) | Avg  11.3 cells change
+task397: 10x10 (100 cells) | Input:   9.9 -> Output:  21.5 (+11.6 ) | Avg  11.6 cells change
+task250: 10x10 (100 cells) | Input:  10.0 -> Output:  10.0 (+0.0  ) | Avg  12.0 cells change
+task226: 10x10 (100 cells) | Input:  49.3 -> Output:  61.4 (+12.1 ) | Avg  12.1 cells change
+task156: 10x10 (100 cells) | Input:  40.2 -> Output:  40.2 (+0.0  ) | Avg  12.2 cells change
+task260: 10x10 (100 cells) | Input:  15.0 -> Output:  13.5 (-1.5  ) | Avg  13.9 cells change
+task169: 10x10 (100 cells) | Input:  14.9 -> Output:  14.9 (+0.0  ) | Avg  14.9 cells change
+task374: 10x10 (100 cells) | Input:  16.4 -> Output:  16.4 (+0.0  ) | Avg  16.4 cells change
+task078: 10x10 (100 cells) | Input:  30.5 -> Output:  30.5 (+0.0  ) | Avg  17.5 cells change
+task294: 10x10 (100 cells) | Input:  50.4 -> Output:  50.4 (+0.0  ) | Avg  17.7 cells change
+task212: 10x10 (100 cells) | Input:  20.2 -> Output:  38.0 (+17.9 ) | Avg  17.9 cells change
+task336: 10x10 (100 cells) | Input:  17.8 -> Output:  35.8 (+18.0 ) | Avg  18.0 cells change
+task331: 10x10 (100 cells) | Input:   5.3 -> Output:  24.0 (+18.7 ) | Avg  18.7 cells change
+task044: 10x10 (100 cells) | Input:  49.2 -> Output:  49.2 (+0.0  ) | Avg  19.1 cells change
+task099: 10x10 (100 cells) | Input:  25.4 -> Output:  44.9 (+19.5 ) | Avg  19.5 cells change
+task043: 10x10 (100 cells) | Input:   9.0 -> Output:  29.3 (+20.3 ) | Avg  20.3 cells change
+task069: 10x10 (100 cells) | Input:  22.0 -> Output:  16.5 (-5.5  ) | Avg  22.0 cells change
+task277: 10x10 (100 cells) | Input:  23.3 -> Output:  23.3 (+0.0  ) | Avg  23.3 cells change
+task330: 10x10 (100 cells) | Input:  26.3 -> Output:  26.3 (+0.0  ) | Avg  26.3 cells change
+task369: 10x10 (100 cells) | Input:  73.1 -> Output: 100.0 (+26.9 ) | Avg  26.9 cells change
+task368: 10x10 (100 cells) | Input:  38.7 -> Output:  38.7 (+0.0  ) | Avg  27.7 cells change
+task345: 10x10 (100 cells) | Input:   5.3 -> Output:  33.5 (+28.1 ) | Avg  28.1 cells change
+task354: 10x10 (100 cells) | Input:  32.9 -> Output:  32.9 (+0.0  ) | Avg  29.9 cells change
+task200: 10x10 (100 cells) | Input:   1.0 -> Output:  32.9 (+31.9 ) | Avg  31.9 cells change
+task068: 10x10 (100 cells) | Input:  30.4 -> Output:   9.0 (-21.4 ) | Avg  34.8 cells change
+task362: 10x10 (100 cells) | Input:  20.6 -> Output:  19.0 (-1.6  ) | Avg  35.6 cells change
+task283: 10x10 (100 cells) | Input:  39.1 -> Output:  39.1 (+0.0  ) | Avg  39.1 cells change
+task028: 10x10 (100 cells) | Input:   2.0 -> Output:  52.0 (+50.0 ) | Avg  50.0 cells change
+task392: 10x10 (100 cells) | Input:  23.9 -> Output: 100.0 (+76.1 ) | Avg  76.1 cells change
+task062: 10x10 (100 cells) | Input:   7.6 -> Output: 100.0 (+92.4 ) | Avg  94.4 cells change
+
+==========================================================================================
+TOP 20 CANDIDATES (smallest grids with fewest changes)
+==========================================================================================
+
+ 1. task322: 3x3 - avg 2.8 cells change (3->5 filled)
+ 2. task380: 3x3 - avg 3.7 cells change (5->5 filled)
+ 3. task229: 3x3 - avg 4.2 cells change (9->9 filled)
+ 4. task179: 3x3 - avg 4.3 cells change (9->9 filled)
+ 5. task053: 3x3 - avg 4.3 cells change (3->3 filled)
+ 6. task266: 3x5 - avg 3.2 cells change (1->2 filled)
+ 7. task073: 5x5 - avg 3.2 cells change (8->7 filled)
+ 8. task299: 6x6 - avg 7.0 cells change (4->11 filled)
+ 9. task225: 6x6 - avg 11.0 cells change (4->15 filled)
+10. task385: 10x4 - avg 11.9 cells change (12->24 filled)
+11. task081: 7x7 - avg 2.4 cells change (7->10 filled)
+12. task267: 7x7 - avg 14.4 cells change (14->13 filled)
+13. task181: 6x9 - avg 4.7 cells change (10->14 filled)
+14. task314: 8x8 - avg 2.0 cells change (36->36 filled)
+15. task015: 9x9 - avg 6.7 cells change (3->10 filled)
+16. task139: 9x9 - avg 8.8 cells change (9->18 filled)
+17. task217: 9x9 - avg 14.5 cells change (4->19 filled)
+18. task034: 9x9 - avg 18.6 cells change (4->21 filled)
+19. task010: 9x9 - avg 19.9 cells change (20->20 filled)
+20. task254: 9x9 - avg 21.1 cells change (21->10 filled)

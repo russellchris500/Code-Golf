@@ -1,0 +1,281 @@
+Analyzing all 400 tasks for regex suitability...
+
+Processing task 50...
+Processing task 100...
+Processing task 150...
+Processing task 200...
+Processing task 250...
+Processing task 300...
+Processing task 350...
+Processing task 400...
+
+Total tasks analyzed: 400
+  Fixed dimensions: 129
+  Variable dimensions: 271
+
+================================================================================
+REGEX CANDIDATES: 120 tasks with fixed dimensions <=20x20
+================================================================================
+
+
+3x3 grids (13 tasks):
+--------------------------------------------------------------------------------
+  task016:   9.0 input cells ->   9.0 output cells (+0.0) [267 examples]
+  task052:   9.0 input cells ->   4.5 output cells (-4.5) [267 examples]
+  task053:   2.6 input cells ->   2.6 output cells (+0.0) [60 examples]
+  task087:   9.0 input cells ->   9.0 output cells (+0.0) [266 examples]
+  task129:   8.1 input cells ->   8.0 output cells (-0.1) [265 examples]
+  task140:   5.4 input cells ->   5.4 output cells (+0.0) [265 examples]
+  task167:   9.0 input cells ->   3.0 output cells (-6.0) [268 examples]
+  task179:   9.0 input cells ->   9.0 output cells (+0.0) [267 examples]
+  task186:   3.3 input cells ->   3.3 output cells (+0.0) [267 examples]
+  task229:   9.0 input cells ->   9.0 output cells (+0.0) [267 examples]
+  task262:   3.0 input cells ->   9.0 output cells (+6.0) [11 examples]
+  task322:   2.7 input cells ->   5.5 output cells (+2.8) [266 examples]
+  task380:   4.8 input cells ->   4.8 output cells (+0.0) [267 examples]
+
+2x6 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task373:  12.0 input cells ->  12.0 output cells (+0.0) [75 examples]
+
+3x5 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task266:   1.0 input cells ->   2.2 output cells (+1.2) [20 examples]
+
+5x5 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task073:   8.2 input cells ->   6.6 output cells (-1.6) [15 examples]
+
+3x11 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task214:  15.0 input cells ->  33.0 output cells (+18.0) [266 examples]
+
+6x6 grids (2 tasks):
+--------------------------------------------------------------------------------
+  task225:   4.0 input cells ->  15.0 output cells (+11.0) [265 examples]
+  task299:   4.0 input cells ->  11.0 output cells (+7.0) [21 examples]
+
+10x4 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task385:  11.9 input cells ->  23.8 output cells (+11.9) [265 examples]
+
+7x7 grids (3 tasks):
+--------------------------------------------------------------------------------
+  task007:  11.2 input cells ->  49.0 output cells (+37.8) [266 examples]
+  task081:   7.2 input cells ->   9.6 output cells (+2.4) [264 examples]
+  task267:  14.4 input cells ->  13.4 output cells (-1.0) [264 examples]
+
+6x9 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task181:   9.7 input cells ->  14.4 output cells (+4.7) [266 examples]
+
+5x11 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task060:   3.4 input cells ->  18.9 output cells (+15.5) [265 examples]
+
+8x8 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task314:  36.0 input cells ->  36.0 output cells (+0.0) [266 examples]
+
+5x15 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task343:  19.6 input cells ->  30.4 output cells (+10.8) [266 examples]
+
+9x9 grids (10 tasks):
+--------------------------------------------------------------------------------
+  task010:  19.9 input cells ->  19.9 output cells (+0.0) [265 examples]
+  task015:   3.2 input cells ->   9.9 output cells (+6.7) [265 examples]
+  task034:   4.0 input cells ->  20.6 output cells (+16.6) [267 examples]
+  task047:   2.0 input cells ->  32.0 output cells (+30.0) [265 examples]
+  task095:   3.5 input cells ->  31.3 output cells (+27.8) [265 examples]
+  task139:   9.2 input cells ->  18.0 output cells (+8.8) [265 examples]
+  task217:   4.3 input cells ->  18.8 output cells (+14.5) [266 examples]
+  task254:  21.1 input cells ->   9.9 output cells (-11.2) [265 examples]
+  task282:   3.5 input cells ->  27.9 output cells (+24.4) [265 examples]
+  task317:   4.5 input cells ->  40.8 output cells (+36.2) [265 examples]
+
+10x10 grids (51 tasks):
+--------------------------------------------------------------------------------
+  task020:  10.0 input cells ->  13.0 output cells (+3.0) [266 examples]
+  task027:  22.0 input cells ->  26.7 output cells (+4.8) [265 examples]
+  task028:   2.0 input cells ->  52.0 output cells (+50.0) [265 examples]
+  task035:  15.0 input cells ->  15.0 output cells (+0.0) [266 examples]
+  task037:   6.5 input cells ->  14.9 output cells (+8.5) [266 examples]
+  task040:  26.2 input cells ->  26.2 output cells (+0.0) [266 examples]
+  task041:  14.1 input cells ->  24.4 output cells (+10.3) [266 examples]
+  task042:   5.1 input cells ->   9.1 output cells (+4.0) [266 examples]
+  task043:   9.0 input cells ->  29.3 output cells (+20.3) [266 examples]
+  task044:  49.2 input cells ->  49.2 output cells (+0.0) [266 examples]
+  task045:   9.0 input cells ->  16.6 output cells (+7.6) [265 examples]
+  task062:   7.6 input cells -> 100.0 output cells (+92.4) [267 examples]
+  task068:  30.4 input cells ->   9.0 output cells (-21.4) [266 examples]
+  task069:  22.0 input cells ->  16.5 output cells (-5.5) [264 examples]
+  task078:  30.5 input cells ->  30.5 output cells (+0.0) [266 examples]
+  task099:  25.4 input cells ->  44.9 output cells (+19.5) [265 examples]
+  task136:   8.0 input cells ->  13.8 output cells (+5.8) [266 examples]
+  task143:  24.5 input cells ->  24.5 output cells (+0.0) [266 examples]
+  task156:  40.2 input cells ->  40.2 output cells (+0.0) [265 examples]
+  task160:  24.0 input cells ->  20.2 output cells (-3.8) [265 examples]
+  task168:   7.4 input cells ->  12.0 output cells (+4.5) [265 examples]
+  task169:  14.9 input cells ->  14.9 output cells (+0.0) [266 examples]
+  task190:   6.0 input cells ->  10.3 output cells (+4.3) [266 examples]
+  task200:   1.0 input cells ->  32.9 output cells (+31.9) [84 examples]
+  task212:  20.2 input cells ->  38.0 output cells (+17.9) [265 examples]
+  task226:  49.3 input cells ->  61.4 output cells (+12.1) [133 examples]
+  task228:  20.1 input cells ->  20.1 output cells (+0.0) [266 examples]
+  task250:  10.0 input cells ->  10.0 output cells (+0.0) [265 examples]
+  task260:  15.0 input cells ->  13.5 output cells (-1.5) [266 examples]
+  task273:   6.0 input cells ->  13.1 output cells (+7.1) [266 examples]
+  task277:  23.3 input cells ->  23.3 output cells (+0.0) [266 examples]
+  task283:  39.1 input cells ->  39.1 output cells (+0.0) [265 examples]
+  task294:  50.4 input cells ->  50.4 output cells (+0.0) [265 examples]
+  task330:  26.3 input cells ->  26.3 output cells (+0.0) [266 examples]
+  task331:   5.3 input cells ->  24.0 output cells (+18.7) [265 examples]
+  task333:  10.0 input cells ->  14.0 output cells (+4.0) [265 examples]
+  task336:  17.8 input cells ->  35.8 output cells (+18.0) [31 examples]
+  task341:  39.3 input cells ->  49.4 output cells (+10.1) [266 examples]
+  task342:   8.0 input cells ->   4.0 output cells (-4.0) [266 examples]
+  task345:   5.3 input cells ->  33.5 output cells (+28.1) [264 examples]
+  task354:  32.9 input cells ->  32.9 output cells (+0.0) [266 examples]
+  task356:   5.8 input cells ->  12.3 output cells (+6.5) [266 examples]
+  task361:   9.6 input cells ->  17.1 output cells (+7.4) [266 examples]
+  task362:  20.6 input cells ->  19.0 output cells (-1.6) [267 examples]
+  task363:  65.7 input cells ->  73.0 output cells (+7.4) [265 examples]
+  task368:  38.7 input cells ->  38.7 output cells (+0.0) [265 examples]
+  task369:  73.1 input cells -> 100.0 output cells (+26.9) [265 examples]
+  task374:  16.4 input cells ->  16.4 output cells (+0.0) [267 examples]
+  task381:  26.4 input cells ->  35.6 output cells (+9.3) [265 examples]
+  task392:  23.9 input cells -> 100.0 output cells (+76.1) [266 examples]
+  task397:   9.9 input cells ->  21.5 output cells (+11.6) [266 examples]
+
+9x13 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task075:  22.5 input cells ->  58.6 output cells (+36.1) [265 examples]
+
+11x11 grids (3 tasks):
+--------------------------------------------------------------------------------
+  task011:  84.0 input cells ->  76.0 output cells (-8.0) [267 examples]
+  task059:  55.2 input cells ->  62.2 output cells (+7.0) [266 examples]
+  task163:  67.1 input cells ->  43.3 output cells (-23.9) [267 examples]
+
+12x12 grids (5 tasks):
+--------------------------------------------------------------------------------
+  task012:  10.0 input cells ->  34.0 output cells (+24.0) [265 examples]
+  task102:  42.2 input cells ->  45.9 output cells (+3.7) [267 examples]
+  task119:  32.2 input cells ->  41.7 output cells (+9.5) [266 examples]
+  task302:  24.7 input cells ->  35.8 output cells (+11.1) [266 examples]
+  task312:  59.5 input cells ->  59.5 output cells (+0.0) [265 examples]
+
+10x15 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task157:  53.0 input cells ->  53.0 output cells (+0.0) [265 examples]
+
+15x10 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task219:  26.3 input cells ->  44.0 output cells (+17.8) [265 examples]
+
+13x13 grids (2 tasks):
+--------------------------------------------------------------------------------
+  task089:   8.7 input cells ->  16.8 output cells (+8.1) [267 examples]
+  task323:   1.0 input cells ->  17.3 output cells (+16.3) [172 examples]
+
+14x14 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task093:  55.8 input cells ->  55.8 output cells (+0.0) [265 examples]
+
+15x15 grids (6 tasks):
+--------------------------------------------------------------------------------
+  task094: 225.0 input cells -> 225.0 output cells (+0.0) [265 examples]
+  task125: 225.0 input cells -> 225.0 output cells (+0.0) [265 examples]
+  task128:  28.9 input cells ->  28.9 output cells (+0.0) [266 examples]
+  task154:  28.9 input cells ->  28.9 output cells (+0.0) [266 examples]
+  task270:   6.0 input cells ->   6.0 output cells (+0.0) [266 examples]
+  task390:  28.9 input cells ->  28.9 output cells (+0.0) [266 examples]
+
+16x16 grids (4 tasks):
+--------------------------------------------------------------------------------
+  task071:  38.7 input cells ->  28.9 output cells (-9.8) [265 examples]
+  task222: 133.4 input cells ->  13.2 output cells (-120.2) [266 examples]
+  task287: 256.0 input cells -> 256.0 output cells (+0.0) [267 examples]
+  task305: 215.9 input cells -> 256.0 output cells (+40.1) [266 examples]
+
+17x17 grids (2 tasks):
+--------------------------------------------------------------------------------
+  task033:  86.1 input cells -> 131.0 output cells (+44.8) [265 examples]
+  task070: 123.8 input cells -> 123.8 output cells (+0.0) [266 examples]
+
+18x18 grids (2 tasks):
+--------------------------------------------------------------------------------
+  task061: 281.8 input cells -> 324.0 output cells (+42.2) [267 examples]
+  task265: 244.9 input cells -> 265.2 output cells (+20.3) [266 examples]
+
+19x19 grids (1 tasks):
+--------------------------------------------------------------------------------
+  task240:   4.2 input cells ->  29.9 output cells (+25.7) [266 examples]
+
+20x20 grids (3 tasks):
+--------------------------------------------------------------------------------
+  task162: 304.5 input cells -> 322.7 output cells (+18.2) [266 examples]
+  task165:  24.0 input cells ->  50.2 output cells (+26.2) [265 examples]
+  task182:  61.4 input cells ->  61.4 output cells (+0.0) [267 examples]
+
+================================================================================
+QUICK REFERENCE LIST (smallest grids first):
+================================================================================
+
+task016: 3x3 (9->9 cells)
+task052: 3x3 (9->5 cells)
+task053: 3x3 (3->3 cells)
+task087: 3x3 (9->9 cells)
+task129: 3x3 (8->8 cells)
+task140: 3x3 (5->5 cells)
+task167: 3x3 (9->3 cells)
+task179: 3x3 (9->9 cells)
+task186: 3x3 (3->3 cells)
+task229: 3x3 (9->9 cells)
+task262: 3x3 (3->9 cells)
+task322: 3x3 (3->5 cells)
+task380: 3x3 (5->5 cells)
+task266: 3x5 (1->2 cells)
+task073: 5x5 (8->7 cells)
+task373: 2x6 (12->12 cells)
+task225: 6x6 (4->15 cells)
+task299: 6x6 (4->11 cells)
+task007: 7x7 (11->49 cells)
+task081: 7x7 (7->10 cells)
+task267: 7x7 (14->13 cells)
+task314: 8x8 (36->36 cells)
+task181: 6x9 (10->14 cells)
+task010: 9x9 (20->20 cells)
+task015: 9x9 (3->10 cells)
+task034: 9x9 (4->21 cells)
+task047: 9x9 (2->32 cells)
+task095: 9x9 (3->31 cells)
+task139: 9x9 (9->18 cells)
+task217: 9x9 (4->19 cells)
+task254: 9x9 (21->10 cells)
+task282: 9x9 (3->28 cells)
+task317: 9x9 (5->41 cells)
+task385: 10x4 (12->24 cells)
+task020: 10x10 (10->13 cells)
+task027: 10x10 (22->27 cells)
+task028: 10x10 (2->52 cells)
+task035: 10x10 (15->15 cells)
+task037: 10x10 (6->15 cells)
+task040: 10x10 (26->26 cells)
+task041: 10x10 (14->24 cells)
+task042: 10x10 (5->9 cells)
+task043: 10x10 (9->29 cells)
+task044: 10x10 (49->49 cells)
+task045: 10x10 (9->17 cells)
+task062: 10x10 (8->100 cells)
+task068: 10x10 (30->9 cells)
+task069: 10x10 (22->16 cells)
+task078: 10x10 (31->31 cells)
+task099: 10x10 (25->45 cells)
+
+... and 70 more tasks
+
+================================================================================
+SUMMARY: Found 120 tasks with fixed dimensions <=20x20
+================================================================================
