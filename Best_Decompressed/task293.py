@@ -1,1 +1,1 @@
-def p(e):f=lambda a:a[0]and a[:1]*len(a)or a;k=[*map(f,e)];return[k,[*map(list,zip(*map(f,zip(*e))))]][k==e]
+p=lambda g:[[i+r[0]-(i*r[0]and p)for i,p in zip(g[0],r)]for r in g]

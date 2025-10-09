@@ -1,4 +1,1 @@
-def p(n):
- for o in n:
-  if o[0]==o[-1]:o[:]=o[:1]*len(o)
- return n
+p=lambda q:[[r,[r[0]]*10][r[0]==r[9]]for r in q]
