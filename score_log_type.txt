@@ -93,7 +93,6 @@ Task 391   104      -          104      63     41       grid of grids
 Task 120   338      -          358      97     241      image filter                  
 Task 192   348      -          370      110    238      image filter                  
 Task 363   381      -          408      213    168      image filter                  
-Task 97    262      -          280      108    154      image filter                  
 Task 220   220      -          234      87     133      image filter                  
 Task 147   213      -          226      83     130      image filter                  
 Task 352   211      -          224      84     127      image filter                  
@@ -101,9 +100,10 @@ Task 344   195      -          195      78     117      image filter
 Task 156   252      -          266      146    106      image filter                  
 Task 272   181      -          181      89     92       image filter                  
 Task 193   162      -          163      81     81       image filter                  
-Task 98    161      165        175      88     73       image filter                  
+Task 98    151      151        175      88     63       image filter                  
 Task 258   91       -          91       61     30       image filter                  
 Task 151   134      228        134      108    26       image filter                  
+Task 97    140      132        280      108    24       image filter                  
 Task 308   404      -          507      226    178      jigsaw                        
 Task 153   304      -          332      133    171      jigsaw                        
 Task 46    328      -          365      170    158      jigsaw                        
@@ -120,9 +120,8 @@ Task 267   72       -          72       46     26       key
 Task 235   78       -          79       61     17       key                           
 Task 56    51       51         80       40     11       key                           
 Task 103   38       -          38       29     9        key                           
-Task 324   983      -          1038     259    724      line extension                
-Task 370   887      -          907      260    627      line extension                
 Task 383   681      -          724      121    560      line extension                
+Task 324   729      729        1038     259    470      line extension                
 Task 119   468      -          505      106    362      line extension                
 Task 349   529      -          583      214    315      line extension                
 Task 202   370      -          376      102    268      line extension                
@@ -132,10 +131,10 @@ Task 379   369      -          398      141    228      line extension
 Task 280   448      402        998      179    223      line extension                
 Task 54    502      -          549      280    222      line extension                
 Task 34    330      -          360      125    205      line extension                
+Task 370   473      464        907      260    204      line extension                
 Task 260   327      -          352      135    192      line extension                
 Task 51    303      -          314      115    188      line extension                
 Task 387   401      -          504      218    183      line extension                
-Task 197   235      -          255      54     181      line extension                
 Task 190   273      -          295      109    164      line extension                
 Task 50    248      -          273      85     163      line extension                
 Task 138   267      267        1015     104    163      line extension                
@@ -145,7 +144,6 @@ Task 350   244      -          267      91     153      line extension
 Task 107   307      -          333      162    145      line extension                
 Task 92    229      -          242      86     143      line extension                
 Task 323   245      -          252      102    143      line extension                
-Task 47    194      -          207      55     139      line extension                
 Task 58    241      -          270      103    138      line extension                
 Task 37    242      -          272      105    137      line extension                
 Task 148   276      -          292      141    135      line extension                
@@ -177,17 +175,19 @@ Task 327   141      -          142      67     74       line extension
 Task 345   162      -          162      90     72       line extension                
 Task 200   153      153        199      84     69       line extension                
 Task 388   126      126        180      61     65       line extension                
-Task 312   107      -          107      44     63       line extension                
-Task 293   108      -          108      59     49       line extension                
 Task 288   123      -          123      89     34       line extension                
 Task 10    95       152        96       68     27       line extension                
-Task 45    70       -          70       45     25       line extension                
 Task 63    96       96         225      74     22       line extension                
-Task 41    67       -          67       49     18       line extension                
+Task 197   235      66         255      54     12       line extension                
 Task 328   175      -          175      163    12       line extension                
 Task 392   161      -          161      149    12       line extension                
 Task 84    74       70         78       62     8        line extension                
+Task 293   108      67         108      59     8        line extension                
 Task 60    52       52         71       48     4        line extension                
+Task 45    70       48         70       45     3        line extension                
+Task 312   107      45         107      44     1        line extension                
+Task 41    67       49         67       49     0        line extension                
+Task 47    55       55         207      55     0        line extension                
 Task 134   368      -          380      158    210      misc                          
 Task 213   283      -          302      92     191      misc                          
 Task 178   219      -          232      47     172      misc                          
@@ -204,16 +204,16 @@ Task 48    183      -          352      92     91       object find
 Task 300   168      -          168      87     81       object find                   
 Task 247   131      131        188      95     36       object find                   
 Task 393   64       64         104      63     1        object find                   
-Task 285   1041     -          1262     288    753      object find/overlay           
-Task 182   697      -          707      169    528      object find/overlay           
 Task 96    796      -          925      325    471      object find/overlay           
 Task 191   690      -          710      241    449      object find/overlay           
 Task 89    543      -          591      236    307      object find/overlay           
+Task 182   432      432        707      169    263      object find/overlay           
 Task 159   328      -          350      109    219      object find/overlay           
 Task 170   381      -          405      196    185      object find/overlay           
 Task 209   448      448        1133     273    175      object find/overlay           
 Task 18    488      -          618      323    165      object find/overlay           
 Task 76    420      -          1146     276    144      object find/overlay           
+Task 285   990      423        1262     288    135      object find/overlay           
 Task 201   332      -          359      208    124      object find/overlay           
 Task 101   361      361        999      281    80       object find/overlay           
 Task 390   176      176        420      99     77       object find/overlay           
@@ -225,8 +225,8 @@ Task 366   374      -          374      365    9        object find/overlay
 Task 173   222      -          222      218    4        object find/overlay           
 Task 219   975      -          1090     257    718      pattern completion            
 Task 71    450      -          497      119    331      pattern completion            
-Task 394   362      -          378      91     271      pattern completion            
 Task 74    335      -          361      79     256      pattern completion            
+Task 394   314      314        378      91     223      pattern completion            
 Task 242   247      -          264      54     193      pattern completion            
 Task 400   250      -          271      67     183      pattern completion            
 Task 351   248      -          265      67     181      pattern completion            
