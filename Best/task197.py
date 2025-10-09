@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚ=AjÅ0D÷9…–„Òu>¾B/`²Õ­Œ>´=}+gaŒ¿§±¢ÑÅ&ÛB^_Ájg'9Y£W?#Èúv:dÉ03ß:âÙl!”º?*^ë‚+‡¤c`Ïƒ¦d_RÏmUÉÑŸŸèGà¿ÂXgNJ‡çùf1ÅĞÇÔCîŠš¦>K†ëÎRòÙ´¨½ÿØÅXCäaµí¥jÅ~ûüßúl¤Y","L1")))
+p=lambda g:[[*map(dict([*zip(g[1],r)][::-1]).get,g[1])]for r in g]

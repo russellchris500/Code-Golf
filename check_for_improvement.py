@@ -275,7 +275,7 @@ def process_task(task_num: int) -> dict:
     Compress Private-Uncompressed/taskXXX.py and conditionally write:
       - Private-Compressed/taskXXX.py only if NEW < existing
       - Best/taskXXX.py only if NEW < existing
-      - Best-Decompressed/taskXXX.py (the *pre-compression* source, i.e., optimized) only if Best updated
+      - Best_Decompressed/taskXXX.py (the *pre-compression* source, i.e., optimized) only if Best updated
     """
     if not (1 <= task_num <= 400):
         raise ValueError("Task number must be in 1..400")
