@@ -27,8 +27,8 @@ def p(x):
   return d
  def m(e):return min(o for(o,a)in e)
  def k(e):return min(o for(o,a)in e),min(o for(a,o)in e)
- def r(y):a,o=y;i,m=k(o);return a,(*sorted((o-i,a-m)for(o,a)in o),)
- def c(y,t):o,a=y;i,m=t;return o,(*sorted((o+i,a+m)for(o,a)in a),)
+ def r(y):a,o=y;i,m=k(o);return a,tuple(sorted((o-i,a-m)for(o,a)in o))
+ def c(y,t):o,a=y;i,m=t;return o,tuple(sorted((o+i,a+m)for(o,a)in a))
  f=g(a);x=i(a);e={}
  for(d,o)in x:e[o]=d
  d=[(a,o)for(o,a)in e.items()]
@@ -41,7 +41,7 @@ def p(x):
  for(d,o)in t:
   if m(o)<=x:e.update(o)
   else:break
- b=min(o for(o,a)in e);q=min(o for(a,o)in e);p=(*sorted((o-b,a-q)for(o,a)in e),);e=u,p
+ b=min(o for(o,a)in e);q=min(o for(a,o)in e);p=tuple(sorted((o-b,a-q)for(o,a)in e));e=u,p
  def r(l):
   a=None;e,o,i=[],a,-1
   for(n,t)in l:

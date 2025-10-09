@@ -1,4 +1,4 @@
 def p(g):
  for i in 0,3,6:
   a=g[i:i+3];A=(*map(tuple,a),)
-  if(A==(*x[::-1]for x in zip(*a[::-1]),))+(A==(*zip(*a),))<1:return a
+  if(A==tuple(x[::-1]for x in zip(*a[::-1])))+(A==(*zip(*a),))<1:return a

@@ -50,6 +50,11 @@ def optimize_tuple(content):
                     if not is_safe and re.match(r'^[a-zA-Z_]\w*\[', arg):
                         is_safe = True
 
+                    # Do NOT replace if it contains 'for' (generator/comprehension)
+                    # tuple(x for ...) cannot be safely replaced with (*x for ...,)
+                    if 'for' in arg or 'for\t' in arg or 'for\n' in arg:
+                        is_safe = False
+
                     if is_safe:
                         # Replace tuple(arg) with (*arg,)
                         result.append('(*')
