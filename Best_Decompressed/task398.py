@@ -1,8 +1,1 @@
-def p(t,D=len,s=range):
- A=s(D([A for A in {*t[0]}if A>0])*5);n=[[0for A in A]for n in A];t=t[0];e=0
- for e in A:
-  for D in s(5):
-   try:n[-(e+1)][D+e]=t[D]
-   except:pass
-  e+=1
- return n
+def p(g):w=25-5*g[0].count(0);return[([0]*(w+~r)+g[0]+[0]*r)[:w]for r in range(w)]
