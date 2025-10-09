@@ -1,1 +1,1 @@
-def p(d):l=len(d);return[[[8*(not x and any(r[i]for r in d))or x for i,x in enumerate(d[a%l])]for f in[0]*2*l]for a in[0]*2*l]
+p=lambda g:[*zip(*[[p or 8*any(r)for p in r]*2for r in zip(*g)]*2)]
