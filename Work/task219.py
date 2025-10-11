@@ -17,6 +17,7 @@ def p(x):
  M=lambda E:min(i for i,_ in E)
  K=lambda E:(M(E),min(j for _,j in E))
  t=sorted(comps(),key=lambda z:(M(z),K(z)[1]))
+ if not t:return a
  w=M(t[0])
  for y in range(w+1,H):
   if any(a[y][x]for x in range(W)):w=y
@@ -25,6 +26,7 @@ def p(x):
  for E in t:
   if M(E)<=w:V|=set(E)
   else:break
+ if not V:return a
  r0=min(i for i,_ in V);c0=min(j for _,j in V)
  z=[(i-r0,j-c0)for i,j in sorted(V)]
  def bands(L):
