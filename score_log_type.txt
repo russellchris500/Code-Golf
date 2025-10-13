@@ -122,7 +122,6 @@ Task 56    51       51         80       40     11       key
 Task 103   38       -          38       29     9        key                           
 Task 324   729      729        1038     259    470      line extension                
 Task 119   468      896        505      106    362      line extension                
-Task 349   529      -          583      214    315      line extension                
 Task 202   370      -          376      102    268      line extension                
 Task 336   351      -          379      93     258      line extension                
 Task 64    391      403        427      152    239      line extension                
@@ -163,6 +162,7 @@ Task 246   203      -          218      105    98       line extension
 Task 341   226      248        236      132    94       line extension                
 Task 284   313      313        1142     220    93       line extension                
 Task 199   169      183        169      84     85       line extension                
+Task 349   298      298        583      214    84       line extension                
 Task 268   322      -          1893     239    83       line extension                
 Task 24    144      -          145      62     82       line extension                
 Task 232   140      -          140      58     82       line extension                

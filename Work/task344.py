@@ -1,0 +1,1 @@
+p=lambda g,l=8:l and p([[a+~(a:=p) for p in r]for r in zip(*g[::-1])if~(a:=0)],l-1)or g

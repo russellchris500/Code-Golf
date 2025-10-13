@@ -1,0 +1,1 @@
+p=lambda g:[[[s and not(a%8),(s:=s and(a%8))][0] for p in r]for r in g if~(a:=0)|(s:=0)]

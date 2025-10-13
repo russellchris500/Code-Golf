@@ -1,0 +1,1 @@
+p=lambda g,l=4,s=[0]*30,a=0:l and p([[(t:={a,x}&{2,3,8})and(t.pop()*5%9)or p for p,x,a in zip(r,s,r[1:]+[0])if(s:=[0,*r])]for*r,in zip(*g[::-1])],l-1)or g

@@ -7,5 +7,5 @@
 #   print("")
 #  return g
 # p=lambda g:[[sum(p,[]).count(0)<8and p[1][1]for p in zip(z,z[1:],z[2:])]for r in zip([[0]*30]+g,g,g[1:]+[[0]*30])if(z:=[[0]*3,*zip(*r),[0]*3])]
-import re
-p=lambda g:eval(re.sub(f"(<=0, 0, 0{{{len(g[0])}}}0, )","0",str(g)))
+# import re
+# p=lambda g:eval(re.sub(f"(<=0, 0, 0{{{len(g[0])}}}0, )","0",str(g)))
