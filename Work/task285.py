@@ -1,28 +1,16 @@
-#or, if you need all 4 of them in one script:
-r=lambda a:(o:=[r+r[::-1]for r in a])+o[::-1]   # UL
-R=lambda a:[r[::-1]for r in a]                  # horizontal flip
-
-r_ul=r
-r_ur=lambda a:r(R(a))[::-1]                     # UR
-r_ll=lambda a:r(a[::-1])[::-1]                  # LL
-r_lr=lambda a:R(r(R(a)[::-1]))[::-1]            # LR (fixed)
-
-
-# a=[[0,0,0,0],[0,6,0,0],[0,8,4,4],[0,0,4,4]]
-a=[[1,2],[3,4]]
-
-print("reflected from upper left:")
-for row in r_ul(a):
-    print(row)
-print()
-print("reflected from upper right:")
-for row in r_ur(a):
-    print(row)
-print()
-print("reflected from lower left:")
-for row in r_ll(a):
-    print(row)
-print()
-print("reflected from lower right:")
-for row in r_lr(a):
-    print(row)
+from collections import*
+def p(i):
+ o=[r[:]for r in i];H,W=len(i),len(i[0])
+ for R in range(H-1):
+  for C in range(W-1):
+   q=[i[R][C],i[R][C+1],i[R+1][C],i[R+1][C+1]]
+   if len(set(q))==4:
+    d=Counter(q);v={(R,C),(R,C+1),(R+1,C),(R+1,C+1)};L=deque(v)
+    while L:
+     x,y=L.popleft()
+     for a,b in(-1,0),(1,0),(0,-1),(0,1),(-1,-1),(-1,1),(1,-1),(1,1):X,Y=x+a,y+b;0<=X<H and 0<=Y<W and(X,Y)not in v and i[X][Y]and[v.add((X,Y)),d.update([i[X][Y]]),L.append((X,Y))]
+    D=[c for c,_ in d.most_common()if c][0];r,c=R+.5,C+.5;p=q.index(D)
+    for x,y in[(x,y)for x,y in v if i[x][y]==D]:
+     for X,Y,P in(int(2*r-x),y,p^2),(x,int(2*c-y),p^1),(int(2*r-x),int(2*c-y),p^3):
+      if-1<X<H>Y>-1<W:o[X][Y]=q[P]
+ return o
