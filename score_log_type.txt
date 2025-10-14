@@ -258,7 +258,7 @@ Task 82    63       63         112      50     13       pattern extension
 Task 137   152      152        433      141    11       pattern extension             
 Task 3     63       63         66       58     5        pattern extension             
 Task 343   65       65         453      65     0        pattern extension             
-Task 255   728      -          779      242    486      rectangle finding             
+Task 255   720      720        779      242    478      rectangle finding             
 Task 77    558      -          615      126    432      rectangle finding             
 Task 205   598      614        633      166    432      rectangle finding             
 Task 367   558      570        586      129    429      rectangle finding             
@@ -267,7 +267,6 @@ Task 44    580      586        625      255    325      rectangle finding
 Task 208   499      -          525      215    284      rectangle finding             
 Task 196   363      372        379      112    251      rectangle finding             
 Task 105   384      387        424      148    236      rectangle finding             
-Task 218   274      274        288      56     218      rectangle finding             
 Task 251   295      -          326      89     206      rectangle finding             
 Task 85    252      261        272      50     202      rectangle finding             
 Task 216   305      -          324      114    191      rectangle finding             
@@ -301,7 +300,8 @@ Task 204   146      146        410      93     53       rectangle finding
 Task 291   113      -          115      61     52       rectangle finding             
 Task 302   138      138        407      89     49       rectangle finding             
 Task 338   98       98         263      64     34       rectangle finding             
-Task 377   73       73         248      55     18       rectangle finding             
+Task 218   78       78         288      56     22       rectangle finding             
+Task 377   70       70         248      55     15       rectangle finding             
 Task 359   64       64         235      64     0        rectangle finding             
 Task 304   237      -          250      92     145      short operation               
 Task 207   205      -          212      81     124      short operation               
