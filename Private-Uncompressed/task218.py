@@ -1,17 +1,1 @@
-def p(a):
- u,n=len(a),len(a[0]);f,u,r,d=u,n,-1,-1
- for t in range(u):
-  for o in range(n):
-   if a[t][o]!=0:
-    if t<f:f=t
-    if t>r:r=t
-    if o<u:u=o
-    if o>d:d=o
- if r<0:return[[]]
- a=[(*a[t][u:d+1],)for t in range(f,r+1)];s=[];n=None
- for o in a:
-  if o!=n:s.append(o);n=o
- p=[*zip(*s)]if s else[];s=[];n=None
- for o in p:
-  if o!=n:s.append(o);n=o
- return[[*t]for t in zip(*s)]
+p=lambda g,q=lambda u,a=[0]:[*zip(*[a:=r for r in u if(a!=r)&any(r)])]:q(q(g))

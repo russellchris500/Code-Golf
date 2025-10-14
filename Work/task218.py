@@ -1,0 +1,1 @@
+p=lambda g,q=lambda u:[*zip(*[r for r,a in zip(u,[0]+u)if(a!=r)&any(r)])]:q(q(g))
