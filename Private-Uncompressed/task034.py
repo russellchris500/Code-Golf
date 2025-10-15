@@ -1,7 +1,7 @@
 u=range
 r=len
 def p(t):
- d=sum(t,[]);q=[o for o in set(d)if o not in[0,2]][0];i,i=r(t),r(t[0])
+ d=sum(t,[]);q=[*{*d}-{0,2}][0];i,i=r(t),r(t[0])
  for f in u(i-1):
   for a in u(i-1):
    d=[t[f+o][a+n]for(o,n)in[[0,0],[0,1],[1,0],[1,1]]]
