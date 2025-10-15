@@ -223,7 +223,6 @@ Task 96    360      360        925      325    35       object find/overlay
 Task 133   321      -          321      298    23       object find/overlay           
 Task 366   374      392        374      365    9        object find/overlay           
 Task 173   222      -          222      218    4        object find/overlay           
-Task 219   783      783        1090     257    526      pattern completion            
 Task 71    450      461        497      119    331      pattern completion            
 Task 74    335      342        361      79     256      pattern completion            
 Task 394   314      314        378      91     223      pattern completion            
@@ -237,6 +236,7 @@ Task 305   187      197        197      57     130      pattern completion
 Task 20    265      -          295      146    119      pattern completion            
 Task 175   184      -          184      75     109      pattern completion            
 Task 287   155      -          155      56     99       pattern completion            
+Task 219   344      344        1090     257    87       pattern completion            
 Task 176   146      -          146      64     82       pattern completion            
 Task 28    139      -          139      63     76       pattern completion            
 Task 112   181      214        192      109    72       pattern completion            

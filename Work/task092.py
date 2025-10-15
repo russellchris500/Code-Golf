@@ -1,0 +1,1 @@
+p=lambda g,q=lambda g:[*zip(*[[c:=max({*r[:i]}&{*r[i:]}|{0})>0and c or p for i,p in enumerate(r)]for r in g])]:q(q(g))

@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚuAjÄ0E÷>…6™É”Étª“/’[ƒĞ”$¡×o’1!-t'Şÿz_´Àr·ĞÈş¡qP(iryŒ P8˜hÒc€ƒ.hêÈñzß~vn'n9îÔœ4'Ëì‚ÚYôÇ¼5§=†J-ĞÚf¸¢‹l¨înyºßšÀÉÇ÷g5?fÙåìğÿ¿é0½²âúÕyŒ­âêÃß²u~8jA¹Z|¹õCY7ûœ$Ó-À¨ó2:”îÓb­","L1")))
+p=lambda g:[((t:=0)or[(t:=t^v)&v for v in b],b)[a!=c]for a,b,c in zip([0]+g,g,g[1:]+[0])]

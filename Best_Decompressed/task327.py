@@ -1,1 +1,1 @@
-def p(S,e=enumerate):s=[[0]*6for _ in[0]*6];[s[T+a].__setitem__(i+a,o)for T,S in e(S)for i,o in e(S)if o for a in range(6-max(T,i))];return s
+p=lambda g,l=[0]*6:[(l:=[*map(max,[0]+l,r+[0]*6)][:6])for r in g+3*[[]]]

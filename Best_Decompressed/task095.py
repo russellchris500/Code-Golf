@@ -1,8 +1,1 @@
-def p(j,A=enumerate):
-	for(B,F)in A(j):
-		for(C,G)in A(F):
-			if G==5:
-				for D in range(B-1,B+2):
-					for E in range(C-1,C+2):
-						if[D,E]!=[B,C]:j[D][E]=1
-	return j
+p=lambda g,A=enumerate:[[C|any(any(R[A and A-1:A+2])for R in g[B and B-1:B+2])for A,C in A(r)]for B,r in A(g)]

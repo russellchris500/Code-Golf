@@ -1,0 +1,1 @@
+p=lambda g:(lambda s:[[x[(q:=s[0].index(5)):-~s[0].index(5,q+1)]for x in g[g.index(s[0])-1:g.index(s[0])-~len(s)]]])([r for r in g if 5in r])[0]

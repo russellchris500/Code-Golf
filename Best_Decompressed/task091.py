@@ -1,1 +1,1 @@
-x=enumerate;p=lambda e:[m[f:j+1]for(h,f)in[next((h,x.index(5))for(h,x)in x(e)if 5in x)]for(l,j)in[next((~h+len(e),~x[::-1].index(5)+len(x))for(h,x)in x(e[::-1])if 5in x)]for m in e[max(0,h-1):l+2]]
+def p(g):s=[r for r in g if 5in r];t=s[0];i=g.index(t);q=t.index(5);return[x[q:-~t.index(5,q+1)]for x in g[i-1:i-~len(s)]]

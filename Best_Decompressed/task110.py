@@ -1,9 +1,1 @@
-def p(i,t=enumerate):
- r=range;f=len(i);f=len(i[0]);z=lambda n,f:n==f or n*f<1;x=next((n for n in r(1,f)if all(z(d,p)for f in i for(d,p)in zip(f,f[n:]))),f);a=next((n for n in r(1,f)if all(z(d,p)for(n,f)in zip(i,i[n:])for(d,p)in zip(n,f))),f);u={}
- for(p,n)in t(i):
-  for(f,d)in t(n):
-   if d:u[p%a,f%x]=d
- for(p,n)in t(i):
-  for(f,d)in t(n):
-   if not d:n[f]=u[p%a,f%x]
- return i
+def p(g):R=range;f=lambda A:next(i for i in R(1,30)if 1>any(a*b*(a^b)for r in A for a,b in zip(r,r[i:])));t=f(g);s=f(zip(*g));return[[max(max(r[j%t::t])for r in g[i%s::s])for j in R(29)]for i in R(29)]

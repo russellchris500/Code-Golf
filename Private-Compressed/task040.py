@@ -1,2 +1,1 @@
-q=lambda g:[[[j,c[0],c[-1]][(j==3)*(1+i//5)]for i,j in enumerate(c)]for c in g]
-p=lambda g:[*zip(*q([*zip(*g)]))]if all(g[0])else q(g)
+p=lambda g,e=enumerate:(a:=g[0][0],[[(a,g[9][9])[(j,i)[a==g[0][9]]>4]*(v==3)or v for j,v in e(r)]for i,r in e(g)])[1]
