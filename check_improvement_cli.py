@@ -24,7 +24,7 @@ if __name__ == "__main__":
     pc_prev = info['pc_previous_len']
     pc_prev_text = "NEW" if pc_prev is None else f"{pc_prev}B"
     pc_status = "UPDATED" if info['pc_written'] else "KEPT"
-    print(f"Private-Compressed: {pc_prev_text} → {pc_status}")
+    print(f"Private-Compressed: {pc_prev_text} -> {pc_status}")
 
     # Best status with validation
     best_prev = info['best_previous_len']
@@ -33,17 +33,23 @@ if __name__ == "__main__":
 
     if info['best_previous_len'] is None or info['chosen_len'] < info['best_previous_len']:
         if info['validation_passed']:
-            validation_status = "✓ VALIDATED"
+            validation_status = "[OK] VALIDATED"
         elif info['validation_error']:
-            validation_status = f"✗ FAILED: {info['validation_error']}"
+            validation_status = f"[FAIL] {info['validation_error']}"
             best_status = "VALIDATION FAILED"
         else:
-            validation_status = "✗ FAILED"
+            validation_status = "[FAIL]"
             best_status = "VALIDATION FAILED"
     else:
         validation_status = "Not tested (not shorter)"
 
-    print(f"Best:               {best_prev_text} → {best_status}")
+    print(f"Best:               {best_prev_text} -> {best_status}")
+
+    # Calculate and show improvement
+    if best_prev is not None and info['best_written']:
+        improvement = best_prev - info['chosen_len']
+        print(f"Improvement:        {improvement} bytes saved!")
+
     print(f"Validation:         {validation_status}")
     print(f"Best_Decompressed:  {'UPDATED' if info['best_decompressed_written'] else 'KEPT'}")
     print(f"{'='*60}\n")
