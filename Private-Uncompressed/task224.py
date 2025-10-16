@@ -1,5 +1,5 @@
 def p(b,n=len,i=range,a=max,m=min):
- n,r,t,p=n(b),n(b[0]),[],[];o=[n for n in {*sum(b,[])}if n not in[0,5]][0]
+ n,r,t,p=n(b),n(b[0]),[],[];o=[*{*sum(b,[])}-{0,5}][0]
  for n in i(n):
   for f in i(r):
    if b[n][f]==5:t+=[n];p+=[f]

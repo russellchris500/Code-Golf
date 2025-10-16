@@ -9,7 +9,10 @@ def check(solution, task_num, valall=False):
     #print(task_num, max(1, 2500 - len(solution.encode('utf-8'))))
     try:
         namespace = {}
-        exec(solution, namespace)
+        import warnings
+        with warnings.catch_warnings():
+            warnings.filterwarnings('ignore', category=SyntaxWarning)
+            exec(solution, namespace)
         if 'p' not in namespace: return False
         all_examples = task_data['train'] + task_data['test'] + task_data['arc-gen']
         examples_to_check = all_examples if valall else all_examples[:3]
@@ -48,5 +51,7 @@ for task_num in tqdm(range(1,401), desc="Processing tasks"):
 print('Score:', score)
 
 df = pd.DataFrame(rows, columns=['Task', 'Our Bytes', 'Lowest Reported Bytes', 'Difference'])
-sorted_df = df.sort_values(by='Difference', ascending=False)
+# Convert 'WRONG' to a large negative number for sorting purposes
+df['Difference_Sort'] = df['Difference'].apply(lambda x: float('-inf') if x == 'WRONG' else x)
+sorted_df = df.sort_values(by='Difference_Sort', ascending=False).drop('Difference_Sort', axis=1)
 sorted_df.to_csv('prioritize.csv', index=False)

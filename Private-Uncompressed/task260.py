@@ -2,7 +2,7 @@ m=len
 c=range
 g=[[0,0],[0,1],[1,0],[1,1]]
 def p(j):
- u,u=m(j),m(j[0]);i=[n for n in {*sum(j,[])}if n not in[0,5]][0]
+ u,u=m(j),m(j[0]);i=[*{*sum(j,[])}-{0,5}][0]
  for o in c(u-1):
   for l in c(u-1):
    r=[j[o+n][l+q]for(n,q)in g]
