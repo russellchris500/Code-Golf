@@ -1,1 +1,1 @@
-p=lambda g:[[(s:=[0,1,1,0,2,3,3,3][2*p+s])and(s==1)*3for i,p in enumerate(r)]for r in g if~(s:=0)]
+p=lambda u:[u:=[[[p+8,p%8,8][l]if[p,p<32,p>32][l]*(l or a)else p for p,a in zip(r,[0]+r)]for*r,in zip(*u[::-1])]for l in[0]*4+[1,2,2,2]][-1]

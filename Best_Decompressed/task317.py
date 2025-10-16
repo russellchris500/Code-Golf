@@ -1,8 +1,1 @@
-def p(n,x=range):
- e=len(n);a=[[0for x in x(e)]for g in x(e)]
- for g in x(e):
-  for l in x(e):
-   if n[g][l]==5:
-    for p in x(max(0,g-1),min(e,g+2)):
-     for i in x(max(0,l-1),min(e,l+2)):a[p][i]=1
- return a
+p=lambda g,R=range(9):[[g[x//3*3+1][y//3*3+1]//5for y in R]for x in R]

@@ -1,0 +1,2 @@
+# p=lambda u:[u:=[[[p,3&(p|l)][a*p>0]for p,a in zip(r,[0]+r)]for*r,in zip(*u[::-1])]for l in[1,2]*12][-1]
+# p=lambda u:[u:=[[[p,[(p|1)%16,(p|2)%16,(p|4)%16,(p|8)%16,16][l]][[a*p>0,a*p>0,a*p>0,a*p>0,a*p>0][l]]for p,a in zip(r,[0]+r)]for*r,in zip(*u[::-1])]for l in[4]*4+[0,1,2,3]*8][-1]

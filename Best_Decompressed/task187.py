@@ -1,9 +1,1 @@
-def p(H):
- l,e,E=len(H),len(H[0]),range;d=[(i,o)for i in(0,l-1)for o in E(e)if H[i][o]<1]+[(i,o)for i in E(l)for o in(0,e-1)if H[i][o]<1]
- while d:
-  i,o=d.pop()
-  if H[i][o]<1:H[i][o]=3;d+=[(i,o)for(i,o)in((i+1,o),(i-1,o),(i,o+1),(i,o-1))if 0<=i<l and 0<=o<e and H[i][o]<1]
- for i in E(l):
-  for o in E(e):
-   if H[i][o]<1:H[i][o]=2
- return H
+p=lambda u,k=55:-k*u or p([[[p,3,2][[(p<1)*2,a-p==3][k>0]]for p,a in zip(r,[3]+r)]for*r,in zip(*u[::-1])],k-1)
