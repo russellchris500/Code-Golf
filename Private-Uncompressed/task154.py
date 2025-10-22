@@ -14,7 +14,6 @@ def p(S,g=range):
      d.append(x)
   return d
  b=n()
- if len(b)!=2:return[o[:]for o in S]
  m=lambda j:(min(o for(o,s)in j),min(o for(s,o)in j),max(o for(o,s)in j),max(o for(s,o)in j));u,o=m(b[0]),m(b[1]);s,l=((u[0]+u[2])/2,(u[1]+u[3])/2),((o[0]+o[2])/2,(o[1]+o[3])/2)
  if abs(s[0]-l[0])>abs(s[1]-l[1]):
   t,k=(u,o)if u[0]<o[0]else(o,u);d,x=t[2]+1,k[0]-1;S,t,f=[],[],[]
