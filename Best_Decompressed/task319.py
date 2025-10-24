@@ -8,3 +8,4 @@ def p(o,d=range):
   else:a=0
   b=a-2*len(o),len(o),p(o)[3],r;q=b if q is None or b>q else q
  m=q[3]if q else(lambda f:max(f,key=lambda h:len(f[h]))if f else s)([f for f in f if f!=s]);i,k,f,b=p(f[m]);p=[list(u[f][k:b+1])for f in d(i,f+1)];[[f.__setitem__(q,j)for q in d(len(f))if f[q]!=m]for f in p];return[list(f[::-1])for f in p]
+

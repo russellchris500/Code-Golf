@@ -19,3 +19,4 @@ def p(n):
    k=a-x+p;n=s-e+c
    if 0<=k<j and 0<=n<f:u[k][n]=l
  return u
+

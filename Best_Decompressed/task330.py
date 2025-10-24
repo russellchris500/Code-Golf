@@ -13,3 +13,4 @@ def p(t,l=range):
     c=2if len(n)==6else 1
     for(f,i)in n:t[f][i]=c
  return t
+
