@@ -1,23 +1,17 @@
-def p(z):
- C=(*map(tuple,z),);R=range;I,J=len(C),len(C[0]);v=[[0]*J for _ in R(I)];S=[];O=[]
- for i in R(I):
-  for j in R(J):
-   if v[i][j]:continue
-   c,s,h=C[i][j],[(i,j)],set();v[i][j]=1
-   while s:
-    y,x=s.pop();h.add((y,x))
-    for d,e in(1,0),(-1,0),(0,1),(0,-1):
-     a,b=y+d,x+e
-     if 0<=a<I and 0<=b<J and not v[a][b]and C[a][b]==c:v[a][b]=1;s.append((a,b))
-   (O,S)[len(h)>1].append((c,h))
- if not S:return[list(r)for r in C]
- T={}
- for c,h in S:T[c]=T.get(c,0)+len(h)
- m=sorted(T,key=lambda k:(-T[k],k));g,k=m[0],(m[1]if len(m)>1else m[0]);X={(i,j)for i in R(I)for j in R(J)if C[i][j]==g};Y={(i,j)for i in R(I)for j in R(J)if C[i][j]==k};A=[x for x in O if x[0]not in{g,k}]or O
- Z={(r,c)for _,h in A for y,x in h for d,e in((1,1),(-1,-1),(1,-1),(-1,1))for r,c in[(y+d*n,x+e*n)for n in R(max(I,J))]if 0<=r<I and 0<=c<J}
- E={}
- for c,_ in A:E[c]=E.get(c,0)+1
- L=sorted(E,key=lambda c:(-E[c],c));f,q=(L+[L[0]])[:2];M=lambda m:sum((C[y+d][x+e]==g)-(C[y+d][x+e]==k)for c,h in A if c==m for y,x in[next(iter(h))]for d in(-1,0,1)for e in(-1,0,1)if(d or e)and 0<=y+d<I and 0<=x+e<J);a,b=M(f),M(q);D,E=(f,q)if a>0and b<0else(q,f)if a<0and b>0else(q,f)if b>0else(f,q);e=[list(r)for r in C]
- for y,x in Z&X:e[y][x]=D
- for y,x in Z&Y:e[y][x]=E
- return e
+def p(g,R=range,L=len):
+ a=sum(g,[])
+ B=max(a,key=a.count);S=max([v for v in a if v!=B],key=a.count)
+ h,w=L(g),L(g[0]);t={};P=set();M=set()
+ for i in R(h):
+  for j in R(w):
+   if (c:=g[i][j])not in(B,S):
+    P.add(i+j);M.add(i-j);t.setdefault(c,0)
+    for y,x in((1,0),(-1,0),(0,1),(0,-1)):
+     Y,X=i+y,j+x
+     if 0<=Y<h and 0<=X<w:t[c]+=(g[Y][X]==B)-(g[Y][X]==S)
+ U=set(t);b=max(U,key=t.get);o=sum(U)-b;r=[*map(list,g)]
+ for i in R(h):
+  for j in R(w):
+   v=g[i][j]
+   if v in(B,S)and((i+j in P)or(i-j in M)):r[i][j]=b if v==B else o
+ return r

@@ -1,5 +1,4 @@
 def p(i):
- o=[r[:]for r in i]
  for R in range(len(i)-1):
   for C in range(len(i[0])-1):
    q=[i[R][C],i[R][C+1],i[R+1][C],i[R+1][C+1]]
@@ -14,5 +13,5 @@ def p(i):
     for x,y in v:
      if i[x][y]==D:
       for X,Y,P in(2*R+1-x,y,p^2),(x,2*C+1-y,p^1),(2*R+1-x,2*C+1-y,p^3):
-       if-1<X<len(i)>Y>-1<len(i[0]):o[X][Y]=q[P]
- return o
+       if-1<X<len(i)>Y>-1<len(i[0]):i[X][Y]=q[P]
+ return i

@@ -15,4 +15,3 @@ def p(s):
    for T in u(t):
     if f(i[T%e],T//e*g)!=s[T]:r=False;break
    if r:return[f(i[d%e],d//e*g)for d in u(10)]
- return[s[e%t][:]for e in u(10)]

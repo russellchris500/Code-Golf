@@ -1,3 +1,9 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚ]±jÄ0†÷<…F«§;š5Á÷"Bƒ‹•bªQì©ôİ§J§Ÿï}(ë5(µèÉŞ—	¥¸«Eº†_×N?¿ˆ/²}84(*°-¤q}	ÿ+ Dev¹`ƒ²ôÇ¡-ë–úŞB!|¤ZÕrFø“-£ÒGâ´)8eŒ‹¬)ÎgÈŸºzŸ×|‰ü¬¿âß#oGğ»ámÆEÙnş’„ë9Yb™Àµu?Sß²Pé',"L1")))
+def p(e,t=range,E=enumerate):
+	F={}
+	for(A,B)in E(e):
+		for(C,D)in E(B):
+			if D:F.setdefault(D,[]).append((A,C))
+	for D in F:
+		(A,C),(B,E)=F[D];H,E=(B>A)-(B<A),(E>C)-(E<C)
+		for G in t(abs(B-A)+1):e[A+G*H][C+G*E]=D
+	return e

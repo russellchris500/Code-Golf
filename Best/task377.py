@@ -1,1 +1,1 @@
-p=lambda g,q=lambda u,a=[0]:[*zip(*[a:=r for r in u if a!=r])]:q(q(g))
+p=lambda g,f=lambda d,x=0:[*zip(*[x:=b for b in d if x!=b])]:f(f(g))

@@ -20,3 +20,4 @@ def p(g,R=range,L=len):
   if {(a-min(r),b-min(c))for a,b in S}==T:
    for y,x in S:g[y][x]=k
  return g
+

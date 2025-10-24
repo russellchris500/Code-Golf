@@ -1,15 +1,19 @@
-def p(l,x=range):
- t,o=len(l),len(l[0])
- def e(u,g):
-  a=[[0]*o for q in x(t)];e=[]
-  for q in x(t):
-   for n in x(o):
-    if a[q][n]or u[q][n]!=g:a[q][n]=1;continue
-    a[q][n]=1;h=[(q,n)];l=0;f=[(q,n)]
-    while l<len(h):j,p=h[l];l+=1;[h.append((j+q,p+n))or f.append((j+q,p+n))or a[j+q].__setitem__(p+n,1)for(q,n)in[(1,0),(-1,0),(0,1),(0,-1)]if 0<=j+q<t and 0<=p+n<o and not a[j+q][p+n]and u[j+q][p+n]==g]
-    e.append(f)
-  return e
- q=lambda h:(min(q for(q,n)in h),min(q for(n,q)in h),max(q for(q,n)in h),max(q for(n,q)in h));f=lambda h:(lambda i,n,s,r:len(h)==(s-i+1)*(r-n+1))(*q(h));h=lambda h:(lambda i,n,s,r:{(q,n-1)for q in x(i-1,s+2)}|{(q,r+1)for q in x(i-1,s+2)}|{(i-1,q)for q in x(n-1,r+2)}|{(s+1,q)for q in x(n-1,r+2)})(*q(h));r={(q,n)for q in x(t)for n in x(o)if l[q][n]==5};j=set()
- for n in e(l,0):
-  if f(n):p=h(n);a=set();[a.add((q+j,n+p))for(q,n)in(lambda i,n,s,r:{(i,n),(i,r),(s,n),(s,r)})(*q([*p]))for(j,p)in[(1,0),(-1,0),(0,1),(0,-1)]];r.isdisjoint(a-p)and j.update(n)
- h=[[*q]for q in l];[h[q].__setitem__(n,4)for(q,n)in j if 0<=q<t and 0<=n<o];return[[*q]for q in h]
+def p(a,R=range):
+ h,w=len(a),len(a[0])
+ for y in R(h):
+  for x in R(w):
+   if a[y][x]:continue
+   H=W=1
+   while y+H<h and all(a[y+H][x+i]==0for i in R(W)):H+=1
+   while x+W<w and all(a[y+i][x+W]==0for i in R(H)):W+=1
+   P=set()
+   if y:P|={(y-1,x+i)for i in R(-1if x else 0,W+(x+W<w))}
+   if y+H<h:P|={(y+H,x+i)for i in R(-1if x else 0,W+(x+W<w))}
+   if x:P|={(y+i,x-1)for i in R(H)}
+   if x+W<w:P|={(y+i,x+W)for i in R(H)}
+   if P and all(a[i][j]==5for i,j in P)and not any(0<=i<h and 0<=j<w and a[i][j]==5and(i,j)not in P
+     for Y,X in((y-1,x-1),(y-1,x+W),(y+H,x-1),(y+H,x+W))
+     for i,j in((Y+1,X),(Y-1,X),(Y,X+1),(Y,X-1))):
+    for i in R(H):
+     for j in R(W):a[y+i][x+j]=4
+ return a

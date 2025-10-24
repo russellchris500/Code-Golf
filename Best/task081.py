@@ -1,3 +1,6 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚMAjÄ0E÷9…ºKš´$ÓÍ0E«Cˆ2Är1$òà8ãwãÒİûOğõ}Š+ÌqYdÎ!êa}Ä”_'­¦»şHwk  Ñ5xPÄ«,›Àèc…  l(†°à,¤vm}÷6YÁéF®'$Oé¸ı…‡'÷SMü©Hş~È‰ùD»}Å]³¤V»÷5nù{ëµ:+¶Å42MŒøqWWÒÈ/8Úã²j/«Üàú‹í©^Š?†£úÒhgÆgGÅ©$yO\ná!fº","L1")))
+def p(g):
+ e=enumerate
+ for i,(a,b)in e(zip(g,g[1:])):
+  for j,(u,v,w,x)in e(zip(a,a[1:],b,b[1:])):
+   if u+v+w+x==24:g[i+(w+x<16)][j+(v+x<16)]=1
+ return g

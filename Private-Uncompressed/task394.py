@@ -1,6 +1,5 @@
 def p(l):
  q=len(l);j=[(d,m)for d in range(q)for m in range(q)if l[d][m]==0]
- if not j:return[[]]
  c,k=min(d for d,m in j),min(m for d,m in j);j,r=max(d for d,m in j)-c+1,max(m for d,m in j)-k+1
  for o in range(2,5):
   m,n=[],1
@@ -19,4 +18,3 @@ def p(l):
   if n and len(m)==o*o:
    if all(l[d][i]==0 or l[d][i]==m[d%o*o+i%o]for d in range(q)for i in range(q)):
     return[[m[(c+d)%o*o+(k+i)%o]for i in range(r)]for d in range(j)]
- return[[]]

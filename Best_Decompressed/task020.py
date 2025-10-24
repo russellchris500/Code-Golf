@@ -6,8 +6,7 @@ def p(o,r=enumerate):
  u=a+p;l=f+i
  for h in range(a,p+1):
   for t in range(f,i+1):
-   r=u-h;t=l-t;m=a+t-f;d=f+h-a;m=a+i-t;j=f+p-h
-   r=((h,t),(h,t),(r,t),(r,t),(m,d),(m,d),(m,j),(m,j))
-   e=max(o[r][m]for r,m in r)
-   for r,m in r:o[r][m]=e
+   q=[(h,t),(u-h,t),(a+t-f,f+h-a),(a+i-t,f+p-h)]
+   e=max(o[r][c]for r,c in q)
+   for r,c in q:o[r][c]=e
  return o

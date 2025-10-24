@@ -8,3 +8,4 @@ def p(b,n=len,i=range,a=max,m=min):
    if n in[m(t)+1,a(t)-1]and m(p)+1<=f<=a(p)-1:b[n][f]=o
    if f in[m(p)+1,a(p)-1]and m(t)+1<=n<=a(t)-1:b[n][f]=o
  return b
+

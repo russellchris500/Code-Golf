@@ -1,3 +1,10 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚmL5Â@ísŠ¡ÂÝ#'Ù‡3ÁÖçìñ’êû?b²A;2BîêÅ¦ïFŸ…?éŒüagìÏ~‘W›žoš«L…LÑ•W„¦Ã«0?),ÑQ¥Å.1¨œ)°|­wü„î°3*+e¤ÿG`õ«¤Åa½ªEdÐ¬|JL›­ˆhëU„D­ª>(­?ð@£ušMàE","L1")))
+def p(l,p=enumerate):
+	C={8:4,2:1,3:6}
+	for(D,E)in p(l):
+		for(F,G)in p(E):
+			for A in range(-1,2):
+				for B in range(-1,2):
+					try:
+						if[A,B]!=[0,0]:l[D+A][F+B]=C[G]
+					except:0
+	return l

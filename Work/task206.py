@@ -1,21 +1,8 @@
-def p(g):
- h,w=len(g),len(g[0])
- o=[r[:]for r in g]
- p=None
- best=0
- for i in range(h-2):
-  for j in range(w-2):
-   count=sum(g[r][c]not in[0,5]for r in range(i,i+3)for c in range(j,j+3))
-   if count>best:
-    best=count
-    p=[[g[r][c]for c in range(j,j+3)]for r in range(i,i+3)]
- for i in range(h):
-  for j in range(w):
-   if g[i][j]==5:
-    for di in range(-1,2):
-     for dj in range(-1,2):
-      ni,nj=i+di,j+dj
-      if 0<=ni<h and 0<=nj<w and p:
-       o[ni][nj]=p[di+1][dj+1]
-    break
+def p(g,R=range):
+ h,w=len(g),len(g[0]);o=[r[:]for r in g];P=b=0
+ for i in R(h-2):
+  for j in R(w-2):c=sum(g[r][c]not in[0,5]for r in R(i,i+3)for c in R(j,j+3));c>b and(P:=[[g[r][c]for c in R(j,j+3)]for r in R(i,i+3)],b:=c)
+ for i in R(h):
+  for j in R(w):
+   if g[i][j]==5:[P*(0<=n<h)*(0<=m<w)and o[n].__setitem__(m,P[d+1][e+1])for d in R(-1,2)for e in R(-1,2)for n,m in[(i+d,j+e)]];break
  return o

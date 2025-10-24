@@ -1,3 +1,3 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚUOÁŽÛ ¼û+^oÐe£¸‡â¼S?¡Ê"àà÷Æêï—Å¨Û•,33£ŸyË1:[ÓaMœüâŠËêæ^»nÎCEEÌ3Ý¼ðPFG¢HÕ}6rJØ}"ƒç 4˜? ËÓÊ[ùmy]™Ä(««~Ó5ë‹ù´˜éŽº¾|ß>s¢xH3|½×"=½[# x(šÎæ&˜éÄîÕðÂ®˜l…¬²¬#ºÇ‰P›¦þóÑÁrXÁ«€Ë)qŠÎ!\':Í)9º	Q_¤ì"ÎbU»$Ä¨ÎR‰÷ã8«±ýßG){ ÌÊ¢[UxÛÓ&œ¯8_­~…öºý·d6Úšk9 âëÒÙÚ{ùW¨÷BÔÌèHDüéâæ`zÓV<Ðå©½ÑÁ  »²g‚ç_v£ë',"L1")))
+def p(g):
+ for _ in g*4:l=0;g=[[[(a>0)*b|a,(a>0)<<(l:=l+1)][a%2]for a,b in zip(r,[*r[1:],0])]for r in zip(*g[::-1])]
+ return[[(s>0)+(s.bit_count()==6)for s in r]for r in g]

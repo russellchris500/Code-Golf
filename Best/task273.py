@@ -1,3 +1,7 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚeÍ±nÆ à§ğıÉªOb1DÊ¹Š(Eñû`©ÔÑŸî|wDÑŒv<0-¶£|ÁœªV]0¤‘Á!Éw#ĞUHÓ§DfP/®Ûmá.!‰ñãoĞÌÌÏ+#ãİ$ñX”M#ÌòÚCš8µí?^»¿Q¬ºU êsÊ51R=Ê¹.×LüïWV£/ô¿§7+¶İjx´Ò_“:Nª","L1")))
+def p(a):
+ d={}
+ for i,r in enumerate(a):
+  if 4 in r:
+   x=r.index(4);y=r.index(4,x+1)
+   for t in a[d.setdefault((x,y),i)+1:i]:t[x+1:y]=[2]*~(x-y)
+ return a
