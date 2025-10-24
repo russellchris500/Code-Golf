@@ -10,3 +10,4 @@ def p(r,R=range):
      for b in R(j,j+5):
       if m[a][b]<1:m[a][b]=s
  return m
+

@@ -16,3 +16,4 @@ def p(p):
         if 0<=r+d-k<b and 0<=e+q<b:p[r+d-k][e+q]=8
         if 0<=r+d+2*k<b and 0<=c3+q<b:p[r+d+2*k][c3+q]=8
  return p
+

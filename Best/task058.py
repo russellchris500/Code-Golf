@@ -1,3 +1,6 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes('xÚ}NEVAİ÷)‚—oFÂEê·[ñ‚]Ÿ÷Uäkšåp£¢^$p´ï‹lIØf=¿–†0Z‚<D¨z¸W¤×ËÎE¹ÑrAÜX;5v#íx÷rx¹ÖÉ³ª}S±?T¡[‡¸Æ©ì9´+òãE´8N€÷e.ëcYµĞõˆ%Ÿ=&â!Â7@Štvò5÷tñe¯û™_À§ÿú ÊíX_Ìø"îšİİSÕ5ÅS‰',"L1")))
+def p(o):
+	A=len(o);C=[[0]*A for B in' '*A];B=-1;D=0;E=[1,1j,-1,-1j]
+	for F in[A]+[A for A in range(A-1,0,-2)for B in'  ']:
+		for G in range(F):B+=E[D%4];C[int(B.imag)][int(B.real)]=3
+		D+=1
+	return C
