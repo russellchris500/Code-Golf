@@ -17,4 +17,3 @@ def p(l,g=range):
     if any(l[C][r]==0for r in g(E,L+1)):
      for B in g(E,L+1):l[C][B]=0
  return l
-
