@@ -1,1 +1,1 @@
-p=lambda g,l=4:l and p([[a and p and 8 or(a:=p)for p in r]for r in zip(*g[::-1])if~(a:=0)],l-1)or g
+p=lambda u,k=3:-k*u or p([[p*a and 8 or p for p,a in zip(r,[0]+r)]for*r,in zip(*u[::-1])],k-1)
