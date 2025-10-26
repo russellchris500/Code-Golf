@@ -1,11 +1,1 @@
-def p(o,e=len,p=range):
- g,t,i,e=e(o),e(o[0]),[],[]
- for r in p(g//2+1):
-  for f in p(t):
-   if o[r][f]==0:o[r][f]=o[-(r+1)][f];i+=[r];e+=[f]
-   if o[-(r+1)][f]==0:o[-(r+1)][f]=o[r][f];i+=[g-(r+1)];e+=[f]
- for r in p(g):
-  for f in p(t//2+1):
-   if o[r][f]==0:o[r][f]=o[r][-(f+1)];i+=[r];e+=[f]
-   if o[r][-(f+1)]==0:o[r][-(f+1)]=o[r][f];i+=[r];e+=[t-(f+1)]
- o=o[min(i):max(i)+1];o=[r[min(e):max(e)+1]for r in o];return o
+p=lambda g,R=range(16):[[sorted([g[y][15-x],g[15-y][x],g[15-y][15-x]])[1]for x in R if g[y][x]<1]for y in R if 0 in g[y]]

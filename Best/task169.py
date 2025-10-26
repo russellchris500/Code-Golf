@@ -1,4 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("""xÚ5Ïnƒ0Æï<…/“Zç°K¨û Èª–¶Ja¼ıœ®»øïg}?_Ã³š´«`|.p‡˜`Ò”E,Sˆ#L>:ºÙß¤ú¢¬ “WÑÜ4·+eï¸¥H˜°l¾â#@~)a3;åÃüœ•~õÅm0ñSÖ 6
-•Øü7Õ‡ÀâYu¶zĞgÂ©ŞÑ^_ôÉ"é*€ûİ;¶¹´Îô­¶Æ:®Ş¶‚RŞ\\E¾±ß™>›GHj°%¬ßK‚©úÁ:Kr""","L1")))
+p=lambda u,k=19,i=0:-k*u or p([[(5-len(p))%5if k<1 else(p and p|a)if k<19 else p and{i:=i+1}or set()for p,a in zip(r,[set()]+r)]for*r,in zip(*u[::-1])],k-1)

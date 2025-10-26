@@ -1,6 +1,1 @@
-def p(g):
- f=sum(g,[])
- a,*_=zip(*g)
- b=g[0]+[*a]
- t=next(x for x in {*b}-{0} if b.count(x)*2==f.count(x)==4)
- return [[t*(g[i][0]==t or g[0][j]==t) for j in range(len(g[0]))] for i in range(len(g))]
+p=lambda g:[[((p:=min(k:=sum(g,[]),key=k.count))in{r[0],r[-1],c[0],c[-1]})*p for*c,in zip(*g)]for r in g]

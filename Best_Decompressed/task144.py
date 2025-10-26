@@ -1,1 +1,1 @@
-p=lambda g,r=range:[[3*(g[i][j]+g[i+5][j]==0)for j in r(4)]for i in r(4)]
+p=lambda g:[[not(a|b)and 3for a,b in zip(g[y],g[y+5])]for y in range(4)]

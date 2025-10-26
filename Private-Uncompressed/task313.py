@@ -1,5 +1,1 @@
-def p(e,r=range,n=len):
- j=n(e);y=n({*e[0]})-1;q=n({p[0]for p in e})-1
- for p in e:p[:]=(p[:y]*((n(p)-1)//y+1))[:n(p)]
- for h in r(j):e[h]=[e[h%q][p]for p in r(j)]
- return[[dict(zip(e[0],e[0][1:]))[p]for p in p]for p in e]
+p=lambda g:([(r[1:3+(r[0]==r[3])]*10)[:len(g)]for r in g[:2+(g[0]==g[3])]]*10)[:len(g)]
