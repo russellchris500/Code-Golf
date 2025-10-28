@@ -1,5 +1,10 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("""xÚJI”81ôN¹á¬ë&¸|—ÁÝµûMöÃøÓZ-ÑH±Œj:Šåq8=_t1à0UZbè\\ààdu­Ú·.BN…¹Ø/¿´^Oßâ¦	Ym¿X/ä>JûÕF(6kÅ0›«&Ô
-kÑ	[Ò¬ŒàÙÅÍ”n
-²ù²š¾»°ˆ=¿“Óá"fôNûƒY³ýúË®k/øg ô7F=ªóz16Õä/Ú’A–¥Ö3_ÿ›öÔI>‘|"õÑ8õô¨üï¥P¾""","L1")))
+def p(g):
+ h=len(g);w=len(g[0]);s=sum(g,[]);k=s.index(8);d=s[k+w-1]==8
+ for a in-1,1:
+  b=a-2*a*d;y=k//w;x=k%w
+  while w>x+b>=0<=y+a<h:
+   Y=y+a;X=x+b;R=g[Y];v=R[X]
+   if v-2:y,x=Y,X;R[X]=v or 3
+   if R==[2]*w:a=-a
+   if all(2==r[X]for r in g):b=-b
+ return g
