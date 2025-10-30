@@ -4,7 +4,7 @@ Task 42    338      338        361      139    199      blooming
 Task 80    435      730        449      253    182      blooming                      
 Task 94    242      252        264      102    140      blooming                      
 Task 240   225      -          1108     99     126      blooming                      
-Task 86    288      288        515      172    116      blooming                      
+Task 86    288      279        515      172    107      blooming                      
 Task 19    205      205        246      105    100      blooming                      
 Task 256   185      -          185      95     90       blooming                      
 Task 252   146      -          146      57     89       blooming                      
@@ -204,9 +204,9 @@ Task 330   176      320        415      134    42       object find
 Task 247   131      131        188      95     36       object find                   
 Task 279   138      138        507      107    31       object find                   
 Task 393   64       64         104      63     1        object find                   
-Task 191   690      704        710      241    449      object find/overlay           
 Task 89    543      -          591      236    307      object find/overlay           
 Task 182   432      432        707      169    263      object find/overlay           
+Task 191   690      487        710      241    246      object find/overlay           
 Task 159   328      -          350      109    219      object find/overlay           
 Task 170   381      390        405      196    185      object find/overlay           
 Task 209   448      448        1133     273    175      object find/overlay           
