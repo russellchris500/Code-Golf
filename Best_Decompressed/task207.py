@@ -1,8 +1,3 @@
-def p(t):
- s={};e=[[[t[0][0],t[0][1]],[t[1][0],t[1][1]]],[[t[3][0],t[3][1]],[t[4][0],t[4][1]]],[[t[0][3],t[0][4]],[t[1][3],t[1][4]]],[[t[3][3],t[3][4]],[t[4][3],t[4][4]]]]
- for t in e:
-  t=str(t)
-  if t in s:s[t]+=1
-  else:s[t]=1
- for t in s:
-  if s[t]==1:return eval(t)
+def p(g):
+ c=[[[g[b+i][a+j]for j in range(2)]for i in range(2)]for a,b in[(0,0),(3,0),(0,3),(3,3)]]
+ return[x for x in c if c.count(x)==1][0]

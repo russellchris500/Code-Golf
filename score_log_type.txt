@@ -51,7 +51,6 @@ Task 177   66       66         155      51     15       cropping
 Task 39    70       70         249      60     10       cropping                      
 Task 57    56       56         108      48     8        cropping                      
 Task 31    51       51         126      45     6        cropping                      
-Task 5     408      496        458      206    202      fixed size search             
 Task 143   297      297        382      135    162      fixed size search             
 Task 206   298      298        561      144    154      fixed size search             
 Task 139   240      249        251      94     146      fixed size search             
@@ -64,6 +63,7 @@ Task 22    206      195        232      91     104      fixed size search
 Task 253   233      -          249      129    104      fixed size search             
 Task 160   208      -          223      105    103      fixed size search             
 Task 397   212      216        213      121    91       fixed size search             
+Task 5     293      293        458      206    87       fixed size search             
 Task 230   187      -          214      114    73       fixed size search             
 Task 81    162      228        294      91     71       fixed size search             
 Task 346   128      128        182      58     70       fixed size search             
@@ -130,11 +130,11 @@ Task 260   327      331        352      135    192      line extension
 Task 34    312      329        360      125    187      line extension                
 Task 387   401      412        504      218    183      line extension                
 Task 51    286      -          314      115    171      line extension                
-Task 119   277      896        505      106    171      line extension                
 Task 190   273      -          295      109    164      line extension                
 Task 138   265      265        1015     104    161      line extension                
 Task 286   267      281        290      109    158      line extension                
 Task 168   267      276        283      111    156      line extension                
+Task 119   259      259        505      106    153      line extension                
 Task 350   244      -          267      91     153      line extension                
 Task 336   243      -          379      93     150      line extension                
 Task 107   307      -          333      162    145      line extension                
@@ -223,8 +223,8 @@ Task 96    360      360        925      325    35       object find/overlay
 Task 133   321      -          321      298    23       object find/overlay           
 Task 366   374      392        374      365    9        object find/overlay           
 Task 173   222      -          222      218    4        object find/overlay           
-Task 71    450      461        497      119    331      pattern completion            
 Task 74    322      322        361      79     243      pattern completion            
+Task 71    450      358        497      119    239      pattern completion            
 Task 394   314      314        378      91     223      pattern completion            
 Task 117   335      318        1001     148    170      pattern completion            
 Task 17    256      283        268      99     157      pattern completion            
@@ -243,13 +243,13 @@ Task 400   122      122        271      67     55       pattern completion
 Task 27    319      136        415      103    33       pattern completion            
 Task 361   221      -          221      193    28       pattern completion            
 Task 118   280      291        280      271    9        pattern completion            
-Task 124   269      269        295      96     173      pattern extension             
 Task 348   206      -          216      94     112      pattern extension             
 Task 13    246      384        258      140    106      pattern extension             
 Task 357   179      -          180      86     93       pattern extension             
 Task 248   151      -          151      72     79       pattern extension             
 Task 295   106      -          106      54     52       pattern extension             
 Task 231   75       -          75       43     32       pattern extension             
+Task 124   269      125        295      96     29       pattern extension             
 Task 297   72       -          72       43     29       pattern extension             
 Task 114   79       79         107      64     15       pattern extension             
 Task 7     75       75         142      62     13       pattern extension             
@@ -259,11 +259,11 @@ Task 3     63       63         66       58     5        pattern extension
 Task 123   77       77         168      75     2        pattern extension             
 Task 343   65       65         453      65     0        pattern extension             
 Task 255   672      720        779      242    430      rectangle finding             
-Task 77    497      465        615      126    339      rectangle finding             
 Task 44    580      586        625      255    325      rectangle finding             
 Task 208   499      500        525      215    284      rectangle finding             
 Task 367   388      388        586      129    259      rectangle finding             
 Task 105   381      387        424      148    233      rectangle finding             
+Task 77    497      355        615      126    229      rectangle finding             
 Task 216   305      -          324      114    191      rectangle finding             
 Task 283   266      -          286      82     184      rectangle finding             
 Task 145   371      385        380      191    180      rectangle finding             
@@ -303,8 +303,8 @@ Task 377   68       70         248      55     13       rectangle finding
 Task 251   99       99         326      89     10       rectangle finding             
 Task 166   70       70         201      61     9        rectangle finding             
 Task 359   64       64         235      64     0        rectangle finding             
-Task 207   205      -          212      81     124      short operation               
 Task 217   189      -          189      95     94       short operation               
+Task 207   205      142        212      81     61       short operation               
 Task 257   146      119        203      74     45       short operation               
 Task 395   98       -          98       53     45       short operation               
 Task 296   92       -          98       63     29       short operation               
@@ -325,7 +325,6 @@ Task 26    57       61         57       52     5        short operation
 Task 1     61       86         61       58     3        short operation               
 Task 6     53       53         66       51     2        short operation               
 Task 304   94       94         250      92     2        short operation               
-Task 244   199      -          212      64     135      short transform               
 Task 221   189      -          189      87     102      short transform               
 Task 167   127      -          127      71     56       short transform               
 Task 389   106      106        130      57     49       short transform               
@@ -341,6 +340,7 @@ Task 223   79       -          79       51     28       short transform
 Task 188   87       87         113      61     26       short transform               
 Task 307   73       -          75       50     23       short transform               
 Task 194   89       89         120      67     22       short transform               
+Task 244   199      85         212      64     21       short transform               
 Task 211   63       -          63       48     15       short transform               
 Task 292   71       -          72       56     15       short transform               
 Task 329   68       68         107      54     14       short transform               
@@ -380,15 +380,13 @@ Task 380   27       27         27       27     0        short transform
 Task 245   297      -          318      106    191      sliding                       
 Task 93    261      266        282      99     162      sliding                       
 Task 35    231      -          256      83     148      sliding                       
-Task 25    275      278        287      131    144      sliding                       
 Task 250   261      270        289      118    143      sliding                       
 Task 131   258      -          260      125    133      sliding                       
-Task 122   214      -          225      82     132      sliding                       
 Task 4     199      236        199      80     119      sliding                       
-Task 128   180      -          189      61     119      sliding                       
 Task 30    212      -          227      94     118      sliding                       
 Task 270   223      -          231      117    106      sliding                       
 Task 8     187      187        305      84     103      sliding                       
+Task 25    228      228        287      131    97       sliding                       
 Task 340   215      -          228      119    96       sliding                       
 Task 342   207      -          214      111    96       sliding                       
 Task 316   146      -          150      71     75       sliding                       
@@ -396,7 +394,9 @@ Task 362   127      127        227      69     58       sliding
 Task 353   144      -          144      92     52       sliding                       
 Task 186   107      -          107      60     47       sliding                       
 Task 73    79       -          79       46     33       sliding                       
+Task 122   214      111        225      82     29       sliding                       
 Task 126   80       80         200      54     26       sliding                       
+Task 128   180      73         189      61     12       sliding                       
 Task 78    70       70         170      60     10       sliding                       
 Task 234   119      119        785      118    1        sliding                       
 Task 32    39       39         39       39     0        sliding                       
