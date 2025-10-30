@@ -3,19 +3,9 @@ def p(l,R=range):
  for a in R(1,z-3):
   for i in R(1,z-3):
    if l[a][i]and not l[a-1][i]and not l[a][i-1]:
-    b,f=l[a][i],l[a+1][i+1]
-    s=3if l[a+2][i+2]==b else 4
-    d=s-2
-    for r in R(a-d,a):
-     for c in R(i,i+s):g[r][c]=b
-    for r in R(a+s,a+s+d):
-     for c in R(i,i+s):g[r][c]=b
-    for r in R(a,a+s):
-     for c in R(i-d,i):g[r][c]=b
-    for r in R(a,a+s):
-     for c in R(i+s,i+s+d):g[r][c]=b
-    for r in R(a,a+s):
-     for c in R(i,i+s):g[r][c]=f
-    for r in R(a+1,a+s-1):
-     for c in R(i+1,i+s-1):g[r][c]=b
+    b,f=l[a][i],l[a+1][i+1];s=3+(l[a+2][i+2]!=b);d=s-2
+    for r in R(a-d,a):g[r][i:i+s]=[b]*s
+    for r in R(a+s,a+s+d):g[r][i:i+s]=[b]*s
+    for r in R(a,a+s):g[r][i-d:i]=[b]*d;g[r][i+s:i+s+d]=[b]*d;g[r][i:i+s]=[f]*s
+    for r in R(a+1,a+s-1):g[r][i+1:i+s-1]=[b]*(s-2)
  return g
