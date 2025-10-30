@@ -1,1 +1,1 @@
-p=lambda g:[[b for a,b in zip([0]+a,a)if a^b]for a,b in zip(g,[[]]+g)if a!=b]
+p=lambda g,f=lambda d,x=0:[*zip(*[x:=b for b in d if x!=b])]:f(f(g))

@@ -1,10 +1,6 @@
-def p(f,r=range):
- i=[[8if n==8else 0for n in e]for e in f]
- for d in r(len(f)-1):
-  for x in r(len(f[0])-1):
-   n=[t for e in[f[d][x:x+2],f[d+1][x:x+2]]for t in e]
-   if n.count(8)>2:
-    for u in r(d,d+2):
-     for e in r(x,x+2):
-      if i[u][e]==0:i[u][e]=1
- return i
+def p(g):
+ e=enumerate
+ for i,(a,b)in e(zip(g,g[1:])):
+  for j,(u,v,w,x)in e(zip(a,a[1:],b,b[1:])):
+   if u+v+w+x==24:g[i+(w+x<16)][j+(v+x<16)]=1
+ return g

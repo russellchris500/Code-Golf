@@ -1,16 +1,6 @@
 def p(o):
- u=range;r=len(o);i=[[0]*r for o in u(r)];m,o=0,0;a=[(0,1),(1,0),(0,-1),(-1,0)]
- for l in u(r):
-  i[m][o]=3
-  if l<r-1:o+=1
- r=r-1;f=1
- while r>0:
-  for l in u(2):
-   if r>0:
-    m,o=m+a[f][0],o+a[f][1]
-    for l in u(r):
-     i[m][o]=3
-     if l<r-1:m,o=m+a[f][0],o+a[f][1]
-    f=(f+1)%4
-  r-=2
- return i
+	A=len(o);C=[[0]*A for B in' '*A];B=-1;D=0;E=[1,1j,-1,-1j]
+	for F in[A]+[A for A in range(A-1,0,-2)for B in'  ']:
+		for G in range(F):B+=E[D%4];C[int(B.imag)][int(B.real)]=3
+		D+=1
+	return C

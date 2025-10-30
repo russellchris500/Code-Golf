@@ -1,17 +1,19 @@
-def p(i):
- for R in range(len(i)-1):
-  for C in range(len(i[0])-1):
-   q=[i[R][C],i[R][C+1],i[R+1][C],i[R+1][C+1]]
-   if len({*q})==4:
-    v={(R,C),(R,C+1),(R+1,C),(R+1,C+1)};L=[*v]
-    while L:
-     x,y=L.pop()
-     for a,b in(-1,0),(1,0),(0,-1),(0,1),(-1,-1),(-1,1),(1,-1),(1,1):
-      X,Y=x+a,y+b
-      0<=X<len(i)and 0<=Y<len(i[0])and(X,Y)not in v and i[X][Y]and(v.add((X,Y)),L.append((X,Y)))
-    D=max(q,key=lambda c:sum(i[x][y]==c for x,y in v));p=q.index(D)
-    for x,y in v:
-     if i[x][y]==D:
-      for X,Y,P in(2*R+1-x,y,p^2),(x,2*C+1-y,p^1),(2*R+1-x,2*C+1-y,p^3):
-       if-1<X<len(i)>Y>-1<len(i[0]):i[X][Y]=q[P]
- return i
+def p(g):
+ s=[*map(list,g)];D=-1,0,1;E=[(i,j)for i in D for j in D if i|j]
+ for a in range(len(g)-1):
+  for b in range(len(g[0])-1):
+   if len(set(V:=g[a][b:b+2]+g[a+1][b:b+2]))<4:continue
+   for t in 0,1,2,3:
+    x=a+(t>1);y=b+(t&1)
+    if(k:=V[t])and any(g[x+i][y+j]==k for i,j in E):
+     A=a+a+1;B=b+b+1;q=[(x,y)];g[x][y]=0
+     while q:
+      x,y=q.pop()
+      for u in 0,1,2,3:s[(x,A-x)[(u>>1)!=(x>a)]][(y,B-y)[(u&1)!=(y>b)]]=V[u]
+      for i,j in E:
+       u=x+i;v=y+j
+       try:
+        if g[u][v]==k:g[u][v]=0;q+=[(u,v)]
+       except:0
+     break
+ return s

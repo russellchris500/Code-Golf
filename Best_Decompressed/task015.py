@@ -1,8 +1,6 @@
 def p(g):
- o=[r*1 for r in g];e=enumerate
- for y,r in e(g):
-  for x,v in e(r):
-   for d in 1,-1:
-    if v==2:o[y+d][x+d]=o[y+d][x-d]=4
-    if v==1:o[y+d][x]=o[y][x+d]=7
- return o
+ h=eval(str(g))
+ for x in range(729):
+  i,j,a,b=x//81,x//9%9,x%9//3-1,x%3-1;v=h[i][j]
+  if a*a+b*b==v>0:g[i+a][j+b]=10-3*v
+ return g

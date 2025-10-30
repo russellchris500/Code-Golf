@@ -1,16 +1,1 @@
-j=len
-a=range
-n=[1,4,9,16,25,36,49,64,81]
-s=[-1,0,1]
-x=[[f,n]for f in s for n in s]
-e=[264,246,236,194,285,134,156,66,104]
-def p(h):
- d,u=j(h),j(h[0]);f=[[0]*9for f in a(9)]
- for d in a(1,d-1):
-  for l in a(1,u-1):
-   g=[h[d+f][l+n]for(f,n)in x];t=sum([n[f]for f in a(9)if g[f]==5])
-   if t in e and 0not in g:
-    g=e.index(t)
-    for s in a(3):
-     for k in a(3):f[s+g//3*3][k+g%3*3]=h[d-1+s][l-1+k]
- return f
+p=lambda g,a=[9*[5]for _ in[0]*9],z=3:-z*a or[exec("if s[0][%s]!=5%s=s[1][1]:\n for r,R in zip(s,a):R[%s:%s]=r\n"*2%(*"1!360=03",))for i in range(len(g)-2)for j in range(len(g[0])-2)if{"0"}-{*str(s:=[r[j:j+3]for r in g[i:i+3]])}if a]and p(*[[*map(list,zip(*i[::-1]))]for i in(g,a)],z-1)

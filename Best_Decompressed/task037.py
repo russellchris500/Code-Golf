@@ -1,10 +1,9 @@
-def p(e,t=range):
- a,a=len(e),len(e[0]);u,e={},[t[:]for t in e]
- for n in t(a):
-  for r in t(a):
-   i=e[n][r]
-   if i:u.setdefault(i,[]).append((n,r))
- for i in u:
-  (n,p),(r,d)=u[i];a=1if r>n else-1;d=1if d>p else-1
-  for r in t(abs(r-n)+1):e[n+r*a][p+r*d]=i
- return e
+def p(e,t=range,E=enumerate):
+	F={}
+	for(A,B)in E(e):
+		for(C,D)in E(B):
+			if D:F.setdefault(D,[]).append((A,C))
+	for D in F:
+		(A,C),(B,E)=F[D];H,E=(B>A)-(B<A),(E>C)-(E<C)
+		for G in t(abs(B-A)+1):e[A+G*H][C+G*E]=D
+	return e

@@ -1,21 +1,13 @@
-u=range
-r=len
-def p(t):
- d=sum(t,[]);q=[*{*d}-{0,2}][0];i,i=r(t),r(t[0])
- for f in u(i-1):
-  for a in u(i-1):
-   d=[t[f+o][a+n]for(o,n)in[[0,0],[0,1],[1,0],[1,1]]]
-   if sum(1for o in d if o>0)>3:
-    for d in[o for o in u(r(d))if d[o]==2]:
-     for n in u(10):
-      if d<2:o=f-n
-      else:o=f+n+1
-      if d%2:n=a+n+1
-      else:n=a-n
-      if 0<=o<i and 0<=n<i:
-       t[o][n]=q
-       if 0<=o-1<i:t[o-1][n]=q
-       if 0<=n-1<i:t[o][n-1]=q
-       if 0<=o+1<i:t[o+1][n]=q
-       if 0<=n+1<i:t[o][n+1]=q
+def p(t,u=range):
+ H,W=len(t),len(t[0]);q=min(set(sum(t,[]))-{0,2})
+ for f in u(H-1):
+  for a in u(W-1):
+   d=[t[f+y][a+x]for y,x in zip((0,0,1,1),(0,1,0,1))]
+   if all(d):
+    for idx,v in enumerate(d):
+     if v==2:
+      for k in u(10):
+       for dy,dx in[(0,0),(-1,0),(1,0),(0,-1),(0,1)]:
+        y=f+[-k,k+1][idx>1]+dy;x=a+[-k,k+1][idx%2]+dx
+        if 0<=y<H and 0<=x<W:t[y][x]=q
  return t

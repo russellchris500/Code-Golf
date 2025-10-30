@@ -1,1 +1,7 @@
-p=lambda g,R=range,L=len:(v:=next(x for r in g[::-1] for x in r[::-1] if x),[(any(g[r][j]==v for r in R(L(g)))and(i:=max(r for r in R(L(g))if g[r][j]==v),(s:=next((r for r in R(i-1,-1,-1)if(a:=g[r][j])and a!=v),-1))+1 and[g[r].__setitem__(j,v)for r in R(s+1,L(g))]))for j in R(L(g[0]))],g)[2]
+def p(g):
+	*g,=zip(*g)
+	for D in sum(g,()):
+		A=[A for(A,B)in enumerate(g)if D in B]
+		if A[-1]-A[0]==6:
+			for E in A:B=g[E];C=20-B[::-1].index(D);g[E]=B[:C]+(max(B[C:]),)*(20-C)
+	return[*zip(*g)]

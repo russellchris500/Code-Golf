@@ -1,11 +1,10 @@
-def p(o,d=range):
- f=tuple(tuple(f)for f in o);h,b=len(f),len(f[0]);p=lambda u:(min(f for(f,q)in u),min(f for(q,f)in u),max(f for(f,q)in u),max(f for(q,f)in u))if u else(0,0,0,0);i=lambda u:{(f-p(u)[0],q-p(u)[1])for(f,q)in u}if u else set();u=tuple((*f[::-1],)for f in f);from collections import Counter as f;j=max(f(sum(u,())).items(),key=lambda a:a[1])[0];f={};[f.setdefault(u[q][s],set()).add((q,s))for q in d(h)for s in d(b)if u[q][s]!=j]
- s=max(f,key=lambda h:len(f[h]));h=i(f[s]);q=None
- for(r,o)in f.items():
-  if r==s or len(o)==len(f[s]):continue
-  o=i(o);l={(2*f+s,2*q+o)for(f,q)in o for s in(0,1)for o in(0,1)}
-  if l and h:g,g,m,m=[f for(f,q)in l],[f for(q,f)in l],[f for(f,q)in h],[f for(q,f)in h];a=max(sum((s+f,o+q)in h for(s,o)in l)for f in d(min(m)-max(g),max(m)-min(g)+1)for q in d(min(m)-max(g),max(m)-min(g)+1))
-  else:a=0
-  b=a-2*len(o),len(o),p(o)[3],r;q=b if q is None or b>q else q
- m=q[3]if q else(lambda f:max(f,key=lambda h:len(f[h]))if f else s)([f for f in f if f!=s]);i,k,f,b=p(f[m]);p=[list(u[f][k:b+1])for f in d(i,f+1)];[[f.__setitem__(q,j)for q in d(len(f))if f[q]!=m]for f in p];return[list(f[::-1])for f in p]
-
+def p(n):
+	t=sum(n,[]);H=max(t,key=t.count);A={}
+	for(E,g)in enumerate(n):
+		for(F,I)in enumerate(g):I-H and A.setdefault(I,set()).add((E,F))
+	B=lambda g:(lambda x,y:(min(x),min(y),max(x),max(y)))(*zip(*g));J=lambda g:{(A-B(g)[0],t-B(g)[1])for(A,t)in g};K=max(A,key=lambda m:len(A[m]));o=J(A[K]);M=();D=range;T,t,l,V=B(o)
+	for m in A:
+		if m-K:
+			N=A[m];O={(A*2+t,B*2+E)for(A,B)in J(N)for t in D(2)for E in D(2)};W,X,Y,a=B(O);i=max(len({(t+A,D+B)for(t,D)in O}&o)for A in D(T-Y,l-W+1)for B in D(t-a,V-X+1));P=len(N);Q=i-2*P,P
+			if Q>M:M=Q;R=m
+	E,F,p,c=B(A[R]);return[[(H,A)[A==R]for A in A[F:c+1]]for A in n[E:p+1]]

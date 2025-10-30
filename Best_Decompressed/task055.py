@@ -1,11 +1,1 @@
-def p(r,k=range):
- i,g=len(r),len(r[0]);u=[k[:]for k in r];l,f=[k for k in k(i)if all(k==8for k in r[k])];d,e=[n for n in k(g)if all(r[k][n]==8for k in k(i))]
- for n in k(i):
-  for t in k(g):
-   if not u[n][t]:
-    if n<l and d<t<e:u[n][t]=2
-    elif l<n<f and t<d:u[n][t]=4
-    elif l<n<f and d<t<e:u[n][t]=6
-    elif l<n<f and t>e:u[n][t]=3
-    elif n>f and d<t<e:u[n][t]=1
- return u
+p=lambda r,z=zip:(R:=[i for i,w in enumerate(r)if{*w}=={8}],C:=[i for i,w in enumerate(z(*r))if{*w}=={8}],[[v or{(-1,0):2,(0,-1):4,(0,0):6,(0,1):3,(1,0):1}.get(((y>R[1])-(y<R[0]),(x>C[1])-(x<C[0])),0)for x,v in enumerate(w)]for y,w in enumerate(r)])[-1]

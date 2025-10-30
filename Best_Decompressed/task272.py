@@ -1,1 +1,1 @@
-def p(g):h,w=len(g),len(g[0]);return[[1if g[i][j]and all(g[i+a][j+b]==0for a,b in[(-1,0),(1,0),(0,-1),(0,1)]if 0<=i+a<h and 0<=j+b<w)else g[i][j]for j in range(w)]for i in range(h)]
+p=lambda g,e=enumerate,f=lambda y,x,g:0<=y<len(g)and 0<=x<len(g[y])and g[y][x]>1:[[v-(v>1and sum(f(r+d,c,g)+f(r,c+d,g)for d in(-1,1))<1)for c,v in e(L)]for r,L in e(g)]

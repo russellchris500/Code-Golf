@@ -1,27 +1,22 @@
-def p(b,h=range):
- c=[y[:]for y in b];f=b[0][0];t,n=set(),[]
- for y in h(30):
-  for d in h(30):
-   if b[y][d]!=f and(y,d)not in t:
-    m,q=[],[(y,d)];t.add((y,d))
-    while q:
-     e,x=q.pop(0);m.append((e,x))
-     for l in[-1,0,1]:
-      for z in[-1,0,1]:
-       if l or z:
-        y,d=e+l,x+z
-        if 0<=y<30and 0<=d<30and b[y][d]!=f and(y,d)not in t:t.add((y,d));q.append((y,d))
-    n.append(m)
- t=min((y for y in n if len(y)>1),key=len);y,d=zip(*t);e,x=(min(y)+max(y))//2,(min(d)+max(d))//2;U=b[e][x];s={(y-e,d-x):b[y][d]for(y,d)in t};g=set(t);e=[(y,d)for y in h(30)for d in h(30)if b[y][d]==U and(y,d)not in g]
- for(y,d)in e:
-  for((l,z),o)in s.items():
-   if(l==0 or z==0)and(l*2,z*2)in s:
-    for m in h(1,30):
-     e,m=y+l*m,d+z*m
-     if not(0<=e<30and 0<=m<30and c[e][m]!=f):break
-     c[e][m]=o
-   else:
-    e,m=y+l,d+z
-    if 0<=e<30and 0<=m<30and c[e][m]!=f:c[e][m]=o
- for(e,m)in t:c[e][m]=f
+def p(b):
+ c=[r[:]for r in b];f=b[0][0];R=range(30);n=[];d=[r[:]for r in b]
+ for y in R:
+  for x in R:
+   if d[y][x]!=f:
+    o,q=[],[ (y,x) ];d[y][x]=f
+    for Y,X in q:
+     o+=[(Y,X)]
+     for i in range(9):
+      dy,dx=i//3-1,i%3-1;ny,nx=Y+dy,X+dx
+      if(dy or dx)and 30>ny>-1<nx<30 and d[ny][nx]!=f:d[ny][nx]=f;q+=[(ny,nx)]
+    n+=[o]
+ t=min((o for o in n if o[1:]),key=len)
+ Y,X=zip(*t);cy,cx=(min(Y)+max(Y))//2,(min(X)+max(X))//2;A=b[cy][cx];S={(y-cy,x-cx):b[y][x]for y,x in t}
+ for y,x in[(y,x)for y in R for x in R if b[y][x]==A and(y,x)not in t]:
+  for(dy,dx),v in S.items():
+   for k in range(1,30 if(dy==0 or dx==0)and(dy*2,dx*2)in S else 2):
+    ny,nx=y+dy*k,x+dx*k
+    if not(30>ny>-1<nx<30 and c[ny][nx]!=f):break
+    c[ny][nx]=v
+ for y,x in t:c[y][x]=f
  return c

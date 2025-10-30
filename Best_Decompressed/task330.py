@@ -1,16 +1,3 @@
-from collections import*
-def p(t,l=range):
- g=[[0]*10for o in l(10)]
- for o in l(10):
-  for r in l(10):
-   if t[o][r]and not g[o][r]:
-    j=deque([(o,r)]);g[o][r]=1;n=[]
-    while j:
-     f,i=j.popleft();n.append((f,i))
-     for(m,u)in((1,0),(-1,0),(0,1),(0,-1)):
-      a,c=f+m,i+u
-      if 0<=a<10and 0<=c<10and not g[a][c]and t[a][c]:g[a][c]=1;j.append((a,c))
-    c=2if len(n)==6else 1
-    for(f,i)in n:t[f][i]=c
- return t
-
+def p(g):
+ for _ in g*4:l=0;g=[[[(a>0)*b|a,(a>0)<<(l:=l+1)][a%2]for a,b in zip(r,[*r[1:],0])]for r in zip(*g[::-1])]
+ return[[(s>0)+(s.bit_count()==6)for s in r]for r in g]

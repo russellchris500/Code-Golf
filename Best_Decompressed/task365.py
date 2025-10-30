@@ -1,11 +1,1 @@
-def p(a):
- n,n=len(a),len(a[0]);i=-1
- for d in range(n):
-  for t in range(n):
-   if a[d][t]and(d<1or a[d-1][t]<1)and(t<1or a[d][t-1]<1):
-    f=o=1
-    while t+f<n and a[d][t+f]:f+=1
-    while d+o<n and a[d+o][t]:o+=1
-    u=[d[t:t+f]for d in a[d:d+o]];f=sum(d.count(2)for d in u)
-    if f>i:i=f;l=u
- return l
+p=lambda m,n=15:-n*max(m,key=lambda u:str(u).count('2'))or p([[*zip(*u)]for g in[m,[m]][n>14]if[s:=next((g.index(i)for i in g if sum(i)<1),31)]for u in[g[:s],g[s+1:]]if u],n-1)

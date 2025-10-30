@@ -1,11 +1,7 @@
-l=enumerate
-r=range
-def p(u):
- u=[e[:]for e in u];f=[[e for(e,f)in l(e)if f==4]for e in u]
- for(q,m)in l(f):
-  for(f,e)in l(m):
-   for f in m[f+1:]:
-    for p in r(q+1,len(u)):
-     if u[p][e]==4and u[p][f]==4:
-      for p in r(q+1,p):u[p][e+1:f]=[2]*(f-e-1)
- return u
+def p(a):
+ d={}
+ for i,r in enumerate(a):
+  if 4 in r:
+   x=r.index(4);y=r.index(4,x+1)
+   for t in a[d.setdefault((x,y),i)+1:i]:t[x+1:y]=[2]*~(x-y)
+ return a
