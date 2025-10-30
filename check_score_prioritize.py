@@ -38,7 +38,7 @@ top=[58, 90, 58, 80, 206, 51, 62, 84, 109, 68, 121, 127, 140, 70, 93, 43, 99, 32
 score = 0
 rows = []
 for task_num in tqdm(range(1,401), desc="Processing tasks"):
-    solution = open('Best/task' + str(task_num).zfill(3) + '.py','rb').read()
+    solution = open('Best-Updated/task' + str(task_num).zfill(3) + '.py','rb').read()
     if check(solution, task_num, valall=True):
         s = max([0.1,2500-len(solution)])
         # print(task_num, 2500-s, top[task_num-1], top[task_num-1]-(2500-s))
