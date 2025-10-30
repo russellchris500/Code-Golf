@@ -1,0 +1,1 @@
+p=lambda u:[u:=[[[p+8,p%8,8][l]if[p,p<32,p>32][l]*(l or a)else p for p,a in zip(r,[0]+r)]for*r,in zip(*u[::-1])]for l in[0]*4+[1,2,2,2]][-1]

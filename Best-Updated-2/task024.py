@@ -1,0 +1,1 @@
+p=lambda g:[[1if 1 in r else 3if 3 in r else 2if 2 in c else 0for*c,in zip(*g)]for r in g]

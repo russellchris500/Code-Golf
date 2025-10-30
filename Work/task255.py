@@ -1,31 +1,17 @@
-def p(f,R=range,Z=zip):
- h=[[f[y][x]==0 and all(not(0<=y+dy<30 and 0<=x+dx<30) or f[y+dy][x+dx]==0 for dy in(-1,0,1) for dx in(-1,0,1) if dy|dx) for x in R(30)]for y in R(30)]
- H=[0]*30;A=[]
- for y in R(30):
-  for x in R(30):H[x]=H[x]+1 if h[y][x] else 0
-  for L in R(30):
-   k=H[L]
-   if k:
-    for r in R(L,30):
-     if not H[r]:break
-     k=min(k,H[r]);[A.append((y-i+1,L,y,r,(r-L+1)*i))for i in R(1,k+1)]
- if not A:return [r[:]for r in f]
- w=lambda e:e[3]-e[1]+1;h=lambda e:e[2]-e[0]+1
- A.sort(key=lambda t:(-t[4],t[0],t[1]))
- J=next((q for q in A if w(q)>h(q)),0);P=next((q for q in A if h(q)>w(q)),0)
- I=J and P and (J if w(J)>h(P) else P if w(J)<h(P) else (J if J[4]>=P[4] else P)) or J or P or A[0]
- s=[r[:]for r in f]
- U=lambda e:[s[y].__setitem__(slice(e[1],e[3]+1),[3]*w(e))for y in R(e[0],e[2]+1)]
- O=lambda a,b:a[1]<=b[3]and b[1]<=a[3]and a[0]<=b[2]and b[0]<=a[2]
- V='vh'[w(I)<=h(I)]
- N=lambda e:(e[1]==0 or e[3]==29) if V=='h' else (e[0]==0 or e[2]==29)
- C=lambda e:(all(0<=y<30 and 3 not in s[y][e[1]:e[3]+1] for y in(e[0]-1,e[2]+1)) if V=='h'
-            else all(0<=x<30 and 3 not in [*Z(*s[e[0]:e[2]+1])][x] for x in(e[1]-1,e[3]+1)))
- B=lambda e:((e[3]+1==I[1]or e[1]-1==I[3])and e[0]<=I[2]and e[2]>=I[0]) if V=='h' else ((e[2]+1==I[0]or e[0]-1==I[2])and e[1]<=I[3]and e[3]>=I[1])
- U(I);Rr=[I]
+def p(f,R=range):
+ g=len(f);s=[*map(list,f)];T=-1,0,1;P=lambda i,j:f[i][j]<1and all(i+d<0 or i+d>=g or j+e<0 or j+e>=g or f[i+d][j+e]<1for d in T for e in T if d|e);h=[0]*g;a=[]
+ for y in R(g):
+  for b in R(g):h[b]=P(y,b)and-~h[b]
+  for M in R(g):
+   if l:=h[M]:
+    for z in R(M,g):
+     if not(l:=min(l,h[z])):break
+     a+=[(y-k+1,M,y,z,(z-M+1)*k)for k in R(1,l+1)]
+ if not a:return s
+ a.sort(key=lambda r:-r[4]);W=lambda r:r[3]-r[1]+1;H=lambda r:r[2]-r[0]+1;j=next((r for r in a if W(r)>H(r)),a[0]);q=next((r for r in a if H(r)>W(r)),a[0]);i=j if W(j)>H(q)or W(j)==H(q)and j[4]>=q[4]else q;u=lambda x:[s[i].__setitem__(slice(x[1],x[3]+1),[3]*W(x))for i in R(x[0],x[2]+1)];v=W(i)<=H(i);b=lambda x:((x[3]+1==i[1]or x[1]-1==i[3])and x[0]<=i[2]and x[2]>=i[0])if v else((x[2]+1==i[0]or x[0]-1==i[2])and x[1]<=i[3]and x[3]>=i[1]);c=lambda x:(not any(0<=r<g and 3 in s[r][x[1]:x[3]+1]for r in(x[0]-1,x[2]+1))if v else not any(0<=c<g and 3 in(s[r][c]for r in R(x[0],x[2]+1))for c in(x[1]-1,x[3]+1)));u(i)
  while 1:
-  for z in sorted(A,key=lambda t:(not N(t),-t[4],t[0],t[1])):
-   if (w,h)[V>'h'](z)<5 or not C(z) or not B(z) or any(O(z,q)for q in Rr):continue
-   U(z);Rr+=[z];break
+  for z in a:
+   if((W(z)if v else H(z))<5)or not(c(z)and b(z))or any(3 in s[r][z[1]:z[3]+1]for r in R(z[0],z[2]+1)):continue
+   u(z);break
   else:break
  return s

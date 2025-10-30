@@ -1,0 +1,1 @@
+p=lambda u:[u:=[[(l-2)%4if(p==l)*[a>1,a%3<1,a<1][l]else p for p,a in zip(r,[2-l]+r)]for*r,in zip(*u[::-1])]for l in[0]*48+[1]*4+[2]*48][-1]

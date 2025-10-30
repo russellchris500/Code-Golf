@@ -1,37 +1,12 @@
 def p(h):
- p=h;c,c=len(p),len(p[0])
- def F(l,U):return{(p,t)for(p,v)in enumerate(l)for(t,o)in enumerate(v)if o==U}
- def d(I):p=I;v=min(p for(p,v)in p);t=min(p for(v,p)in p);return v,t
- def l(I):
-  p=I
-  if not p:return 0,0,-1,-1
-  v=min(p for(p,v)in p);t=max(p for(p,v)in p);o=min(p for(v,p)in p);f=max(p for(v,p)in p);return v,o,t,f
- def a(l):return tuple(tuple(p)for p in zip(*l[::-1]))
- def M(l):return tuple((*p[::-1],)for p in l[::-1])
- def r(l):return tuple((*p[::-1],)for p in zip(*l[::-1]))[::-1]
- def B(I):
-  p=I
-  if not p:return set()
-  v,t=d(p);return{(p-v,o-t)for(p,o)in p}
- def x(I):
-  p=I
-  if not p:return 0,0
-  v,t,o,f=l(p);return o-v+1,f-t+1
- def U(l,U,I):
-  p=[list(p)for p in l]
-  for(v,t)in I:
-   if 0<=v<c and 0<=t<c:p[v][t]=U
-  return tuple(tuple(p)for p in p)
- v=F(p,1);h=F(p,4)
- if not v:return p
- z=min(p for(p,v)in v);G=max(p for(p,v)in v);t=min(p for(v,p)in v);e=max(p for(v,p)in v);u=z,t;t=tuple((*p[v][t:e+1],)for v in range(z,G+1));o=[t,a(t),M(t),r(t)]
- def z(l):return tuple((*p[::-1],)for p in l)
- o+=[z(p)for p in o];z=set()
- for J in o:
-  o={(p,t)for(p,v)in enumerate(J)for(t,o)in enumerate(v)if o==4};f={(p,t)for(p,v)in enumerate(J)for(t,o)in enumerate(v)if o==1};y={(p+u[0],v+u[1])for(p,v)in o};G=h;t=d(o)if o else(0,0);e=d(f)if f else(0,0);q=e[0]-t[0];N=e[1]-t[1];K=B(o);H=B(f);X,k=x(K);e=c-X+1;L=c-k+1
-  if e<0 or L<0:continue
-  for f in range(e):
-   for o in range(L):
-    e={(p+f,v+o)for(p,v)in K};w={(p,v)for(p,v)in G if f<=p<f+X and o<=v<o+k}
-    if w==e:P={(p+f+q,v+o+N)for(p,v)in H};z.update(P)
- i=U(p,1,z);return i
+ n=len(h);F=lambda l,u:{(r,c)for r,R in enumerate(l)for c,v in enumerate(R)if v==u};v=F(h,1);g=F(h,4)
+ if not v:return h
+ r0=min(r for r,c in v);c0=min(c for r,c in v);t=tuple(tuple(h[r][c0:max(c for r,c in v)+1])for r in range(r0,max(r for r,c in v)+1));A=lambda x:tuple(zip(*x[::-1]));R=[t,A(t),tuple(r[::-1]for r in t[::-1]),A(A(A(t)))];R+=[tuple(r[::-1]for r in x)for x in R[:4]];z=set()
+ for T in R:
+  y=F(T,4);w=F(T,1)
+  if y and w:
+   a,b=min(r for r,c in y),min(c for r,c in y);d,e=min(r for r,c in w),min(c for r,c in w);Y={(r-a,c-b)for r,c in y};W={(r-d,c-e)for r,c in w};s=-~max(r for r,c in Y);x=-~max(c for r,c in Y)
+   for i in range(n-s+1):
+    for j in range(n-x+1):
+     if{(r,c)for r,c in g if i<=r<i+s and j<=c<j+x}=={(r+i,c+j)for r,c in Y}:z|={(r+i+d-a,c+j+e-b)for r,c in W}
+ return tuple(tuple(1if(r,c)in z else h[r][c]for c in range(n))for r in range(n))
