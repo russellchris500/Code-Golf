@@ -1,4 +1,3 @@
 def p(g):
-	C=enumerate
-	for D in[0]*4:A=max(A for(A,B)in C(g)if 2 in B);B=min(A for(A,B)in C(g)if 8 in B);g=[*zip(*(B>A)*(B-A-1)*[[0]*len(g[0])]+(g[:A+1]+g[B:],g)[A>=B])][::-1]
-	return g
+ for _ in[1]*4:e=[*enumerate(g)];b=max(i for i,r in e if 2in r);d=min(i for i,r in e if 8in r);g=[*zip(*((d>b)*(d+~b)*[[0]*len(g[0])]+[g[:b+1]+g[d:],g][d<=b]))][::-1]
+ return g

@@ -1,1 +1,1 @@
-def p(g):(v:=len(g[0]));g[2:]=[[g[0][i]]*v for i in range(v)]*2;return g
+p=lambda g:g[:2]+[*zip(*[2*g[0]]*len(g[0]))]
