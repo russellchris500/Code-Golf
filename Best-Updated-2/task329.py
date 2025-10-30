@@ -1,0 +1,1 @@
+def p(g):return[[c*(j==len(r)//2)for j,c in enumerate(r)]for r in g]

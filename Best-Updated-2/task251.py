@@ -1,0 +1,1 @@
+p=lambda u,k=79:-k*u or p([[p**p&p-(k>78)>>a^p for p,a in zip(r,[0]+r)]for*r,in zip(*u[::-1])],k-1)

@@ -1,0 +1,1 @@
+p=lambda g:[[p for p,c in zip(r,zip(*g))if len(set(c))>2]for r in g if len(set(r))>2]

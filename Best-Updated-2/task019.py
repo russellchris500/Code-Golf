@@ -1,0 +1,1 @@
+p=lambda q:[(q:=[a*2 for a in q*2]),[q[i][j]or q[i].__setitem__(j,8)for l,r,u,d in((0,1,0,1),(1,0,0,1),(1,0,1,0),(0,1,1,0))for i in range(u,len(q)-d)for j in range(l,len(q[0])-r)if q[i-u+d][j-l+r]%8>0]][0]

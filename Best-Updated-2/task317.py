@@ -1,0 +1,1 @@
+p=lambda g,R=range(9):[[g[x//3*3+1][y//3*3+1]//5for y in R]for x in R]

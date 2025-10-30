@@ -1,0 +1,1 @@
+p=lambda g:g[:-1]+[[(len([*filter(None,c)])==1)*4for p,c in zip(g[-1],zip(*g))]]

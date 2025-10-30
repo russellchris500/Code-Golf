@@ -1,0 +1,1 @@
+p=lambda g,h=lambda g:[[p or(8 in{*r[:i]}&{*r[i:]})*3for i,p in enumerate(r)]for*r,in zip(*g)]:h(h(g))
