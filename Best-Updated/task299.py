@@ -1,0 +1,1 @@
+p=lambda g:[[26%(a-~max(r[::5]))for a in g[0]]for r in g]

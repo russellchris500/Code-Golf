@@ -1,0 +1,1 @@
+p=lambda g,R=range:(3*[([max(p for r in g[y::10]for p in r[x::10])for x in R(9+(len(g[0])>9))]*3)[:len(g[0])]for y in R(9+(len(g)>9))])[:len(g)]

@@ -1,0 +1,1 @@
+p=lambda g:[[(s:=[0,1,1,0,2,3,3,3][2*p+s])and(s==1)*3for i,p in enumerate(r)]for r in g if~(s:=0)]

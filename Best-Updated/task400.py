@@ -1,0 +1,1 @@
+p=lambda g,R=range(24):[[sorted([g[y][23-x],g[23-y][x],g[23-y][23-x]])[1]for x in R if g[y][x]==1]for y in R if 1 in g[y]]

@@ -1,0 +1,1 @@
+p=lambda g,q=lambda g:[*zip(*[[[*{*r[:i]}&{*r[i:]}-{0},p][0]for i,p in enumerate(r)]for r in g])]:q(q(g))

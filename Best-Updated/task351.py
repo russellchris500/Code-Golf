@@ -1,0 +1,1 @@
+p=lambda g,R=range(16):[[sorted([g[y][15-x],g[15-y][x],g[15-y][15-x]])[1]for x in R if g[y][x]==3]for y in R if 3 in g[y]]
