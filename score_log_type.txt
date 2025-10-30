@@ -243,11 +243,11 @@ Task 400   122      122        271      67     55       pattern completion
 Task 27    319      136        415      103    33       pattern completion            
 Task 361   221      -          221      193    28       pattern completion            
 Task 118   280      291        280      271    9        pattern completion            
-Task 348   206      -          216      94     112      pattern extension             
 Task 13    246      384        258      140    106      pattern extension             
 Task 357   179      -          180      86     93       pattern extension             
 Task 248   151      -          151      72     79       pattern extension             
 Task 295   106      -          106      54     52       pattern extension             
+Task 348   206      141        216      94     47       pattern extension             
 Task 231   75       -          75       43     32       pattern extension             
 Task 124   269      125        295      96     29       pattern extension             
 Task 297   72       -          72       43     29       pattern extension             

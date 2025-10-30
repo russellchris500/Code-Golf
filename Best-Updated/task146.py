@@ -1,4 +1,1 @@
-def p(g):
- for i in 0,3,6:
-  a=g[i:i+3];A=(*map(tuple,a),)
-  if(A==tuple(x[::-1]for x in zip(*a[::-1])))+(A==(*zip(*a),))<1:return a
+p=lambda g:[h for h in [g[:3],g[3:6],g[6:9]]if h!=[*map(list,zip(*h))]][0]
