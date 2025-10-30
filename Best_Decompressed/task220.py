@@ -1,10 +1,1 @@
-def p(l,p=enumerate):
-	C={8:4,2:1,3:6}
-	for(D,E)in p(l):
-		for(F,G)in p(E):
-			for A in range(-1,2):
-				for B in range(-1,2):
-					try:
-						if[A,B]!=[0,0]:l[D+A][F+B]=C[G]
-					except:0
-	return l
+p=lambda u,k=3,s=[0]*30:-k*u or p([*zip(*[[(t:={a,b}&{2,3,8})and(t.pop()*5%9)or c for c,a,b in zip(r,s,[0]+s)if[s:=r]]for*r,in u][::-1])],k-1)

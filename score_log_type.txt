@@ -5,7 +5,6 @@ Task 80    435      730        449      253    182      blooming
 Task 94    242      252        264      102    140      blooming                      
 Task 240   225      -          1108     99     126      blooming                      
 Task 86    288      288        515      172    116      blooming                      
-Task 331   198      -          218      83     115      blooming                      
 Task 19    205      205        246      105    100      blooming                      
 Task 256   185      -          185      95     90       blooming                      
 Task 252   146      -          146      57     89       blooming                      
@@ -17,6 +16,7 @@ Task 266   180      152        178      102    50       blooming
 Task 298   104      -          104      55     49       blooming                      
 Task 332   106      -          106      58     48       blooming                      
 Task 95    110      110        177      73     37       blooming                      
+Task 331   198      103        218      83     20       blooming                      
 Task 375   66       -          66       53     13       blooming                      
 Task 66    333      333        1180     268    65       combination                   
 Task 157   247      -          247      246    1        combination                   
@@ -91,17 +91,17 @@ Task 65    153      242        248      91     62       grid of grids
 Task 391   104      -          104      63     41       grid of grids                 
 Task 33    90       -          245      73     17       grid of grids                 
 Task 192   348      365        370      110    238      image filter                  
-Task 352   211      -          224      84     127      image filter                  
-Task 220   209      -          234      87     122      image filter                  
 Task 344   195      -          195      78     117      image filter                  
 Task 156   252      259        266      146    106      image filter                  
 Task 193   162      -          163      81     81       image filter                  
-Task 272   168      -          181      89     79       image filter                  
 Task 98    151      151        175      88     63       image filter                  
+Task 220   209      142        234      87     55       image filter                  
+Task 352   211      127        224      84     43       image filter                  
 Task 258   91       -          91       61     30       image filter                  
 Task 363   251      243        408      213    30       image filter                  
 Task 97    140      132        280      108    24       image filter                  
 Task 151   131      131        134      108    23       image filter                  
+Task 272   168      104        181      89     15       image filter                  
 Task 147   94       94         226      83     11       image filter                  
 Task 120   140      98         358      97     1        image filter                  
 Task 308   399      399        507      226    173      jigsaw                        
@@ -189,12 +189,12 @@ Task 41    49       49         67       49     0        line extension
 Task 47    55       55         207      55     0        line extension                
 Task 327   67       72         142      67     0        line extension                
 Task 134   368      381        380      158    210      misc                          
-Task 146   137      134        141      58     76       misc                          
 Task 104   158      -          158      84     74       misc                          
 Task 275   197      -          204      136    61       misc                          
 Task 195   177      159        260      105    54       misc                          
 Task 213   128      128        302      92     36       misc                          
 Task 178   68       77         232      47     21       misc                          
+Task 146   137      74         141      58     16       misc                          
 Task 277   453      461        468      194    259      object find                   
 Task 364   344      344        651      155    189      object find                   
 Task 369   264      290        282      113    151      object find                   

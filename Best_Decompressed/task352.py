@@ -1,11 +1,1 @@
-def p(r,c=enumerate):
- g=[[r for r,r in c(r)]for r in r]
- for n,r in c(r):
-  for q,r in c(r):
-   if r==2:
-    for r in range(-1,2):
-     for f in range(-1,2):
-      try:
-       if[r,f]!=[0,0]and n+r>-1and q+f>-1:g[n+r][q+f]=1
-      except:0
- return g
+p=lambda u,k=3,s=[0]*30:-k*u or p([*zip(*[[(a==2or b==2)and 1 or c for c,a,b in zip(r,s,[0]+s)if[s:=r]]for*r,in u][::-1])],k-1)
