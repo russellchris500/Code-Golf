@@ -1,0 +1,1 @@
+p=lambda g:[*zip(*filter(any,zip(*filter(any,[[p for p in r for _ in"01"]for r in g for _ in"01"]))))]

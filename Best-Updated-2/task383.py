@@ -1,0 +1,1 @@
+p=lambda g:[[[0,((j:=(r+c).count((f:=[*filter(None,r+c),0,0,0])[0]))<4)*f[2],f[2*(j==8)]][any(r)+any(c)]for*c,in zip(*g)]for r in g]

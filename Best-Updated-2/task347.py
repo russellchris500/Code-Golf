@@ -1,0 +1,1 @@
+p=lambda j:[[6*(x+y>0)for x,y in zip(r[:3],r[3:])]for r in j]

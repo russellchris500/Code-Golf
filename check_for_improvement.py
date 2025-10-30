@@ -286,7 +286,7 @@ def process_task(task_num: int) -> dict:
         raise FileNotFoundError(f"{src_path} not found")
 
     pc_dir = Path("Private-Compressed"); pc_dir.mkdir(exist_ok=True)
-    best_dir = Path("Best-Updated"); best_dir.mkdir(exist_ok=True)
+    best_dir = Path("Best-Updated-2"); best_dir.mkdir(exist_ok=True)
     best_dec_dir = Path("Best_Decompressed"); best_dec_dir.mkdir(exist_ok=True)
 
     original = src_path.read_bytes().strip()

@@ -90,7 +90,7 @@ def decompress_task_file(input_path: pathlib.Path, output_dir: pathlib.Path = pa
     return out
 
 if __name__ == "__main__":
-    best_dir = pathlib.Path("Best-Updated")
+    best_dir = pathlib.Path("Best-Updated-2")
     output_dir = pathlib.Path("Best_Decompressed")
     if not best_dir.exists():
         print(f"Directory {best_dir} not found"); raise SystemExit(1)
