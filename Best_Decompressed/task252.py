@@ -1,7 +1,1 @@
-def p(j,A=range):
-	B=len(j)
-	for C in A(B):
-		for(D,E)in zip(A(1,B,2),A(C+1,B,2)):
-			if j[0][C]:j[D][E]=4
-			if j[C][0]:j[E][D]=4
-	return j
+def p(g):R=range(1,len(g));[g[y].__setitem__(x,4)for y in R for x in R if g[y-1][x-1]not in{0,4}];return g
