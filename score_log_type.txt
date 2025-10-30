@@ -57,7 +57,6 @@ Task 139   240      249        251      94     146      fixed size search
 Task 265   238      -          260      104    134      fixed size search             
 Task 271   214      -          214      86     128      fixed size search             
 Task 79    240      251        542      123    117      fixed size search             
-Task 399   181      -          186      64     117      fixed size search             
 Task 225   244      254        260      132    112      fixed size search             
 Task 22    206      195        232      91     104      fixed size search             
 Task 253   233      -          249      129    104      fixed size search             
@@ -72,6 +71,7 @@ Task 162   152      -          152      96     56       fixed size search
 Task 111   98       115        102      60     38       fixed size search             
 Task 121   127      127        242      89     38       fixed size search             
 Task 169   156      156        318      129    27       fixed size search             
+Task 399   181      87         186      64     23       fixed size search             
 Task 243   93       93         196      79     14       flood fill                    
 Task 2     97       97         206      90     7        flood fill                    
 Task 185   354      361        365      143    211      grid of grids                 
@@ -79,7 +79,6 @@ Task 198   291      308        306      122    169      grid of grids
 Task 61    183      183        265      63     120      grid of grids                 
 Task 127   185      -          185      65     120      grid of grids                 
 Task 75    205      -          225      86     119      grid of grids                 
-Task 149   182      -          197      75     107      grid of grids                 
 Task 109   186      190        208      81     105      grid of grids                 
 Task 314   189      189        487      96     93       grid of grids                 
 Task 59    245      -          294      156    89       grid of grids                 
@@ -90,6 +89,7 @@ Task 130   128      -          128      65     63       grid of grids
 Task 65    153      242        248      91     62       grid of grids                 
 Task 391   104      -          104      63     41       grid of grids                 
 Task 33    90       -          245      73     17       grid of grids                 
+Task 149   182      87         197      75     12       grid of grids                 
 Task 192   348      365        370      110    238      image filter                  
 Task 344   195      -          195      78     117      image filter                  
 Task 156   252      259        266      146    106      image filter                  
