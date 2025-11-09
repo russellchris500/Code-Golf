@@ -30,7 +30,7 @@ Several times, we asked “Help me identify/describe the transformation by looki
 
 (With the help of an LLM), we generated the following simple python GUI for filling in boilerplate prompt language with task-specific information:
 
-![](https://github.com/russellchris500/Code-Golf/blob/main/images/generate_prompt.gif)
+![](https://github.com/russellchris500/Code-Golf/blob/main/images/generate_prompt.gif)  
 
 Upon clicking “Generate Prompt”, it prints the following prompt into a textbox, complete with a “Copy to Clipboard” button for easy copying and pasting into an LLM:
 
@@ -80,7 +80,7 @@ Moving on. We knew we would have to do the counting for the LLMs, or give them a
 
 We established a team workflow whereby we put our latest attempts at the problems in a folder called “Private-Uncompressed”. Then we ran “check_for_improvement.py”, which generated the following GUI:
 
-<video src="./images/check_for_improvement.mp4"></video>  
+![](https://github.com/russellchris500/Code-Golf/blob/main/images/check_for_improvement.gif)  
 
 "Process" did the following:  
 1. Stripped extra whitespace from the file.
