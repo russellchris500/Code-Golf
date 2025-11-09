@@ -12,11 +12,12 @@ For each of the 400 tasks, the competition sponsors provided input / output pair
 
 For example, below is task 7 of 400. We can see that we are supposed to write code that continues the pattern to fill the entire input space: 
 
-<img src="./images/task7.png" alt="task 7">
- [https://arcprize.org/play?task=05269061]  
+<img src="./images/task7.png" alt="task 7" width="60%">  
+
+[https://arcprize.org/play?task=05269061]  
 
 Other desired patterns were not so clear at first glance, as in Task 16 below:  
-<img src="./images/task16.png" alt="task 7">  
+<img src="./images/task16.png" alt="task 7" width="60%">  
 [https://arcprize.org/play?task=0d3d703e]
 
 (It turns out that this ‘transformation’ was simply a one-to-one hardcoded mapping from input color to output color, with no mathematical formula or reasoning behind the mapping).
@@ -29,7 +30,9 @@ Several times, we asked “Help me identify/describe the transformation by looki
 
 (With the help of an LLM), we generated the following simple python GUI for filling in boilerplate prompt language with task-specific information:
 
-<video src="./images/generate_prompt.mp4"></video>  
+[![Watch the Video]
+(https://raw.githubusercontent.com/emilyfairfield/Code-Golf/main/images/generate_prompt_thumbnail.png)]
+(https://raw.githubusercontent.com/emilyfairfield/Code-Golf/main/images/generate_prompt.mp4)
 
 Upon clicking “Generate Prompt”, it prints the following prompt into a textbox, complete with a “Copy to Clipboard” button for easy copying and pasting into an LLM:
 
