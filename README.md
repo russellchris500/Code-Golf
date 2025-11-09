@@ -30,9 +30,8 @@ Several times, we asked “Help me identify/describe the transformation by looki
 
 (With the help of an LLM), we generated the following simple python GUI for filling in boilerplate prompt language with task-specific information:
 
-[![Watch the Video]
-(https://raw.githubusercontent.com/emilyfairfield/Code-Golf/main/images/generate_prompt_thumbnail.png)]
-(https://raw.githubusercontent.com/emilyfairfield/Code-Golf/main/images/generate_prompt.mp4)
+<video src="./images/generate_prompt.mp4"></video>  
+
 
 Upon clicking “Generate Prompt”, it prints the following prompt into a textbox, complete with a “Copy to Clipboard” button for easy copying and pasting into an LLM:
 
