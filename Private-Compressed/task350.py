@@ -1,0 +1,1 @@
+p=lambda g:[[...for x in range(len(g[0]))]for y in range(len(g))]

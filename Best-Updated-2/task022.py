@@ -1,3 +1,1 @@
-#coding:L1
-import zlib
-exec(zlib.decompress(bytes("xÚ]Œ1†èSdÀëèm7Ù‹DPšÖ1¹Šíı×[‡3!òù’ŒOQ§hQ‹¸$êPÆÅ Qğ­8oV®#ß“O˜›ã[£À£ƒƒöÓ/°#€5C¡ÊdŒxÛI—¶.gé^Çñ÷uÚ¢&°)ş¦B25À'‹Ğ¼Ç¹E<¬˜¼Ş¦ )B½","L1")))
+def p(g):e=[[0]*3for _ in[0]*3];d=len(g);[[exec('e[1+o][1+a]=g[p+o][r+a]')for o in[-1,0,1]for a in[-1,0,1]if(p+o>=0)*(r+a>=0)*g[p+o][r+a]]for p in range(d)for r in range(d)if g[p][r]==5];return e
