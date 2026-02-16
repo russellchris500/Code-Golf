@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+package assistant.streaming;
+
+option go_package = "github.com/yourusername/agent/backend/pb/streaming";
+option java_package = "com.assistant.grpc.streaming";
+option java_multiple_files = true;
+
+// Main streaming service - relay between phone and desktop
+service StreamingService {
+  // Bidirectional streaming for real-time communication
+  rpc Stream(stream Packet) returns (stream Packet);
+
+  // Device registration/pairing
+  rpc RegisterDevice(RegisterRequest) returns (RegisterResponse);
+
+  // Get pairing status
+  rpc GetPairingStatus(PairingStatusRequest) returns (PairingStatusResponse);
+}
+
+message RegisterRequest {
+  string user_id = 1;
+  DeviceType device_type = 2;
+}
+
+message RegisterResponse {
+  bool success = 1;
+  string session_id = 2;
+  PairingInfo pairing_info = 3;
+  string error_message = 4;
+}
+
+message PairingStatusRequest {
+  string user_id = 1;
+}
+
+message PairingStatusResponse {
+  bool paired = 1;
+  PairingInfo pairing_info = 2;
+}
+
+message PairingInfo {
+  bool desktop_online = 1;
+  bool mobile_online = 2;
+  int64 connected_at = 3;
+}
+
+// Main packet for all communications
+message Packet {
+  string packet_id = 1;
+  string user_id = 2;
+  DeviceType source = 3;
+  DeviceType destination = 4;
+  PacketType type = 5;
+  int64 timestamp = 6;
+
+  oneof payload {
+    AudioData audio = 10;
+    TextData text = 11;
+    TranscriptData transcript = 12;
+    ControlMessage control = 13;
+    ConversationData conversation = 14;
+  }
+}
+
+enum DeviceType {
+  UNKNOWN_DEVICE = 0;
+  MOBILE = 1;
+  DESKTOP = 2;
+}
+
+enum PacketType {
+  UNKNOWN_TYPE = 0;
+  AUDIO_CHUNK = 1;
+  TEXT_MESSAGE = 2;
+  TRANSCRIPT = 3;
+  CONTROL = 4;
+  CONVERSATION_SAVE = 5;
+}
+
+message AudioData {
+  bytes data = 1;
+  AudioFormat format = 2;
+  int32 sample_rate = 3;
+  int32 channels = 4;
+  int32 chunk_index = 5;
+  bool is_final = 6;
+}
+
+enum AudioFormat {
+  UNKNOWN_FORMAT = 0;
+  PCM = 1;
+  OPUS = 2;
+  AAC = 3;
+}
+
+message TextData {
+  string text = 1;
+  TextType text_type = 2;
+}
+
+enum TextType {
+  UNKNOWN_TEXT = 0;
+  USER_INPUT = 1;
+  AI_RESPONSE = 2;
+}
+
+message TranscriptData {
+  string text = 1;
+  bool is_final = 2;
+  float confidence = 3;
+}
+
+message ControlMessage {
+  ControlType control_type = 1;
+  string message = 2;
+}
+
+enum ControlType {
+  UNKNOWN_CONTROL = 0;
+  START_LISTENING = 1;
+  STOP_LISTENING = 2;
+  CANCEL = 3;
+  ERROR = 4;
+  ACK = 5;
+}
+
+message ConversationData {
+  string conversation_id = 1;
+  repeated ConversationTurn turns = 2;
+  int64 created_at = 3;
+}
+
+message ConversationTurn {
+  string role = 1;  // "user" or "assistant"
+  string content = 2;
+  int64 timestamp = 3;
+}

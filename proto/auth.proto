@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package assistant.auth;
+
+option go_package = "github.com/yourusername/agent/backend/pb/auth";
+option java_package = "com.assistant.grpc.auth";
+option java_multiple_files = true;
+
+// Authentication service
+service AuthService {
+  // OAuth flow - exchange OAuth token for JWT
+  rpc AuthenticateOAuth(OAuthRequest) returns (AuthResponse);
+
+  // Refresh JWT access token
+  rpc RefreshToken(RefreshRequest) returns (AuthResponse);
+
+  // Validate token (internal use)
+  rpc ValidateToken(ValidateRequest) returns (ValidateResponse);
+
+  // Store user's API keys (OpenAI, Anthropic, etc.)
+  rpc StoreAPIKeys(StoreAPIKeysRequest) returns (StoreAPIKeysResponse);
+
+  // Retrieve user's API keys
+  rpc GetAPIKeys(GetAPIKeysRequest) returns (GetAPIKeysResponse);
+}
+
+message OAuthRequest {
+  string provider = 1;  // "google", "apple", etc.
+  string oauth_token = 2;
+  string device_type = 3;  // "mobile" or "desktop"
+}
+
+message AuthResponse {
+  bool success = 1;
+  string access_token = 2;  // JWT
+  string refresh_token = 3;
+  int64 expires_in = 4;  // seconds
+  string user_id = 5;
+  string error_message = 6;
+}
+
+message RefreshRequest {
+  string refresh_token = 1;
+}
+
+message ValidateRequest {
+  string access_token = 1;
+}
+
+message ValidateResponse {
+  bool valid = 1;
+  string user_id = 2;
+}
+
+message StoreAPIKeysRequest {
+  string user_id = 1;
+  map<string, string> api_keys = 2;  // e.g., {"openai": "sk-...", "anthropic": "sk-ant-..."}
+}
+
+message StoreAPIKeysResponse {
+  bool success = 1;
+  string error_message = 2;
+}
+
+message GetAPIKeysRequest {
+  string user_id = 1;
+}
+
+message GetAPIKeysResponse {
+  map<string, string> api_keys = 1;
+  bool success = 2;
+  string error_message = 3;
+}

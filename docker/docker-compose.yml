@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: agent_postgres
+    environment:
+      POSTGRES_DB: agent_db
+      POSTGRES_USER: agent_user
+      POSTGRES_PASSWORD: agent_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agent_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: ../docker/Dockerfile.backend
+    container_name: agent_backend
+    environment:
+      PORT: 50051
+      DATABASE_URL: postgresql://agent_user:agent_password@postgres:5432/agent_db?sslmode=disable
+      JWT_SECRET: development-secret-change-in-production
+      ENV: development
+      LOG_LEVEL: debug
+    ports:
+      - "50051:50051"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

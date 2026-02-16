@@ -1,0 +1,63 @@
+# General
+.DS_Store
+*.log
+*.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+desktop/.venv/
+desktop/venv/
+
+# Go
+backend/bin/
+backend/pkg/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Android
+android/.gradle/
+android/.idea/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+*.aab
+*.iml
+
+# Proto generated files
+*_pb2.py
+*_pb2_grpc.py
+*.pb.go
+*Grpc.kt
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# API Keys (safety)
+**/api_keys.json
+**/secrets.json
+**/credentials.json
+
+# Docker
+docker/data/
